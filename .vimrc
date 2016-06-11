@@ -81,6 +81,16 @@ if &compatible
   NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Add or remove your Bundles here:
+  NeoBundle 'Shougo/vimproc', {
+    \ 'bundle' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+   \  },
+  \ }
+
+
   NeoBundle 'Shougo/neosnippet.vim'
   NeoBundle 'Shougo/neosnippet-snippets'
   " ファイルビューア
