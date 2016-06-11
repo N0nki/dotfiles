@@ -49,6 +49,9 @@ set nocompatible
 " Backspaceで削除する要素を指定
 set backspace=indent,eol,start
 
+" lightlineの動作に必要
+set laststatus=2
+
 
 " key remap ----------------------------------
 " インサート、ビジュアルを抜ける
@@ -82,6 +85,8 @@ if &compatible
   NeoBundle 'Shougo/neosnippet-snippets'
   " ファイルビューア
   NeoBundle 'Shougo/unite.vim'
+  " ファイル操作支援
+  NeoBundle 'Shougo/vimfiler'
   " ツリー表示
   NeoBundle 'scrooloose/nerdtree'
   " Rubyのendキーワードを自動挿入
@@ -93,12 +98,69 @@ if &compatible
   NeoBundle 'Townk/vim-autoclose'
   " 複数行コメントアウト コマンド:gc
   NeoBundle 'tomtom/tcomment_vim'
+
+
   " ステータスライン強化
   NeoBundle 'itchyny/lightline.vim'
-    " テーマをwombatに変更
     let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \}
+            \ 'colorscheme': 'wombat',
+            \ 'mode_map': {'c': 'NORMAL'},
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+            \ },
+            \ 'component_function': {
+            \   'modified': 'LightLineModified',
+            \   'readonly': 'LightLineReadonly',
+            \   'fugitive': 'LightLineFugitive',
+            \   'filename': 'LightLineFilename',
+            \   'fileformat': 'LightLineFileformat',
+            \   'filetype': 'LightLineFiletype',
+            \   'fileencoding': 'LightLineFileencoding',
+            \   'mode': 'LightLineMode'
+            \ }
+            \ }
+
+    function! LightLineModified()
+      return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    endfunction
+
+    function! LightLineReadonly()
+      return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+    endfunction
+
+    function! LightLineFilename()
+      return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+            \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+            \  &ft == 'unite' ? unite#get_status_string() :
+            \  &ft == 'vimshell' ? vimshell#get_status_string() :
+            \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+            \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+    endfunction
+
+    function! LightLineFugitive()
+      if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+        return fugitive#head()
+      else
+        return ''
+      endif
+    endfunction
+
+    function! LightLineFileformat()
+      return winwidth(0) > 70 ? &fileformat : ''
+    endfunction
+
+    function! LightLineFiletype()
+      return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+    endfunction
+
+    function! LightLineFileencoding()
+      return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+    endfunction
+
+    function! LightLineMode()
+      return winwidth(0) > 60 ? lightline#mode() : ''
+    endfunction
+  
 
   " " 自動補完 lua無し
   " NeoBundle 'Shougo/neocomplcache'  
