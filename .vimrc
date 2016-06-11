@@ -40,6 +40,9 @@ set wildmenu
 " 入力中のコマンドを表示
 set showcmd
 
+" yankをclipboardに格納
+set clipboard=unnamed,autoselect
+
 " key remap begin-----------------------------
 " インサート、ビジュアルを抜ける
 inoremap <C-q> <Esc>
