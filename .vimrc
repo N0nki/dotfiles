@@ -91,7 +91,7 @@ if &compatible
   " let g:indent_guides_enable_on_vim_startup = 1
   " 括弧を自動で閉じる
   NeoBundle 'Townk/vim-autoclose'
-  " 複数行コメントアウト gcc
+  " 複数行コメントアウト コマンド:gc
   NeoBundle 'tomtom/tcomment_vim'
   " ステータスライン強化
   NeoBundle 'itchyny/lightline.vim'
