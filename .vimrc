@@ -45,10 +45,12 @@ set clipboard=unnamed,autoselect
 
 " viとの互換性を無効にする
 set nocompatible
+
 " Backspaceで削除する要素を指定
 set backspace=indent,eol,start
 
-" key remap begin-----------------------------
+
+" key remap ----------------------------------
 " インサート、ビジュアルを抜ける
 inoremap <C-q> <Esc>
 vnoremap <C-q> <Esc>
@@ -58,7 +60,7 @@ nnoremap gb gT
 
 " USキーボードのみ
 noremap ; :
-" key remap end------------------------------
+" endkey remap ------------------------------
 
 
 "NeoBundle Scripts-----------------------------
