@@ -1,5 +1,6 @@
 " カラースキームの設定
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Eighties
+colorscheme gruvbox
 " colorscheme hybrid
 syntax on
 set t_Co=256
