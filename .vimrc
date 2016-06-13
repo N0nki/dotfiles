@@ -24,6 +24,8 @@ set autoindent
 set expandtab
 " 対応する括弧を表示
 set showmatch
+" 対応括弧のハイライト表示を3秒
+set matchtime=3
 
 "OSのクリップボードとリンク
 nmap _ :.w !nkf -Ws\|pdcopy<CR><CR>
@@ -96,17 +98,19 @@ if &compatible
   NeoBundleFetch 'Shougo/neobundle.vim'
 
   " Add or remove your Bundles here:
+  " 非同期通信を可能にする
   NeoBundle 'Shougo/vimproc', {
     \ 'bundle' : {
       \ 'windows' : 'make -f make_mingw32.mak',
       \ 'cygwin' : 'make -f make_cygwin.mak',
       \ 'mac' : 'make -f make_mac.mak',
       \ 'unix' : 'make -f make_unix.mak',
-   \  },
-  \ }
-
+      \ }}
 
   NeoBundle 'Shougo/neosnippet.vim'
+    NeoBundleLazy 'Shougo/neosnippet.vim', {
+        \ "autoload": {"insert": 1}}
+
   NeoBundle 'Shougo/neosnippet-snippets'
   " ファイルビューア
   NeoBundle 'Shougo/unite.vim'
@@ -227,6 +231,18 @@ if &compatible
 
   " 自動補完 lua有り
   NeoBundle 'shougo/neocomplete'
+    NeoBundleLazy 'Shougo/neocomplete.vim', {
+        \ "autoload": {"insert": 1}}
+    " neocompleteのhooksを取得
+    let s:hooks = neobundle#get_hooks("neocomplete.vim")
+    " neocomplete用の設定関数を定義。下記関数はneocompleteロード時に実行される
+    function! s:hooks.on_source(bundle)
+      let g:acp_enableAtStartup = 0
+      let g:neocomplete#enable_smart_case = 1
+      " NeoCompleteを有効化
+      NeoCompleteEnable
+    endfunction
+
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 1
     " Use neocomplete.
