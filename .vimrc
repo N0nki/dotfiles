@@ -56,15 +56,28 @@ set laststatus=2
 
 
 " key remap ----------------------------------
-" インサート、ビジュアルを抜ける
-inoremap <C-q> <Esc>
-vnoremap <C-q> <Esc>
-" 前のタブに移動
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+"前のタブに移動
 nnoremap gb gT
 
 " USキーボードのみ
 noremap ; :
-" endkey remap ------------------------------
+" end key remap -----------------------------
 
 
 "NeoBundle Scripts-----------------------------
