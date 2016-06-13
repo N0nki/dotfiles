@@ -31,7 +31,8 @@ vmap _ :w !nkf -Ws\|pdcopy<CR><CR>
 
 " 不可視文字を表示
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+" set listchars=tab:>-,trail:-
 
 " 検索結果をハイライト
 set hlsearch
