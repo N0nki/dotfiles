@@ -107,10 +107,14 @@ nnoremap <silent> ,vs :VimShell<CR>
 nnoremap <silent> ,vp :VimShellPop<CR>
 " VimShellTab起動
 nnoremap <silent> ,vt :VimShellTab<CR>
-" irb起動
+" irb
 nnoremap <silent> ,rb :VimShellInteractive irb<CR>
-" python起動
+" pry
+nnoremap <silent> ,pry :VimShellInteractive pry<CR>
+" python
 nnoremap <silent> ,py :VimShellInteractive python<CR>
+" ipython
+nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
 " NeoComplete key remap
 " NeoCompleteを有効
