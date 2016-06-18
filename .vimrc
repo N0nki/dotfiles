@@ -11,6 +11,8 @@ set title
 
 " 行番号を表示
 set number
+"カーソル行をハイライト
+" set cursorline
 
 "タブを表示
 set showtabline=2
@@ -59,6 +61,11 @@ set laststatus=2
 
 " key remap ----------------------------------
 
+" 行先頭へ移動
+noremap <Space>h ^
+" 行末尾へ移動
+noremap <Space>l $
+
 " vを二回で行末まで選択
 vnoremap v $h
 
@@ -79,6 +86,21 @@ nnoremap gb gT
 
 " USキーボードのみ
 noremap ; :
+
+" VimFilter key remap
+" IDE風にバッファをオープン
+nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+
+" VimShell key remap
+" VimShell起動
+nnoremap <silent> ,vs :VimShell<CR>
+" VimShellPop起動
+nnoremap <silent> ,vp :VimShellPop<CR>
+" irb起動
+nnoremap <silent> ,rb :VimShellInteractive irb<CR>
+" python起動
+nnoremap <silent> ,py :VimShellInteractive python<CR>
+
 " end key remap -----------------------------
 
 
@@ -161,7 +183,7 @@ if &compatible
       return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
             \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
             \  &ft == 'unite' ? unite#get_status_string() :
-            \  &ft == 'vimshell' ? vimshell#get_status_string() :
+            \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
             \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
             \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
     endfunction
@@ -312,6 +334,9 @@ if &compatible
   
   " You can specify revision/branch/tag.
   NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+    " let g:vimshell_prompt_expr='getcwd().">"'
+    " let g:vimshell_prompt_pattern='^\f\+ > '
+    let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 
   " Required:
   call neobundle#end()
