@@ -105,6 +105,8 @@ nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-q
 nnoremap <silent> ,vs :VimShell<CR>
 " VimShellPop起動
 nnoremap <silent> ,vp :VimShellPop<CR>
+" VimShellTab起動
+nnoremap <silent> ,vt :VimShellTab<CR>
 " irb起動
 nnoremap <silent> ,rb :VimShellInteractive irb<CR>
 " python起動
