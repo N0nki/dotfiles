@@ -63,6 +63,9 @@ set laststatus=2
 " jjでinsertからnormal
 inoremap jj <ESC>
 
+" 折り返したテキストで自然に移動
+nnoremap j gj
+nnoremap k gk
 " 行先頭へ移動
 noremap <Space>h ^
 " 行末尾へ移動
@@ -70,6 +73,10 @@ noremap <Space>l $
 
 " vを二回で行末まで選択
 vnoremap v $h
+
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 " Ctrl + hjkl でウィンドウ間を移動
 nnoremap <C-h> <C-w>h
