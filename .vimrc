@@ -60,6 +60,8 @@ set laststatus=2
 
 
 " key remap ----------------------------------
+" jjでinsertからnormal
+inoremap jj <ESC>
 
 " 行先頭へ移動
 noremap <Space>h ^
@@ -100,6 +102,12 @@ nnoremap <silent> ,vp :VimShellPop<CR>
 nnoremap <silent> ,rb :VimShellInteractive irb<CR>
 " python起動
 nnoremap <silent> ,py :VimShellInteractive python<CR>
+
+" NeoComplete key remap
+" NeoCompleteを有効
+nnoremap <silent> ,nce :NeoCompleteEnable<CR>
+" NeoCompleteを無効
+nnoremap <silent> ,ncd :NeoCompleteDisable<CR>
 
 " end key remap -----------------------------
 
