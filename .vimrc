@@ -97,6 +97,7 @@ nnoremap gb gT
 noremap ; :
 
 " VimFilter key remap
+nnoremap <silent> ,vf :<C-u>VimFilerBufferDir<CR>
 " IDE風にバッファをオープン
 nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
 
