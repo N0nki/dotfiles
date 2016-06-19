@@ -98,7 +98,7 @@ noremap ; :
 
 " VimFilter key remap
 " IDE風にバッファをオープン
-nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
 
 " VimShell key remap
 " VimShell起動
@@ -118,9 +118,9 @@ nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
 " NeoComplete key remap
 " NeoCompleteを有効
-nnoremap <silent> ,nce :NeoCompleteEnable<CR>
+nnoremap <silent> ,ce :NeoCompleteEnable<CR>
 " NeoCompleteを無効
-nnoremap <silent> ,ncd :NeoCompleteDisable<CR>
+nnoremap <silent> ,cd :NeoCompleteDisable<CR>
 
 " end key remap -----------------------------
 
