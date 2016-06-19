@@ -63,6 +63,12 @@ set laststatus=2
 " jjでinsertからnormal
 inoremap jj <ESC>
 
+"sを無効 代替はcl
+nnoremap s <NOP>
+nnoremap ss :<C-u>new<CR>
+nnoremap sv :<C-u>vnew<CR>
+nnoremap st :<C-u>tabnew<CR>
+
 " 折り返したテキストで自然に移動
 nnoremap j gj
 nnoremap k gk
@@ -74,7 +80,7 @@ noremap <Space>l $
 " vを二回で行末まで選択
 vnoremap v $h
 
-" TABにて対応ペアにジャンプ
+" TABで対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
 
@@ -98,6 +104,10 @@ noremap ; :
 
 " VimFilter key remap
 nnoremap <silent> ,vf :<C-u>VimFilerBufferDir<CR>
+" バッファを水平分割してVimFilerBufferDir
+" nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerBufferDir<CR>
+" バッファを垂直分割してVimFilerBufferDir
+" nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerBufferDir<CR>
 " IDE風にバッファをオープン
 nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
 
@@ -108,19 +118,15 @@ nnoremap <silent> ,vs :VimShell<CR>
 nnoremap <silent> ,vp :VimShellPop<CR>
 " VimShellTab起動
 nnoremap <silent> ,vt :VimShellTab<CR>
-" irb
+" RubyとPythonのインタプリタ起動
 nnoremap <silent> ,rb :VimShellInteractive irb<CR>
-" pry
 nnoremap <silent> ,pry :VimShellInteractive pry<CR>
-" python
 nnoremap <silent> ,py :VimShellInteractive python<CR>
-" ipython
 nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
 " NeoComplete key remap
-" NeoCompleteを有効
+" NeoCompleteを有効/無効
 nnoremap <silent> ,ce :NeoCompleteEnable<CR>
-" NeoCompleteを無効
 nnoremap <silent> ,cd :NeoCompleteDisable<CR>
 
 " end key remap -----------------------------
