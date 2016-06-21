@@ -58,10 +58,17 @@ set backspace=indent,eol,start
 " lightlineの動作に必要
 set laststatus=2
 
+" swapファイル、Backupファイルを無効
+set nowritebackup
+set nobackup
+set noswapfile
+
 
 " key remap ----------------------------------
 " jjでinsertからnormal
 inoremap jj <ESC>
+inoremap <C-q> <ESC>
+vnoremap <C-q> <ESC>
 
 "sを無効 代替はcl
 nnoremap s <NOP>
