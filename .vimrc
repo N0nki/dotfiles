@@ -109,6 +109,9 @@ nnoremap gb gT
 " USキーボードのみ
 noremap ; :
 
+" カレントディレクトリをオープン
+nnoremap <silent> sc :<C-u>e .<CR>
+
 " VimFilter key remap
 nnoremap <silent> ,vf :<C-u>VimFilerBufferDir<CR>
 " バッファを水平分割してVimFilerBufferDir
