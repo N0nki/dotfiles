@@ -113,7 +113,7 @@ noremap ; :
 nnoremap <silent> sc :<C-u>e .<CR>
 
 " VimFilter key remap
-nnoremap <silent> ,vf :<C-u>VimFilerBufferDir<CR>
+nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
 " バッファを水平分割してVimFilerBufferDir
 " nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerBufferDir<CR>
 " バッファを垂直分割してVimFilerBufferDir
