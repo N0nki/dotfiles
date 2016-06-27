@@ -123,7 +123,7 @@ nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-q
 
 " VimShell key remap
 " VimShell起動
-nnoremap <silent> ,vs :VimShell<CR>
+nnoremap <silent> ,vs :VimShellCreate<CR>
 " VimShellPop起動
 nnoremap <silent> ,vp :VimShellPop<CR>
 " VimShellTab起動
