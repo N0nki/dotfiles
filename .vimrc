@@ -115,9 +115,9 @@ nnoremap <silent> sc :<C-u>e .<CR>
 " VimFilter key remap
 nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
 " バッファを水平分割してVimFilerBufferDir
-" nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerBufferDir<CR>
+nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを垂直分割してVimFilerBufferDir
-" nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerBufferDir<CR>
+nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
 " IDE風にバッファをオープン
 nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
 
