@@ -70,6 +70,8 @@ inoremap jj <ESC>
 inoremap <C-q> <ESC>
 vnoremap <C-q> <ESC>
 
+nnoremap <ESC><ESC> :nohlsearch<CR>
+
 "sを無効 代替はcl
 nnoremap s <NOP>
 nnoremap ss :<C-u>new<CR>
