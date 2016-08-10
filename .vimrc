@@ -70,6 +70,7 @@ inoremap jj <ESC>
 inoremap <C-q> <ESC>
 vnoremap <C-q> <ESC>
 
+" ESC2回で検索結果マッチのハイライトを消す
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
 "sを無効 代替はcl
@@ -77,6 +78,8 @@ nnoremap s <NOP>
 nnoremap ss :<C-u>new<CR>
 nnoremap sv :<C-u>vnew<CR>
 nnoremap st :<C-u>tabnew<CR>
+nnoremap sr <C-w>x
+nnoremap s= <C-w>=
 
 " 折り返したテキストで自然に移動
 nnoremap j gj
@@ -86,7 +89,7 @@ noremap <Space>h ^
 " 行末尾へ移動
 noremap <Space>l $
 
-" vを二回で行末まで選択
+" vを2回で行末まで選択
 vnoremap v $h
 
 " TABで対応ペアにジャンプ
