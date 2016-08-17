@@ -1,10 +1,17 @@
-" カラースキームの設定
-" colorscheme Tomorrow-Night-Eighties
-colorscheme gruvbox
-" colorscheme hybrid
 syntax on
 set t_Co=256
 set background=dark
+" カラースキームの設定
+" colorscheme Tomorrow-Night-Eighties
+colorscheme gruvbox
+" colorscheme jellybeans
+" colorscheme desertEx
+" colorscheme deep-space
+" colorscheme solarized
+" colorscheme lucario
+" colorscheme happy_hacking
+" colorscheme two-firewatch
+" colorscheme hybrid
 
 " タイトルバーにファイルのパス情報等を表示
 set title
@@ -12,7 +19,7 @@ set title
 " 行番号を表示
 set number
 "カーソル行をハイライト
-" set cursorline
+set cursorline
 
 "タブを表示
 set showtabline=2
