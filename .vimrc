@@ -129,7 +129,10 @@ noremap ; :
 nnoremap <silent> sc :<C-u>e .<CR>
 
 " VimFilter key remap
+" VimFilter起動
 nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
+" 新規タブでVimFilterDir
+nnoremap <silent> ,vst :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを水平分割してVimFilerBufferDir
 nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを垂直分割してVimFilerBufferDir
@@ -207,8 +210,8 @@ if &compatible
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
-  let g:airline_theme = "molokai"
-  " let g:airline_theme = "badwolf"
+  " let g:airline_theme = "molokai"
+  let g:airline_theme = "badwolf"
   " let g:airline_theme = "base16"
   " let g:airline_theme = "gruvbox"
   " let g:airline_theme = "murmur"
