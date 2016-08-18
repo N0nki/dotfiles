@@ -233,7 +233,7 @@ if &compatible
 
 
   " ステータスライン強化
-  " NeoBundle 'itchyny/lightline.vim'
+  NeoBundle 'itchyny/lightline.vim'
   "   let g:lightline = {
   "           \ 'colorscheme': 'wombat',
   "           \ 'mode_map': {'c': 'NORMAL'},
