@@ -153,6 +153,16 @@ nnoremap <silent> ,pry :VimShellInteractive pry<CR>
 nnoremap <silent> ,py :VimShellInteractive python<CR>
 nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
+" Unite key remap
+" カレントディレクトリのファイル一覧
+nnoremap <silent> ,uf :Unite file<CR>
+" 現在開いているバッファ、ファイルの一覧
+nnoremap <silent> ,ub :Unite buffer<CR>
+" 最近開いたファイル一覧
+nnoremap <silent> ,um :Unite file_mru<CR>
+" ブックマーク一覧 ブックマーク追加は:UniteBookmarkAdd
+nnoremap <silent> ,uk :Unite bookmark<CR>
+
 " NeoComplete key remap
 " NeoCompleteを有効/無効
 nnoremap <silent> ,ce :NeoCompleteEnable<CR>
@@ -193,8 +203,12 @@ if &compatible
   NeoBundle 'Shougo/neosnippet-snippets'
   " ファイルビューア
   NeoBundle 'Shougo/unite.vim'
+  " Uniteのfile_mruを使用可能にする
+  NeoBundle 'Shougo/neomru.vim'
   " ファイル操作支援
   NeoBundle 'Shougo/vimfiler'
+  let g:vimfiler_as_default_explorer=1
+  let g:unite_source_history_yank_enable =1
   " ツリー表示
   NeoBundle 'scrooloose/nerdtree'
   " Rubyのendキーワードを自動挿入
