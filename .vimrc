@@ -3,8 +3,12 @@ set t_Co=256
 set background=dark
 " カラースキームの設定
 " colorscheme Tomorrow-Night-Eighties
-colorscheme gruvbox
+" colorscheme gruvbox
+" colorscheme material-theme
+" colorscheme molokai
 " colorscheme jellybeans
+colorscheme hybrid_reverse
+" colorscheme hybrid_material
 " colorscheme desertEx
 " colorscheme deep-space
 " colorscheme solarized
@@ -200,67 +204,77 @@ if &compatible
   " 複数行コメントアウト コマンド:gc
   NeoBundle 'tomtom/tcomment_vim'
 
+  " ステータスライン強化
+  NeoBundle 'vim-airline/vim-airline'
+  NeoBundle 'vim-airline/vim-airline-themes'
+  let g:airline_theme = "molokai"
+  " let g:airline_theme = "badwolf"
+  " let g:airline_theme = "base16"
+  " let g:airline_theme = "gruvbox"
+  " let g:airline_theme = "murmur"
+  " let g:airline_theme = "distinguished"
+
 
   " ステータスライン強化
-  NeoBundle 'itchyny/lightline.vim'
-    let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'mode_map': {'c': 'NORMAL'},
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-            \ },
-            \ 'component_function': {
-            \   'modified': 'LightLineModified',
-            \   'readonly': 'LightLineReadonly',
-            \   'fugitive': 'LightLineFugitive',
-            \   'filename': 'LightLineFilename',
-            \   'fileformat': 'LightLineFileformat',
-            \   'filetype': 'LightLineFiletype',
-            \   'fileencoding': 'LightLineFileencoding',
-            \   'mode': 'LightLineMode'
-            \ }
-            \ }
-
-    function! LightLineModified()
-      return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-    endfunction
-
-    function! LightLineReadonly()
-      return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-    endfunction
-
-    function! LightLineFilename()
-      return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-            \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-            \  &ft == 'unite' ? unite#get_status_string() :
-            \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-            \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-            \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-    endfunction
-
-    function! LightLineFugitive()
-      if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-        return fugitive#head()
-      else
-        return ''
-      endif
-    endfunction
-
-    function! LightLineFileformat()
-      return winwidth(0) > 70 ? &fileformat : ''
-    endfunction
-
-    function! LightLineFiletype()
-      return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-    endfunction
-
-    function! LightLineFileencoding()
-      return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-    endfunction
-
-    function! LightLineMode()
-      return winwidth(0) > 60 ? lightline#mode() : ''
-    endfunction
+  " NeoBundle 'itchyny/lightline.vim'
+  "   let g:lightline = {
+  "           \ 'colorscheme': 'wombat',
+  "           \ 'mode_map': {'c': 'NORMAL'},
+  "           \ 'active': {
+  "           \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+  "           \ },
+  "           \ 'component_function': {
+  "           \   'modified': 'LightLineModified',
+  "           \   'readonly': 'LightLineReadonly',
+  "           \   'fugitive': 'LightLineFugitive',
+  "           \   'filename': 'LightLineFilename',
+  "           \   'fileformat': 'LightLineFileformat',
+  "           \   'filetype': 'LightLineFiletype',
+  "           \   'fileencoding': 'LightLineFileencoding',
+  "           \   'mode': 'LightLineMode'
+  "           \ }
+  "           \ }
+  "
+  "   function! LightLineModified()
+  "     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  "   endfunction
+  "
+  "   function! LightLineReadonly()
+  "     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+  "   endfunction
+  "
+  "   function! LightLineFilename()
+  "     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+  "           \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+  "           \  &ft == 'unite' ? unite#get_status_string() :
+  "           \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+  "           \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+  "           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  "   endfunction
+  "
+  "   function! LightLineFugitive()
+  "     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+  "       return fugitive#head()
+  "     else
+  "       return ''
+  "     endif
+  "   endfunction
+  "
+  "   function! LightLineFileformat()
+  "     return winwidth(0) > 70 ? &fileformat : ''
+  "   endfunction
+  "
+  "   function! LightLineFiletype()
+  "     return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  "   endfunction
+  "
+  "   function! LightLineFileencoding()
+  "     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  "   endfunction
+  "
+  "   function! LightLineMode()
+  "     return winwidth(0) > 60 ? lightline#mode() : ''
+  "   endfunction
   
 
   " " 自動補完 lua無し
@@ -366,7 +380,7 @@ if &compatible
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType ruby setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
     " Enable heavy omni completion.
