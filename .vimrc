@@ -128,10 +128,12 @@ noremap ; :
 " カレントディレクトリをオープン
 nnoremap <silent> sc :<C-u>e .<CR>
 
-" VimFilter key remap
-" VimFilter起動
+" VimFiler key remap
+" eでファイルを新規タブでオープン
+" let g:vimfiler_edit_action='tabopen'
+" VimFiler起動
 nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
-" 新規タブでVimFilterDir
+" 新規タブでVimFiler起動
 nnoremap <silent> ,vst :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを水平分割してVimFilerBufferDir
 nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
@@ -143,6 +145,10 @@ nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-q
 " VimShell key remap
 " VimShell起動
 nnoremap <silent> ,vs :VimShellCreate<CR>
+" バッファを水平分割してVimShellCreate
+nnoremap <silent> ,svs :split<CR>:VimShellCreate<CR>
+" バッファを垂直分割してVimShellCreate
+nnoremap <silent> ,vvs :vsplit<CR>:VimShellCreate<CR>
 " VimShellPop起動
 nnoremap <silent> ,vp :VimShellPop<CR>
 " VimShellTab起動
@@ -154,14 +160,17 @@ nnoremap <silent> ,py :VimShellInteractive python<CR>
 nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
 " Unite key remap
+" buffer以外はdefault-action=tabopen
 " カレントディレクトリのファイル一覧
-nnoremap <silent> ,uf :Unite file<CR>
+nnoremap <silent> ,uf :Unite file -default-action=tabopen<CR>
 " 現在開いているバッファ、ファイルの一覧
 nnoremap <silent> ,ub :Unite buffer<CR>
 " 最近開いたファイル一覧
-nnoremap <silent> ,um :Unite file_mru<CR>
+nnoremap <silent> ,um :Unite file_mru -default-action=tabopen<CR>
 " ブックマーク一覧 ブックマーク追加は:UniteBookmarkAdd
-nnoremap <silent> ,uk :Unite bookmark<CR>
+nnoremap <silent> ,uk :Unite bookmark -default-action=tabopen<CR>
+" 全機能
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -default-action=tabopen<CR>
 
 " NeoComplete key remap
 " NeoCompleteを有効/無効
@@ -210,7 +219,8 @@ if &compatible
   let g:vimfiler_as_default_explorer=1
   let g:unite_source_history_yank_enable =1
   " ツリー表示
-  NeoBundle 'scrooloose/nerdtree'
+  " 削除
+  " NeoBundle 'scrooloose/nerdtree'
   " Rubyのendキーワードを自動挿入
   NeoBundle 'tpope/vim-endwise'
   " インデントの可視化
