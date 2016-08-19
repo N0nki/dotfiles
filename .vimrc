@@ -223,7 +223,8 @@ if &compatible
   " NeoBundle 'scrooloose/nerdtree'
   " Rubyのendキーワードを自動挿入
   NeoBundle 'tpope/vim-endwise'
-  " インデントの可視化
+  " インデントの可視化1
+  " 現在は無効
   NeoBundle 'nathanaelkane/vim-indent-guides'
   let g:indent_guides_enable_on_vim_startup = 0
   let g:indent_guides_guide_size = 1
@@ -234,10 +235,18 @@ if &compatible
   " 偶数番目のインデントの色
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
 
+  " インデントの可視化2
+  " インデント可視化は現状こちらを仕様
+  NeoBundle 'Yggdroot/indentLine'
+  " let g:indentLine_color_term = 110
+  " let g:indentLine_color_gui = '#042652'
+  " let g:indentLine_char = '〓'
+  let g:indent_guides_start_level = 2
   " 括弧を自動で閉じる
   NeoBundle 'Townk/vim-autoclose'
   " 複数行コメントアウト コマンド:gc
   NeoBundle 'tomtom/tcomment_vim'
+
 
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
