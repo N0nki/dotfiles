@@ -225,7 +225,15 @@ if &compatible
   NeoBundle 'tpope/vim-endwise'
   " インデントの可視化
   NeoBundle 'nathanaelkane/vim-indent-guides'
-  " let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_auto_colors=0
+  " 奇数番目のインデントの色
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+  " 偶数番目のインデントの色
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+
   " 括弧を自動で閉じる
   NeoBundle 'Townk/vim-autoclose'
   " 複数行コメントアウト コマンド:gc
