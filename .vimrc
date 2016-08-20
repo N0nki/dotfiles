@@ -3,11 +3,11 @@ set t_Co=256
 set background=dark
 " カラースキームの設定
 " colorscheme Tomorrow-Night-Eighties
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme material-theme
 " colorscheme molokai
 " colorscheme jellybeans
-colorscheme hybrid_reverse
+" colorscheme hybrid_reverse
 " colorscheme hybrid_material
 " colorscheme desertEx
 " colorscheme deep-space
