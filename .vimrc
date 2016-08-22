@@ -441,7 +441,7 @@ if &compatible
 
   
   " You can specify revision/branch/tag.
-  NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+  NeoBundle 'Shougo/vimshell' ", { 'rev' : '3787e5' }
     " let g:vimshell_prompt_expr='getcwd().">"'
     " let g:vimshell_prompt_pattern='^\f\+ > '
     let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
