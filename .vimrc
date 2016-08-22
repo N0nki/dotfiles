@@ -251,8 +251,8 @@ if &compatible
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
-  " let g:airline_theme = "molokai"
-  let g:airline_theme = "badwolf"
+  let g:airline_theme = "molokai"
+  " let g:airline_theme = "badwolf"
   " let g:airline_theme = "base16"
   " let g:airline_theme = "gruvbox"
   " let g:airline_theme = "murmur"
