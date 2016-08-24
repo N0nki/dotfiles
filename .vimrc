@@ -441,10 +441,11 @@ if &compatible
 
   
   " You can specify revision/branch/tag.
-  NeoBundle 'Shougo/vimshell' ", { 'rev' : '3787e5' }
-    " let g:vimshell_prompt_expr='getcwd().">"'
-    " let g:vimshell_prompt_pattern='^\f\+ > '
+  NeoBundle 'Shougo/vimshell.vim'
+    " let g:vimshell_prompt_expr = 'getcwd()."$ "'
+    " let g:vimshell_prompt_pattern = '^\f\+$ '
     let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+    let g:vimshell_scrollback_limit = 100000
 
   " Required:
   call neobundle#end()
