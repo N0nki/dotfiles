@@ -152,7 +152,8 @@ nnoremap <silent> ,vvs :vsplit<CR>:VimShellCreate<CR>
 " VimShellPop起動
 nnoremap <silent> ,vp :VimShellPop<CR>
 " VimShellTab起動
-nnoremap <silent> ,vt :VimShellTab<CR>
+nnoremap <silent> ,vt :tabnew<CR>:VimShellCreate<CR>
+" nnoremap <silent> ,vt :VimShellTab<CR>
 " RubyとPythonのインタプリタ起動
 nnoremap <silent> ,rb :VimShellInteractive irb<CR>
 nnoremap <silent> ,pry :VimShellInteractive pry<CR>
