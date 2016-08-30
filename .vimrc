@@ -74,6 +74,10 @@ set nowritebackup
 set nobackup
 set noswapfile
 
+" ファイルの変更を可能
+set modifiable
+set write
+
 
 " key remap ----------------------------------
 " jjでinsertからnormal
