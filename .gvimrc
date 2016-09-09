@@ -6,7 +6,8 @@ set background=dark
 set transparency=5
 
 " フォント
-set guifont=Source\ Code\ Pro:h15
+set guifont=Source\ Han\ Code\ JP\ M:h15
+" set guifont=Source\ Code\ Pro:h15
 
 set columns=100
 set lines=48
