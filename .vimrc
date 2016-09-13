@@ -90,10 +90,15 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 
 "sを無効 代替はcl
 nnoremap s <NOP>
+" 水平分割
 nnoremap ss :<C-u>new<CR>
+" 垂直分割
 nnoremap sv :<C-u>vnew<CR>
+" 新規タブ
 nnoremap st :<C-u>tabnew<CR>
+" タブ回転
 nnoremap sr <C-w>x
+" タブ幅リセット
 nnoremap s= <C-w>=
 
 " 折り返したテキストで自然に移動
@@ -125,6 +130,14 @@ nnoremap <S-Down>  <C-w>+<CR>
 
 "前のタブに移動
 nnoremap gb gT
+" タブを右に1つ移動
+nnoremap gn :tabm +1<CR>
+" タブを左に1つ移動
+nnoremap gp :tabm -1<CR>
+" タブを先頭に移動
+nnoremap gN :tabm 0<CR>
+" タブを末尾に移動
+nnoremap gP :tabm<CR>
 
 " USキーボードのみ
 noremap ; :
