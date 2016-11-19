@@ -4,6 +4,8 @@ set background=dark
 " カラースキームの設定
 " colorscheme Tomorrow-Night-Eighties
 colorscheme gruvbox
+" colorscheme one
+" colorscheme quantum
 " colorscheme material-theme
 " colorscheme molokai
 " colorscheme jellybeans
@@ -227,6 +229,9 @@ if &compatible
     NeoBundleLazy 'Shougo/neosnippet.vim', {
         \ "autoload": {"insert": 1}}
 
+
+  " git操作
+  NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'Shougo/neosnippet-snippets'
   " ファイルビューア
   NeoBundle 'Shougo/unite.vim'
@@ -270,6 +275,7 @@ if &compatible
   NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
   let g:airline_theme = "molokai"
+  " let g:airline_theme = "quantum"
   " let g:airline_theme = "badwolf"
   " let g:airline_theme = "base16"
   " let g:airline_theme = "gruvbox"
@@ -278,43 +284,43 @@ if &compatible
 
 
   " ステータスライン強化
-  " NeoBundle 'itchyny/lightline.vim'
+  " neobundle 'itchyny/lightline.vim'
   "   let g:lightline = {
   "           \ 'colorscheme': 'wombat',
-  "           \ 'mode_map': {'c': 'NORMAL'},
+  "           \ 'mode_map': {'c': 'normal'},
   "           \ 'active': {
   "           \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
   "           \ },
   "           \ 'component_function': {
-  "           \   'modified': 'LightLineModified',
-  "           \   'readonly': 'LightLineReadonly',
-  "           \   'fugitive': 'LightLineFugitive',
-  "           \   'filename': 'LightLineFilename',
-  "           \   'fileformat': 'LightLineFileformat',
-  "           \   'filetype': 'LightLineFiletype',
-  "           \   'fileencoding': 'LightLineFileencoding',
-  "           \   'mode': 'LightLineMode'
+  "           \   'modified': 'lightlinemodified',
+  "           \   'readonly': 'lightlinereadonly',
+  "           \   'fugitive': 'lightlinefugitive',
+  "           \   'filename': 'lightlinefilename',
+  "           \   'fileformat': 'lightlinefileformat',
+  "           \   'filetype': 'lightlinefiletype',
+  "           \   'fileencoding': 'lightlinefileencoding',
+  "           \   'mode': 'lightlinemode'
   "           \ }
   "           \ }
   "
-  "   function! LightLineModified()
+  "   function! lightlinemodified()
   "     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
   "   endfunction
   "
-  "   function! LightLineReadonly()
+  "   function! lightlinereadonly()
   "     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
   "   endfunction
   "
-  "   function! LightLineFilename()
-  "     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+  "   function! lightlinefilename()
+  "     return ('' != lightlinereadonly() ? lightlinereadonly() . ' ' : '') .
   "           \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
   "           \  &ft == 'unite' ? unite#get_status_string() :
   "           \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-  "           \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-  "           \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+  "           \ '' != expand('%:t') ? expand('%:t') : '[no name]') .
+  "           \ ('' != lightlinemodified() ? ' ' . lightlinemodified() : '')
   "   endfunction
   "
-  "   function! LightLineFugitive()
+  "   function! lightlinefugitive()
   "     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
   "       return fugitive#head()
   "     else
