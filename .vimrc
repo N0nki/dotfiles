@@ -70,6 +70,7 @@ set backspace=indent,eol,start
 
 " lightlineの動作に必要
 set laststatus=2
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
 
 " swapファイル、Backupファイルを無効
 set nowritebackup
@@ -448,6 +449,8 @@ if &compatible
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    " pythonでdoc stringを非表示
+    autocmd FileType python setlocal completeopt-=preview
     autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
