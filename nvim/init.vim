@@ -54,9 +54,6 @@ set wildmenu
 " 入力中のコマンドを表示
 set showcmd
 
-" yankをclipboardに格納
-" set clipboard=unnamed,autoselect
-
 " Backspaceで削除する要素を指定
 set backspace=indent,eol,start
 
