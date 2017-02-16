@@ -2,11 +2,11 @@
 # apm list --installed --bare > packages.txt
 
 if [ -e ~/.atom ]; then
-    cd ~/.atom
-    ln -is ~/dotfiles/.atom/init.coffee
-    ln -is ~/dotfiles/.atom/keymap.cson
-    ln -is ~/dotfiles/.atom/snippets.cson
-    ln -is ~/dotfiles/.atom/styles.less
+  cd ~/.atom
+  ln -sf ~/dotfiles/.atom/init.coffee
+  ln -sf ~/dotfiles/.atom/keymap.cson
+  ln -sf ~/dotfiles/.atom/snippets.cson
+  ln -sf ~/dotfiles/.atom/styles.less
 
-    apm install --packages-file ~/dotfiles/.atom/packages.txt
+  apm install --packages-file ~/dotfiles/.atom/packages.txt
 fi
