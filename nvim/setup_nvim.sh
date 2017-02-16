@@ -8,6 +8,7 @@ mkdir colors
 # install dein.vim
 cd ~/.cache
 mkdir dein
+cd dein
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 ln -sf ~/dotfiles/nvim/.dein.toml ~/.dein.toml
