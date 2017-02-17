@@ -6,6 +6,8 @@ set clipboard=unnamed,autoselect
 " jjでinsertからnormal
 inoremap jj <ESC>
 
+noremap ; :
+
 "sを無効 代替はcl
 nnoremap s <NOP>
 nnoremap ss :<C-u>new<CR>
