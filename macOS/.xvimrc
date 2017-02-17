@@ -1,0 +1,41 @@
+" yankをclipboardに格納
+set clipboard=unnamed,autoselect
+
+
+" key remap ----------------------------------
+" jjでinsertからnormal
+inoremap jj <ESC>
+
+"sを無効 代替はcl
+nnoremap s <NOP>
+nnoremap ss :<C-u>new<CR>
+nnoremap sv :<C-u>vnew<CR>
+nnoremap st :<C-u>tabnew<CR>
+
+" 折り返したテキストで自然に移動
+" nnoremap j gj
+" nnoremap k gk
+" 行先頭へ移動
+noremap <Space>h ^
+" 行末尾へ移動
+noremap <Space>l $
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+" TABで対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+" end key remap -----------------------------
