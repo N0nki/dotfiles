@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # neovim
+export XDG_CONFIG_HOME=$HOME/.config
 cd ~/.config
 mkdir nvim
 cd nvim
@@ -18,4 +19,3 @@ ln -sf ~/dotfiles/nvim/colors/gruvbox.vim ~/.config/nvim/colors/gruvbox.vim
 ln -sf ~/dotfiles/nvim/colors/neodark.vim ~/.config/nvim/colors/neodark.vim
 ln -sf ~/dotfiles/nvim/colors/onedark.vim ~/.config/nvim/colors/onedark.vim
 ln -sf ~/dotfiles/nvim/colors/tender.vim ~/.config/nvim/colors/tender.vim
-
