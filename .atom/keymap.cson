@@ -32,10 +32,10 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 # autocomplete
-'body atom-text-editor.autocomplete-active':
-  'ctrl-p': 'autocomplete-plus:move-up'
-  'ctrl-n': 'autocomplete-plus:move-down'
-  'tab': 'autocomplete-plus:move-down'
+# 'body atom-text-editor.autocomplete-active':
+  # 'ctrl-p': 'autocomplete-plus:move-up'
+  # 'ctrl-n': 'autocomplete-plus:move-down'
+  # 'tab': 'autocomplete-plus:move-down'
 
 'atom-text-editor':
   # 行の末尾に移動
