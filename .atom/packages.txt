@@ -1,8 +1,9 @@
 atom-material-syntax@1.0.2
 atom-material-ui@1.3.9
 autocomplete@0.47.0
+autocomplete-ruby@0.2.6
 file-icons@2.0.15
-git-plus@7.3.0
-termination@0.3.6
+git-plus@7.3.2
+termination@0.3.7
 vim-mode-plus@0.82.3
 
