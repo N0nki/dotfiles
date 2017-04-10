@@ -33,6 +33,13 @@ set shiftwidth=2
 set autoindent
 " タブをスペースに変換
 set expandtab
+
+" 拡張子ごとにインデント幅を変更する
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
 " 対応する括弧を表示
 set showmatch
 " 対応括弧のハイライト表示を3秒
