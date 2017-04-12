@@ -9,11 +9,13 @@ if has('nvim')
 endif
 set background=dark
 " colorscheme gruvbox
-let g:neodark#background='dark'
-colorscheme neodark
-let g:neodark#use_custom_terminal_theme = 1
 " colorscheme tender
+colorscheme iceberg
 " colorscheme onedark
+
+" colorscheme neodark
+" let g:neodark#background='dark'
+" let g:neodark#use_custom_terminal_theme = 1
 
 " タイトルバーにファイルのパス情報等を表示
 set title
