@@ -206,6 +206,8 @@ let g:unite_source_history_yank_enable = 1
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
+let g:neocomplete#enable_at_startup = 0
+
 
 " vim-airline
 let g:airline_theme = 'molokai'

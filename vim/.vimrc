@@ -222,8 +222,8 @@ let g:vimfiler_as_default_explorer = 1
 let g:unite_source_history_yank_enable = 1
 
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 
 " vim-airline
