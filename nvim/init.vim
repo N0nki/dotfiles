@@ -210,7 +210,7 @@ let g:deoplete#enable_at_startup = 1
 " vim-airline
 let g:airline_theme = 'molokai'
 
--
+
 " indentLine
 let g:indent_guides_start_level = 2
 " let g:indent_guides_color_term = 239
