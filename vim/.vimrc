@@ -208,180 +208,83 @@ nnoremap <silent> ,cd :NeoCompleteDisable<CR>
 " end key remap -----------------------------
 
 
-"NeoBundle Scripts-----------------------------
+" plugin settings ------------------------
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
+let g:unite_source_history_yank_enable = 1
+
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+
+" vim-airline
+let g:airline_theme = 'gruvbox'
+
+
+" indentLine
+let g:indent_guides_start_level = 2
+" let g:indent_guides_color_term = 239
+let g:indentLine_color_term = 239
+let g:indentLine_char = '│'
+
+" vimshell
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_scrollback_limit = 100000
+
+
+" vimtex
+" 下記URLを参考にした
+" https://texwiki.texjp.org/?vimtex
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_latexmk_background = 1
+"let g:vimtex_latexmk_options = '-pdf'
+let g:vimtex_latexmk_options = '-pdfdvi'
+"let g:vimtex_latexmk_options = '-pdfps'
+"let g:vimtex_view_general_viewer = 'open'
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '@line @pdf @tex'
+
+" end plugin settings --------------------
+
+
+"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
-  endif
+endif
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-  " Required:
-  call neobundle#begin(expand('~/.vim/bundle'))
+" Required:
+" set runtimepath+=/Users/MacMini/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-  " Let NeoBundle manage NeoBundle
-  " Required:
-  NeoBundleFetch 'Shougo/neobundle.vim'
+" begin setting
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  " Add or remove your Bundles here:
-  " 非同期通信を可能にする
-  NeoBundle 'Shougo/vimproc', {
-    \ 'bundle' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-      \ }}
+  " 管理するプラグインを記述したファイル
+  let s:toml = '~/.dein.toml'
+  let s:lazy_toml = '~/.dein_lazy.toml'
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  NeoBundle 'Shougo/neosnippet.vim'
-    NeoBundleLazy 'Shougo/neosnippet.vim', {
-        \ "autoload": {"insert": 1}}
+  call dein#end()
+  call dein#save_state()
+endif
 
+" Required:
+filetype plugin indent on
 
-  " git操作
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'Shougo/neosnippet-snippets'
-  " ファイルビューア
-  NeoBundle 'Shougo/unite.vim'
-  " Uniteのfile_mruを使用可能にする
-  NeoBundle 'Shougo/neomru.vim'
-  " ファイル操作支援
-  NeoBundle 'Shougo/vimfiler'
-  let g:vimfiler_as_default_explorer=1
-  let g:unite_source_history_yank_enable =1
-  " ツリー表示
-  " 削除
-  " NeoBundle 'scrooloose/nerdtree'
-  " Rubyのendキーワードを自動挿入
-  NeoBundle 'tpope/vim-endwise'
-  " インデントの可視化1
-  " 現在は無効
-  NeoBundle 'nathanaelkane/vim-indent-guides'
-  let g:indent_guides_enable_on_vim_startup = 0
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_start_level = 2
-  let g:indent_guides_auto_colors=0
-  " 奇数番目のインデントの色
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
-  " 偶数番目のインデントの色
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+if dein#check_install(['vimproc'])
+  call dein#install(['vimproc'])
+endif
 
-  " インデントの可視化2
-  " インデント可視化は現状こちらを仕様
-  NeoBundle 'Yggdroot/indentLine'
-  " let g:indentLine_color_term = 110
-  " let g:indentLine_color_gui = '#042652'
-  " let g:indentLine_char = '〓'
-  let g:indent_guides_start_level = 2
-  " 括弧を自動で閉じる
-  NeoBundle 'Townk/vim-autoclose'
-  " 複数行コメントアウト コマンド:gc
-  NeoBundle 'tomtom/tcomment_vim'
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+  " call dein#install('Townk/vim-autoclose')
+endif
 
-
-  " ステータスライン強化
-  NeoBundle 'vim-airline/vim-airline'
-  NeoBundle 'vim-airline/vim-airline-themes'
-  let g:airline_theme = "molokai"
-  " let g:airline_theme = "quantum"
-  " let g:airline_theme = "badwolf"
-  " let g:airline_theme = "base16"
-  " let g:airline_theme = "gruvbox"
-  " let g:airline_theme = "murmur"
-  " let g:airline_theme = "distinguished"
-
-
-  " 自動補完 lua有り
-  NeoBundle 'shougo/neocomplete'
-    NeoBundleLazy 'Shougo/neocomplete.vim', {
-        \ "autoload": {"insert": 1}}
-    " neocompleteのhooksを取得
-    let s:hooks = neobundle#get_hooks("neocomplete.vim")
-    " neocomplete用の設定関数を定義。下記関数はneocompleteロード時に実行される
-    function! s:hooks.on_source(bundle)
-      let g:acp_enableAtStartup = 0
-      let g:neocomplete#enable_smart_case = 1
-      " NeoCompleteを有効化
-      NeoCompleteEnable
-    endfunction
-
-    " Disable AutoComplPop.
-    let g:acp_enableAtStartup = 1
-    " Use neocomplete.
-    let g:neocomplete#enable_at_startup = 1
-    " Use smartcase.
-    let g:neocomplete#enable_smart_case = 1
-    " Set minimum syntax keyword length.
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-    " Define dictionary.
-    let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
- 
-    " Define keyword.
-    if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-    " Plugin key-mappings.
-    inoremap <expr><C-g>  neocomplete#undo_completion()
-    inoremap <expr><C-l> neocomplete#complete_common_string()
-
-    " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function()
-      return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-      " For no inserting <CR> key.
-      "return pumvisible() ? "\<C-y>" : "\<CR>"
-    endfunction
-    " <TAB>: completion.
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-    " Close popup by <Space>.
-    " inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-    " AutoComplPop like behavior.
-    let g:neocomplete#enable_auto_select = 1
-
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    " pythonでdoc stringを非表示
-    autocmd FileType python setlocal completeopt-=preview
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-  
-  " You can specify revision/branch/tag.
-  NeoBundle 'Shougo/vimshell.vim'
-    " let g:vimshell_prompt_expr = 'getcwd()."$ "'
-    " let g:vimshell_prompt_pattern = '^\f\+$ '
-    let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-    let g:vimshell_scrollback_limit = 100000
-
-  " Required:
-  call neobundle#end()
-
-  " Required:
-  filetype plugin indent on
-
-  " If there are uninstalled bundles found on startup,
-  " this will conveniently prompt you to install them.
-  NeoBundleCheck
-  "End NeoBundle Scripts-------------------------
+"End dein Scripts-------------------------
