@@ -122,6 +122,14 @@ noremap <Space>l $
 " vを2回で行末まで選択
 vnoremap v $h
 
+" クリップボードと連携したコピーアンドペースト
+nnoremap <Space>d "*dd
+vnoremap <Space>d "*dd
+nnoremap <Space>y "*yy
+vnoremap <Space>y "*yy
+nnoremap <Space>p "*p
+vnoremap <Space>p "*p
+
 " TABで対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
@@ -219,7 +227,7 @@ let g:deoplete#enable_at_startup = 1
 
 
 " vim-airline
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'powerlineish'
 
 
 " indentLine
