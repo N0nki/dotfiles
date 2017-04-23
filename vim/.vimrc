@@ -88,6 +88,9 @@ set noswapfile
 set modifiable
 set write
 
+" vim終了時に現在のセッションを保存する
+au VimLeave * mks! ~/.vim.session
+
 
 " key remap ----------------------------------
 " jjでinsertからnormal
