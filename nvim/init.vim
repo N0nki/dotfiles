@@ -151,7 +151,9 @@ noremap ; :
 nnoremap <silent> sc :<C-u>e .<CR>
 
 " terminal modeからcommand modeへ移行
-tnoremap <silent> jj <C-\><C-n>
+" tnoremap <silent> jj <C-\><C-n>
+" tnoremap <silent> <C-q> <C-\><C-n>
+tnoremap <silent> <C-c> <C-\><C-n>
 
 " VimFiler key remap
 " eでファイルを新規タブでオープン
