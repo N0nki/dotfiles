@@ -9,3 +9,6 @@ alias grep="grep --color"
 alias ls='ls -G'
 alias ll='ls -hl'
 
+# vimとneovimのセッション回復
+alias nvims="nvim -S ~/.vim.session"
+alias vims="vim -S ~/.vim.session"
