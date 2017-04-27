@@ -7,6 +7,9 @@ build = 'make'
 
 [[plugins]]
 repo = 'Shougo/vimshell.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/vimshell.rc.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
@@ -20,6 +23,9 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
+hook_add = '''
+source ~/.config/nvim/plugins/airline.rc.vim
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
@@ -32,6 +38,9 @@ repo = 'Townk/vim-autoclose'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_add = '''
+source ~/.config/nvim/plugins/indentline.rc.vim
+'''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -44,3 +53,6 @@ repo = 'kassio/neoterm'
 
 [[plugins]]
 repo = 'lervag/vimtex'
+hook_add = '''
+source ~/.config/nvim/plugins/vimtex.rc.vim
+'''
