@@ -124,6 +124,3 @@ nnoremap <silent> ,ce :NeoCompleteEnable<CR>
 nnoremap <silent> ,cd :NeoCompleteDisable<CR>
 
 " end key remap -----------------------------
-
-
-
