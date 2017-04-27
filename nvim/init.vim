@@ -1,3 +1,7 @@
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 syntax on
 " set t_Co=256
 " TrueColorを使用
@@ -155,20 +159,6 @@ nnoremap <silent> sc :<C-u>e .<CR>
 " tnoremap <silent> <C-q> <C-\><C-n>
 tnoremap <silent> <C-c> <C-\><C-n>
 
-" VimFiler key remap
-" eでファイルを新規タブでオープン
-" let g:vimfiler_edit_action='tabopen'
-" VimFiler起動
-nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
-" 新規タブでVimFiler起動
-nnoremap <silent> ,ft :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
-" バッファを水平分割してVimFilerBufferDir
-nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
-" バッファを垂直分割してVimFilerBufferDir
-nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
-" IDE風にバッファをオープン
-nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
-
 " VimShell key remap
 " VimShell起動
 nnoremap <silent> ,vs :VimShellCreate<CR>
@@ -187,27 +177,9 @@ nnoremap <silent> ,pry :VimShellInteractive pry<CR>
 nnoremap <silent> ,py :VimShellInteractive python<CR>
 nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
 
-" Unite key remap
-" buffer以外はdefault-action=tabopen
-" カレントディレクトリのファイル一覧
-nnoremap <silent> ,uf :Unite file -default-action=tabopen<CR>
-" 現在開いているバッファ、ファイルの一覧
-nnoremap <silent> ,ub :Unite buffer<CR>
-" 最近開いたファイル一覧
-nnoremap <silent> ,um :Unite file_mru -default-action=tabopen<CR>
-" ブックマーク一覧 ブックマーク追加は:UniteBookmarkAdd
-nnoremap <silent> ,uk :Unite bookmark -default-action=tabopen<CR>
-" 全機能
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -default-action=tabopen<CR>
-
 " end key remap -----------------------------
 
 " plugin settings ------------------------
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-let g:unite_source_history_yank_enable = 1
-
-
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
