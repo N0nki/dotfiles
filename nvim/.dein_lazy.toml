@@ -24,6 +24,9 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/unite.rc.vim
+'''
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
