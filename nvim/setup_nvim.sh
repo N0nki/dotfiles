@@ -6,6 +6,7 @@ cd ~/.config
 mkdir nvim
 cd nvim
 mkdir colors
+mkdir plugins
 # install dein.vim
 cd ~/.cache
 mkdir dein
@@ -20,3 +21,5 @@ ln -sf ~/dotfiles/nvim/colors/neodark.vim ~/.config/nvim/colors/neodark.vim
 ln -sf ~/dotfiles/nvim/colors/onedark.vim ~/.config/nvim/colors/onedark.vim
 ln -sf ~/dotfiles/nvim/colors/tender.vim ~/.config/nvim/colors/tender.vim
 ln -sf ~/dotfiles/nvim/colors/iceberg.vim ~/.config/nvim/colors/iceberg.vim
+ln -sf ~/dotfiles/nvim/plugins/vimfiler.rc.vim ~/.config/nvim/plugins/vimfiler.rc.vim
+ln -sf ~/dotfiles/nvim/plugins/unite.rc.vim ~/.config/nvim/plugins/unite.rc.vim
