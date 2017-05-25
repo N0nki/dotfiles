@@ -11,3 +11,6 @@ set guifont=Source\ Han\ Code\ JP\ N:h15
 
 set columns=100
 set lines=48
+
+" MacVim yaoriyaパッチで日本語入力が勝手にオフになるのを解決
+set imdisable
