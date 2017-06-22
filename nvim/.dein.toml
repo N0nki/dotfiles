@@ -56,3 +56,6 @@ repo = 'lervag/vimtex'
 hook_add = '''
 source ~/.config/nvim/plugins/vimtex.rc.vim
 '''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
