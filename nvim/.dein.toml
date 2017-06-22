@@ -59,3 +59,6 @@ source ~/.config/nvim/plugins/vimtex.rc.vim
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
