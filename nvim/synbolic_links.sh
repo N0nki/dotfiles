@@ -18,3 +18,4 @@ ln -sf ~/dotfiles/nvim/plugins/deoplete.rc.vim ~/.config/nvim/plugins/deoplete.r
 ln -sf ~/dotfiles/nvim/plugins/airline.rc.vim ~/.config/nvim/plugins/airline.rc.vim
 ln -sf ~/dotfiles/nvim/plugins/indentline.rc.vim ~/.config/nvim/plugins/indentline.rc.vim
 ln -sf ~/dotfiles/nvim/plugins/vimtex.rc.vim ~/.config/nvim/plugins/vimtex.rc.vim
+ln -sf ~/dotfiles/nvim/plugins/quickrun.rc.vim ~/.config/nvim/plugins/quickrun.rc.vim
