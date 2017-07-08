@@ -72,3 +72,7 @@ nnoremap <silent> sc :<C-u>e .<CR>
 " tnoremap <silent> jj <C-\><C-n>
 " tnoremap <silent> <C-q> <C-\><C-n>
 tnoremap <silent> <C-c> <C-\><C-n>
+
+" ファイルを保存してからQuickrun実行
+nnoremap <Leader>r :write<CR>:QuickRun -mode n<CR>        
+xnoremap <Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
