@@ -74,3 +74,6 @@ repo = 'fishbullet/deoplete-ruby'
 
 [[plugins]]
 repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
