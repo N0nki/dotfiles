@@ -12,8 +12,11 @@ call quickrun#module#register(shabadou#make_quickrun_hook_anim(
 " さらにpdfビューアでpdfファイルをオープン
 " 成功時はbufferに結果表示，quickfixが開いていれば閉じる
 " 失敗時はquickfixに表示
+" 成功時にbufferを開きたいときは以下をquickrun_configに追加して
+" hook/close_buffer/enable_successを0指定する
+" \ 'outputter/error/success' : 'buffer',
 " buffer，quickfixは幅60で垂直分割して表示
-" 幅の指定は:[N][v]sp[lit]の書式で行えばよい
+" 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
 
 let g:quickrun_config = {
       \'tex': {
@@ -35,15 +38,42 @@ let g:quickrun_config = {
         \ 'hook/time/enable': '1',
         \ 'command': 'latexmk',
         \ 'outputter/buffer/split': ':60vsplit',
-        \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open %s:r.pdf']
+        \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open %s:r.pdf'],
         \},
+      \'ruby': {
+        \ 'runner': 'vimproc',
+        \ 'runner/vimproc/updatetime': 40,
+        \ 'outputter': 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error': 'quickfix',
+        \ 'hook/close_quickfix/enable_success' : 1,
+        \ 'outputter/buffer/split': ':60vsplit',
+        \ 'outputter/buffer/close_on_empty': 1,
+      \},
+      \'python': {
+        \ 'runner': 'vimproc',
+        \ 'runner/vimproc/updatetime': 40,
+        \ 'outputter': 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error': 'quickfix',
+        \ 'hook/close_quickfix/enable_success' : 1,
+        \ 'outputter/buffer/split': ':60vsplit',
+        \ 'outputter/buffer/close_on_empty': 1,
+      \},
+      \'java': {
+        \ 'runner': 'vimproc',
+        \ 'runner/vimproc/updatetime': 40,
+        \ 'outputter': 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error': 'quickfix',
+        \ 'hook/close_quickfix/enable_success' : 1,
+        \ 'outputter/buffer/split': ':60vsplit',
+        \ 'outputter/buffer/close_on_empty': 1,
+      \},
+      \'markdown': {
+        \ 'outputter': 'browser'
+      \},
 \}
-        " \ 'hook/tex_compiling/priority_output': 1,
-        " \ 'hook/tex_compiling/enable': 1,
-        " \ 'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
-        " 成功時にbufferを開きたいときは以下をquickrun_configに追加して
-        " hook/close_buffer/enable_successを0指定する
-        " \ 'outputter/error/success' : 'buffer',
 
 let g:quickrun_no_default_key_mappings = 1
 
