@@ -1,19 +1,52 @@
-" TODO: 2017.7.9
-" 実行成功時にquickfixを閉じる設定を追加する
-" 参考: http://d.hatena.ne.jp/osyo-manga/20120919/1348054752
+" shabadou.vimの使い方は以下を参照
+" http://d.hatena.ne.jp/osyo-manga/20120919/1348054752
+
+call quickrun#module#register(shabadou#make_quickrun_hook_anim(
+\	"tex_compiling",
+\	['Compiling |', 'Compiling /', 'Compiling -', 'Compiling \'],
+\	4,
+\), 1)
+" \	['Compiling ', 'Compiling .', 'Compiling ..', 'Compiling ...'],
 
 " [leader] + rでlatexmkを使ってtexファイルをコンパイル
 " さらにpdfビューアでpdfファイルをオープン
+" 成功時はbufferに結果表示，quickfixが開いていれば閉じる
+" 失敗時はquickfixに表示
+" buffer，quickfixは幅60で垂直分割して表示
+" 幅の指定は:[N][v]sp[lit]の書式で行えばよい
+
 let g:quickrun_config = {
       \'tex': {
-        \ "runner" : "vimproc",
-        \ 'outputter' : 'error',
-        \ 'outputter/error/success' : 'buffer',
-        \ 'outputter/error/error'   : 'quickfix',
-        \'command': 'latexmk',
-        \'outputter/buffer/split': ':vsplit 8sp',
-        \'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
+        \ 'runner': 'vimproc',
+        \ 'runner/vimproc/updatetime': 40,
+        \ 'outputter': 'error',
+        \ 'outputter/error/error': 'quickfix',
+        \ 'hook/echo/enable': 1,
+        \ 'hook/echo/priority_output': 1,
+        \ 'hook/tex_compiling/enable': 1,
+        \ 'hook/echo/output_success': 'Compile succeeded',
+        \ 'hook/echo/output_failure': 'Compile Failed. Fix error displayed in quickfix',
+        \ 'hook/close_buffer/enable_success' : 1,
+        \ 'hook/close_quickfix/enable_success' : 1,
+        \	'hook/back_tabpage/enable_exit' : 1,
+        \	'hook/back_window/enable_exit': 1,
+        \	'hook/back_tabpage/priority_exit': 1,
+        \	'hook/back_window/priority_exit': 1,
+        \ 'hook/time/enable': '1',
+        \ 'command': 'latexmk',
+        \ 'outputter/buffer/split': ':60vsplit',
+        \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open %s:r.pdf']
         \},
 \}
+        " \ 'hook/tex_compiling/priority_output': 1,
+        " \ 'hook/tex_compiling/enable': 1,
+        " \ 'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
+        " 成功時にbufferを開きたいときは以下をquickrun_configに追加して
+        " hook/close_buffer/enable_successを0指定する
+        " \ 'outputter/error/success' : 'buffer',
 
 let g:quickrun_no_default_key_mappings = 1
+
+" ファイルを保存してからQuickrun実行
+nnoremap <Leader>r :write<CR>:QuickRun -mode n<CR>        
+xnoremap <Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
