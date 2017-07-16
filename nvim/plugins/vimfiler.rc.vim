@@ -18,7 +18,8 @@ nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを垂直分割してVimFilerBufferDir
 nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
 " IDE風にバッファをオープン
-nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
+" nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
+nnoremap <silent> ,ide :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>
 
 autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
 function! s:vimfiler_my_settings()
