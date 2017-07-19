@@ -90,3 +90,6 @@ set write
 
 " vim終了時に現在のセッションを保存する
 au VimLeave * mks! ~/.vim.session
+
+" texのconceal（数式のレンダリング）を無効
+let g:tex_conceal = ''
