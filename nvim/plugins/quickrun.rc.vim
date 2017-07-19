@@ -4,7 +4,7 @@
 call quickrun#module#register(shabadou#make_quickrun_hook_anim(
 \	"tex_compiling",
 \	['Compiling |', 'Compiling /', 'Compiling -', 'Compiling \'],
-\	4,
+\	2,
 \), 1)
 " \	['Compiling ', 'Compiling .', 'Compiling ..', 'Compiling ...'],
 
@@ -17,6 +17,7 @@ call quickrun#module#register(shabadou#make_quickrun_hook_anim(
 " \ 'outputter/error/success' : 'buffer',
 " buffer，quickfixは幅60で垂直分割して表示
 " 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
+" \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -ga /Applications/Skim.app %s:r.pdf'],
 
 let g:quickrun_config = {
       \'tex': {
@@ -38,7 +39,7 @@ let g:quickrun_config = {
         \ 'hook/time/enable': '1',
         \ 'command': 'latexmk',
         \ 'outputter/buffer/split': ':60vsplit',
-        \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open %s:r.pdf'],
+        \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -g %s:r.pdf'],
         \},
       \'ruby': {
         \ 'runner': 'vimproc',
