@@ -74,9 +74,6 @@ nnoremap <silent> so :tabo <CR>
 " USキーボードのみ
 noremap ; :
 
-" カレントディレクトリをオープン
-nnoremap <silent> sc :<C-u>e .<CR>
-
 " VimFiler key remap
 " eでファイルを新規タブでオープン
 " let g:vimfiler_edit_action='tabopen'
