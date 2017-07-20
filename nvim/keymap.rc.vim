@@ -61,12 +61,13 @@ nnoremap gp :tabm -1<CR>
 nnoremap gN :tabm 0<CR>
 " タブを末尾に移動
 nnoremap gP :tabm<CR>
+" 今いるタブを閉じる
+nnoremap <silent> sc :tabc <CR>
+" 今いるタブ以外を閉じる
+nnoremap <silent> so :tabo <CR>
 
 " USキーボードのみ
 noremap ; :
-
-" カレントディレクトリをオープン
-nnoremap <silent> sc :<C-u>e .<CR>
 
 " terminal modeからcommand modeへ移行
 " tnoremap <silent> jj <C-\><C-n>
