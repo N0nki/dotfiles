@@ -72,7 +72,7 @@ let g:quickrun_config = {
         \ 'outputter/buffer/close_on_empty': 1,
       \},
       \'markdown': {
-        \ 'exec': ['open %s'],
+        \ 'exec': ['open -g %s'],
         \ 'outputter/buffer/close_on_empty': 1,
       \},
 \}
