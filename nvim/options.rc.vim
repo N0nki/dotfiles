@@ -1,29 +1,21 @@
 syntax on
-" set t_Co=256
-" TrueColorを使用
-if has('patch-7.4.1778')
-  set guicolors
-endif
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
+set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 if has('gui_vimr')
-  " colorscheme onedark
-  colorscheme neodark
-  let g:neodark#background='dark'
-  let g:neodark#use_custom_terminal_theme = 1
+  colorscheme onedark
+  " colorscheme neodark
+  " let g:neodark#background='dark'
+  " let g:neodark#use_custom_terminal_theme = 1
 else
   colorscheme iceberg
+  " colorscheme tender
+  " colorscheme neodark
+  " let g:neodark#background='dark'
+  " let g:neodark#use_custom_terminal_theme = 1
 endif
 " colorscheme gruvbox
 " colorscheme tender
-" colorscheme iceberg
-" colorscheme onedark
-
-" colorscheme neodark
-" let g:neodark#background='dark'
-" let g:neodark#use_custom_terminal_theme = 1
 
 " タイトルバーにファイルのパス情報等を表示
 set title
@@ -91,3 +83,21 @@ au VimLeave * mks! ~/.vim.session
 
 " texのconceal（数式のレンダリング）を無効
 let g:tex_conceal = ''
+
+" terminalのカラーパレット
+let g:terminal_color_0  = "#2E3436"
+let g:terminal_color_1  = "#DD6060" " 赤 ファイル
+let g:terminal_color_2  = "#4E9A06"
+let g:terminal_color_3  = "#C4A000"
+let g:terminal_color_4  = "#438DED" " 青 ディレクトリ
+let g:terminal_color_5  = "#BA6BC6" " 紫 シンボリックリンク
+let g:terminal_color_6  = "#93A1A1"
+let g:terminal_color_7  = "#D3D7CF"
+let g:terminal_color_8  = "#555753"
+let g:terminal_color_9  = "#EF2929"
+let g:terminal_color_10 = "#8AE234"
+let g:terminal_color_11 = "#FCE94F"
+let g:terminal_color_12 = "#729FCF"
+let g:terminal_color_13 = "#AD7FA8"
+let g:terminal_color_14 = "#34E2E2"
+let g:terminal_color_15 = "#EEEEEC"
