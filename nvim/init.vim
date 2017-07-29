@@ -14,7 +14,6 @@ let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 " Required:
-" set runtimepath+=/Users/MacMini/.cache/dein/repos/github.com/Shougo/dein.vim
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " begin setting
@@ -34,14 +33,9 @@ endif
 " Required:
 filetype plugin indent on
 
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
-endif
-
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
-  " call dein#install('Townk/vim-autoclose')
 endif
 
 
