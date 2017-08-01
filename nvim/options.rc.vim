@@ -9,7 +9,7 @@ if has('gui_vimr')
   " let g:neodark#use_custom_terminal_theme = 1
 else
   colorscheme iceberg
-  " colorscheme tender
+  " colorscheme Tomorrow-Night-Eighties
   " colorscheme neodark
   " let g:neodark#background='dark'
   " let g:neodark#use_custom_terminal_theme = 1
