@@ -1,5 +1,5 @@
 syntax on
-set t_Co=256
+set termguicolors
 set background=dark
 " カラースキームの設定
 " colorscheme Tomorrow-Night-Eighties
