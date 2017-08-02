@@ -3,7 +3,7 @@ set t_Co=256
 set background=dark
 
 " 透過
-set transparency=5
+set transparency=20
 
 " フォント
 set guifont=Source\ Han\ Code\ JP\ L:h15
