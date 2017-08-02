@@ -2,10 +2,6 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-
-let g:neocomplete#enable_at_startup = 0
-
-
 if &compatible
   set nocompatible               " Be iMproved
 endif
