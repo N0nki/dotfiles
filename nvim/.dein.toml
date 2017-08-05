@@ -70,13 +70,8 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 '''
 
 [[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-
-[[plugins]]
 repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
