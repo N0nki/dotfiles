@@ -75,3 +75,5 @@ repo = 'osyo-manga/shabadou.vim'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
