@@ -7,6 +7,5 @@
 
 ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim/.gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/vim/colors ~/.vim/colors
 ln -sf ~/dotfiles/vim/keymap.rc.vim ~/.vim
 ln -sf ~/dotfiles/vim/options.rc.vim ~/.vim
