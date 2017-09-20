@@ -74,54 +74,9 @@ nnoremap <silent> so :tabo <CR>
 " USキーボードのみ
 noremap ; :
 
-" VimFiler key remap
-" eでファイルを新規タブでオープン
-" let g:vimfiler_edit_action='tabopen'
-" VimFiler起動
-nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
-" 新規タブでVimFiler起動
-nnoremap <silent> ,ft :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
-" バッファを水平分割してVimFilerBufferDir
-nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
-" バッファを垂直分割してVimFilerBufferDir
-nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
-" IDE風にバッファをオープン
-nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
-
-" VimShell key remap
-" VimShell起動
-nnoremap <silent> ,vs :VimShellCreate<CR>
-" バッファを水平分割してVimShellCreate
-nnoremap <silent> ,svs :split<CR>:VimShellCreate<CR>
-" バッファを垂直分割してVimShellCreate
-nnoremap <silent> ,vvs :vsplit<CR>:VimShellCreate<CR>
-" VimShellPop起動
-nnoremap <silent> ,vp :VimShellPop<CR>
-" VimShellTab起動
-nnoremap <silent> ,vt :tabnew<CR>:VimShellCreate<CR>
-" nnoremap <silent> ,vt :VimShellTab<CR>
-" RubyとPythonのインタプリタ起動
-nnoremap <silent> ,rb :VimShellInteractive irb<CR>
-nnoremap <silent> ,pry :VimShellInteractive pry<CR>
-nnoremap <silent> ,py :VimShellInteractive python<CR>
-nnoremap <silent> ,ip :VimShellInteractive ipython<CR>
-
-" Unite key remap
-" buffer以外はdefault-action=tabopen
-" カレントディレクトリのファイル一覧
-nnoremap <silent> ,uf :Unite file -default-action=tabopen<CR>
-" 現在開いているバッファ、ファイルの一覧
-nnoremap <silent> ,ub :Unite buffer<CR>
-" 最近開いたファイル一覧
-nnoremap <silent> ,um :Unite file_mru -default-action=tabopen<CR>
-" ブックマーク一覧 ブックマーク追加は:UniteBookmarkAdd
-nnoremap <silent> ,uk :Unite bookmark -default-action=tabopen<CR>
-" 全機能
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -default-action=tabopen<CR>
-
-" NeoComplete key remap
-" NeoCompleteを有効/無効
-nnoremap <silent> ,ce :NeoCompleteEnable<CR>
-nnoremap <silent> ,cd :NeoCompleteDisable<CR>
-
+" terminal mode
+" 最新のビルド配布待ち
+if exists(':tmap')
+  tnoremap <C-c> <C-w>N
+endif
 " end key remap -----------------------------
