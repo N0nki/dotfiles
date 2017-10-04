@@ -75,8 +75,10 @@ nnoremap <silent> so :tabo <CR>
 noremap ; :
 
 " terminal mode
-" 最新のビルド配布待ち
 if exists(':tmap')
   tnoremap <C-c> <C-w>N
+  " nnoremap :q<CR> :q!<CR>
+  " tnoremap <C-q> <C-w>N
+  " tnoremap <C-q> <C-w><C-c>
 endif
 " end key remap -----------------------------
