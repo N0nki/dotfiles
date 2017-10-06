@@ -81,4 +81,7 @@ if exists(':tmap')
   " tnoremap <C-q> <C-w>N
   " tnoremap <C-q> <C-w><C-c>
 endif
+
+" Macdownで現在のバッファのファイルを開く
+command Macdown :!open -a macdown %
 " end key remap -----------------------------
