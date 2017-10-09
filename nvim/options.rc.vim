@@ -83,6 +83,12 @@ au VimLeave * mks! ~/.vim.session
 
 " texのconceal（数式のレンダリング）を無効
 let g:tex_conceal = ''
+" concealLevelが強制的に0以外の数値になるのはindentLineが原因
+" 以下のリンクでindentLine_setConcealのデフォルト値を変更する解決策が述べられているが，
+" これを変更するとインデントガイドが表示されなくなってしまう
+" :syn-ccharのヘルプをあとで読む
+" https://vi.stackexchange.com/questions/7258/how-do-i-prevent-vim-from-hiding-symbols-in-markdown-and-json
+" let g:indentLine_setConceal = 1
 
 " terminalのカラーパレット
 let g:terminal_color_0  = "#2E3436"
