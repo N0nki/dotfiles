@@ -1,5 +1,3 @@
-" vim7.2
-
 syntax on
 set t_Co=256
 set background=dark
@@ -153,6 +151,10 @@ nnoremap <silent> sc :<C-u>e .<CR>
 
 
 "NeoBundle Scripts-----------------------------
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 if &compatible
   set nocompatible               " Be iMproved
   endif
