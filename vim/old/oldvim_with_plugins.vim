@@ -1,3 +1,7 @@
+" 想定する環境
+" vimのversionが7.2~7.4
+" True Color未対応の端末(MacのTerminal.appなど)
+
 syntax on
 set t_Co=256
 set background=dark
