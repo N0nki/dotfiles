@@ -38,6 +38,7 @@ vmap _ :w !nkf -Ws\|pdcopy<CR><CR>
 augroup fileTypeIndent
   autocmd!
   autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
 " 不可視文字を表示
