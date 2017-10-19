@@ -5,7 +5,8 @@
 syntax on
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme iceberg
+" colorscheme Tomorrow-Night-Eighties
 
 " タイトルバーにファイルのパス情報等を表示
 set title
