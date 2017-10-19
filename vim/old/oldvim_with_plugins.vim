@@ -176,9 +176,6 @@ if &compatible
 
   " Add or remove your Bundles here:
 
-  " カラースキーム
-  NeoBundle 'morhetz/gruvbox'
-
   " ファイル操作支援
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'Shougo/vimfiler'
@@ -213,6 +210,8 @@ if &compatible
 
   " 複数行コメントアウト コマンド:gc
   NeoBundle 'tomtom/tcomment_vim'
+
+  NeoBundle 'tpope/vim-surround'
 
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
