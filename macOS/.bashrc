@@ -7,7 +7,7 @@ alias deactivate="source $PYENV_ROOT/versions/anaconda3-4.3.1/bin/deactivate"
 
 alias grep="grep --color"
 alias ls='ls -G'
-alias ll='ls -hl'
+alias ll='ls -al'
 alias activateiterm='osascript -e '\''tell application "iterm2" to activate'\'' '
 
 # vimとneovimのセッション回復

@@ -5,3 +5,5 @@ ln -sf ~/dotfiles/macOS/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/macOS/.latexmkrc ~/.latexmkrc
 ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
 ln -sf ~/dotfiles/macOS/.vrapperrc ~/.vrapperrc
+ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
+sh ./defaults.sh
