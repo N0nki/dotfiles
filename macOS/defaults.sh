@@ -19,8 +19,7 @@ defaults write -g AppleShowAllExtensions -bool true
 # 隠しファイルを表示
 defaults write com.apple.finder AppleShowAllFiles -bool true
 # デフォルトでホームフォルダを開く
-# 設定項目を見つけられない？
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 # ステータスバーを表示
 defaults write com.apple.finder ShowStatusBar -bool true
