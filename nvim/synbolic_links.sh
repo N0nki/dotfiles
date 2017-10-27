@@ -13,3 +13,4 @@ ln -sf ~/dotfiles/nvim/plugins/airline.rc.vim ~/.config/nvim/plugins/airline.rc.
 ln -sf ~/dotfiles/nvim/plugins/indentline.rc.vim ~/.config/nvim/plugins/indentline.rc.vim
 ln -sf ~/dotfiles/nvim/plugins/vimtex.rc.vim ~/.config/nvim/plugins/vimtex.rc.vim
 ln -sf ~/dotfiles/nvim/plugins/quickrun.rc.vim ~/.config/nvim/plugins/quickrun.rc.vim
+ln -sf ~/dotfiles/nvim/plugins/vim-markdown.rc.vim ~/.config/nvim/plugins/vim-markdown.rc.vim
