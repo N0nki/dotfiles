@@ -1,12 +1,14 @@
 " vimfiler
 
-" call vimfiler#custom#profile('default', 'context', {
-"         \ 'safe' : 0,
-"         \ 'edit_action' : 'tabopen',
-"         \ })
-
 let g:vimfiler_as_default_explorer = 1
 let g:unite_source_history_yank_enable = 1
+" セーフモードを無効
+let g:vimfiler_safe_mode_by_default = 0
+
+" 引数無しでvim起動時にIDE風にVimFilerをオープン
+if !argc()
+  autocmd VimEnter * VimFilerCreate -split -simple -winwidth=30 -no-quit
+endif
 
 " key remap
 " VimFiler起動
@@ -18,7 +20,6 @@ nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを垂直分割してVimFilerBufferDir
 nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
 " IDE風にバッファをオープン
-" nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
 nnoremap <silent> ,ide :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>
 
 autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
