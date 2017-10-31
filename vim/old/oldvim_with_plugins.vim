@@ -1,5 +1,5 @@
 " 想定する環境
-" vimのversionが7.2~7.4
+" vimのversionが7.3~7.4
 " True Color未対応の端末(MacのTerminal.appなど)
 
 syntax on
@@ -45,7 +45,6 @@ augroup END
 " 不可視文字を表示
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-" set listchars=tab:>-,trail:-
 
 " 検索結果をハイライト
 set hlsearch
@@ -182,6 +181,10 @@ if &compatible
   NeoBundle 'Shougo/vimfiler'
   let g:vimfiler_as_default_explorer=1
   let g:unite_source_history_yank_enable =1
+  let g:vimfiler_safe_mode_by_default = 0
+  if !argc()
+    autocmd VimEnter * VimFilerCreate -split -simple -winwidth=30 -no-quit
+  endif
   nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
   " 新規タブでVimFiler起動
   nnoremap <silent> ,ft :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
@@ -190,7 +193,6 @@ if &compatible
   " バッファを垂直分割してVimFilerBufferDir
   nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
   " IDE風にバッファをオープン
-  " nnoremap <silent> ,ide :<C-u>VimFilerBufferDir -split -simple -winwidth=30 -no-quit<CR>
   nnoremap <silent> ,ide :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>
 
   autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
