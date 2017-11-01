@@ -216,6 +216,9 @@ if &compatible
 
   NeoBundle 'tpope/vim-surround'
 
+  " インデント可視化
+  NeoBundle 'Yggdroot/indentLine'
+
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
