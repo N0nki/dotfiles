@@ -7,6 +7,7 @@ set t_Co=256
 set background=dark
 colorscheme iceberg
 " colorscheme Tomorrow-Night-Eighties
+" colorscheme gruvbox
 
 " タイトルバーにファイルのパス情報等を表示
 set title
