@@ -72,7 +72,7 @@ noremap ; :
 " terminal modeからcommand modeへ移行
 " tnoremap <silent> jj <C-\><C-n>
 tnoremap <silent> <C-q> <C-\><C-n>
-tnoremap <silent> <C-c> <C-\><C-n>
+" tnoremap <silent> <C-c> <C-\><C-n>
 
 " Macdownで現在のバッファのファイルを開く
 command Macdown :!open -a macdown %
