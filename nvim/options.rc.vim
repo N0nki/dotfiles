@@ -4,18 +4,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 if has('gui_vimr')
   colorscheme onedark
-  " colorscheme neodark
-  " let g:neodark#background='dark'
-  " let g:neodark#use_custom_terminal_theme = 1
 else
   colorscheme iceberg
-  " colorscheme Tomorrow-Night-Eighties
-  " colorscheme neodark
-  " let g:neodark#background='dark'
-  " let g:neodark#use_custom_terminal_theme = 1
 endif
-" colorscheme gruvbox
-" colorscheme tender
 
 " タイトルバーにファイルのパス情報等を表示
 set title

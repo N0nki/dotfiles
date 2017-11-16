@@ -1,23 +1,7 @@
 syntax on
 set termguicolors
 set background=dark
-" カラースキームの設定
-" colorscheme Tomorrow-Night-Eighties
 colorscheme gruvbox
-" colorscheme one
-" colorscheme quantum
-" colorscheme material-theme
-" colorscheme molokai
-" colorscheme jellybeans
-" colorscheme hybrid_reverse
-" colorscheme hybrid_material
-" colorscheme desertEx
-" colorscheme deep-space
-" colorscheme solarized
-" colorscheme lucario
-" colorscheme happy_hacking
-" colorscheme two-firewatch
-" colorscheme hybrid
 
 " タイトルバーにファイルのパス情報等を表示
 set title
