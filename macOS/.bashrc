@@ -13,3 +13,7 @@ alias activateiterm='osascript -e '\''tell application "iterm2" to activate'\'' 
 # vimとneovimのセッション回復
 alias nvims="nvim -S ~/.vim.session"
 alias vims="vim -S ~/.vim.session"
+
+if [ -e ~/usr/bin/vim ]; then
+  alias vim="~/usr/bin/vim"
+fi
