@@ -83,3 +83,6 @@ repo = 'plasticboy/vim-markdown'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-markdown.rc.vim
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
