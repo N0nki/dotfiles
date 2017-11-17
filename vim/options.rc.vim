@@ -2,6 +2,7 @@
 
 syntax on
 set termguicolors
+" set t_Co=256
 set background=dark
 if has('gui_vimr')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
