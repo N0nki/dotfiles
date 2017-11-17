@@ -1,11 +1,23 @@
-# curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-# sh ./install.sh
-# rm ./install.sh
+#!/bin/sh
 
-# プラグインマネージャーはdeinへ移行
-# deinのインストールはneovimのセットアップスクリプトで行うので、ここでは不要
+# vimとneovimのセットアップ
+# deinをインストールしたあとに各種設定ファイルのシンボリックリンクを貼る
 
-ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/vim/.gvimrc ~/.gvimrc
-ln -sf ~/dotfiles/vim/keymap.rc.vim ~/.vim
-ln -sf ~/dotfiles/vim/options.rc.vim ~/.vim
+export XDG_CONFIG_HOME=$HOME/.config
+if [ ! -e ~/.config ]; then
+  mkdir .config
+fi
+cd ~/.config
+mkdir nvim
+cd nvim
+mkdir colors
+mkdir plugins
+if [ ! -e ~/.cache ]; then
+  mkdir .cache
+fi
+cd ~/.cache
+mkdir dein
+cd dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+sh ~/dotfiles/vim/synbolic_links.sh

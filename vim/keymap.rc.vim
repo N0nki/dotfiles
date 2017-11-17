@@ -74,7 +74,7 @@ nnoremap <silent> so :tabo <CR>
 " USキーボードのみ
 noremap ; :
 
-" terminal mode
+" vim terminal mode
 if exists(':tmap')
   tnoremap <C-c> <C-w>N
   " nnoremap :q<CR> :q!<CR>
@@ -82,6 +82,12 @@ if exists(':tmap')
   " tnoremap <C-q> <C-w><C-c>
 endif
 
-" Macdownで現在のバッファのファイルを開く
-command Macdown :!open -a macdown %
+" neovim terminal mode
+if has("nvim")
+  " terminal modeからcommand modeへ移行
+  " tnoremap <silent> jj <C-\><C-n>
+  tnoremap <silent> <C-q> <C-\><C-n>
+  " tnoremap <silent> <C-c> <C-\><C-n>
+endif
+
 " end key remap -----------------------------

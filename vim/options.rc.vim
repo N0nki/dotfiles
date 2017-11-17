@@ -1,7 +1,37 @@
+" options
+
 syntax on
 set termguicolors
 set background=dark
-colorscheme gruvbox
+if has('gui_vimr')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  colorscheme onedark
+elseif has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  colorscheme iceberg
+else
+  colorscheme gruvbox
+endif
+
+if has('nvim')
+  " terminalのカラーパレット
+  let g:terminal_color_0  = "#2E3436"
+  let g:terminal_color_1  = "#DD6060" " 赤 ファイル
+  let g:terminal_color_2  = "#4E9A06"
+  let g:terminal_color_3  = "#C4A000"
+  let g:terminal_color_4  = "#438DED" " 青 ディレクトリ
+  let g:terminal_color_5  = "#BA6BC6" " 紫 シンボリックリンク
+  let g:terminal_color_6  = "#93A1A1"
+  let g:terminal_color_7  = "#D3D7CF"
+  let g:terminal_color_8  = "#555753"
+  let g:terminal_color_9  = "#EF2929"
+  let g:terminal_color_10 = "#8AE234"
+  let g:terminal_color_11 = "#FCE94F"
+  let g:terminal_color_12 = "#729FCF"
+  let g:terminal_color_13 = "#AD7FA8"
+  let g:terminal_color_14 = "#34E2E2"
+  let g:terminal_color_15 = "#EEEEEC"
+endif
 
 " タイトルバーにファイルのパス情報等を表示
 set title
@@ -33,14 +63,9 @@ set showmatch
 " 対応括弧のハイライト表示を3秒
 set matchtime=3
 
-"OSのクリップボードとリンク
-nmap _ :.w !nkf -Ws\|pdcopy<CR><CR>
-vmap _ :w !nkf -Ws\|pdcopy<CR><CR>
-
 " 不可視文字を表示
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-" set listchars=tab:>-,trail:-
 
 " 検索結果をハイライト
 set hlsearch
@@ -49,9 +74,6 @@ set hlsearch
 set wildmenu
 " 入力中のコマンドを表示
 set showcmd
-
-" yankをclipboardに格納
-set clipboard=unnamed,autoselect
 
 " viとの互換性を無効にする
 set nocompatible
@@ -77,3 +99,8 @@ au VimLeave * mks! ~/.vim.session
 
 " texのconceal（数式のレンダリング）を無効
 let g:tex_conceal = ''
+
+if has("mac")
+  " Macdownで現在のバッファのファイルを開く
+  command Macdown :!open -a macdown %
+endif
