@@ -4,11 +4,11 @@
 # deinをインストールしたあとに各種設定ファイルのシンボリックリンクを貼る
 
 if [ ! -e ~/.vim ]; then
-  mkdir .vim
+  mkdir ~/.vim
 fi
 export XDG_CONFIG_HOME=$HOME/.config
 if [ ! -e ~/.config ]; then
-  mkdir .config
+  mkdir ~/.config
 fi
 cd ~/.config
 mkdir nvim
@@ -16,7 +16,7 @@ cd nvim
 mkdir colors
 mkdir plugins
 if [ ! -e ~/.cache ]; then
-  mkdir .cache
+  mkdir ~/.cache
 fi
 cd ~/.cache
 mkdir dein
