@@ -16,22 +16,22 @@ endif
 
 if has('nvim')
   " terminalのカラーパレット
-  let g:terminal_color_0  = "#2E3436"
-  let g:terminal_color_1  = "#DD6060" " 赤 ファイル
-  let g:terminal_color_2  = "#4E9A06"
-  let g:terminal_color_3  = "#C4A000"
-  let g:terminal_color_4  = "#438DED" " 青 ディレクトリ
-  let g:terminal_color_5  = "#BA6BC6" " 紫 シンボリックリンク
-  let g:terminal_color_6  = "#93A1A1"
-  let g:terminal_color_7  = "#D3D7CF"
-  let g:terminal_color_8  = "#555753"
-  let g:terminal_color_9  = "#EF2929"
-  let g:terminal_color_10 = "#8AE234"
-  let g:terminal_color_11 = "#FCE94F"
-  let g:terminal_color_12 = "#729FCF"
-  let g:terminal_color_13 = "#AD7FA8"
-  let g:terminal_color_14 = "#34E2E2"
-  let g:terminal_color_15 = "#EEEEEC"
+  let g:terminal_color_0 = '#161821'
+  let g:terminal_color_1 = '#e27878'
+  let g:terminal_color_2 = '#b4be82'
+  let g:terminal_color_3 = '#e2a478'
+  let g:terminal_color_4 = '#84a0c6'
+  let g:terminal_color_5 = '#a093c7'
+  let g:terminal_color_6 = '#89b8c2'
+  let g:terminal_color_7 = '#c6c8d1'
+  let g:terminal_color_8 = '#6b7089'
+  let g:terminal_color_9 = '#e98989'
+  let g:terminal_color_10 = '#c0ca8e'
+  let g:terminal_color_11 = '#e9b189'
+  let g:terminal_color_12 = '#91acd1'
+  let g:terminal_color_13 = '#ada0d3'
+  let g:terminal_color_14 = '#95c4ce'
+  let g:terminal_color_15 = '#d2d4de'
 endif
 
 " タイトルバーにファイルのパス情報等を表示
