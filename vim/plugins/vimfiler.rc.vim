@@ -21,6 +21,8 @@ nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
 " IDE風にバッファをオープン
 nnoremap <silent> ,ide :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>
+" nnoremap <silent> ,side :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>:split<CR>:<C-u>VimFilerCreate -simple -no-quit<CR>
+nnoremap <silent> ,side :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit -double<CR>
 
 autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
 function! s:vimfiler_my_settings()
