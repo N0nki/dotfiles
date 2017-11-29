@@ -2,8 +2,8 @@
 
 let g:vimfiler_as_default_explorer = 1
 let g:unite_source_history_yank_enable = 1
-" セーフモードを無効
 let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_enable_auto_cd = 1
 
 " 引数無しでvim起動時にIDE風にVimFilerをオープン
 if !argc()
@@ -21,8 +21,8 @@ nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
 nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
 " IDE風にバッファをオープン
 nnoremap <silent> ,ide :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>
-" nnoremap <silent> ,side :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>:split<CR>:<C-u>VimFilerCreate -simple -no-quit<CR>
 nnoremap <silent> ,side :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit -double<CR>
+" nnoremap <silent> ,side :<C-u>VimFilerCreate -split -simple -winwidth=30 -no-quit<CR>:split<CR>:<C-u>VimFilerCreate -simple -no-quit<CR>
 
 autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
 function! s:vimfiler_my_settings()
