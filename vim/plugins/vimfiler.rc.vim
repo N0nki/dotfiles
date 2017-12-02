@@ -12,7 +12,7 @@ endif
 
 " key remap
 " VimFiler起動
-nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple<CR>
+nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple -no-quit<CR>
 " 新規タブでVimFiler起動
 nnoremap <silent> ,ft :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
 " バッファを水平分割してVimFilerBufferDir
