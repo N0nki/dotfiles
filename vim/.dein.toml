@@ -18,9 +18,6 @@ source ~/.config/nvim/plugins/vimfiler.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
