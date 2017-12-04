@@ -1,10 +1,53 @@
-snippet pagebreak
+snippet pagebreaktag
 abbr <div style="page-break-before: always;"></div>
 options word
     <div style="page-break-before: always;"></div>
 
 
-snippet image
+snippet imagetag
 abbr <img src="" alt="" title="" width="" height="" />
 options word
-    <img src="${0}" alt="${1}" title="${2}" width="${3}" height="${4}" />
+    <img src="${1}" alt="${2}" title="${3}" width="${4}" height="${5}" />${6}
+
+snippet positiontag
+abbr <div style="text-align:;">
+options word
+    <div style="text-align: ${1};">
+    ${2}
+    </div>${3}
+
+snippet table2
+abbr table size 2
+options word
+    |${1}|${2}|
+    |:---:|:----:|
+    |${3}|${4}|
+
+snippet table3
+abbr table size 3
+options word
+    |${1}|${2}|${3}|
+    |:---:|:----:|:---:|
+    |${4}|${5}|${6}|
+
+snippet table4
+abbr table size 4
+options word
+    |${1}|${2}|${3}|${4}|
+    |:---:|:----:|:---:|:---:|
+    |${5}|${6}|${7}|${8}|
+
+snippet marpfooter
+abbr <!-- footer: -->
+options word
+    <!-- footer: ${1} -->
+
+snippet marpgaia
+abbr <!-- $theme: gaia -->
+options word
+    <!-- $theme: gaia -->
+
+snippet marpnumber
+abbr <!-- page_number: true -->
+options word
+    <!-- page_number: true -->
