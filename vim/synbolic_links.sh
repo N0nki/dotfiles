@@ -21,3 +21,5 @@ ln -sf ~/dotfiles/vim/plugins/vimtex.rc.vim ~/.config/nvim/plugins/vimtex.rc.vim
 ln -sf ~/dotfiles/vim/plugins/quickrun.rc.vim ~/.config/nvim/plugins/quickrun.rc.vim
 ln -sf ~/dotfiles/vim/plugins/vim-markdown.rc.vim ~/.config/nvim/plugins/vim-markdown.rc.vim
 ln -sf ~/dotfiles/vim/plugins/neosnippet.rc.vim ~/.config/nvim/plugins/neosnippet.rc.vim
+# snippet
+ln -sf ~/dotfiles/vim/snippets ~/.vim/snippets
