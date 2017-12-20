@@ -1,4 +1,4 @@
-" key remap ----------------------------------
+" key remap
 
 " jjでinsertからnormal
 inoremap jj <ESC>
@@ -89,5 +89,3 @@ if has("nvim")
   tnoremap <silent> <C-q> <C-\><C-n>
   " tnoremap <silent> <C-c> <C-\><C-n>
 endif
-
-" end key remap -----------------------------
