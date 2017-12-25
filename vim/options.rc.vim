@@ -64,6 +64,9 @@ set showmatch
 " 対応括弧のハイライト表示を3秒
 set matchtime=3
 
+set encoding=utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+
 " 不可視文字を表示
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
