@@ -1,3 +1,5 @@
+" quickrun
+
 " shabadou.vimの使い方は以下を参照
 " http://d.hatena.ne.jp/osyo-manga/20120919/1348054752
 
