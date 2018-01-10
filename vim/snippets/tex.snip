@@ -1,0 +1,83 @@
+snippet figure_multi_dep
+alias
+    \begin{figure}[htbp]
+      \centering
+      \begin{minipage}[htbp]{0.45\linewidth}
+        \centering
+        \includegraphics[clip, width=]{}
+        \caption{}
+        \label{}
+      \end{minipage}
+      \begin{minipage}[htbp]{0.45\linewidth}
+      \centering
+        \includegraphics[clip, width=]{}
+        \caption{}
+        \label{}
+      \end{minipage}
+    \end{figure}
+
+snippet figure_multi_rel
+alias
+    \begin{figure}[htbp]
+      \centering
+      \begin{subfigure}[htbp]{0.45\linewidth}
+        \centering
+        \includegraphics[clip, width=]{}
+        \subcaption{}
+        \label{}
+      \end{subfigure}
+      \begin{subfigure}[htbp]{0.45\linewidth}
+        \centering
+        \includegraphics[clip, width=]{}
+        \subcaption{}
+        \label{}
+      \end{subfigure}
+
+      \caption{}
+      \label{}
+    \end{figure}
+
+snippet table_multi
+alias
+    \begin{table}[htbp]
+      \centering
+      \begin{tabular}{c}
+        \begin{minipage}{0.5\hsize}
+          \centering
+          \caption{}
+          \label{}
+          % ここに左の表の\begin{tabular}から\end{tabular}を書く
+        \end{minipage}
+        % ２つの表の間のスペース
+        % \hspace{pt}
+        \begin{minipage}{0.5\hsize}
+          \centering
+          \caption{}
+          \label{}
+          % ここに右の表の\begin{tabular}から\end{tabular}を書く
+        \end{minipage}
+      \end{tabular}
+    \end{table}
+
+
+snippet table_and_image
+alias
+    \begin{figure}[htbp]
+      \centering
+      \begin{minipage}[htbp]{0.45\linewidth}
+        \centering
+        \includegraphics[]{}
+        \figcaption{}
+        \label{}
+      \end{minipage}
+      % 図と表の間のスペース指定
+      % \hspace*{pt}
+      \begin{minipage}[htbp]{0.45\linewidth}
+        \centering
+        \tblcaption{}
+        \label{}
+        % ここに表組みのコードを書く
+        % \begin{tabular}{}
+        % \end{tabular}までを記述する
+      \end{minipage}
+    \end{figure}
