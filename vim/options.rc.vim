@@ -94,9 +94,7 @@ set nowritebackup
 set nobackup
 set noswapfile
 
-" ファイルの変更を可能
-set modifiable
-set write
+set incsearch
 
 " vim終了時に現在のセッションを保存する
 au VimLeave * mks! ~/.vim.session
