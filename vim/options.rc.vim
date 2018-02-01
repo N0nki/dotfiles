@@ -85,9 +85,8 @@ set nocompatible
 " Backspaceで削除する要素を指定
 set backspace=indent,eol,start
 
-" lightlineの動作に必要
+" vim-airlineの動作に必要
 set laststatus=2
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ \[ENC=%{&fileencoding}]%P
 
 " swapファイル、Backupファイルを無効
 set nowritebackup
@@ -95,6 +94,8 @@ set nobackup
 set noswapfile
 
 set incsearch
+
+" set ambiwidth=double
 
 " vim終了時に現在のセッションを保存する
 au VimLeave * mks! ~/.vim.session
