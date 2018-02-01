@@ -13,8 +13,6 @@ fi
 cd ~/.config
 mkdir nvim
 cd nvim
-mkdir colors
-mkdir plugins
 if [ ! -e ~/.cache ]; then
   mkdir ~/.cache
 fi
