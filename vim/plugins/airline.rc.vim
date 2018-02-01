@@ -1,7 +1,9 @@
 " vim-airline
 
 if has('nvim')
-  let g:airline_theme = 'molokai'
+  " let g:airline_theme = 'molokai'
+  " let g:airline_theme = 'tomorrow'
+  let g:airline_theme = 'base16_spacemacs'
 else
   let g:airline_theme = 'powerlineish'
 endif
