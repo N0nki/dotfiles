@@ -1,5 +1,8 @@
 " Unite
 
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
 " buffer以外はdefault-action=tabopen
 " カレントディレクトリのファイル一覧
 nnoremap <silent> ,uf :Unite file -default-action=tabopen<CR>
@@ -13,6 +16,11 @@ nnoremap <silent> ,uk :Unite bookmark -default-action=tabopen<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -default-action=tabopen<CR>
 
 " カレントディレクトリ以下をgrep
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endi
 nnoremap <silent> ,grep :<C-u>Unite grep:. -buffer-name=grep-buffer -no-quit<CR>
 " カーソル位置の単語でgrep
 nnoremap <silent> ,cgrep :<C-u>Unite grep:. -buffer-name=grep-buffer -no-quit<CR><C-R><C-W>
