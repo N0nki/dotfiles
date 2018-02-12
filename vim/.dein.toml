@@ -89,3 +89,6 @@ repo = 'ryanoasis/vim-devicons'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-devicons.rc.vim
 '''
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
