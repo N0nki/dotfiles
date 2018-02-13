@@ -47,6 +47,9 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'kassio/neoterm'
+hook_add = '''
+source ~/.config/nvim/plugins/neoterm.rc.vim
+'''
 
 [[plugins]]
 repo = 'lervag/vimtex'
