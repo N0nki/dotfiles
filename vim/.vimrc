@@ -36,7 +36,7 @@ endif
 
 " incsearch
 " 古いvimまたはneovim用
-if v:version < 800 || has('nvim')
+if has('nvim')
   call dein#add('haya14busa/incsearch.vim')
 else
   call dein#add('haya14busa/is.vim')

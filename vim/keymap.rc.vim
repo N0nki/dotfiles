@@ -82,17 +82,14 @@ if exists(':tmap')
   " tnoremap <C-q> <C-w><C-c>
 endif
 
-" neovim terminal mode
+" neovim
 if has("nvim")
   " terminal modeからcommand modeへ移行
   " tnoremap <silent> jj <C-\><C-n>
   tnoremap <silent> <C-q> <C-\><C-n>
   " tnoremap <silent> <C-c> <C-\><C-n>
-endif
 
-" incsearch.vim
-if v:version < 800 || has('nvim')
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
+  " incsearch.vim
+  map g/  <Plug>(incsearch-forward)
+  map g?  <Plug>(incsearch-backward)
 endif
