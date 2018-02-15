@@ -95,6 +95,8 @@ set noswapfile
 
 set incsearch
 
+set splitright splitbelow
+
 " set ambiwidth=double
 
 " vim終了時に現在のセッションを保存する
