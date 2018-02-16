@@ -95,3 +95,13 @@ source ~/.config/nvim/plugins/vim-devicons.rc.vim
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'mattn/gist-vim'
+depends = ['mattn/webapi-vim']
+hook_add = '''
+source ~/.config/nvim/plugins/gist-vim.rc.vim
+'''
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
