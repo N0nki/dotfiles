@@ -7,7 +7,7 @@ set transparency=20
 
 " フォント
 " set guifont=Source\ Han\ Code\ JP\ L:h15
-set guifont=Cica-Regular:h16
+set guifont=Cica-Regular:h18
 " set guifont=Source\ Code\ Pro:h15
 
 set columns=100
