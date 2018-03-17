@@ -11,7 +11,6 @@ elseif has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   colorscheme iceberg
 else
-  " colorscheme gruvbox
   colorscheme sierra
 endif
 
@@ -66,7 +65,6 @@ set showmatch
 set matchtime=3
 
 set encoding=utf-8
-" set fileencodings=iso-2022-jp,sjis,euc-jp,utf-8
 
 " 不可視文字を表示
 set list
@@ -97,8 +95,6 @@ set noswapfile
 set incsearch
 
 set splitright splitbelow
-
-" set ambiwidth=double
 
 " vim終了時に現在のセッションを保存する
 au VimLeave * mks! ~/.vim.session
