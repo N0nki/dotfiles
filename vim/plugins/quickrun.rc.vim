@@ -82,5 +82,9 @@ let g:quickrun_config = {
 let g:quickrun_no_default_key_mappings = 1
 
 " ファイルを保存してからQuickrun実行
-nnoremap <Leader>r :write<CR>:QuickRun -mode n<CR>        
+nnoremap <Leader>r :write<CR>:QuickRun -mode n<CR>
 xnoremap <Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
+
+" 標準入力をファイルからリダイレクト
+command QuickRunRedirect :QuickRun <./redirect_input.txt
+nnoremap <Leader>er :QuickRunRedirect<CR>
