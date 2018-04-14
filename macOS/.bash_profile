@@ -18,4 +18,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+# go
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
+
 source ~/.bashrc
