@@ -10,3 +10,4 @@ else
   let g:neocomplete#enable_at_startup = 1
 endif
 
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
