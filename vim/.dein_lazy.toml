@@ -44,8 +44,20 @@ on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
-on_i = 1
+on_ft = 'python'
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
-on_i = 1
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-go.rc.vim
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+on_ft = 'go'
