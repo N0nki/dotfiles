@@ -11,7 +11,7 @@ elseif has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   colorscheme iceberg
 else
-  colorscheme lucius
+  colorscheme colorsbox-stnight
 endif
 
 if has('nvim')
