@@ -105,3 +105,6 @@ source ~/.config/nvim/plugins/gist-vim.rc.vim
 
 [[plugins]]
 repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
