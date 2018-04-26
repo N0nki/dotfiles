@@ -1,0 +1,14 @@
+snippet     scanf
+options     head
+abbr        scanf("...", ...);
+    scanf("${1}", ${2});
+
+snippet     printf_simple
+options     head
+abbr        printf("...");
+    printf("${1}");
+
+snippet     fopen_simple
+options     head
+abbr        fopen("...", "...");
+    fopen("${1:PATH}", "${2:MODE}");
