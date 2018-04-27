@@ -61,3 +61,7 @@ source ~/.config/nvim/plugins/vim-go.rc.vim
 repo = 'zchee/deoplete-go'
 build = 'make'
 on_ft = 'go'
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['c', 'cpp']
