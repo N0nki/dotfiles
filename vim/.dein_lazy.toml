@@ -28,10 +28,6 @@ source ~/.config/nvim/plugins/deoplete.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-on_i = 1
-
-[[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 hook_add = '''
