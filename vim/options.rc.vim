@@ -97,6 +97,14 @@ set incsearch
 
 set splitright splitbelow
 
+" vim起動時に.gitが存在するならgit pullする
+" au VimEnter * call s:pullIfGitExist()
+" function! s:pullIfGitExist()
+"   if isdirectory("./.git")
+"     execute "!git pull"
+"   endif
+" endfunction
+
 " vim終了時に現在のセッションを保存する
 au VimLeave * mks! ~/.vim.session
 
