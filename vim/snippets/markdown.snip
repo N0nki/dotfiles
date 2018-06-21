@@ -21,7 +21,6 @@ abbr <div style="page-break-before: always;"></div>
 options word
     <div style="page-break-before: always;"></div>
 
-
 snippet imagetag
 abbr <img src="" alt="" title="" width="" height="" />
 options word
@@ -69,3 +68,14 @@ snippet marpnumber
 abbr <!-- page_number: true -->
 options word
     <!-- page_number: true -->
+
+snippet gitbookcodeblock
+abbr gitbook named codeblock
+options word
+    {% code-tabs %}
+    {% code-tabs-item title="${1}" %}
+    \`\`\`${2}
+    ${3}
+    \`\`\`
+    {% endcode-tabs-item %}
+    {% endcode-tabs %}
