@@ -1,5 +1,6 @@
+# 図を並べて表示
+# キャプションは図1，図2となる
 snippet figure_multi_dep
-alias
     \begin{figure}[htbp]
       \centering
       \begin{minipage}[htbp]{0.45\linewidth}
@@ -16,8 +17,9 @@ alias
       \end{minipage}
     \end{figure}
 
+# 図を並べて表示
+# キャプションは図1(a)，図1(b)となる
 snippet figure_multi_rel
-alias
     \begin{figure}[htbp]
       \centering
       \begin{subfigure}[htbp]{0.45\linewidth}
@@ -37,8 +39,8 @@ alias
       \label{}
     \end{figure}
 
+# 表を並べて表示
 snippet table_multi
-alias
     \begin{table}[htbp]
       \centering
       \begin{tabular}{c}
@@ -60,8 +62,8 @@ alias
     \end{table}
 
 
+# 左に表，右に図を表示
 snippet table_and_image
-alias
     \begin{figure}[htbp]
       \centering
       \begin{minipage}[htbp]{0.45\linewidth}
