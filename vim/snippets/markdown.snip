@@ -79,3 +79,16 @@ options word
     \`\`\`
     {% endcode-tabs-item %}
     {% endcode-tabs %}
+
+snippet gitbooktab
+abbr gitbook tab page
+options word
+    {% tabs %}
+    {% tab title="${1}" %}
+    ${2}
+    {% endtab %}
+
+    {% tab title="${3}" %}
+    ${4}
+    {% endtab %}
+    {% endtabs %}
