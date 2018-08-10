@@ -117,3 +117,18 @@ repo = 'w0rp/ale'
 hook_add = '''
 source ~/.config/nvim/plugins/ale.rc.vim
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['junegunn/fzf']
+hook_add = '''
+source ~/.config/nvim/plugins/fzf-vim.rc.vim
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+
+[[plugins]]
+repo = 'N0nki/sample.nvim'
