@@ -94,6 +94,8 @@ set nobackup
 set noswapfile
 
 set incsearch
+set ignorecase
+set smartcase
 
 set splitright splitbelow
 
