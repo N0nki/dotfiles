@@ -131,4 +131,7 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
+repo = 'Valloric/MatchTagAlways'
+
+[[plugins]]
 repo = 'N0nki/sample.nvim'
