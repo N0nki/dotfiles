@@ -9,12 +9,6 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-repo = 'Shougo/vimshell.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/vimshell.rc.vim
-'''
-
-[[plugins]]
 repo = 'Shougo/vimfiler.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/vimfiler.rc.vim
