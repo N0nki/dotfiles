@@ -65,3 +65,7 @@ on_ft = ['c', 'c11', 'cpp']
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
+
+[[plugins]]
+repo = 'Valloric/MatchTagAlways'
+on_ft = 'html'
