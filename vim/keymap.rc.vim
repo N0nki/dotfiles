@@ -71,9 +71,6 @@ nnoremap <silent> sc :tabc <CR>
 " 今いるタブ以外を閉じる
 nnoremap <silent> so :tabo <CR>
 
-" USキーボードのみ
-noremap ; :
-
 " vim terminal mode
 if exists(':tmap')
   tnoremap <C-c> <C-w>N
