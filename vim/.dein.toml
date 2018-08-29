@@ -125,4 +125,7 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
 repo = 'N0nki/sample.nvim'
