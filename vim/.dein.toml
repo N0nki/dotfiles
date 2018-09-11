@@ -122,19 +122,19 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
-if = 'has(nvim)'
+if = "has('nvim')"
 repo = 'haya14busa/incsearch.vim'
 
 [[plugins]]
-if = '!has(nvim)'
+if = "!has('nvim')"
 repo = 'haya14busa/is.vim'
 
 [[plugins]]
-if = '!has(nvim)'
+if = "!has('nvim')"
 repo = 'roxma/nvim-yarp'
 
 [[plugins]]
-if = '!has(nvim)'
+if = "!has('nvim')"
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
