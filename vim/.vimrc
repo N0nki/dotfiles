@@ -34,15 +34,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-" incsearch
-" 古いvimまたはneovim用
-if has('nvim')
-  call dein#add('haya14busa/incsearch.vim')
-else
-  call dein#add('haya14busa/is.vim')
-endif
-
-
 " 各種設定とkeymapを読み込み
 runtime! options.rc.vim
 runtime! keymap.rc.vim

@@ -31,37 +31,16 @@ source ~/.config/nvim/plugins/airline.rc.vim
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-source ~/.config/nvim/plugins/indentline.rc.vim
-'''
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-source ~/.config/nvim/plugins/neoterm.rc.vim
-'''
-
-[[plugins]]
-repo = 'lervag/vimtex'
-hook_add = '''
-source ~/.config/nvim/plugins/vimtex.rc.vim
-'''
-
-[[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'tpope/vim-rhubarb'
@@ -80,12 +59,6 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-hook_add = '''
-source ~/.config/nvim/plugins/vim-markdown.rc.vim
-'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -119,6 +92,24 @@ source ~/.config/nvim/plugins/ale.rc.vim
 '''
 
 [[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+source ~/.config/nvim/plugins/neoterm.rc.vim
+'''
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+source ~/.config/nvim/plugins/indentline.rc.vim
+'''
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = ['junegunn/fzf']
 hook_add = '''
@@ -131,7 +122,20 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
-repo = 'tpope/vim-repeat'
+if = 'has(nvim)'
+repo = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+if = '!has(nvim)'
+repo = 'haya14busa/is.vim'
+
+[[plugins]]
+if = '!has(nvim)'
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+if = '!has(nvim)'
+repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
 repo = 'N0nki/sample.nvim'

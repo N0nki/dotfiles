@@ -63,9 +63,23 @@ repo = 'zchee/deoplete-clang'
 on_ft = ['c', 'c11', 'cpp']
 
 [[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-markdown.rc.vim
+'''
+
+[[plugins]]
 repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
 
 [[plugins]]
 repo = 'Valloric/MatchTagAlways'
 on_ft = 'html'
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+hook_add = '''
+source ~/.config/nvim/plugins/vimtex.rc.vim
+'''
