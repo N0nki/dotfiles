@@ -47,7 +47,7 @@ repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-hook_source = '''
+hook_add = '''
 source ~/.config/nvim/plugins/quickrun.rc.vim
 '''
 
