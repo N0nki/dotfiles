@@ -35,6 +35,10 @@ source ~/.config/nvim/plugins/unite.rc.vim
 '''
 
 [[plugins]]
+repo = 'Townk/vim-autoclose'
+on_i = 1
+
+[[plugins]]
 repo = 'jiangmiao/auto-pairs'
 on_i = 1
 
@@ -44,6 +48,10 @@ on_ft = 'python'
 
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]

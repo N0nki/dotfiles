@@ -31,9 +31,6 @@ source ~/.config/nvim/plugins/airline.rc.vim
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -99,9 +96,6 @@ source ~/.config/nvim/plugins/neoterm.rc.vim
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
