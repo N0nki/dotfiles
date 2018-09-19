@@ -4,6 +4,9 @@ export PATH
 
 export PATH=$PATH:$HOME/usr/bin
 
+# openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 # rbenv
 eval "$(rbenv init -)"
 
