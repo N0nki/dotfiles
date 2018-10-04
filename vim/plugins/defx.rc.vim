@@ -6,6 +6,8 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
   \ defx#do_action('open')
   nnoremap <silent><buffer><expr> l
+  \ defx#do_action('open', 'wincmd w \| drop')
+  nnoremap <silent><buffer><expr> l
   \ defx#do_action('open')
   nnoremap <silent><buffer><expr> s
   \ defx#do_action('open', 'split')
@@ -31,6 +33,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('rename')
   nnoremap <silent><buffer><expr> x
   \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
   nnoremap <silent><buffer><expr> h
   \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> ~
@@ -52,3 +56,4 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <C-g>
   \ defx#do_action('print')
 endfunction
+
