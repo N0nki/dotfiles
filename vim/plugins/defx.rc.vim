@@ -3,8 +3,10 @@
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
+  " nnoremap <silent><buffer><expr> <CR>
+  " \ defx#do_action('open')
   nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
+  \ defx#do_action('open', 'wincmd w \| edit')
   nnoremap <silent><buffer><expr> l
   \ defx#do_action('open')
   nnoremap <silent><buffer><expr> s
