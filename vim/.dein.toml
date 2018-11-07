@@ -43,6 +43,9 @@ repo = 'tpope/vim-repeat'
 repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 source ~/.config/nvim/plugins/quickrun.rc.vim
