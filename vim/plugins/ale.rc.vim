@@ -5,3 +5,5 @@ let g:ale_set_quickfix = 1
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
+
+nnoremap <Space>lt :<C-u>ALEToggle<CR>
