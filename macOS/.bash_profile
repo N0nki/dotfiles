@@ -25,4 +25,12 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+if [ "$(uname)" == 'Darwin' ]; then
+  # export CC="/usr/local/bin/gcc-8 -fopenmp -I/usr/local/opt/open-mpi/include -L/usr/local/opt/open-mpi/lib -lmpi"
+  export CC="/usr/local/bin/g++-8"
+  # export CC="/usr/local/bin/gcc-8"
+  export OMP_NUM_THREADS=2
+  export CXX="/usr/local/bin/g++-8"
+fi
+
 source ~/.bashrc
