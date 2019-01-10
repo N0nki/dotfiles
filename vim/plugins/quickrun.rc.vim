@@ -41,7 +41,7 @@ let g:quickrun_config = {
         \ 'hook/time/enable': '1',
         \ 'command': 'latexmk',
         \ 'outputter/buffer/split': ':60vsplit',
-        \ 'exec': ['%c %a -cd -gg -c -pdfdvi %s', 'open -g %s:r.pdf'],
+        \ 'exec': ['%c %a -cd -gg -pdfdvi %s', 'open -g %s:r.pdf'],
         \},
       \'ruby': {
         \ 'runner': 'vimproc',
