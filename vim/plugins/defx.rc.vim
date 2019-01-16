@@ -36,6 +36,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> ~
   \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> S
+	  \ defx#do_action('toggle_sort', 'extension')
   nnoremap <silent><buffer><expr> .
   \ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> q
@@ -54,4 +56,4 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
 endfunction
 
-nnoremap <silent> ,edi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -columns=icons:filename:type<CR>
+nnoremap <silent> ,edi :<C-u>Defx -new -split=vertical -winwidth=40 -direction=topleft -columns=icons:filename:type<CR>
