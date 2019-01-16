@@ -48,7 +48,6 @@ let g:quickrun_config = {
         \                      '%S:p:r.dvi',
         \                      '%S:p:r.fdb_latexmk',
         \                      '%S:p:r.fls',
-        \                      '%S:p:r.log',
         \                      '%S:p:r.out'
         \                      ],
         \ 'exec': ['%c %a -cd -gg -pdfdvi %s', 'open -g %s:r.pdf'],
