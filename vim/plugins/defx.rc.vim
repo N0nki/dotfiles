@@ -54,4 +54,4 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
 endfunction
 
-nnoremap <silent> ,edi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft<CR>
+nnoremap <silent> ,edi :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -columns=icons:filename:type<CR>

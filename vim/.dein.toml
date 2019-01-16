@@ -21,6 +21,9 @@ source ~/.config/nvim/plugins/defx.rc.vim
 '''
 
 [[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
