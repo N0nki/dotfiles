@@ -58,7 +58,7 @@ endfunction
 
 command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type -search=`expand("%:p")` `expand("%:p:h")`')
 
-nnoremap <silent> ,edi :<C-u>DefxExplorerMode<CR>
+nnoremap <silent> <Space>e :<C-u>DefxExplorerMode<CR>
 
 " 引数無しでvim起動時にIDE風にdefxをオープン
 if !argc()
