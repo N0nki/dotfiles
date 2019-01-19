@@ -144,4 +144,10 @@ if = "!has('nvim')"
 repo = 'roxma/vim-hug-neovim-rpc'
 
 [[plugins]]
+repo = 'wesQ3/vim-windowswap'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-windowswap.rc.vim
+'''
+
+[[plugins]]
 repo = 'N0nki/sample.nvim'
