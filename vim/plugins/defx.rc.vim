@@ -56,4 +56,11 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
 endfunction
 
-nnoremap <silent> ,edi :<C-u>Defx -new -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type<CR>
+command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type')
+
+nnoremap <silent> ,edi :<C-u>DefxExplorerMode<CR>
+
+" 引数無しでvim起動時にIDE風にdefxをオープン
+if !argc()
+  autocmd VimEnter * DefxExplorerMode
+endif

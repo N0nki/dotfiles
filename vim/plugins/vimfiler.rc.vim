@@ -11,11 +11,6 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
-" 引数無しでvim起動時にIDE風にVimFilerをオープン
-if !argc()
-  autocmd VimEnter * VimFilerExplorer
-endif
-
 " key remap
 " VimFiler起動
 nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple -no-quit<CR>
