@@ -7,9 +7,9 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
   \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> s
-  \ defx#do_action('open', 'split')
+  \ defx#do_action('drop', 'split')
   nnoremap <silent><buffer><expr> v
-  \ defx#do_action('open', 'vsplit')
+  \ defx#do_action('drop', 'vsplit')
   nnoremap <silent><buffer><expr> t
   \ defx#do_action('open', 'tabe')
   nnoremap <silent><buffer><expr> c
