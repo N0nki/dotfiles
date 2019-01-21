@@ -1,3 +1,3 @@
 " vim-gitgutter
 
-nnoremap <Space>hl :<C-u>GitGutterLineHighlightsToggle<CR>
+nnoremap <Leader>hl :<C-u>GitGutterLineHighlightsToggle<CR>

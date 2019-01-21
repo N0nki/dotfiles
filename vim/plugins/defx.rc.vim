@@ -42,7 +42,7 @@ function! s:defx_my_settings() abort
   \ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> q
   \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
+  nnoremap <silent><buffer><expr> <Leader>
   \ defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> *
   \ defx#do_action('toggle_select_all')
@@ -58,7 +58,7 @@ endfunction
 
 command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type -search=`expand("%:p")` `expand("%:p:h")`')
 
-nnoremap <silent> <Space>e :<C-u>DefxExplorerMode<CR>
+nnoremap <silent> <Leader>e :<C-u>DefxExplorerMode<CR>
 
 " 引数無しでvim起動時にIDE風にdefxをオープン
 if !argc()

@@ -25,20 +25,20 @@ nnoremap s= <C-w>=
 nnoremap j gj
 nnoremap k gk
 " 行先頭へ移動
-noremap <Space>h ^
+noremap <Leader>h ^
 " 行末尾へ移動
-noremap <Space>l $
+noremap <Leader>l $
 
 " vを2回で行末まで選択
 vnoremap v $h
 
 " クリップボードと連携したコピーアンドペースト
-nnoremap <Space>d "*dd
-vnoremap <Space>d "*dd
-nnoremap <Space>y "*yy
-vnoremap <Space>y "*yy
-nnoremap <Space>p "*p
-vnoremap <Space>p "*p
+nnoremap <Leader>d "*dd
+vnoremap <Leader>d "*dd
+nnoremap <Leader>y "*yy
+vnoremap <Leader>y "*yy
+nnoremap <Leader>p "*p
+vnoremap <Leader>p "*p
 
 " TABで対応ペアにジャンプ
 nnoremap <Tab> %

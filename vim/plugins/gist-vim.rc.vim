@@ -4,4 +4,4 @@ let g:gist_post_private = 1
 let g:gist_get_multiplefile = 1
 " :w!したときのみgistへ投稿
 let g:gist_update_on_write = 2
-nnoremap <Space>gl :<C-u>tabnew<CR>:Gist -l<CR>
+nnoremap <Leader>gl :<C-u>tabnew<CR>:Gist -l<CR>

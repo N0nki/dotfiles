@@ -15,4 +15,4 @@ highlight link ALEVirtualTextWarning WarningMsg
 highlight link ALEVirtualTextInfo ALEVirtualTextWarning
 highlight link ALEVirtualTextStyleWarning ALEVirtualTextWarning
 
-nnoremap <Space>lt :<C-u>ALEToggle<CR>
+nnoremap <Leader>lt :<C-u>ALEToggle<CR>
