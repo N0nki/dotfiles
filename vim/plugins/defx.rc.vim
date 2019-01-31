@@ -56,7 +56,7 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
 endfunction
 
-command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type -search=`expand("%:p")` `expand("%:p:h")`')
+command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -auto-cd -split=vertical -winwidth=35 -direction=topleft -columns=git:icons:filename:type -search=`expand("%:p")` `expand("%:p:h")`')
 
 nnoremap <silent> <Leader>e :<C-u>DefxExplorerMode<CR>
 
