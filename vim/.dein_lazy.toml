@@ -5,8 +5,7 @@ on_path = '.*'
 [[plugins]]
 repo = 'Shougo/neosnippet'
 depends = ['neosnippet-snippets']
-on_i = 1
-on_ft = ['snippet']
+on_i = 1 on_ft = ['snippet']
 hook_add = '''
 source ~/.config/nvim/plugins/neosnippet.rc.vim
 '''
@@ -33,10 +32,6 @@ depends = 'neomru.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/unite.rc.vim
 '''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-on_cmd = 'Denite'
 
 [[plugins]]
 repo = 'Townk/vim-autoclose'

@@ -27,6 +27,15 @@ repo = 'kristijanhusak/defx-icons'
 repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/denite.rc.vim
+'''
+
+[[plugins]]
+repo = 'kmnk/denite-dirmark'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
