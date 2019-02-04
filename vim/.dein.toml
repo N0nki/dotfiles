@@ -36,6 +36,12 @@ source ~/.config/nvim/plugins/denite.rc.vim
 repo = 'kmnk/denite-dirmark'
 
 [[plugins]]
+repo = 'N0nki/denite-markdown'
+
+[[plugins]]
+repo = 'chemzqm/unite-location'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
