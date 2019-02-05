@@ -87,8 +87,4 @@ if has("nvim")
   " tnoremap <silent> jj <C-\><C-n>
   tnoremap <silent> <C-q> <C-\><C-n>
   " tnoremap <silent> <C-c> <C-\><C-n>
-
-  " incsearch.vim
-  map g/  <Plug>(incsearch-forward)
-  map g?  <Plug>(incsearch-backward)
 endif
