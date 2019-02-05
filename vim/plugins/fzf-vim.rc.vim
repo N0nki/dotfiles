@@ -10,3 +10,8 @@ command! -bang -nargs=* Ag
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
+
+nnoremap <Leader>df :<C-u>Files<CR>
+nnoremap <Leader>dl :<C-u>Lines<CR>
+nnoremap <Leader>da :<C-u>Ag<CR>
+nnoremap <Leader>dh :<C-u>History<CR>
