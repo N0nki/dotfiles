@@ -1,5 +1,7 @@
 " key remap
 
+let mapleader = "\<Space>"
+
 " jjでinsertからnormal
 inoremap jj <ESC>
 inoremap <C-q> <ESC>

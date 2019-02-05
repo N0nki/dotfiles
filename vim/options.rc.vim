@@ -5,15 +5,6 @@ set termguicolors
 " set t_Co=256
 set background=dark
 autocmd ColorScheme * highlight WarningMsg ctermfg=150 guifg=#b4be82
-if has('gui_vimr')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  colorscheme onedark
-elseif has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  colorscheme iceberg
-else
-  colorscheme colorsbox-stnight
-endif
 
 if has('nvim')
   " terminalのカラーパレット

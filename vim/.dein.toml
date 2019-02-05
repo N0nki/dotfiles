@@ -83,6 +83,9 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
+hook_add = '''
+source ~/.config/nvim/plugins/colorschemes.rc.vim
+'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
