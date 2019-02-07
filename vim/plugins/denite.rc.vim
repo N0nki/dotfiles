@@ -11,10 +11,10 @@ nnoremap <Leader>db :<C-U>Denite dirmark<CR>
 
 autocmd FileType tex call s:denite_tex_settings()
 function! s:denite_tex_settings() abort
-  nnoremap <Leader>do :<C-U>Denite vimtex -auto-resume -cursor-wrap -highlight-mode-insert=Search -split=vertical -direction=aboveleft -winwidth=40<CR>
+  nnoremap <buffer><Leader>do :<C-U>Denite vimtex -auto-resume -cursor-wrap -highlight-mode-insert=Search -split=vertical -direction=aboveleft -winwidth=40<CR>
 endfunction
 
 autocmd FileType markdown call s:denite_markdown_settings()
 function! s:denite_markdown_settings() abort
-  nnoremap <Leader>do :<C-U>Denite markdown -auto-resume -cursor-wrap -highlight-mode-insert=Search -split=vertical -direction=aboveleft -winwidth=40<CR>
+  nnoremap <buffer><Leader>do :<C-U>Denite markdown -auto-resume -cursor-wrap -highlight-mode-insert=Search -split=vertical -direction=aboveleft -winwidth=40<CR>
 endfunction
