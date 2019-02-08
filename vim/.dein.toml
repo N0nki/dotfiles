@@ -16,7 +16,6 @@ source ~/.config/nvim/plugins/vimfiler.rc.vim
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-rev = '51e0759'
 hook_add = '''
 source ~/.config/nvim/plugins/defx.rc.vim
 '''
