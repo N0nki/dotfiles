@@ -27,6 +27,23 @@ source ~/.config/nvim/plugins/deoplete.rc.vim
 '''
 
 [[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = 'python'
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-go'
+build = 'make'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-clang'
+on_ft = ['c', 'c11', 'cpp']
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 hook_add = '''
@@ -41,13 +58,6 @@ on_i = 1
 repo = 'jiangmiao/auto-pairs'
 on_i = 1
 
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -59,15 +69,6 @@ on_ft = 'go'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-go.rc.vim
 '''
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-on_ft = 'go'
-
-[[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c', 'c11', 'cpp']
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
