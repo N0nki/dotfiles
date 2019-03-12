@@ -1,6 +1,8 @@
 " defx
 
 call defx#custom#column('filename', {
+      \ 'directory_icon': '▸',
+      \ 'opened_icon': '▾',
       \ 'indent': "  ",
       \ })
 
