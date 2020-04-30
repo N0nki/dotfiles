@@ -151,13 +151,6 @@ hook_add = '''
 source ~/.config/nvim/plugins/vim-easymotion.rc.vim
 '''
 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# on_i = 1
-# hook_add = '''
-# source ~/.config/nvim/plugins/deoplete.rc.vim
-# '''
-
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 

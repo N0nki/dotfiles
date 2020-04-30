@@ -5,8 +5,10 @@ let g:deoplete#enable_at_startup = 1
 " 補完が確定したらpreviwe windowを自動で閉じる
 autocmd CompleteDone * silent! pclose!
 
-" deoplete-go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+call deoplete#custom#option({
+  \'auto_complete_delay': 0,
+  \'smart_case': v:true,
+  \})
 
 " deoplete-clang
 if has("mac")
