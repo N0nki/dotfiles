@@ -146,6 +146,12 @@ build = './install --bin'
 merged = '0'
 
 [[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-easymotion.rc.vim
+'''
+
+[[plugins]]
 if = "!has('nvim')"
 repo = 'haya14busa/is.vim'
 
