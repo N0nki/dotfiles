@@ -7,6 +7,7 @@ autocmd CompleteDone * silent! pclose!
 
 call deoplete#custom#option({
   \'auto_complete_delay': 0,
+  \'min_pattern_length': 1,
   \'smart_case': v:true,
   \})
 
