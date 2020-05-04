@@ -156,10 +156,19 @@ repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-lsp.rc.vim
+'''
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 merged = '0'
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/vista.rc.vim
+'''
 
 [[plugins]]
 if = "!has('nvim')"
