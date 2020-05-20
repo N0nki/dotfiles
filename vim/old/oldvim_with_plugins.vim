@@ -256,7 +256,10 @@ if &compatible
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
   NeoBundle 'vim-airline/vim-airline-themes'
-  let g:airline_theme = "molokai"
+  let g:airline_theme = "bubblegum"
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+  let g:airline#extensions#ale#enabled = 1
 
 
   " neocomplcache
@@ -296,6 +299,10 @@ if &compatible
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
     " end neocomplcache----------------------------
 
+    NeoBundle 'mattn/emmet-vim'
+    NeoBundle 'airblade/vim-gitgutter'
+    NeoBundle 'tpope/vim-fugitive'
+    NeoBundle 'cespare/vim-toml'
 
     " Plugin key-mappings.
   
