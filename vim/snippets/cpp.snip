@@ -1,0 +1,31 @@
+snippet     s
+options     head
+abbr        #include <bits/stdc++.h> ...
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main() {
+      ${1}
+
+      return 0;
+    }
+
+snippet     cin
+options     head
+abbr        cin
+    cin >> ${1};
+
+snippet     cout
+options     head
+abbr        cout
+    cout << ${1} << endl;
+
+snippet     v1
+options     head
+abbr        vector<T> ...
+    vector<${1}> ${2};
+
+snippet     v2
+options     head
+abbr        vector<T> ...
+    vector<${1}> ${2}(${3}, vector<${4}>(${5}));
