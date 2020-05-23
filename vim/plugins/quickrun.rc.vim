@@ -86,6 +86,12 @@ let g:quickrun_config = {
         \ 'exec': ['open -g %s'],
         \ 'outputter/buffer/close_on_empty': 1,
       \},
+      \'cpp': {
+      \ 'type':
+      \   executable('g++')            ? 'cpp/g++' :
+      \   executable('clang++')        ? 'cpp/clang++'  :
+      \   s:is_win && executable('cl') ? 'cpp/vc'  : '',
+      \},
 \}
 
 let g:quickrun_no_default_key_mappings = 1
