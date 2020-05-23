@@ -12,15 +12,15 @@ function! s:denite_my_settings()
   \ denite#do_map('quit')
 endfunction
 
-nnoremap <Leader>do :<C-U>Denite outline -auto-resume -split=vertical -direction=aboveleft -winwidth=40<CR>
+nnoremap <Leader>do :<C-U>Denite outline -resume -split=vertical -direction=aboveleft -winwidth=40<CR>
 nnoremap <Leader>db :<C-U>Denite dirmark<CR>
 
 autocmd FileType tex call s:denite_tex_settings()
 function! s:denite_tex_settings() abort
-  nnoremap <Leader>do :<C-U>Denite vimtex -auto-resume -split=vertical -direction=aboveleft -winwidth=40<CR>
+  nnoremap <Leader>do :<C-U>Denite vimtex -resume -split=vertical -direction=aboveleft -winwidth=40<CR>
 endfunction
 
 autocmd FileType markdown call s:denite_markdown_settings()
 function! s:denite_markdown_settings() abort
-  nnoremap <Leader>do :<C-U>Denite markdown -auto-resume -split=vertical -direction=aboveleft -winwidth=40<CR>
+  nnoremap <Leader>do :<C-U>Denite markdown -resume -split=vertical -direction=aboveleft -winwidth=40<CR>
 endfunction
