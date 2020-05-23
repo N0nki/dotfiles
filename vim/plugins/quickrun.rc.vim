@@ -102,4 +102,4 @@ xnoremap <Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
 
 " 標準入力をファイルからリダイレクト
 command QuickRunRedirect :QuickRun <./redirect_input.txt
-nnoremap <Leader>er :QuickRunRedirect<CR>
+nnoremap <Leader>er :write<CR>:QuickRunRedirect<CR>
