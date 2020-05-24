@@ -13,19 +13,24 @@ abbr        #include <bits/stdc++.h> ...
 snippet     cin
 options     head
 abbr        cin
-    cin >> ${1};
+    cin >> ${1};${2}
 
 snippet     cout
 options     head
 abbr        cout
-    cout << ${1} << endl;
+    cout << ${1} << endl;${2}
 
 snippet     v1
 options     head
 abbr        vector<T> ...
-    vector<${1}> ${2};
+    vector<${1}> ${2};${3}
 
 snippet     v2
 options     head
-abbr        vector<T> ...
-    vector<${1}> ${2}(${3}, vector<${4}>(${5}));
+abbr        vector<vector<T>> ...
+    vector<vector<${1}>> ${2}(${3}, vector<${4}>(${5}));${6}
+
+snippet     sort
+options     head
+abbr        #define all(con) (con).begin(),(con).end()
+    #define all(con) (con).begin(),(con).end()
