@@ -2,12 +2,21 @@ snippet     s
 options     head
 abbr        #include <bits/stdc++.h> ...
     #include <bits/stdc++.h>
+
+    typedef long long LL;
+    #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+
+    template<typename Container>
+      bool include(const Container& c, const typename Container::value_type& v) {
+        return ( c.end() != std::find(c.begin(),c.end(),v) );
+    }
+
     using namespace std;
 
     int main() {
       ${1}
 
-      return 0;
+    return 0;
     }
 
 snippet     cin
@@ -20,12 +29,12 @@ options     head
 abbr        cout
     cout << ${1} << endl;${2}
 
-snippet     v1
+snippet     v
 options     head
 abbr        vector<T> ...
     vector<${1}> ${2};${3}
 
-snippet     v2
+snippet     vv
 options     head
 abbr        vector<vector<T>> ...
     vector<vector<${1}>> ${2}(${3}, vector<${4}>(${5}));${6}
