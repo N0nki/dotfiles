@@ -80,6 +80,9 @@ repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/open-browser.rc.vim
+'''
 
 [[plugins]]
 repo = 'flazz/vim-colorschemes'
