@@ -3,15 +3,23 @@ options     head
 abbr        #include <bits/stdc++.h> ...
     #include <bits/stdc++.h>
 
+    using namespace std;
+
     typedef long long LL;
     #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+    #define rrep(i, n) for (int i = N; i >= 0; i--)
 
     template<typename Container>
-      bool include(const Container& c, const typename Container::value_type& v) {
-        return ( c.end() != std::find(c.begin(),c.end(),v) );
+    bool include(const Container& c, const typename Container::value_type& v) {
+      return ( c.end() != std::find(c.begin(),c.end(),v) );
     }
 
-    using namespace std;
+    template<class T>
+    vector<T> unique_vec(const vector<T> &v) {
+      sort(v.begin(), v.end());
+      v.erase(unique(v.begin(), v.end()), v.end());
+      return v;
+    }
 
     int main() {
       ${1}
@@ -43,3 +51,9 @@ snippet     sort
 options     head
 abbr        #define all(con) (con).begin(),(con).end()
     #define all(con) (con).begin(),(con).end()
+
+snippet     unique
+options     head
+abbr        unique vector
+    std::sort(${1}.begin(), ${1}.end());
+    ${1}.erase(std::unique(${1}.begin(), ${1}.end()), ${1}.end());
