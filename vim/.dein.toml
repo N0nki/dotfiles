@@ -42,6 +42,9 @@ repo = 'N0nki/denite-markdown'
 repo = 'chemzqm/unite-location'
 
 [[plugins]]
+repo = 'Shougo/deol.nvim'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
@@ -79,6 +82,15 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 repo = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-anzu.rc.vim
+'''
+
+[[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/open-browser.rc.vim
@@ -98,9 +110,6 @@ repo = 'ryanoasis/vim-devicons'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-devicons.rc.vim
 '''
-
-[[plugins]]
-repo = 'osyo-manga/vim-over'
 
 [[plugins]]
 repo = 'mattn/gist-vim'
