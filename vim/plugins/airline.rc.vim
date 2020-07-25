@@ -8,6 +8,7 @@ else
   let g:airline_theme = 'bubblegum'
 endif
 
+let g:airline_section_c = '%F %{anzu#search_status()}'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#ale#enabled = 1
