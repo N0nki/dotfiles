@@ -65,8 +65,10 @@ function! s:defx_my_settings() abort
 endfunction
 
 command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -auto-cd -split=vertical -winwidth=35 -direction=topleft -columns=indent:git:icons:filename -search=`expand("%:p")` `expand("%:p:h")`')
+command! DefxFloatingMode call defx#util#call_defx('Defx', '-new -auto-cd -split=floating -columns=indent:git:icons:filename -search=`expand("%:p")` `expand("%:p:h")`')
 
 nnoremap <silent> <Leader>e :<C-u>DefxExplorerMode<CR>
+nnoremap <silent> <Leader>t :<C-u>DefxFloatingMode<CR>
 
 " 引数無しでvim起動時にIDE風にdefxをオープン
 if !argc()
