@@ -245,13 +245,6 @@ if &compatible
   let g:vimfiler_file_icon = '-'
   let g:vimfiler_marked_file_icon = '*'
 
-  " 括弧を自動で閉じる
-  NeoBundle 'Townk/vim-autoclose'
-
-  " 複数行コメントアウト コマンド:gc
-  NeoBundle 'tomtom/tcomment_vim'
-
-  NeoBundle 'tpope/vim-surround'
 
   " ステータスライン強化
   NeoBundle 'vim-airline/vim-airline'
@@ -299,10 +292,35 @@ if &compatible
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
     " end neocomplcache----------------------------
 
-    NeoBundle 'mattn/emmet-vim'
-    NeoBundle 'airblade/vim-gitgutter'
-    NeoBundle 'tpope/vim-fugitive'
-    NeoBundle 'cespare/vim-toml'
+  NeoBundle 'Townk/vim-autoclose'
+  NeoBundle 'tomtom/tcomment_vim'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'airblade/vim-gitgutter'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'cespare/vim-toml'
+  NeoBundle 'aserebryakov/vim-todo-lists'
+  NeoBundle 'osyo-manga/vim-anzu'
+  NeoBundle 'easymotion/vim-easymotion'
+  NeoBundle 'jiangmiao/auto-pairs'
+  NeoBundle 'tpope/vim-endwise'
+
+  " vim-easymotion
+  map <Leader> <Plug>(easymotion-prefix)
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_do_mapping = 0
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+  map <Leader>s <Plug>(easymotion-s2)
+  map <Leader>f <Plug>(easymotion-f)
+  map <Leader>t <Plug>(eatymotion-t)
+
+  " vim-anzu
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+  nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 
     " Plugin key-mappings.
   
