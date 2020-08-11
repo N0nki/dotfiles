@@ -199,3 +199,5 @@ repo = 'wesQ3/vim-windowswap'
 hook_add = '''
 source ~/.config/nvim/plugins/vim-windowswap.rc.vim
 '''
+[[plugins]]
+repo = 'aserebryakov/vim-todo-lists'
