@@ -13,6 +13,6 @@ call deoplete#custom#option({
 
 " deoplete-clang
 if has("mac")
-  let g:deoplete#sources#clang#libclang_path = "/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib"
-  let g:deoplete#sources#clang#clang_header = "/usr/local/Cellar/llvm/6.0.0/lib/clang"
+  let g:deoplete#sources#clang#libclang_path = "/usr/local/Cellar/llvm/10.0.0_3/lib/libclang.dylib"
+  let g:deoplete#sources#clang#clang_header = "/usr/local/Cellar/llvm/10.0.0_3/lib/clang"
 endif
