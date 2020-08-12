@@ -5,7 +5,11 @@ let g:ale_set_quickfix = 1
 let g:ale_linters = {
 \   'python': ['pylint'],
 \}
-"
+
+let g:ale_linters_ignore = {
+\   'go': ['gofmt', 'gopls', 'golint'],
+\}
+
 " neovim(>=0.3.2) virtual text
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = '▬▶  '
