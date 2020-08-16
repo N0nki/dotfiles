@@ -69,7 +69,7 @@ let g:quickrun_config = {
         \ 'outputter/error/success' : 'buffer',
         \ 'outputter/error/error': 'quickfix',
         \ 'hook/close_quickfix/enable_success' : 1,
-        \ 'outputter/buffer/split': ':60vsplit',
+        \ 'outputter/buffer/split': ':split',
         \ 'outputter/buffer/close_on_empty': 1,
       \},
       \'java': {
@@ -87,6 +87,7 @@ let g:quickrun_config = {
         \ 'outputter/buffer/close_on_empty': 1,
       \},
       \'cpp': {
+      \ 'outputter/buffer/split': ':split',
       \ 'type':
       \   executable('g++')            ? 'cpp/g++' :
       \   executable('clang++')        ? 'cpp/clang++'  :
