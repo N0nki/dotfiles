@@ -234,7 +234,7 @@ if &compatible
   endif
   " IDE風にバッファをオープン
   nnoremap <silent> <Leader>e :<C-u>VimFilerExplorer<CR>
-  nnoremap <silent> <Leader>t :<C-u>VimFilerExplorer -double<CR>
+  nnoremap <silent> <Leader>r :<C-u>VimFilerExplorer -double<CR>
 
   autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
   function! s:vimfiler_my_settings()
