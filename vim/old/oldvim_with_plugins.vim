@@ -43,10 +43,6 @@ augroup fileTypeIndent
   autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
-" 不可視文字を表示
-set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-
 " 検索結果をハイライト
 set hlsearch
 
@@ -77,6 +73,8 @@ set write
 au VimLeave * mks! ~/.vim.session
 
 " key remap ----------------------------------
+let mapleader = "\<Space>"
+
 " jjでinsertからnormal
 inoremap jj <ESC>
 inoremap <C-q> <ESC>
@@ -151,8 +149,6 @@ nnoremap <silent> so :tabo <CR>
 " USキーボードのみ
 noremap ; :
 
-" カレントディレクトリをオープン
-nnoremap <silent> sc :<C-u>e .<CR>
 " end key remap -----------------------------
 
 
@@ -177,11 +173,28 @@ if &compatible
 
   " Add or remove your Bundles here:
 
-  " Unite
   NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/vimfiler'
+  NeoBundle 'vim-airline/vim-airline'
+  NeoBundle 'vim-airline/vim-airline-themes'
+  NeoBundle 'Shougo/neocomplcache'  
+  NeoBundle 'Townk/vim-autoclose'
+  NeoBundle 'tomtom/tcomment_vim'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'airblade/vim-gitgutter'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'cespare/vim-toml'
+  NeoBundle 'aserebryakov/vim-todo-lists'
+  NeoBundle 'osyo-manga/vim-anzu'
+  NeoBundle 'easymotion/vim-easymotion'
+  NeoBundle 'jiangmiao/auto-pairs'
+  NeoBundle 'tpope/vim-endwise'
+
+
+  " Unite
   let g:unite_enable_ignore_case = 1
   let g:unite_enable_smart_case = 1
-
   " buffer以外はdefault-action=tabopen
   " カレントディレクトリのファイル一覧
   nnoremap <silent> ,uf :Unite file -default-action=tabopen<CR>
@@ -213,23 +226,15 @@ if &compatible
 
 
   " Vimfiler
-  NeoBundle 'Shougo/vimfiler'
   let g:vimfiler_as_default_explorer=1
   let g:unite_source_history_yank_enable =1
   let g:vimfiler_safe_mode_by_default = 0
   if !argc()
     autocmd VimEnter * VimFilerCreate -split -simple -winwidth=30 -no-quit
   endif
-  nnoremap <silent> ,vf :<C-u>VimFilerCreate -simple -no-quit<CR>
-  " 新規タブでVimFiler起動
-  nnoremap <silent> ,ft :tabnew<CR>:<C-u>VimFilerCreate -simple<CR>
-  " バッファを水平分割してVimFilerBufferDir
-  nnoremap <silent> ,svf :split<CR>:<C-u>VimFilerCreate -simple<CR>
-  " バッファを垂直分割してVimFilerBufferDir
-  nnoremap <silent> ,vvf :vsplit<CR>:<C-u>VimFilerCreate -simple<CR>
   " IDE風にバッファをオープン
-  nnoremap <silent> ,ide :<C-u>VimFilerExplorer<CR>
-  nnoremap <silent> ,side :<C-u>VimFilerExplorer -double<CR>
+  nnoremap <silent> <Leader>e :<C-u>VimFilerExplorer<CR>
+  nnoremap <silent> <Leader>t :<C-u>VimFilerExplorer -double<CR>
 
   autocmd MyAutoCmd FileType vimfiler call s:vimfiler_my_settings()
   function! s:vimfiler_my_settings()
@@ -246,9 +251,7 @@ if &compatible
   let g:vimfiler_marked_file_icon = '*'
 
 
-  " ステータスライン強化
-  NeoBundle 'vim-airline/vim-airline'
-  NeoBundle 'vim-airline/vim-airline-themes'
+  " airline
   let g:airline_theme = "bubblegum"
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
@@ -256,7 +259,6 @@ if &compatible
 
 
   " neocomplcache
-  NeoBundle 'Shougo/neocomplcache'  
     " neocomplcache-------------------------------
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 1
@@ -292,18 +294,6 @@ if &compatible
     inoremap <expr><C-e>  neocomplcache#cancel_popup()
     " end neocomplcache----------------------------
 
-  NeoBundle 'Townk/vim-autoclose'
-  NeoBundle 'tomtom/tcomment_vim'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'cespare/vim-toml'
-  NeoBundle 'aserebryakov/vim-todo-lists'
-  NeoBundle 'osyo-manga/vim-anzu'
-  NeoBundle 'easymotion/vim-easymotion'
-  NeoBundle 'jiangmiao/auto-pairs'
-  NeoBundle 'tpope/vim-endwise'
 
   " vim-easymotion
   map <Leader> <Plug>(easymotion-prefix)
@@ -315,6 +305,7 @@ if &compatible
   map <Leader>f <Plug>(easymotion-f)
   map <Leader>t <Plug>(eatymotion-t)
 
+  
   " vim-anzu
   nmap n <Plug>(anzu-n-with-echo)
   nmap N <Plug>(anzu-N-with-echo)
@@ -322,8 +313,12 @@ if &compatible
   nmap # <Plug>(anzu-sharp-with-echo)
   nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 
-    " Plugin key-mappings.
-  
+
+  " vim-gitgutter
+  nnoremap <Leader>hl :<C-u>GitGutterLineHighlightsToggle<CR>
+
+  " Plugin key-mappings.
+
   " Required:
   call neobundle#end()
 
