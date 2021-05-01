@@ -1,5 +1,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/colorschemes.rc.vim
+'''
 
 [[plugins]]
 repo = 'wsdjeg/dein-ui.vim'
@@ -97,10 +100,16 @@ source ~/.config/nvim/plugins/open-browser.rc.vim
 '''
 
 [[plugins]]
-repo = 'flazz/vim-colorschemes'
-hook_add = '''
-source ~/.config/nvim/plugins/colorschemes.rc.vim
-'''
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'ackyshake/Spacegray.vim'
+
+[[plugins]]
+repo = 'arcticicestudio/nord-vim'
+
+[[plugins]]
+repo = 'beikome/cosme.vim'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -201,3 +210,6 @@ source ~/.config/nvim/plugins/vim-windowswap.rc.vim
 '''
 [[plugins]]
 repo = 'aserebryakov/vim-todo-lists'
+
+[[plugins]]
+repo = 'junegunn/goyo.vim'
