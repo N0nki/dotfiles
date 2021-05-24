@@ -109,3 +109,7 @@ if has("mac")
   " Macdownで現在のバッファのファイルを開く
   command Macdown :!open -a macdown %
 endif
+
+if has('win32') || has ('win64')
+	let g:python3_host_prog = '~\AppData\Local\Continuum\anaconda3\python.exe'
+endif
