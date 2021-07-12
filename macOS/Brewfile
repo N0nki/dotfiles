@@ -2,8 +2,8 @@
 # 自分で追記した分は強制上書きした際に消失するので注意
 # brew bundle dump --force
 
-tap "caskroom/cask"
-tap "caskroom/fonts"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
 tap "homebrew/core"
