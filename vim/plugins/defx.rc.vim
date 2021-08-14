@@ -6,6 +6,8 @@ call defx#custom#column('filename', {
       \ 'indent': "  ",
       \ })
 
+let g:defx_icons_column_length = 3
+
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> l
