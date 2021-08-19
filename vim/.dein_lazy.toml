@@ -31,17 +31,8 @@ repo = 'lighttiger2505/deoplete-vim-lsp'
 on_ft = ['python', 'go', 'javascript', 'ruby', 'html']
 
 [[plugins]]
-repo = 'deoplete-plugins/deoplete-jedi'
-on_ft = 'python'
-
-[[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
-
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-go'
-build = 'make'
-on_ft = 'go'
 
 [[plugins]]
 repo = 'deoplete-plugins/deoplete-clang'
@@ -53,10 +44,6 @@ depends = 'neomru.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/unite.rc.vim
 '''
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-on_i = 1
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
