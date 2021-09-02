@@ -73,6 +73,10 @@ repo = 'mzlogin/vim-markdown-toc'
 on_ft = 'markdown'
 
 [[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = 'markdown'
+
+[[plugins]]
 repo = 'Valloric/MatchTagAlways'
 on_ft = 'html'
 
