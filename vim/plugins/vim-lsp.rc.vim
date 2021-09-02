@@ -5,7 +5,7 @@ let g:lsp_highlights_enabled = 0
 
 " vim-lsp-settings configuration
 let s:pyls_workspace_config = {'pyls': {'plugins': {
-\  'pycodestyle': {'enabled': v:false},
+\  'pycodestyle': {'enabled': v:true},
 \  'pydocstyle': {'enabled': v:false},
 \  'pylint': {'enabled': v:false},
 \  'flake8': {'enabled': v:false},
