@@ -6,8 +6,6 @@ call defx#custom#column('filename', {
       \ 'indent': "  ",
       \ })
 
-let g:defx_icons_column_length = 3
-
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> l
@@ -66,8 +64,9 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
 endfunction
 
-command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -auto-cd -split=vertical -winwidth=35 -direction=topleft -columns=indent:git:icons:filename -search=`expand("%:p")` `expand("%:p:h")`')
-command! DefxFloatingMode call defx#util#call_defx('Defx', '-new -auto-cd -split=floating -columns=indent:git:icons:filename -search=`expand("%:p")` `expand("%:p:h")`')
+command! DefxExplorerMode call defx#util#call_defx('Defx', '-new -auto-cd -split=vertical -winwidth=35 -direction=topleft -columns=indent:git:icons:space:filename -search=`expand("%:p")` `expand("%:p:h")`')
+command! DefxFloatingMode call defx#util#call_defx('Defx', '-new -auto-cd -split=floating -columns=indent:git:icons:space:filename:size:type:time -search=`expand("%:p")` `expand("%:p:h")`')
+command! DefxDetailMode call defx#util#call_defx('Defx', '-new -auto-cd -columns=indent:git:icons:space:filename:size:type:time -search=`expand("%:p")` `expand("%:p:h")`')
 
 nnoremap <silent> <Leader>e :<C-u>DefxExplorerMode<CR>
 nnoremap <silent> <Leader>t :<C-u>DefxFloatingMode<CR>
