@@ -13,7 +13,7 @@ function! s:denite_my_settings()
 endfunction
 
 nnoremap <Leader>do :<C-U>Denite outline -resume -split=vertical -direction=aboveleft -winwidth=40<CR>
-nnoremap <Leader>db :<C-U>Denite dirmark<CR>
+nnoremap <Leader>dd :<C-U>Denite dirmark<CR>
 
 autocmd FileType tex call s:denite_tex_settings()
 function! s:denite_tex_settings() abort

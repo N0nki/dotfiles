@@ -15,3 +15,4 @@ nnoremap <Leader>df :<C-u>Files<CR>
 nnoremap <Leader>dl :<C-u>Lines<CR>
 nnoremap <Leader>da :<C-u>Ag<CR>
 nnoremap <Leader>dh :<C-u>History<CR>
+nnoremap <Leader>db :<C-u>Buffers<CR>
