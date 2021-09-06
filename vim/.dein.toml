@@ -61,6 +61,10 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+depends = ['tpope/vim-fugitive']
+repo = 'junegunn/gv.vim'
+
+[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
