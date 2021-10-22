@@ -113,3 +113,11 @@ endif
 if has('win32') || has ('win64')
 	let g:python3_host_prog = '~\AppData\Local\Continuum\anaconda3\python.exe'
 endif
+
+" WSL2でyankしたときにWindowsのクリップボードに保存
+if system('uname -a | grep microsoft') != ''
+  augroup myYank
+    autocmd!
+    autocmd TextYankPost * :call system('clip.exe', @")
+  augroup END
+endif"
