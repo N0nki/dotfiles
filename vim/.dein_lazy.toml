@@ -3,18 +3,6 @@ repo = 'Shougo/neomru.vim'
 on_path = '.*'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets']
-on_i = 1
-hook_add = '''
-source ~/.config/nvim/plugins/neosnippet.rc.vim
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_i = 1
-
-[[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_path = '.*'
 on_i = 1
@@ -37,6 +25,16 @@ on_ft = 'ruby'
 [[plugins]]
 repo = 'deoplete-plugins/deoplete-clang'
 on_ft = ['c', 'c11', 'cpp']
+
+[[plugins]]
+repo = 'Shougo/deoppet.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/deoppet.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+depends = ['deoppet.nvim']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
