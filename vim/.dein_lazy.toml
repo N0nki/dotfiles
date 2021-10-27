@@ -46,11 +46,6 @@ source ~/.config/nvim/plugins/unite.rc.vim
 '''
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
-on_i = 1
-
-
-[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 

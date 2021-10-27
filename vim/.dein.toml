@@ -217,3 +217,7 @@ repo = 'aserebryakov/vim-todo-lists'
 
 [[plugins]]
 repo = 'junegunn/goyo.vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
