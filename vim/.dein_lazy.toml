@@ -37,6 +37,18 @@ repo = 'Shougo/neosnippet-snippets'
 depends = ['deoppet.nvim']
 
 [[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+on_event = "InsertEnter"
+hook_add = '''
+source ~/.config/nvim/plugins/vim-vsnip.rc.vim
+'''
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+on_event = "InsertEnter"
+depends = ['hrsh7th/vim-vsnip']
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
 hook_add = '''
