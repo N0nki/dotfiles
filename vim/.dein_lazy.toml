@@ -83,3 +83,10 @@ source ~/.config/nvim/plugins/vimtex.rc.vim
 [[plugins]]
 repo = 'mattn/vim-sqlfmt'
 on_ft = 'sql'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-json.rc.vim
+'''
