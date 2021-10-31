@@ -28,25 +28,15 @@ on_ft = ['c', 'c11', 'cpp']
 
 [[plugins]]
 repo = 'Shougo/deoppet.nvim'
-hook_add = '''
+on_event = "InsertEnter"
+hook_source = '''
 source ~/.config/nvim/plugins/deoppet.rc.vim
 '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+on_event = "InsertEnter"
 depends = ['deoppet.nvim']
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-on_event = "InsertEnter"
-hook_add = '''
-source ~/.config/nvim/plugins/vim-vsnip.rc.vim
-'''
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
-on_event = "InsertEnter"
-depends = ['hrsh7th/vim-vsnip']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
