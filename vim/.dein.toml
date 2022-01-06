@@ -113,6 +113,12 @@ repo = 'ackyshake/Spacegray.vim'
 repo = 'arcticicestudio/nord-vim'
 
 [[plugins]]
+repo = 'sainnhe/everforest'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
 repo = 'beikome/cosme.vim'
 
 [[plugins]]
