@@ -119,7 +119,7 @@ repo = 'sainnhe/everforest'
 repo = 'morhetz/gruvbox'
 
 [[plugins]]
-repo = 'beikome/cosme.vim'
+repo = 'elianiva/icy.nvim'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
