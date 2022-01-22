@@ -73,6 +73,12 @@ nnoremap <silent> sc :tabc <CR>
 " 今いるタブ以外を閉じる
 nnoremap <silent> so :tabo <CR>
 
+" 現在日時を挿入
+imap <F1> <ESC>i<C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+nmap <F1> <ESC>i<C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+imap <F2> <ESC>i<C-r>=strftime("%H:%M:%S ")<CR>
+nmap <F2> <ESC>i<C-r>=strftime("%H:%M:%S ")<CR>
+
 " vim terminal mode
 if exists(':tmap')
   tnoremap <C-c> <C-w>N
