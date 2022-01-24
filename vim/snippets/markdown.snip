@@ -77,13 +77,11 @@ options word
 snippet gitbookcodeblock
 abbr gitbook named codeblock
 options word
-    {% code-tabs %}
-    {% code-tabs-item title="${1}" %}
-    \`\`\`${2}
-    ${3}
-    \`\`\`
-    {% endcode-tabs-item %}
-    {% endcode-tabs %}
+  {% code title="${1}" %}
+  ```${2}
+  ${3}
+  ```
+  {% endcode %}
 
 snippet gitbooktab
 abbr gitbook tab page
@@ -102,6 +100,24 @@ snippet gitbookurl
 abbr gitbook embeded url
 options word
     {% embed url="${1}" %}
+
+snippet gitbookhint
+abbr gitbook hint [info|warning|danger]
+options word
+  {% hint style="info|warning|danger" %}
+  ${1}
+  {% endhint %}
+
+snippet gitbookexbandable
+abbr gitbook expandable
+options word
+  <details>
+
+  <summary>${1}</summary>
+
+  ${2}
+
+  </details>
 
 snippet hatenaembedlink
 abbr hatena blog embeded link
