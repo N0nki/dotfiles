@@ -1,5 +1,13 @@
 " options
 
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+if &compatible
+  set nocompatible
+endif
+
 syntax on
 set termguicolors
 " set t_Co=256
