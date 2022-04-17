@@ -95,7 +95,7 @@ source ~/.config/nvim/plugins/vim-json.rc.vim
 
 [[plugins]]
 repo = 'hashivim/vim-terraform'
-on_ft = 'tf'
+on_ft = ['terraform', 'json']
 hook_add = '''
 source ~/.config/nvim/plugins/vim-terraform.rc.vim
 '''
