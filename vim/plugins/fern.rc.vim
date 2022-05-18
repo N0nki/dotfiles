@@ -7,13 +7,21 @@ autocmd FileType fern call s:fern_my_settings()
 function! s:fern_my_settings() abort
   nmap <buffer> . <Plug>(fern-action-hidden:toggle)
   nmap <buffer> <CR> <Plug>(fern-action-open-or-expand)
-  nmap <buffer> l <Plug>(fern-action-open-or-enter)
   nmap <buffer> <expr> o fern#smart#leaf(
       \ '<Plug>(fern-action-open)',
       \ '<Plug>(fern-action-expand)',
       \ '<Plug>(fern-action-collapse)'
       \ )
-  nmap <buffer> h <Plug>(fern-action-leave)
+  nmap <buffer> <Plug>(fern-my-open-and-tcd)
+        \ <Plug>(fern-action-open-or-enter)
+        \ <Plug>(fern-wait)
+        \ <Plug>(fern-action-tcd:root)
+  nmap <buffer> <Plug>(fern-my-leave-and-tcd)
+        \ <Plug>(fern-action-leave)
+        \ <Plug>(fern-wait)
+        \ <Plug>(fern-action-tcd:root)
+  nmap <buffer> l <Plug>(fern-my-open-and-tcd)
+  nmap <buffer> h <Plug>(fern-my-leave-and-tcd)
   nmap <buffer> s <Plug>(fern-action-open:select)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
   nmap <buffer> t <Plug>(fern-action-open:tabedit)
