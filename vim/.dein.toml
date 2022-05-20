@@ -130,6 +130,9 @@ repo = 'morhetz/gruvbox'
 repo = 'elianiva/icy.nvim'
 
 [[plugins]]
+repo = 'rebelot/kanagawa.nvim'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
