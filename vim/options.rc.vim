@@ -87,7 +87,11 @@ set nocompatible
 set backspace=indent,eol,start
 
 " vim-airlineの動作に必要
-set laststatus=2
+if has('nvim')
+  set laststatus=3
+else
+  set laststatus=2
+endif
 
 " swapファイル、Backupファイルを無効
 set nowritebackup
