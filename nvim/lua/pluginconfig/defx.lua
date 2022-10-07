@@ -1,3 +1,5 @@
+-- defx
+
 local autocmd = vim.api.nvim_create_autocmd
 local command = vim.api.nvim_create_user_command
 local opts = {noremap = true, silent = true}

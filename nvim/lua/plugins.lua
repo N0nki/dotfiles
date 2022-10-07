@@ -36,7 +36,10 @@ packer.init({
 return packer.startup(function(use)
   use({"wbthomason/packer.nvim"})
 
-  use({"Shougo/defx.nvim", config = function() require("pluginconfig/defx") end})
+  use({"Shougo/defx.nvim",
+      run = ":UpdateRemotePlugins",
+      config = function() require("pluginconfig/defx") end
+  })
   use({"kristijanhusak/defx-icons"})
   use({"kristijanhusak/defx-git"})
 
@@ -98,11 +101,15 @@ return packer.startup(function(use)
   -- TODO: lazy load settings
   use({"Shougo/neomru.vim"})
   use({"Shougo/neoyank.vim"})
-  use({"Shougo/deoplete.nvim", config = function() require("pluginconfig/deoplete") end})
+  use({"Shougo/deoplete.nvim",
+      run = ":UpdateRemotePlugins",
+      config = function() require("pluginconfig/deoplete") end})
   use({"lighttiger2505/deoplete-vim-lsp"})
   use({"fishbullet/deoplete-ruby"})
   use({"deoplete-plugins/deoplete-clang"})
-  use({"Shougo/deoppet.nvim", config = function() require("pluginconfig/deoppet") end})
+  use({"Shougo/deoppet.nvim",
+      run = ":UpdateRemotePlugins",
+      config = function() require("pluginconfig/deoppet") end})
   use({"Shougo/neosnippet-snippets"})
   use({"tpope/vim-endwise"})
   use({"fatih/vim-go", config = function() require("pluginconfig/vim-go") end})
