@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use({"sainnhe/everforest"})
   use({"morhetz/gruvbox"})
   use({"elianiva/icy.nvim"})
+  use({"catppuccin/nvim"})
   use({"rebelot/kanagawa.nvim", config = function() require("pluginconfig/colorscheme") end})
 
   use({"tpope/vim-surround"})
