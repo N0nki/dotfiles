@@ -20,6 +20,8 @@ if vim.fn.system('uname -a | grep microsoft') ~= '' then
   })
 end
 
+vim.o.cmdheight = 0
+
 vim.o.title = true
 vim.o.number = true
 vim.o.cursorline = true
