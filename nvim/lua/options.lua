@@ -20,8 +20,6 @@ if vim.fn.system('uname -a | grep microsoft') ~= '' then
   })
 end
 
-vim.o.cmdheight = 0
-
 vim.o.title = true
 vim.o.number = true
 vim.o.cursorline = true
@@ -47,6 +45,7 @@ vim.o.showcmd = true
 
 vim.o.backspace = "indent,eol,start"
 
+vim.o.cmdheight = 0
 vim.o.laststatus = 3
 
 vim.o.nowritebackup = true
