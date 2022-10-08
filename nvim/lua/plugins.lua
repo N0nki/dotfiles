@@ -76,9 +76,15 @@ return packer.startup(function(use)
   use({"osyo-manga/vim-over"})
   use({"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end})
   use({"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end})
+
   use({"nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = function() require("pluginconfig/nvim-treesitter") end,
+  })
+  use({"p00f/nvim-ts-rainbow", after = {"nvim-treesitter"}})
+  use({"haringsrob/nvim_context_vt",
+      after = {"nvim-treesitter", colorscheme},
+      config = function() require("pluginconfig/nvim-context-vt") end
   })
 
   use({"mattn/emmet-vim"})
