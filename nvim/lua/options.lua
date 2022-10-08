@@ -12,11 +12,11 @@ autocmd("ColorScheme", {
 
 -- for wsl, save to clipboard when yanked
 if vim.fn.system('uname -a | grep microsoft') ~= '' then
-  augroup("MyYank", {
-    autocmd("TextYankPost", {
-    pattern = "*",
-    command = ":call system('clip.exe', @\")"
-    })
+  local my_yank = augroup("MyYank", {clear = true})
+  autocmd("TextYankPost", {
+  group = my_yank,
+  pattern = "*",
+  command = ":call system('clip.exe', @\")"
   })
 end
 
