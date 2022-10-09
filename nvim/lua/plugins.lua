@@ -106,6 +106,7 @@ return packer.startup(function(use)
   use({"junegunn/goyo.vim"})
   use({"cohama/lexima.vim"})
   use({"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end})
+  use({"mg979/vim-visual-multi"})
 
   -- lazy load
   -- TODO: lazy load settings
