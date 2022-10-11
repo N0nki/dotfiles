@@ -262,7 +262,7 @@ _G.packer_plugins = {
     url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-ts-rainbow", "nvim_context_vt" },
+    after = { "nvim_context_vt", "nvim-ts-rainbow" },
     config = { "\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!pluginconfig/nvim-treesitter\frequire\0" },
     loaded = true,
     only_config = true,
@@ -294,6 +294,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/augair/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["registers.nvim"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14registers\frequire\0" },
+    loaded = true,
+    path = "/Users/augair/.local/share/nvim/site/pack/packer/start/registers.nvim",
+    url = "https://github.com/versteeg/registers.nvim"
   },
   ["shabadou.vim"] = {
     loaded = true,
@@ -471,94 +477,90 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: neoterm
-time([[Config for neoterm]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/neoterm\frequire\0", "config", "neoterm")
-time([[Config for neoterm]], false)
--- Config for: vim-markdown
-time([[Config for vim-markdown]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/vim-markdown\frequire\0", "config", "vim-markdown")
-time([[Config for vim-markdown]], false)
--- Config for: vim-windowswap
-time([[Config for vim-windowswap]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 pluginconfig/vim-windowswap\frequire\0", "config", "vim-windowswap")
-time([[Config for vim-windowswap]], false)
--- Config for: vim-anzu
-time([[Config for vim-anzu]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/vim-anzu\frequire\0", "config", "vim-anzu")
-time([[Config for vim-anzu]], false)
--- Config for: vimtex
-time([[Config for vimtex]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24pluginconfig/vimtex\frequire\0", "config", "vimtex")
-time([[Config for vimtex]], false)
--- Config for: vim-devicons
-time([[Config for vim-devicons]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/vim-devicons\frequire\0", "config", "vim-devicons")
-time([[Config for vim-devicons]], false)
--- Config for: vim-easymotion
-time([[Config for vim-easymotion]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 pluginconfig/vim-easymotion\frequire\0", "config", "vim-easymotion")
-time([[Config for vim-easymotion]], false)
--- Config for: open-browser.vim
-time([[Config for open-browser.vim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/open-browser\frequire\0", "config", "open-browser.vim")
-time([[Config for open-browser.vim]], false)
--- Config for: deoppet.nvim
-time([[Config for deoppet.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/deoppet\frequire\0", "config", "deoppet.nvim")
-time([[Config for deoppet.nvim]], false)
--- Config for: defx.nvim
-time([[Config for defx.nvim]], true)
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22pluginconfig/defx\frequire\0", "config", "defx.nvim")
-time([[Config for defx.nvim]], false)
--- Config for: deoplete.nvim
-time([[Config for deoplete.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/deoplete\frequire\0", "config", "deoplete.nvim")
-time([[Config for deoplete.nvim]], false)
--- Config for: vim-airline
-time([[Config for vim-airline]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/airline\frequire\0", "config", "vim-airline")
-time([[Config for vim-airline]], false)
--- Config for: fzf.vim
-time([[Config for fzf.vim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/fzf-vim\frequire\0", "config", "fzf.vim")
-time([[Config for fzf.vim]], false)
 -- Config for: indentLine
 time([[Config for indentLine]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\28pluginconfig/indentline\frequire\0", "config", "indentLine")
 time([[Config for indentLine]], false)
--- Config for: gist-vim
-time([[Config for gist-vim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/gist-vim\frequire\0", "config", "gist-vim")
-time([[Config for gist-vim]], false)
--- Config for: vim-json
-time([[Config for vim-json]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/vim-json\frequire\0", "config", "vim-json")
-time([[Config for vim-json]], false)
 -- Config for: vim-lsp
 time([[Config for vim-lsp]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/vim-lsp\frequire\0", "config", "vim-lsp")
 time([[Config for vim-lsp]], false)
--- Config for: kanagawa.nvim
-time([[Config for kanagawa.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29pluginconfig/colorscheme\frequire\0", "config", "kanagawa.nvim")
-time([[Config for kanagawa.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/gitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!pluginconfig/nvim-treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: vim-go
-time([[Config for vim-go]], true)
-try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24pluginconfig/vim-go\frequire\0", "config", "vim-go")
-time([[Config for vim-go]], false)
+-- Config for: registers.nvim
+time([[Config for registers.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14registers\frequire\0", "config", "registers.nvim")
+time([[Config for registers.nvim]], false)
 -- Config for: vim-terraform
 time([[Config for vim-terraform]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\31pluginconfig/vim-terraform\frequire\0", "config", "vim-terraform")
 time([[Config for vim-terraform]], false)
+-- Config for: vim-anzu
+time([[Config for vim-anzu]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/vim-anzu\frequire\0", "config", "vim-anzu")
+time([[Config for vim-anzu]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!pluginconfig/nvim-treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: defx.nvim
+time([[Config for defx.nvim]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22pluginconfig/defx\frequire\0", "config", "defx.nvim")
+time([[Config for defx.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/gitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: vim-windowswap
+time([[Config for vim-windowswap]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 pluginconfig/vim-windowswap\frequire\0", "config", "vim-windowswap")
+time([[Config for vim-windowswap]], false)
+-- Config for: vim-easymotion
+time([[Config for vim-easymotion]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0 pluginconfig/vim-easymotion\frequire\0", "config", "vim-easymotion")
+time([[Config for vim-easymotion]], false)
+-- Config for: vimtex
+time([[Config for vimtex]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24pluginconfig/vimtex\frequire\0", "config", "vimtex")
+time([[Config for vimtex]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/fzf-vim\frequire\0", "config", "fzf.vim")
+time([[Config for fzf.vim]], false)
+-- Config for: neoterm
+time([[Config for neoterm]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/neoterm\frequire\0", "config", "neoterm")
+time([[Config for neoterm]], false)
+-- Config for: open-browser.vim
+time([[Config for open-browser.vim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/open-browser\frequire\0", "config", "open-browser.vim")
+time([[Config for open-browser.vim]], false)
+-- Config for: kanagawa.nvim
+time([[Config for kanagawa.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\29pluginconfig/colorscheme\frequire\0", "config", "kanagawa.nvim")
+time([[Config for kanagawa.nvim]], false)
+-- Config for: vim-quickrun
+time([[Config for vim-quickrun]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/quickrun\frequire\0", "config", "vim-quickrun")
+time([[Config for vim-quickrun]], false)
+-- Config for: gist-vim
+time([[Config for gist-vim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/gist-vim\frequire\0", "config", "gist-vim")
+time([[Config for gist-vim]], false)
+-- Config for: vim-markdown
+time([[Config for vim-markdown]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/vim-markdown\frequire\0", "config", "vim-markdown")
+time([[Config for vim-markdown]], false)
+-- Config for: deoppet.nvim
+time([[Config for deoppet.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/deoppet\frequire\0", "config", "deoppet.nvim")
+time([[Config for deoppet.nvim]], false)
+-- Config for: vim-go
+time([[Config for vim-go]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24pluginconfig/vim-go\frequire\0", "config", "vim-go")
+time([[Config for vim-go]], false)
+-- Config for: vim-airline
+time([[Config for vim-airline]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25pluginconfig/airline\frequire\0", "config", "vim-airline")
+time([[Config for vim-airline]], false)
 -- Config for: CamelCaseMotion
 time([[Config for CamelCaseMotion]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0!pluginconfig/CamelCaseMotion\frequire\0", "config", "CamelCaseMotion")
@@ -567,10 +569,18 @@ time([[Config for CamelCaseMotion]], false)
 time([[Config for vista.vim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23pluginconfig/vista\frequire\0", "config", "vista.vim")
 time([[Config for vista.vim]], false)
--- Config for: vim-quickrun
-time([[Config for vim-quickrun]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/quickrun\frequire\0", "config", "vim-quickrun")
-time([[Config for vim-quickrun]], false)
+-- Config for: vim-json
+time([[Config for vim-json]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/vim-json\frequire\0", "config", "vim-json")
+time([[Config for vim-json]], false)
+-- Config for: vim-devicons
+time([[Config for vim-devicons]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30pluginconfig/vim-devicons\frequire\0", "config", "vim-devicons")
+time([[Config for vim-devicons]], false)
+-- Config for: deoplete.nvim
+time([[Config for deoplete.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\26pluginconfig/deoplete\frequire\0", "config", "deoplete.nvim")
+time([[Config for deoplete.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-ts-rainbow ]]
