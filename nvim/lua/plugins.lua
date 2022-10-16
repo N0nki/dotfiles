@@ -52,7 +52,7 @@ return packer.startup(function(use)
   use({"vim-airline/vim-airline", config = function() require("pluginconfig/airline") end})
   use({"vim-airline/vim-airline-themes"})
 
-  local colorscheme = "kanagawa.nvim"
+  local colorscheme = "nightfox.nvim"
   use({"cocopon/iceberg.vim"})
   use({"ackyshake/Spacegray.vim"})
   use({"arcticicestudio/nord-vim"})
@@ -61,6 +61,7 @@ return packer.startup(function(use)
   use({"elianiva/icy.nvim"})
   use({"catppuccin/nvim"})
   use({"rebelot/kanagawa.nvim", config = function() require("pluginconfig/colorscheme") end})
+  use({"EdenEast/nightfox.nvim", config = function() require("pluginconfig/colorscheme") end})
 
   use({"tpope/vim-surround"})
   use({"tpope/vim-repeat"})
