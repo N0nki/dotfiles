@@ -97,7 +97,10 @@ return packer.startup(function(use)
   use({"cespare/vim-toml"})
   use({"kassio/neoterm", config = function() require("pluginconfig/neoterm") end})
   use({"tomtom/tcomment_vim"})
-  use({"Yggdroot/indentLine", config = function() require("pluginconfig/indentline") end})
+  use({"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end})
+  use({"Yggdroot/indentLine",
+      disable = true,
+      config = function() require("pluginconfig/indentline") end})
   use({"junegunn/fzf.vim", config = function() require("pluginconfig/fzf-vim") end})
   use({"junegunn/fzf", {run = "./install --bin"}})
   use({"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end})
