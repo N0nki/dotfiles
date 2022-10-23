@@ -37,6 +37,8 @@ packer.init({
 return packer.startup(function(use)
   use({"wbthomason/packer.nvim"})
 
+  use({"nvim-lua/plenary.nvim"})
+
   use({"Shougo/defx.nvim",
       run = ":UpdateRemotePlugins",
       config = function() require("pluginconfig/defx") end
@@ -114,6 +116,7 @@ return packer.startup(function(use)
   use({"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end})
   use({"mg979/vim-visual-multi"})
   use({"tversteeg/registers.nvim", config = function() require("registers").setup() end})
+  use({"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"})
 
   -- lazy load
   -- TODO: lazy load settings
