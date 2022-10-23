@@ -31,6 +31,7 @@ packer.init({
       return require("packer.util").float({border = "rounded"})
     end,
   },
+  max_job = 10,
 })
 
 return packer.startup(function(use)
