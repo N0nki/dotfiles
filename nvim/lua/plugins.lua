@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use({"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end})
 
   use({"nvim-treesitter/nvim-treesitter",
+      event = "BufReadPost",
       run = ":TSUpdate",
       config = function() require("pluginconfig/nvim-treesitter") end,
   })
