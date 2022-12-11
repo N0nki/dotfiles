@@ -122,13 +122,15 @@ return packer.startup(function(use)
   use({"Shougo/neoyank.vim"})
   use({"Shougo/deoplete.nvim",
       run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/deoplete") end})
+      config = function() require("pluginconfig/deoplete") end
+  })
   use({"lighttiger2505/deoplete-vim-lsp"})
   use({"fishbullet/deoplete-ruby"})
   use({"deoplete-plugins/deoplete-clang"})
   use({"Shougo/deoppet.nvim",
       run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/deoppet") end})
+      config = function() require("pluginconfig/deoppet") end
+  })
   use({"Shougo/neosnippet-snippets"})
   use({"tpope/vim-endwise"})
   use({"fatih/vim-go", config = function() require("pluginconfig/vim-go") end})
@@ -149,7 +151,8 @@ return packer.startup(function(use)
   })
   use({"Yggdroot/indentLine",
       disable = true,
-      config = function() require("pluginconfig/indentline") end})
+      config = function() require("pluginconfig/indentline") end
+  })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
