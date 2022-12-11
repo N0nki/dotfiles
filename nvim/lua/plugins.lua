@@ -50,9 +50,6 @@ return packer.startup(function(use)
   use({"chemzqm/unite-location"})
   use({"Shougo/deol.nvim"})
 
-  use({"vim-airline/vim-airline", config = function() require("pluginconfig/airline") end})
-  use({"vim-airline/vim-airline-themes"})
-
   local colorscheme = "nightfox.nvim"
   use({"cocopon/iceberg.vim"})
   use({"ackyshake/Spacegray.vim"})
@@ -63,6 +60,11 @@ return packer.startup(function(use)
   use({"catppuccin/nvim"})
   use({"rebelot/kanagawa.nvim", config = function() require("pluginconfig/colorscheme") end})
   use({"EdenEast/nightfox.nvim", config = function() require("pluginconfig/colorscheme") end})
+
+  use({"nvim-lualine/lualine.nvim",
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require("pluginconfig/lualine") end
+  })
 
   use({"tpope/vim-surround"})
   use({"tpope/vim-repeat"})
@@ -153,6 +155,14 @@ return packer.startup(function(use)
       disable = true,
       config = function() require("pluginconfig/indentline") end
   })
+  use({"vim-airline/vim-airline",
+    disable = true,
+    config = function() require("pluginconfig/airline") end
+  })
+  use({"vim-airline/vim-airline-themes",
+    disable = true
+  })
+
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
