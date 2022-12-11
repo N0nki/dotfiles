@@ -38,11 +38,9 @@ return packer.startup(function(use)
   use({"wbthomason/packer.nvim"})
 
   use({"nvim-lua/plenary.nvim"})
+  use({"nvim-tree/nvim-web-devicons"})
+  use({"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end})
 
-  use({"Shougo/defx.nvim",
-      run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/defx") end
-  })
   use({"kristijanhusak/defx-icons"})
   use({"kristijanhusak/defx-git"})
 
@@ -93,16 +91,12 @@ return packer.startup(function(use)
   })
 
   use({"mattn/emmet-vim"})
-  use({"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end})
   use({"mattn/webapi-vim"})
   use({"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end})
   use({"cespare/vim-toml"})
   use({"kassio/neoterm", config = function() require("pluginconfig/neoterm") end})
   use({"tomtom/tcomment_vim"})
   use({"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end})
-  use({"Yggdroot/indentLine",
-      disable = true,
-      config = function() require("pluginconfig/indentline") end})
   use({"junegunn/fzf.vim", config = function() require("pluginconfig/fzf-vim") end})
   use({"junegunn/fzf", {run = "./install --bin"}})
   use({"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end})
@@ -117,6 +111,10 @@ return packer.startup(function(use)
   use({"mg979/vim-visual-multi"})
   use({"tversteeg/registers.nvim", config = function() require("registers").setup() end})
   use({"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"})
+  use({"nvim-tree/nvim-tree.lua",
+      requires = "nvim-tree/nvim-web-devicons",
+      config = function() require("pluginconfig/nvim-tree") end,
+  })
 
   -- lazy load
   -- TODO: lazy load settings
@@ -142,6 +140,16 @@ return packer.startup(function(use)
   use({"mattn/vim-sqlfmt"})
   use({"elzr/vim-json", config = function() require("pluginconfig/vim-json") end})
   use({"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end})
+
+  -- disabled
+  use({"Shougo/defx.nvim",
+      disable = true,
+      run = ":UpdateRemotePlugins",
+      config = function() require("pluginconfig/defx") end
+  })
+  use({"Yggdroot/indentLine",
+      disable = true,
+      config = function() require("pluginconfig/indentline") end})
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
