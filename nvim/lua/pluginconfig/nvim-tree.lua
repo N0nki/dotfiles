@@ -13,6 +13,7 @@ require("nvim-tree").setup({
     mappings = {
       list = {
         {key = {"<2-RightMouse>"}, action = ""},
+        {key = "f", action = ""},
         {key = "l", action = "cd"},
         {key = "h", action = "dir_up"},
         {key = "s", action = "split"},
@@ -24,7 +25,7 @@ require("nvim-tree").setup({
         {key = "yy", action = "copy_absolute_path"},
         {key = "x", action = "system_open"},
         {key = "N", action = "create"},
-        {key = "<Leader>", action = "toggle_mark"},
+        -- {key = "<Space>", action = "toggle_mark"},
       }
     },
   },
