@@ -56,6 +56,11 @@ return packer.startup(function(use)
   use({"hrsh7th/cmp-nvim-lsp"})
   use({"hrsh7th/vim-vsnip"})
 
+  use({"nvim-telescope/telescope.nvim",
+    requires = {"nvim-lua/plenary.nvim"},
+    config = function() require("pluginconfig/telescope") end,
+  })
+
   local colorscheme = "nightfox.nvim"
   use({"cocopon/iceberg.vim"})
   use({"ackyshake/Spacegray.vim"})
@@ -105,7 +110,6 @@ return packer.startup(function(use)
   use({"kassio/neoterm", config = function() require("pluginconfig/neoterm") end})
   use({"tomtom/tcomment_vim"})
   use({"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end})
-  use({"junegunn/fzf.vim", config = function() require("pluginconfig/fzf-vim") end})
   use({"junegunn/fzf", {run = "./install --bin"}})
   use({"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end})
   use({"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end})
@@ -156,6 +160,10 @@ return packer.startup(function(use)
   })
   use({"vim-airline/vim-airline-themes",
     disable = true
+  })
+  use({"junegunn/fzf.vim",
+    disable = true,
+    config = function() require("pluginconfig/fzf-vim") end,
   })
 
 
