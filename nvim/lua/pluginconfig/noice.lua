@@ -2,7 +2,7 @@
 
 require("noice").setup({
   messages = {
-    enable = false,
+    enabled = false,
   },
   popupmenu = {
     backend = "cmp"
