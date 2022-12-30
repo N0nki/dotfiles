@@ -38,6 +38,8 @@ return packer.startup(function(use)
   use({"wbthomason/packer.nvim"})
 
   use({"nvim-lua/plenary.nvim"})
+  use({"MunifTanjim/nui.nvim"})
+  use({"rcarriga/nvim-notify"})
   use({"nvim-tree/nvim-web-devicons"})
   use({"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end})
 
@@ -59,6 +61,14 @@ return packer.startup(function(use)
   use({"nvim-telescope/telescope.nvim",
     requires = {"nvim-lua/plenary.nvim"},
     config = function() require("pluginconfig/telescope") end,
+  })
+
+  use({"folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function() require("pluginconfig/noice") end,
   })
 
   local colorscheme = "nightfox.nvim"
