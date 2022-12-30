@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
   buf_keymap(bufnr, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   buf_keymap(bufnr, "n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_keymap(bufnr, "n", "g?", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  buf_keymap(bufnr, "n", "ge", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 end
 
