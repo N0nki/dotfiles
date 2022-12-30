@@ -44,10 +44,6 @@ return packer.startup(function(use)
   use({"kristijanhusak/defx-icons"})
   use({"kristijanhusak/defx-git"})
 
-  use({"Shougo/denite.nvim"})
-  use({"kmnk/denite-dirmark"})
-  use({"N0nki/denite-markdown"})
-  use({"chemzqm/unite-location"})
   use({"Shougo/deol.nvim"})
 
   use({"neovim/nvim-lspconfig"})
@@ -112,8 +108,6 @@ return packer.startup(function(use)
   use({"junegunn/fzf.vim", config = function() require("pluginconfig/fzf-vim") end})
   use({"junegunn/fzf", {run = "./install --bin"}})
   use({"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end})
-  use({"prabirshrestha/vim-lsp", config = function() require("pluginconfig/vim-lsp") end, disable = true})
-  use({"mattn/vim-lsp-settings", disable = true})
   use({"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end})
   use({"wesQ3/vim-windowswap", config = function() require("pluginconfig/vim-windowswap") end})
   use({"aserebryakov/vim-todo-lists"})
@@ -130,16 +124,6 @@ return packer.startup(function(use)
 
   -- lazy load
   -- TODO: lazy load settings
-  use({"Shougo/neomru.vim", disable = true})
-  use({"Shougo/neoyank.vim", disable = true})
-  use({"Shougo/deoplete.nvim",
-      disable = true,
-      run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/deoplete") end
-  })
-  use({"lighttiger2505/deoplete-vim-lsp", disable = true})
-  use({"fishbullet/deoplete-ruby", disable = true})
-  use({"deoplete-plugins/deoplete-clang", disable = true})
   use({"Shougo/deoppet.nvim",
       run = ":UpdateRemotePlugins",
       config = function() require("pluginconfig/deoppet") end
