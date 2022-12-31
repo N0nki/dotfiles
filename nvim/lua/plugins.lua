@@ -56,7 +56,9 @@ return packer.startup(function(use)
   use({"hrsh7th/cmp-buffer"})
   use({"hrsh7th/cmp-cmdline"})
   use({"hrsh7th/cmp-nvim-lsp"})
-  use({"hrsh7th/vim-vsnip"})
+  use({"hrsh7th/cmp-vsnip"})
+  use({"hrsh7th/vim-vsnip", config = function() require("pluginconfig/vsnip") end})
+  use({"hrsh7th/vim-vsnip-integ"})
 
   use({"nvim-telescope/telescope.nvim",
     requires = {"nvim-lua/plenary.nvim"},
@@ -138,10 +140,6 @@ return packer.startup(function(use)
 
   -- lazy load
   -- TODO: lazy load settings
-  use({"Shougo/deoppet.nvim",
-      run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/deoppet") end
-  })
   use({"Shougo/neosnippet-snippets"})
   use({"tpope/vim-endwise"})
   use({"fatih/vim-go", config = function() require("pluginconfig/vim-go") end})
@@ -174,6 +172,11 @@ return packer.startup(function(use)
   use({"junegunn/fzf.vim",
     disable = true,
     config = function() require("pluginconfig/fzf-vim") end,
+  })
+  use({"Shougo/deoppet.nvim",
+      disable = true,
+      run = ":UpdateRemotePlugins",
+      config = function() require("pluginconfig/deoppet") end
   })
 
 
