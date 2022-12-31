@@ -1,0 +1,14 @@
+{
+  "Vsnip": {
+    "prefix": "vsnip",
+    "body": [
+        "\t\"${1:Identity}\": {",
+        "\t\t\"prefix\": \"${2:prefix}\",",
+        "\t\t\"body\": [",
+        "\t\t\t\"${3:body}\"",
+        "\t\t],",
+        "\t\t\"description\": \"\"",
+        "\t}"
+    ]
+  }
+}

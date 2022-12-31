@@ -1,0 +1,10 @@
+{
+  "Def": {
+    "prefix": "def",
+    "body": [
+      "def ${1:function}(${2:args}):",
+      "\t${3:statement}"
+    ],
+    "description": "def"
+  }
+}
