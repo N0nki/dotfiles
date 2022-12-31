@@ -24,6 +24,7 @@ vim.o.title = true
 vim.o.number = true
 vim.o.cursorline = true
 
+vim.cmd([[filetype plugin indent on]])
 vim.o.showtabline = 2
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
