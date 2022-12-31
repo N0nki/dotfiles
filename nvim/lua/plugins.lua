@@ -173,12 +173,6 @@ return packer.startup(function(use)
     disable = true,
     config = function() require("pluginconfig/fzf-vim") end,
   })
-  use({"Shougo/deoppet.nvim",
-      disable = true,
-      run = ":UpdateRemotePlugins",
-      config = function() require("pluginconfig/deoppet") end
-  })
-
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
