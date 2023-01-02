@@ -43,9 +43,6 @@ return packer.startup(function(use)
   use({"nvim-tree/nvim-web-devicons"})
   use({"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end})
 
-  use({"kristijanhusak/defx-icons"})
-  use({"kristijanhusak/defx-git"})
-
   use({"Shougo/deol.nvim"})
 
   use({"neovim/nvim-lspconfig"})
@@ -158,6 +155,8 @@ return packer.startup(function(use)
       run = ":UpdateRemotePlugins",
       config = function() require("pluginconfig/defx") end
   })
+  use({"kristijanhusak/defx-icons", disable = true})
+  use({"kristijanhusak/defx-git", disable = true})
   use({"Yggdroot/indentLine",
       disable = true,
       config = function() require("pluginconfig/indentline") end
