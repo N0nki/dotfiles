@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use({"hrsh7th/cmp-vsnip"})
   use({"hrsh7th/vim-vsnip", config = function() require("pluginconfig/vsnip") end})
   use({"hrsh7th/vim-vsnip-integ"})
+  use({"onsails/lspkind-nvim", config = function() require("pluginconfig/lspkind-nvim") end})
 
   use({"nvim-telescope/telescope.nvim",
     requires = {"nvim-lua/plenary.nvim"},

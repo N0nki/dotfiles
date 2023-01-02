@@ -3,6 +3,24 @@
 local cmp = require("cmp")
 
 cmp.setup({
+	formatting = {
+		-- fields = {'abbr', 'kind', 'menu'},
+		format = require("lspkind").cmp_format({
+			with_text = true,
+			menu = {
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				vsnip = "[VSnip]",
+				nvim_lua = "[NeovimLua]",
+				path = "[Path]",
+				spell = "[Spell]",
+				emoji = "[Emoji]",
+				rg = "[Rg]",
+				treesitter = "[TS]",
+				cmdline_history = "[History]",
+			},
+		}),
+	},
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
