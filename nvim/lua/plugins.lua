@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use({"Shougo/deol.nvim"})
 
   use({"neovim/nvim-lspconfig"})
+  use({"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, disable = true})
   use({"williamboman/mason.nvim", config = function() require("mason").setup() end})
   use({"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end})
   use({"hrsh7th/nvim-cmp", config = function() require("pluginconfig/nvim-cmp") end})
