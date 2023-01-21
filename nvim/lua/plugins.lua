@@ -68,6 +68,7 @@ return packer.startup(function(use)
     requires = {"nvim-lua/plenary.nvim"},
     config = function() require("pluginconfig/telescope") end,
   })
+  use({"nvim-telescope/telescope-file-browser.nvim"})
 
   use({"folke/noice.nvim",
     requires = {

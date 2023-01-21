@@ -22,7 +22,10 @@ require("telescope").setup({
   }
 })
 
+require("telescope").load_extension("file_browser")
+
 vim.keymap.set('n', '<leader>df', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>da', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>db', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>dh', builtin.help_tags, opts)
+vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', opts)
