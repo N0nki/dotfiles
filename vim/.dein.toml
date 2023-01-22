@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
-source ~/.config/nvim/plugins/colorschemes.rc.vim
+source ~/.vim/plugins/colorschemes.rc.vim
 '''
 
 [[plugins]]
@@ -14,13 +14,13 @@ build = 'make'
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
 hook_add = '''
-source ~/.config/nvim/plugins/vimfiler.rc.vim
+source ~/.vim/plugins/vimfiler.rc.vim
 '''
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-source ~/.config/nvim/plugins/defx.rc.vim
+source ~/.vim/plugins/defx.rc.vim
 '''
 
 [[plugins]]
@@ -32,7 +32,7 @@ repo = 'kristijanhusak/defx-git'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-source ~/.config/nvim/plugins/denite.rc.vim
+source ~/.vim/plugins/denite.rc.vim
 '''
 
 [[plugins]]
@@ -51,7 +51,7 @@ repo = 'Shougo/deol.nvim'
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''
-source ~/.config/nvim/plugins/airline.rc.vim
+source ~/.vim/plugins/airline.rc.vim
 '''
 
 [[plugins]]
@@ -76,13 +76,13 @@ repo = 'tpope/vim-rhubarb'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-gitgutter.rc.vim
+source ~/.vim/plugins/vim-gitgutter.rc.vim
 '''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
-source ~/.config/nvim/plugins/quickrun.rc.vim
+source ~/.vim/plugins/quickrun.rc.vim
 '''
 
 [[plugins]]
@@ -94,13 +94,13 @@ repo = 'osyo-manga/vim-over'
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-anzu.rc.vim
+source ~/.vim/plugins/vim-anzu.rc.vim
 '''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
-source ~/.config/nvim/plugins/open-browser.rc.vim
+source ~/.vim/plugins/open-browser.rc.vim
 '''
 
 [[plugins]]
@@ -108,7 +108,7 @@ repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 hook_post_update = 'TSUpdate'
 hook_source = '''
-source ~/.config/nvim/plugins/nvim-treesitter.rc.vim
+source ~/.vim/plugins/nvim-treesitter.rc.vim
 '''
 
 [[plugins]]
@@ -138,14 +138,14 @@ repo = 'mattn/emmet-vim'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-devicons.rc.vim
+source ~/.vim/plugins/vim-devicons.rc.vim
 '''
 
 [[plugins]]
 repo = 'mattn/gist-vim'
 depends = ['mattn/webapi-vim']
 hook_add = '''
-source ~/.config/nvim/plugins/gist-vim.rc.vim
+source ~/.vim/plugins/gist-vim.rc.vim
 '''
 
 [[plugins]]
@@ -157,13 +157,13 @@ repo = 'cespare/vim-toml'
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-source ~/.config/nvim/plugins/ale.rc.vim
+source ~/.vim/plugins/ale.rc.vim
 '''
 
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
-source ~/.config/nvim/plugins/neoterm.rc.vim
+source ~/.vim/plugins/neoterm.rc.vim
 '''
 
 [[plugins]]
@@ -172,14 +172,14 @@ repo = 'tomtom/tcomment_vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
-source ~/.config/nvim/plugins/indentline.rc.vim
+source ~/.vim/plugins/indentline.rc.vim
 '''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = ['junegunn/fzf']
 hook_add = '''
-source ~/.config/nvim/plugins/fzf-vim.rc.vim
+source ~/.vim/plugins/fzf-vim.rc.vim
 '''
 
 [[plugins]]
@@ -190,7 +190,7 @@ merged = '0'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-easymotion.rc.vim
+source ~/.vim/plugins/vim-easymotion.rc.vim
 '''
 
 [[plugins]]
@@ -199,7 +199,7 @@ repo = 'prabirshrestha/async.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-lsp.rc.vim
+source ~/.vim/plugins/vim-lsp.rc.vim
 '''
 
 [[plugins]]
@@ -209,7 +209,7 @@ merged = '0'
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
 hook_add = '''
-source ~/.config/nvim/plugins/vista.rc.vim
+source ~/.vim/plugins/vista.rc.vim
 '''
 
 [[plugins]]
@@ -227,7 +227,7 @@ repo = 'roxma/vim-hug-neovim-rpc'
 [[plugins]]
 repo = 'wesQ3/vim-windowswap'
 hook_add = '''
-source ~/.config/nvim/plugins/vim-windowswap.rc.vim
+source ~/.vim/plugins/vim-windowswap.rc.vim
 '''
 [[plugins]]
 repo = 'aserebryakov/vim-todo-lists'
