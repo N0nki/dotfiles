@@ -96,9 +96,9 @@ vim.cmd([[
 
   au FileType quickrun nnoremap <buffer>q :quit<CR>
 
-  nnoremap <Leader>r :write<CR>:QuickRun -mode n<CR>
-  xnoremap <Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
+  nnoremap <silent><Leader>r :write<CR>:QuickRun -mode n<CR>
+  xnoremap <silent><Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
 
   command QuickRunRedirect :QuickRun <./redirect_input.txt
-  nnoremap <Leader>er :write<CR>:QuickRunRedirect<CR>
+  nnoremap <silent><Leader>er :write<CR>:QuickRunRedirect<CR>
 ]])
