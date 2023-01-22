@@ -86,11 +86,3 @@ if exists(':tmap')
   " tnoremap <C-q> <C-w>N
   " tnoremap <C-q> <C-w><C-c>
 endif
-
-" neovim
-if has("nvim")
-  " terminal modeからcommand modeへ移行
-  " tnoremap <silent> jj <C-\><C-n>
-  tnoremap <silent> <C-q> <C-\><C-n>
-  " tnoremap <silent> <C-c> <C-\><C-n>
-endif
