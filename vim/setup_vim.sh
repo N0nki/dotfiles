@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# vimとneovimのセットアップ
+# vimのセットアップ
 # deinをインストールしたあとに各種設定ファイルのシンボリックリンクを貼る
 
 if [ ! -e ~/.vim ]; then
@@ -19,6 +19,5 @@ fi
 cd ~/.cache
 mkdir dein
 cd dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
 sh ~/dotfiles/vim/synbolic_links.sh
