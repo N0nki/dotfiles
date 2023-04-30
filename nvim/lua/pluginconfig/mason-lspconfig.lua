@@ -26,19 +26,5 @@ require("mason-lspconfig").setup_handlers({
       capabilities = capabilities,
       on_attach = on_attach,
     })
-  end,
-
-  ["sumneko_lua"] = function()
-		lspconfig.sumneko_lua.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
-	end,
+  end
 })
