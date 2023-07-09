@@ -1,188 +1,167 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local packer_install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-if vim.fn.empty(vim.fn.glob(packer_install_path)) > 0 then
-  PACKER_BOOTSTRAP = vim.fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    packer_install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_config = augroup("PackerConfig", {clear = true})
-autocmd("BufWritePost", {
-  group = packer_config,
-  pattern = "plugins.lua",
-  command = "PackerCompile"
-})
+require("lazy").setup({
+  {"nvim-lua/plenary.nvim"},
+  {"MunifTanjim/nui.nvim"},
+  {"rcarriga/nvim-notify"},
+  {"nvim-tree/nvim-web-devicons"},
+  {"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end},
 
-local packer = require("packer")
+  {"Shougo/deol.nvim"},
 
-packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({border = "rounded"})
-    end,
-  },
-  max_job = 10,
-})
+  {"neovim/nvim-lspconfig"},
+  {"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, enabled = false},
+  {"williamboman/mason.nvim", config = function() require("mason").setup() end},
+  {"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end},
 
-return packer.startup(function(use)
-  use({"wbthomason/packer.nvim"})
+  {"hrsh7th/nvim-cmp", config = function() require("pluginconfig/nvim-cmp") end},
+  {"hrsh7th/cmp-path"},
+  {"hrsh7th/cmp-buffer"},
+  {"hrsh7th/cmp-cmdline"},
+  {"hrsh7th/cmp-nvim-lsp"},
+  {"hrsh7th/cmp-nvim-lsp-signature-help"},
+  {"f3fora/cmp-spell"},
+  {"ray-x/cmp-treesitter"},
+  {"hrsh7th/cmp-emoji"},
+  {"hrsh7th/cmp-vsnip"},
+  {"hrsh7th/vim-vsnip", config = function() require("pluginconfig/vsnip") end},
+  {"hrsh7th/vim-vsnip-integ"},
+  {"onsails/lspkind-nvim", config = function() require("pluginconfig/lspkind-nvim") end},
 
-  use({"nvim-lua/plenary.nvim"})
-  use({"MunifTanjim/nui.nvim"})
-  use({"rcarriga/nvim-notify"})
-  use({"nvim-tree/nvim-web-devicons"})
-  use({"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end})
-
-  use({"Shougo/deol.nvim"})
-
-  use({"neovim/nvim-lspconfig"})
-  use({"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, disable = true})
-  use({"williamboman/mason.nvim", config = function() require("mason").setup() end})
-  use({"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end})
-
-  use({"hrsh7th/nvim-cmp", config = function() require("pluginconfig/nvim-cmp") end})
-  use({"hrsh7th/cmp-path"})
-  use({"hrsh7th/cmp-buffer"})
-  use({"hrsh7th/cmp-cmdline"})
-  use({"hrsh7th/cmp-nvim-lsp"})
-  use({"hrsh7th/cmp-nvim-lsp-signature-help"})
-  use({"f3fora/cmp-spell"})
-  use({"ray-x/cmp-treesitter"})
-  use({"hrsh7th/cmp-emoji"})
-  use({"hrsh7th/cmp-vsnip"})
-  use({"hrsh7th/vim-vsnip", config = function() require("pluginconfig/vsnip") end})
-  use({"hrsh7th/vim-vsnip-integ"})
-  use({"onsails/lspkind-nvim", config = function() require("pluginconfig/lspkind-nvim") end})
-
-  use({"nvim-telescope/telescope.nvim",
-    requires = {"nvim-lua/plenary.nvim"},
+  {"nvim-telescope/telescope.nvim",
+    dependencies = {"nvim-lua/plenary.nvim"},
     config = function() require("pluginconfig/telescope") end,
-  })
-  use({"nvim-telescope/telescope-file-browser.nvim"})
+  },
+  {"nvim-telescope/telescope-file-browser.nvim"},
 
-  use({"folke/noice.nvim",
-    requires = {
+  {"folke/noice.nvim",
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
     config = function() require("pluginconfig/noice") end,
-  })
+  },
 
-  local colorscheme = "nightfox.nvim"
-  use({"cocopon/iceberg.vim"})
-  use({"ackyshake/Spacegray.vim"})
-  use({"arcticicestudio/nord-vim"})
-  use({"sainnhe/everforest"})
-  use({"morhetz/gruvbox"})
-  use({"elianiva/icy.nvim"})
-  use({"catppuccin/nvim"})
-  use({"rebelot/kanagawa.nvim", config = function() require("pluginconfig/colorscheme") end})
-  use({"EdenEast/nightfox.nvim", config = function() require("pluginconfig/colorscheme") end})
+  {"arcticicestudio/nord-vim"},
+  {"sainnhe/everforest"},
+  {"morhetz/gruvbox"},
+  {"elianiva/icy.nvim"},
+  {"catppuccin/nvim"},
+  {"cocopon/iceberg.vim",
+    lazy = false,
+    priority = 1000,
+  },
+  {"rebelot/kanagawa.nvim",
+    config = function() require("pluginconfig/colorscheme") end,
+    lazy = false,
+    priority = 1000,
+  },
+  {"EdenEast/nightfox.nvim",
+    config = function() require("pluginconfig/colorscheme") end,
+    lazy = false,
+    priority = 2000,
+  },
 
-  use({"nvim-lualine/lualine.nvim",
+  {"nvim-lualine/lualine.nvim",
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function() require("pluginconfig/lualine") end
-  })
+  },
 
-  use({"tpope/vim-surround"})
-  use({"tpope/vim-repeat"})
-  use({"tpope/vim-rhubarb"})
+  {"tpope/vim-surround"},
+  {"tpope/vim-repeat"},
+  {"tpope/vim-rhubarb"},
 
-  use({"tpope/vim-fugitive"})
-  use({"junegunn/gv.vim"})
-  use({"lewis6991/gitsigns.nvim", config = function() require("pluginconfig/gitsigns") end})
+  {"tpope/vim-fugitive"},
+  {"junegunn/gv.vim"},
+  {"lewis6991/gitsigns.nvim", config = function() require("pluginconfig/gitsigns") end},
 
-  use({"osyo-manga/shabadou.vim"})
-  use({"Shougo/vimproc.vim", run = "make"})
-  use({"thinca/vim-quickrun", config = function() require("pluginconfig/quickrun") end})
-  use({"osyo-manga/vim-over"})
-  use({"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end})
-  use({"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end})
+  {"osyo-manga/shabadou.vim"},
+  {"Shougo/vimproc.vim", build = "make"},
+  {"thinca/vim-quickrun", config = function() require("pluginconfig/quickrun") end, keys = {"<leader>r", "<leader>er"}},
+  {"osyo-manga/vim-over"},
+  {"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end},
+  {"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end},
 
-  use({"nvim-treesitter/nvim-treesitter",
+  {"nvim-treesitter/nvim-treesitter",
       event = "BufReadPost",
-      run = ":TSUpdate",
+      build = ":TSUpdate",
       config = function() require("pluginconfig/nvim-treesitter") end,
-  })
-  use({"p00f/nvim-ts-rainbow", after = {"nvim-treesitter"}})
-  use({"haringsrob/nvim_context_vt",
-      after = {"nvim-treesitter", colorscheme},
+  },
+  {"p00f/nvim-ts-rainbow", dependencies = {"nvim-treesitter"}},
+  {"haringsrob/nvim_context_vt",
       config = function() require("pluginconfig/nvim-context-vt") end
-  })
+  },
 
-  use({"mattn/emmet-vim"})
-  use({"mattn/webapi-vim"})
-  use({"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end})
-  use({"cespare/vim-toml"})
-  use({"kassio/neoterm", config = function() require("pluginconfig/neoterm") end})
-  use({"tomtom/tcomment_vim"})
-  use({"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end})
-  use({"junegunn/fzf", {run = "./install --bin"}})
-  use({"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end})
-  use({"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end})
-  use({"wesQ3/vim-windowswap", config = function() require("pluginconfig/vim-windowswap") end})
-  use({"aserebryakov/vim-todo-lists"})
-  use({"junegunn/goyo.vim"})
-  use({"cohama/lexima.vim"})
-  use({"simeji/winresizer"})
-  use({"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end})
-  use({"mg979/vim-visual-multi"})
-  use({"tversteeg/registers.nvim", config = function() require("registers").setup() end})
-  use({"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"})
-  use({"nvim-tree/nvim-tree.lua",
+  {"mattn/emmet-vim"},
+  {"mattn/webapi-vim"},
+  {"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end},
+  {"cespare/vim-toml"},
+  {"kassio/neoterm", config = function() require("pluginconfig/neoterm") end},
+  {"tomtom/tcomment_vim"},
+  {"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end},
+  {"junegunn/fzf", build = "./install --bin"},
+  {"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end},
+  {"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end},
+  {"wesQ3/vim-windowswap", config = function() require("pluginconfig/vim-windowswap") end},
+  {"aserebryakov/vim-todo-lists"},
+  {"junegunn/goyo.vim"},
+  {"cohama/lexima.vim"},
+  {"simeji/winresizer"},
+  {"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end},
+  {"mg979/vim-visual-multi"},
+  {"tversteeg/registers.nvim", config = function() require("registers").setup() end},
+  {"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"},
+  {"nvim-tree/nvim-tree.lua",
       requires = "nvim-tree/nvim-web-devicons",
       config = function() require("pluginconfig/nvim-tree") end,
-  })
+  },
 
-  -- lazy load
-  -- TODO: lazy load settings
-  use({"Shougo/neosnippet-snippets"})
-  use({"tpope/vim-endwise"})
-  use({"fatih/vim-go", config = function() require("pluginconfig/vim-go") end})
-  use({"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end})
-  use({"mzlogin/vim-markdown-toc"})
-  use({"mattn/vim-maketable"})
-  use({"Valloric/MatchTagAlways"})
-  use({"lervag/vimtex", config = function() require("pluginconfig/vimtex") end})
-  use({"mattn/vim-sqlfmt"})
-  use({"elzr/vim-json", config = function() require("pluginconfig/vim-json") end})
-  use({"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end})
+  {"Shougo/neosnippet-snippets"},
+  {"tpope/vim-endwise"},
+  {"fatih/vim-go", config = function() require("pluginconfig/vim-go") end},
+  {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
+  {"mzlogin/vim-markdown-toc"},
+  {"mattn/vim-maketable"},
+  {"Valloric/MatchTagAlways"},
+  {"lervag/vimtex", config = function() require("pluginconfig/vimtex") end},
+  {"mattn/vim-sqlfmt"},
+  {"elzr/vim-json", config = function() require("pluginconfig/vim-json") end},
+  {"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end},
 
-  -- disabled
-  use({"Shougo/defx.nvim",
-      disable = true,
-      run = ":UpdateRemotePlugins",
+  {"Shougo/defx.nvim",
+      enabled = false,
+      build = ":UpdateRemotePlugins",
       config = function() require("pluginconfig/defx") end
-  })
-  use({"kristijanhusak/defx-icons", disable = true})
-  use({"kristijanhusak/defx-git", disable = true})
-  use({"Yggdroot/indentLine",
-      disable = true,
+  },
+  {"kristijanhusak/defx-icons", enabled = false},
+  {"kristijanhusak/defx-git", enabled = false},
+  {"Yggdroot/indentLine",
+      enabled = false,
       config = function() require("pluginconfig/indentline") end
-  })
-  use({"vim-airline/vim-airline",
-    disable = true,
+  },
+  {"vim-airline/vim-airline",
+    enabled = false,
     config = function() require("pluginconfig/airline") end
-  })
-  use({"vim-airline/vim-airline-themes",
-    disable = true
-  })
-  use({"junegunn/fzf.vim",
-    disable = true,
+  },
+  {"vim-airline/vim-airline-themes",
+    enabled = false
+  },
+  {"junegunn/fzf.vim",
+    enabled = false,
     config = function() require("pluginconfig/fzf-vim") end,
-  })
-
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+  },
+})
