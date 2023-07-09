@@ -132,7 +132,7 @@ require("lazy").setup({
 
   {"Shougo/neosnippet-snippets"},
   {"tpope/vim-endwise"},
-  {"fatih/vim-go", config = function() require("pluginconfig/vim-go") end},
+  {"fatih/vim-go", config = function() require("pluginconfig/vim-go") end, ft = "go"},
   {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
   {"mzlogin/vim-markdown-toc"},
   {"mattn/vim-maketable"},
