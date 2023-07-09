@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rm -rf ~/.local/share/nvim/site
+rm -rf ~/.local/share/nvim/lazy
 rm -rf ~/.config/nvim
