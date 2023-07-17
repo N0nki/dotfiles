@@ -25,6 +25,7 @@ function _open_filer()
   vim.fn.execute(filer_cmd)
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tt", ":<C-u>ToggleTerm size=15<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>tt", ":ToggleTerm direction='vertical' size=100<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>ts", ":ToggleTerm direction='horizontal' size=15<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>to", "<cmd>lua _open_filer()<CR>", {noremap = true, silent = true})
