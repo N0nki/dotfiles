@@ -6,7 +6,13 @@ require("lualine").setup({
     theme = "codedark",
   },
   sections = {
-    lualine_c = {"filename", "searchcount"}
+    lualine_c = {
+      {
+        "filename",
+        path = 3,
+      },
+      "searchcount",
+    }
   },
   tabline = {
     lualine_a = {"tabs", "filename"},
