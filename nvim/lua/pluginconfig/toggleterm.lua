@@ -18,7 +18,7 @@ end
 
 function _open_filer()
   if vim.fn.system("uname -a | grep microsoft") ~= "" then
-    filer_cmd = "TermExec open=0 dir='%:h' cmd='explore.exe .'"
+    filer_cmd = "TermExec open=0 dir='%:h' cmd='explorer.exe .'"
   elseif vim.fn.has("mac") then
     filer_cmd = "TermExec open=0 dir='%:h' cmd='open .'"
   end
