@@ -77,7 +77,7 @@ require("lazy").setup({
   },
 
   {"nvim-lualine/lualine.nvim",
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function() require("pluginconfig/lualine") end
   },
 
@@ -124,9 +124,9 @@ require("lazy").setup({
   {"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end},
   {"mg979/vim-visual-multi"},
   {"tversteeg/registers.nvim", config = function() require("registers").setup() end},
-  {"sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim"},
+  {"sindrets/diffview.nvim", dependencies = {"nvim-lua/plenary.nvim"}},
   {"nvim-tree/nvim-tree.lua",
-      requires = "nvim-tree/nvim-web-devicons",
+      dependencies = {"nvim-tree/nvim-web-devicons"},
       config = function() require("pluginconfig/nvim-tree") end,
   },
 
