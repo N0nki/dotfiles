@@ -22,6 +22,7 @@ require("lazy").setup({
   {"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end},
 
   {"Shougo/deol.nvim"},
+  {"akinsho/toggleterm.nvim", config = function() require("pluginconfig/toggleterm") end},
 
   {"neovim/nvim-lspconfig"},
   {"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, enabled = false},
