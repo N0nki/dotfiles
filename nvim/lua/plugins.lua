@@ -21,7 +21,6 @@ require("lazy").setup({
   {"nvim-tree/nvim-web-devicons"},
   {"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end},
 
-  {"Shougo/deol.nvim"},
   {"akinsho/toggleterm.nvim", config = function() require("pluginconfig/toggleterm") end},
 
   {"neovim/nvim-lspconfig"},
@@ -119,7 +118,6 @@ require("lazy").setup({
   {"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end},
   {"wesQ3/vim-windowswap", config = function() require("pluginconfig/vim-windowswap") end},
   {"aserebryakov/vim-todo-lists"},
-  {"junegunn/goyo.vim"},
   {"cohama/lexima.vim"},
   {"simeji/winresizer"},
   {"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end},
@@ -137,12 +135,12 @@ require("lazy").setup({
   {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
   {"mzlogin/vim-markdown-toc"},
   {"mattn/vim-maketable"},
-  {"Valloric/MatchTagAlways"},
   {"lervag/vimtex", config = function() require("pluginconfig/vimtex") end},
   {"mattn/vim-sqlfmt"},
   {"elzr/vim-json", config = function() require("pluginconfig/vim-json") end},
   {"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end},
 
+  {"Valloric/MatchTagAlways", enabled = false},
   {"Shougo/defx.nvim",
       enabled = false,
       build = ":UpdateRemotePlugins",
