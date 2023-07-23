@@ -128,6 +128,7 @@ require("lazy").setup({
       dependencies = {"nvim-tree/nvim-web-devicons"},
       config = function() require("pluginconfig/nvim-tree") end,
   },
+  {"norcalli/nvim-colorizer.lua", config = function() require("colorizer").setup() end},
 
   {"Shougo/neosnippet-snippets"},
   {"tpope/vim-endwise"},
