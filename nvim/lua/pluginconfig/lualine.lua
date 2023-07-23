@@ -4,6 +4,7 @@ require("lualine").setup({
   options = {
     icons_enabled = true,
     theme = "codedark",
+    globalstatus = true,
   },
   sections = {
     lualine_c = {
@@ -14,7 +15,7 @@ require("lualine").setup({
       "searchcount",
     }
   },
-  tabline = {
-    lualine_a = {"tabs", "filename"},
-  },
+  -- tabline = {
+  --   lualine_a = {"tabs", "filename"},
+  -- },
 })
