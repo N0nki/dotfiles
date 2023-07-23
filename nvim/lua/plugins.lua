@@ -80,6 +80,7 @@ require("lazy").setup({
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function() require("pluginconfig/lualine") end
   },
+  {"akinsho/bufferline.nvim", config = function() require("pluginconfig/bufferline") end},
 
   {"tpope/vim-surround"},
   {"tpope/vim-repeat"},
