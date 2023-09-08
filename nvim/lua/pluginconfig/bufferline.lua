@@ -6,7 +6,8 @@ require("bufferline").setup({
     mode = "tabs",
     style_preset = bufferline.style_preset.default,
     indicator = {
-        style = "underline"
+        icon = "▎",
+        style = "icon",
     },
     diagnostics_indicator = function(count, level)
         local icon = level:match("error") and " " or ""
@@ -15,7 +16,7 @@ require("bufferline").setup({
     modified_icon = "●",
     close_icon = "",
     diagnostics = "nvim_lsp",
-    separator_style = "slope",
+    separator_style = "thick",
     show_close_icon = true,
     show_tab_indicators = true,
   },
