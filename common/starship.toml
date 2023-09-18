@@ -4,3 +4,6 @@ command_timeout = 1000
 
 [time]
 disabled = false
+
+[battery]
+disabled = true
