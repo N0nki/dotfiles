@@ -111,6 +111,16 @@ require("lazy").setup({
   {"mattn/webapi-vim"},
   {"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end},
   {"cespare/vim-toml"},
+  {
+  "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function() require("pluginconfig/chatgpt") end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
   {"kassio/neoterm", config = function() require("pluginconfig/neoterm") end},
   {"tomtom/tcomment_vim"},
   {"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end},
