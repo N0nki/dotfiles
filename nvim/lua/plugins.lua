@@ -140,6 +140,7 @@ require("lazy").setup({
       config = function() require("pluginconfig/nvim-tree") end,
   },
   {"norcalli/nvim-colorizer.lua", config = function() require("colorizer").setup() end},
+  {"m00qek/baleia.nvim", tag = "v1.3.0", config = function() require("pluginconfig/baleia") end},
 
   {"Shougo/neosnippet-snippets"},
   {"tpope/vim-endwise"},
