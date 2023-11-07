@@ -20,6 +20,12 @@ if vim.fn.system('uname -a | grep microsoft') ~= '' then
   })
 end
 
+-- disable line number on Terminal
+autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber"
+})
+
 vim.o.title = true
 vim.o.number = true
 vim.o.cursorline = true
