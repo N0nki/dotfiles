@@ -1,3 +1,4 @@
+local command = vim.api.nvim_create_user_command
 local opts = {noremap = true, silent = true}
 local keymap = vim.api.nvim_set_keymap
 
@@ -45,6 +46,17 @@ keymap("n", "<Leader>y", "\"*yy", opts)
 keymap("v", "<Leader>y", "\"*yy", opts)
 keymap("n", "<Leader>p", "\"*p", opts)
 keymap("v", "<Leader>p", "\"*p", opts)
+
+-- yank file full path
+command("CopyFullPath", function()
+  vim.fn.setreg("\"", vim.fn.expand("%:p"))
+end, {})
+keymap("n", "<Leader>cp", ":<C-u>CopyFullPath<CR>", opts)
+-- yank directory path
+command("CopyDirectoryPath", function()
+  vim.fn.setreg("\"", vim.fn.expand("%:p:h"))
+end, {})
+keymap("n", "<Leader>cd", ":<C-u>CopyDirectoryPath<CR>", opts)
 
 -- jump to paired element
 keymap("n", "<Tab>", "%", opts)
