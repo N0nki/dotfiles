@@ -87,6 +87,7 @@ require("lazy").setup({
   {"tpope/vim-rhubarb"},
 
   {"tpope/vim-fugitive"},
+  {"shumphrey/fugitive-gitlab.vim", config = function() require("pluginconfig/fugitive-gitlab") end},
   {"junegunn/gv.vim"},
   {"lewis6991/gitsigns.nvim", config = function() require("pluginconfig/gitsigns") end},
 
