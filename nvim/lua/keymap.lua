@@ -57,6 +57,11 @@ command("CopyDirectoryPath", function()
   vim.fn.setreg("\"", vim.fn.expand("%:p:h"))
 end, {})
 keymap("n", "<Leader>cd", ":<C-u>CopyDirectoryPath<CR>", opts)
+-- yank file name
+command("CopyFileName", function()
+  vim.fn.setreg("\"", vim.fn.expand("%:t"))
+end, {})
+keymap("n", "<Leader>cf", ":<C-u>CopyFileName<CR>", opts)
 
 -- jump to paired element
 keymap("n", "<Tab>", "%", opts)
