@@ -127,6 +127,7 @@ require("lazy").setup({
   {"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end},
   {"junegunn/fzf", build = "./install --bin"},
   {"easymotion/vim-easymotion", config = function() require("pluginconfig/vim-easymotion") end},
+  {"mg979/vim-visual-multi"},
   {"liuchengxu/vista.vim", config = function() require("pluginconfig/vista") end},
   {"wesQ3/vim-windowswap", config = function() require("pluginconfig/vim-windowswap") end},
   {"aserebryakov/vim-todo-lists"},
