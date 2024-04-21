@@ -154,6 +154,7 @@ require("lazy").setup({
   {"elzr/vim-json", config = function() require("pluginconfig/vim-json") end},
   {"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end},
 
+  -- disabled plugins
   {"Valloric/MatchTagAlways", enabled = false},
   {"Shougo/defx.nvim",
       enabled = false,
