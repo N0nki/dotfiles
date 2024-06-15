@@ -54,9 +54,9 @@ vim.o.backspace = "indent,eol,start"
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 
-vim.o.nowritebackup = true
-vim.o.nobackup = true
-vim.o.noswapfile = true
+vim.o.writebackup = false
+vim.o.backup = false
+vim.o.swapfile = false
 
 vim.o.incsearch = true
 vim.o.ignorecase = true
