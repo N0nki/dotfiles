@@ -15,20 +15,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- essential
   {"nvim-lua/plenary.nvim"},
   {"MunifTanjim/nui.nvim"},
   {"rcarriga/nvim-notify"},
   {"nvim-tree/nvim-web-devicons"},
   {"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end},
 
-  {"akinsho/toggleterm.nvim", config = function() require("pluginconfig/toggleterm") end},
-
+  -- lsp
   {"neovim/nvim-lspconfig"},
   {"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, enabled = false},
   {"williamboman/mason.nvim", config = function() require("mason").setup() end},
   {"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end},
   {"RRethy/vim-illuminate"},
 
+  -- treesitter
+  {"nvim-treesitter/nvim-treesitter",
+      event = "BufReadPost",
+      build = ":TSUpdate",
+      config = function() require("pluginconfig/nvim-treesitter") end,
+  },
+  {"p00f/nvim-ts-rainbow", dependencies = {"nvim-treesitter"}},
+  {"haringsrob/nvim_context_vt",
+      config = function() require("pluginconfig/nvim-context-vt") end
+  },
+
+  -- completion
   {"hrsh7th/nvim-cmp", config = function() require("pluginconfig/nvim-cmp") end},
   {"hrsh7th/cmp-path"},
   {"hrsh7th/cmp-buffer"},
@@ -57,6 +69,7 @@ require("lazy").setup({
     config = function() require("pluginconfig/noice") end,
   },
 
+  -- colorscheme
   {"arcticicestudio/nord-vim"},
   {"sainnhe/everforest"},
   {"morhetz/gruvbox"},
@@ -82,42 +95,42 @@ require("lazy").setup({
     priority = 3000,
   },
 
+  -- status|tab bar
   {"nvim-lualine/lualine.nvim",
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function() require("pluginconfig/lualine") end
   },
   {"akinsho/bufferline.nvim", config = function() require("pluginconfig/bufferline") end},
 
-  {"tpope/vim-surround"},
-  {"tpope/vim-repeat"},
-  {"tpope/vim-rhubarb"},
-
+  -- git
   {"tpope/vim-fugitive"},
   {"shumphrey/fugitive-gitlab.vim", config = function() require("pluginconfig/fugitive-gitlab") end},
   {"junegunn/gv.vim"},
   {"lewis6991/gitsigns.nvim", config = function() require("pluginconfig/gitsigns") end},
+  {"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end},
+  {"sindrets/diffview.nvim", dependencies = {"nvim-lua/plenary.nvim"}},
 
+  -- quickrun
+  {"thinca/vim-quickrun", config = function() require("pluginconfig/quickrun") end, keys = {"<leader>r", "<leader>er"}},
   {"osyo-manga/shabadou.vim"},
   {"Shougo/vimproc.vim", build = "make"},
-  {"thinca/vim-quickrun", config = function() require("pluginconfig/quickrun") end, keys = {"<leader>r", "<leader>er"}},
-  {"osyo-manga/vim-over"},
-  {"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end},
-  {"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end},
 
-  {"nvim-treesitter/nvim-treesitter",
-      event = "BufReadPost",
-      build = ":TSUpdate",
-      config = function() require("pluginconfig/nvim-treesitter") end,
-  },
-  {"p00f/nvim-ts-rainbow", dependencies = {"nvim-treesitter"}},
-  {"haringsrob/nvim_context_vt",
-      config = function() require("pluginconfig/nvim-context-vt") end
-  },
+  -- language
+  {"cespare/vim-toml"},
+  {"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end},
+  {"fatih/vim-go", config = function() require("pluginconfig/vim-go") end, ft = "go"},
+  {"elzr/vim-json", config = function() require("pluginconfig/vim-json") end},
+  {"mattn/vim-sqlfmt"},
+  {"lervag/vimtex", config = function() require("pluginconfig/vimtex") end},
+  {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
 
+  -- utils
+  {"tpope/vim-surround"},
+  {"tpope/vim-repeat"},
+  {"tpope/vim-rhubarb"},
   {"mattn/emmet-vim"},
   {"mattn/webapi-vim"},
-  {"mattn/gist-vim", config = function() require("pluginconfig/gist-vim") end},
-  {"cespare/vim-toml"},
+  {"mattn/vim-maketable"},
   {
   "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
@@ -128,6 +141,7 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim"
     }
   },
+  {"akinsho/toggleterm.nvim", config = function() require("pluginconfig/toggleterm") end},
   {"kassio/neoterm", config = function() require("pluginconfig/neoterm") end},
   {"tomtom/tcomment_vim"},
   {"lukas-reineke/indent-blankline.nvim", config = function() require("pluginconfig/indent-blankline") end},
@@ -141,7 +155,6 @@ require("lazy").setup({
   {"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end},
   {"mg979/vim-visual-multi"},
   {"tversteeg/registers.nvim", config = function() require("registers").setup() end},
-  {"sindrets/diffview.nvim", dependencies = {"nvim-lua/plenary.nvim"}},
   {"nvim-tree/nvim-tree.lua",
       dependencies = {"nvim-tree/nvim-web-devicons"},
       config = function() require("pluginconfig/nvim-tree") end,
@@ -151,14 +164,10 @@ require("lazy").setup({
 
   {"Shougo/neosnippet-snippets"},
   {"tpope/vim-endwise"},
-  {"fatih/vim-go", config = function() require("pluginconfig/vim-go") end, ft = "go"},
-  {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
   {"mzlogin/vim-markdown-toc"},
-  {"mattn/vim-maketable"},
-  {"lervag/vimtex", config = function() require("pluginconfig/vimtex") end},
-  {"mattn/vim-sqlfmt"},
-  {"elzr/vim-json", config = function() require("pluginconfig/vim-json") end},
-  {"hashivim/vim-terraform", config = function() require("pluginconfig/vim-terraform") end},
+  {"osyo-manga/vim-over"},
+  {"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end},
+  {"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end},
 
   -- disabled plugins
   {"Valloric/MatchTagAlways", enabled = false},
