@@ -27,6 +27,7 @@ require("lazy").setup({
   {"glepnir/lspsaga.nvim", config = function() require("pluginconfig/lspsaga") end, enabled = false},
   {"williamboman/mason.nvim", config = function() require("mason").setup() end},
   {"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end},
+  {"RRethy/vim-illuminate"},
 
   {"hrsh7th/nvim-cmp", config = function() require("pluginconfig/nvim-cmp") end},
   {"hrsh7th/cmp-path"},
