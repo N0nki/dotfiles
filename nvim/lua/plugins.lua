@@ -76,6 +76,11 @@ require("lazy").setup({
     lazy = false,
     priority = 2000,
   },
+  {"folke/tokyonight.nvim",
+    config = function() require("pluginconfig/colorscheme") end,
+    lazy = false,
+    priority = 3000,
+  },
 
   {"nvim-lualine/lualine.nvim",
     dependencies = {'nvim-tree/nvim-web-devicons'},
