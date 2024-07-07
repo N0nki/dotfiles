@@ -55,6 +55,7 @@ require("lazy").setup({
   {"hrsh7th/vim-vsnip-integ"},
   {"onsails/lspkind-nvim", config = function() require("pluginconfig/lspkind-nvim") end},
 
+  -- telescope
   {"nvim-telescope/telescope.nvim",
     dependencies = {"nvim-lua/plenary.nvim"},
     config = function() require("pluginconfig/telescope") end,
@@ -168,6 +169,10 @@ require("lazy").setup({
   {"osyo-manga/vim-over"},
   {"osyo-manga/vim-anzu", config = function() require("pluginconfig/vim-anzu") end},
   {"tyru/open-browser.vim", config = function() require("pluginconfig/open-browser") end},
+  {"folke/flash.nvim"},
+  {"vim-scripts/ReplaceWithRegister"},
+  {"kevinhwang91/nvim-bqf"},
+  {"ray-x/lsp_signature.nvim"},
 
   -- disabled plugins
   {"Valloric/MatchTagAlways", enabled = false},
