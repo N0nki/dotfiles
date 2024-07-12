@@ -20,6 +20,7 @@ require("lazy").setup({
   {"MunifTanjim/nui.nvim"},
   {"rcarriga/nvim-notify"},
   {"nvim-tree/nvim-web-devicons"},
+  {"echasnovski/mini.nvim"},
   {"ryanoasis/vim-devicons", config = function() require("pluginconfig/vim-devicons") end},
 
   -- lsp
@@ -124,6 +125,14 @@ require("lazy").setup({
   {"mattn/vim-sqlfmt"},
   {"lervag/vimtex", config = function() require("pluginconfig/vimtex") end},
   {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    config = function() require("render-markdown").setup() end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim"
+    }
+  },
 
   -- utils
   {"tpope/vim-surround"},
