@@ -42,6 +42,12 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Iceberg"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
+### Keyboard
+# キーのリピート速度を最速にする
+defaults write NSGlobalDomain KeyRepeat -int 2
+# キーのリピート入力認識を最速にする
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
 ### Other
 # バッテリー残量の%表示
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
