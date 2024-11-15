@@ -9,3 +9,4 @@ ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
 ln -sf ~/dotfiles/macOS/.vrapperrc ~/.vrapperrc
 ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
 sh ./defaults.sh
+softwareupdate --install-rosetta --agree-to-license
