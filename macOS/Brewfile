@@ -4,7 +4,6 @@
 
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "neovim/neovim"
 tap "wez/wezterm"
 brew "ansible"
@@ -41,8 +40,6 @@ brew "mecab-ipadic"
 brew "neovim"
 brew "node"
 brew "nodebrew"
-brew "openssl@1.1"
-brew "packer"
 brew "pandoc"
 brew "pyenv"
 brew "python@3.9"
@@ -61,22 +58,25 @@ brew "vim"
 brew "wget"
 brew "d12frosted/emacs-plus/emacs-plus@27"
 cask "1password-cli"
+cask "chatgpt"
 cask "chromedriver"
 cask "copyq"
 cask "docker"
 cask "dropbox"
+cask "eset-cyber-security"
 cask "firefox"
 cask "font-cica"
 cask "font-hack-nerd-font"
 cask "gisto"
 cask "google-chrome"
+cask "google-japanese-ime"
 cask "hyper"
 cask "iterm2"
 cask "lepton"
 cask "macdown"
+cask "notion"
 cask "raycast"
 cask "slack"
-cask "thorium"
 cask "visual-studio-code"
 cask "vlc"
 cask "wave"
@@ -94,7 +94,6 @@ mas "iSuper DVD Ripper", id: 625150797
 mas "John's Background Switcher", id: 907640277
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
-mas "Kindle Classic", id: 405399194
 mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
 mas "Marked 2", id: 890031187
@@ -104,7 +103,6 @@ mas "Notion Web Clipper", id: 1559269364
 mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
-mas "PopClip", id: 445189367
 mas "Reeder", id: 1529448980
 mas "RunCat", id: 1429033973
 mas "Skitch", id: 425955336
@@ -113,7 +111,6 @@ mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "TickTick", id: 966085870
 mas "ToyViewer", id: 414298354
-mas "Twitter", id: 1482454543
 mas "Xcode", id: 497799835
 vscode "asvetliakov.vscode-neovim"
 vscode "be5invis.toml"
