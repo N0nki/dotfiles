@@ -1,6 +1,4 @@
-# update 強制上書き
-# 自分で追記した分は強制上書きした際に消失するので注意
-# brew bundle dump --force
+# brew bundle dump
 
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
@@ -75,6 +73,7 @@ cask "iterm2"
 cask "lepton"
 cask "macdown"
 cask "notion"
+cask "popclip"
 cask "raycast"
 cask "slack"
 cask "visual-studio-code"
