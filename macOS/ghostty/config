@@ -1,0 +1,10 @@
+# Reference
+# https://ghostty.org/docs/config/reference
+
+macos-titlebar-style = native
+theme = catppuccin-mocha
+window-theme = ghostty
+font-family = HackGen
+font-size = 16
+background-opacity = 0.9
+# background-blur-radius = 5
