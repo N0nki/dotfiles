@@ -2,6 +2,7 @@
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/opt/python@3.10/libexec/bin:$PATH
 export PATH=~/go/bin:$PATH
+XDG_CONFIG_HOME=$HOME/.config
 
 # completions
 fpath=(

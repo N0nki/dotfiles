@@ -1,11 +1,8 @@
 #!/bin/sh
 
-export XDG_CONFIG_HOME=$HOME/.config
-if [ ! -e ~/.config ]; then
-  mkdir ~/.config
+if [ ! -e ~/.config/nvim ]; then
+  mkdir -p ~/.config/nvim
 fi
-cd ~/.config
-mkdir nvim
 
 ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 ln -sf ~/dotfiles/nvim/lua ~/.config/nvim/lua
