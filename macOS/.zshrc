@@ -28,3 +28,4 @@ eval "$(pyenv init -)"
 
 # aliases
 alias ls="eza"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
