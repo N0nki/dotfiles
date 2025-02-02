@@ -2,6 +2,7 @@
 
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
+tap "knqyf263/pet"
 tap "neovim/neovim"
 tap "wez/wezterm"
 brew "python@3.13"
@@ -61,6 +62,7 @@ brew "typst"
 brew "vim"
 brew "wget"
 brew "d12frosted/emacs-plus/emacs-plus@27"
+brew "knqyf263/pet/pet"
 cask "1password-cli"
 cask "appcleaner"
 cask "bettertouchtool"
@@ -78,12 +80,14 @@ cask "font-hackgen-nerd"
 cask "ghostty"
 cask "gisto"
 cask "google-chrome"
+cask "google-cloud-sdk"
 cask "google-japanese-ime"
 cask "hyper"
 cask "iterm2"
 cask "lepton"
 cask "macdown"
 cask "neohtop"
+cask "neovide"
 cask "notion"
 cask "popclip"
 cask "raycast"
@@ -121,6 +125,7 @@ mas "RunCat", id: 1429033973
 mas "Skitch", id: 425955336
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
+mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "TickTick", id: 966085870
 mas "ToyViewer", id: 414298354
@@ -163,4 +168,4 @@ vscode "ms-vsliveshare.vsliveshare"
 vscode "octref.vetur"
 vscode "s-nlf-fh.glassit"
 vscode "yzane.markdown-pdf"
-vscode "yzhang.markdown-all-in-one"
+v
