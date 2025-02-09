@@ -10,6 +10,14 @@ alias ls='ls -G'
 alias ll='ls -al'
 alias activateiterm='osascript -e '\''tell application "iterm2" to activate'\'' '
 
+# for pet, select snippet like Ctrl-r
+function pet-select() {
+  BUFFER=$(pet search --query "$READLINE_LINE")
+  READLINE_LINE=$BUFFER
+  READLINE_POINT=${#BUFFER}
+}
+bind -x '"\C-x\C-r": pet-select'
+
 # vimとneovimのセッション回復
 alias nvims="nvim -S ~/.vim.session"
 alias vims="vim -S ~/.vim.session"

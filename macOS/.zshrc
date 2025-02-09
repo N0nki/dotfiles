@@ -24,8 +24,16 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+source <(fzf --zsh)
+#
+# for pet, select snippet like Ctrl-r
+function pet-select() {
+  LBUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=${#LBUFFER}
+}
+zle -N pet-select
+bindkey "^X^R" pet-select
+#
 # aliases
 alias ls="eza"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
