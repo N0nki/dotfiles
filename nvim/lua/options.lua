@@ -30,6 +30,8 @@ vim.o.title = true
 vim.o.number = true
 vim.o.cursorline = true
 
+vim.opt.clipboard = "unnamedplus"
+
 vim.o.showtabline = 2
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
