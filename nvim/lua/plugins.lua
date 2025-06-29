@@ -138,16 +138,6 @@ require("lazy").setup({
   {"mattn/emmet-vim"},
   {"mattn/webapi-vim"},
   {"mattn/vim-maketable"},
-  {
-  "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function() require("pluginconfig/chatgpt") end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  },
   {"akinsho/toggleterm.nvim", config = function() require("pluginconfig/toggleterm") end},
   {"kassio/neoterm", config = function() require("pluginconfig/neoterm") end},
   {"tomtom/tcomment_vim"},
