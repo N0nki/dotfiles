@@ -10,13 +10,17 @@ autocmd("ColorScheme", {
         command = "highlight WarningMsg ctermfg=150 guifg=#b4be82",
 })
 
--- for wsl, save to clipboard when yanked
 if vim.fn.system('uname -a | grep microsoft') ~= '' then
-  local my_yank = augroup("MyYank", {clear = true})
-  autocmd("TextYankPost", {
-  group = my_yank,
-  pattern = "*",
-  command = ":call system('clip.exe', @\")"
+  local my_yank = vim.api.nvim_create_augroup("MyYank", {clear = true})
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    group = my_yank,
+    pattern = "*",
+    callback = function()
+      local text = vim.fn.getreg('"')
+      if text ~= '' then
+        vim.fn.system('iconv -f UTF-8 -t UTF-16LE | clip.exe', text)
+      end
+    end,
   })
 end
 
