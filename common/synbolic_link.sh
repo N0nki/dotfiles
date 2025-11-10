@@ -10,3 +10,15 @@ ln -sf ~/dotfiles/common/.tmux.conf ~/.tmux.conf
 # zellij
 mkdir ~/.config/zellij
 ln -sf ~/dotfiles/common/zellij.kdl ~/.config/zellij/zellij.kdl
+
+# gitconfig
+ln -sf ~/dotfiles/common/.gitconfig ~/.gitconfig
+if [ ! -f ~/.gitconfig.local ]; then
+  echo "Creating ~/.gitconfig.local..."
+  cat > ~/.gitconfig.local << EOF
+[user]
+  name = YOUR_NAME
+  email = YOUR_EMAIL
+EOF
+  echo "Please edit ~/.gitconfig.local to set your name and email"
+fi
