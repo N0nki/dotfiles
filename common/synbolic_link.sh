@@ -11,6 +11,10 @@ ln -sf ~/dotfiles/common/.tmux.conf ~/.tmux.conf
 mkdir ~/.config/zellij
 ln -sf ~/dotfiles/common/zellij.kdl ~/.config/zellij/zellij.kdl
 
+# pet
+mkdir ~/.config/pet
+ln -sf ~/dotfiles/common/pet/config.toml ~/.config/pet/config.toml
+
 # gitconfig
 ln -sf ~/dotfiles/common/.gitconfig ~/.gitconfig
 if [ ! -f ~/.gitconfig.local ]; then
