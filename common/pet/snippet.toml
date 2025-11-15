@@ -2,3 +2,13 @@
   description = "launch deepseek-r1:70b"
   command = "ollama run deepseek-r1:70b"
   output = ""
+
+[[snippets]]
+  description = "update codex cli"
+  command = "npm i -g @openai/codex"
+  output = ""
+
+[[snippets]]
+  description = "update cluade code"
+  command = "npm i -g @anthropic-ai/claude-code"
+  output = ""
