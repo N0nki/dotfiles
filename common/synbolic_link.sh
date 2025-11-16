@@ -14,6 +14,10 @@ ln -sf ~/dotfiles/common/zellij.kdl ~/.config/zellij/zellij.kdl
 # pet
 mkdir ~/.config/pet
 ln -sf ~/dotfiles/common/pet/config.toml ~/.config/pet/config.toml
+#
+# codex
+mkdir ~/.codex
+ln -sf ~/dotfiles/common/codex/config.toml ~/.codex/config.toml
 
 # gitconfig
 ln -sf ~/dotfiles/common/.gitconfig ~/.gitconfig
