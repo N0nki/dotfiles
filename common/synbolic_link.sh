@@ -20,8 +20,12 @@ mkdir -p ~/.codex
 ln -sf ~/dotfiles/common/codex/config.toml ~/.codex/config.toml
 ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
 
+# git global ignore
+mkdir -p ~/.config/git
+ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore
+
 # gitconfig
-ln -sf ~/dotfiles/common/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/common/git/.gitconfig ~/.gitconfig
 if [ ! -f ~/.gitconfig.local ]; then
   echo "Creating ~/.gitconfig.local..."
   cat > ~/.gitconfig.local << EOF
