@@ -12,3 +12,18 @@
   description = "update cluade code"
   command = "npm i -g @anthropic-ai/claude-code"
   output = ""
+
+[[snippets]]
+  description = "activate uv venv"
+  command = "echo 'source .venv/bin/activate' > .envrc && direnv allow"
+  output = ""
+
+[[snippets]]
+  description = "codex read only"
+  command = "codex --sandbox read-only --ask-for-approval on-request"
+  output = ""
+
+[[snippets]]
+  description = "codex write"
+  command = "codex --sandbox workspace-write --ask-for-approval on-request"
+  output = ""
