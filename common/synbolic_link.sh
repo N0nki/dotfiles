@@ -16,8 +16,9 @@ mkdir ~/.config/pet
 ln -sf ~/dotfiles/common/pet/config.toml ~/.config/pet/config.toml
 #
 # codex
-mkdir ~/.codex
+mkdir -p ~/.codex
 ln -sf ~/dotfiles/common/codex/config.toml ~/.codex/config.toml
+ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
 
 # gitconfig
 ln -sf ~/dotfiles/common/.gitconfig ~/.gitconfig
