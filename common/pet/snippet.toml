@@ -14,6 +14,11 @@
   output = ""
 
 [[snippets]]
+  description = "update gemini"
+  command = "npm i -g @google/gemini-cli"
+  output = ""
+
+[[snippets]]
   description = "activate uv venv"
   command = "echo 'source .venv/bin/activate' > .envrc && direnv allow"
   output = ""
