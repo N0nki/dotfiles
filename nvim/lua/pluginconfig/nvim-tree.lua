@@ -50,6 +50,13 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  tab = {
+    sync = {
+      open = false,
+      close = false,
+      ignore = {},
+    },
+  },
   on_attach = on_attach,
 })
 
