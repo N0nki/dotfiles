@@ -11,6 +11,7 @@ Platform-specific directories keep responsibilities isolated: `common/` hosts sh
 
 ## Neovim Configuration Notes
 `nvim/init.lua` loads `nvim/lua/init.lua`, which stitches together `neovide.lua`, `keymap.lua`, `options.lua`, and the plugin graph. `nvim/lua/plugins.lua` bootstraps lazy.nvim, and each dependency has a sibling in `nvim/lua/pluginconfig/<name>.lua`. Language overrides live in `nvim/ftplugin/*.lua`, while snippets stay in `snippets/` and `vsnippets/` for `vim-vsnip`. After touching plugins, configs, or filetype hooks, run `:Lazy sync` (or `nvim --headless "+Lazy sync" +qall`), follow with `nvim --headless "+checkhealth" +qall`, and leave GUI-only tweaks inside `neovide.lua`'s `if vim.g.neovide` guard.
+Each plugin managed by lazy.nvim lives under `/home/kinno/.local/share/nvim/lazy/`; inspect files there if upstream defaults are unclear.
 
 ## Coding Style & Naming Conventions
 Shell scripts stay in POSIX `#!/bin/sh`, use two-space indentation, and rely on `ln -sf` + `mkdir -p` so reruns stay safe. Lua modules mirror that indentation, align filenames with their `require` path (`pluginconfig/nvim-tree.lua`), and route leader mappings through `keymap.lua`. Python code keeps snake_case identifiers and follows the rules baked into `python/flake8`, `python/pycodestyle`, and `python/pylintrc`.
