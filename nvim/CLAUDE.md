@@ -38,10 +38,10 @@ init.lua (root)
 This configuration uses lazy.nvim for plugin management. All plugins are declared in `lua/plugins.lua`.
 
 **Plugin installation location:**
-- All plugins are installed in `/home/kinno/.local/share/nvim/lazy/`
-- Each plugin has its own subdirectory (e.g., `/home/kinno/.local/share/nvim/lazy/telescope.nvim/`)
+- All plugins are installed in `~/.local/share/nvim/lazy/`
+- Each plugin has its own subdirectory (e.g., `~/.local/share/nvim/lazy/telescope.nvim/`)
 - When investigating plugin behavior, documentation, or source code, refer to this directory
-- The lazy.nvim plugin manager itself is installed at `/home/kinno/.local/share/nvim/lazy/lazy.nvim/`
+- The lazy.nvim plugin manager itself is installed at `~/.local/share/nvim/lazy/lazy.nvim/`
 
 **Plugin declaration pattern:**
 ```lua
