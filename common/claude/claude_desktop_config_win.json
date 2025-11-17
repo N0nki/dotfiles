@@ -52,7 +52,7 @@
         "run",
         "-i",
         "--rm",
-        "hashicorp/terraform-mcp-server:0.3.0"
+        "hashicorp/terraform-mcp-server:latest"
       ]
     },
     "awslabs.terraform-mcp-server": {
