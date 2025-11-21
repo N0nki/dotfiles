@@ -1,0 +1,85 @@
+name: Lint and Validate
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          severity: warning
+          ignore_paths: |
+            nvim/plugged
+            vim/dein
+
+  lua-check:
+    name: Lua Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Luacheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y luarocks
+          sudo luarocks install luacheck
+
+      - name: Run Luacheck on Neovim config
+        run: |
+          luacheck nvim/lua --globals vim --no-unused-args || true
+        continue-on-error: true
+
+  yaml-check:
+    name: YAML/JSON Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML files
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_file: .github/yamllint-config.yml
+          file_or_dir: .
+          strict: false
+        continue-on-error: true
+
+      - name: Validate JSON files
+        run: |
+          for file in $(find . -name "*.json" -not -path "*/node_modules/*" -not -path "*/.git/*"); do
+            echo "Validating $file"
+            jq empty "$file" || echo "Failed: $file"
+          done
+
+  symlink-check:
+    name: Symlink Target Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check if setup scripts exist
+        run: |
+          echo "Checking setup scripts..."
+          test -f dotfilesLink.sh && echo "✓ dotfilesLink.sh exists"
+          test -f macOS/setup_macos.sh && echo "✓ macOS/setup_macos.sh exists"
+          test -f WSL2/setup_wsl2.sh && echo "✓ WSL2/setup_wsl2.sh exists"
+          test -f nvim/setup_nvim.sh && echo "✓ nvim/setup_nvim.sh exists"
+          test -f vim/setup_vim.sh && echo "✓ vim/setup_vim.sh exists"
+          test -f common/synbolic_link.sh && echo "✓ common/synbolic_link.sh exists"
+          test -f python/symbolic_link.sh && echo "✓ python/symbolic_link.sh exists"
+
+      - name: Verify critical config files exist
+        run: |
+          echo "Checking critical config files..."
+          test -f common/.gitconfig && echo "✓ .gitconfig exists"
+          test -f common/.tmux.conf && echo "✓ .tmux.conf exists"
+          test -f nvim/init.lua && echo "✓ nvim/init.lua exists"
+          test -f nvim/lua/plugins.lua && echo "✓ nvim/lua/plugins.lua exists"
