@@ -29,11 +29,15 @@ require("lazy").setup({
 
   -- treesitter
   {"nvim-treesitter/nvim-treesitter",
+      branch = "main",
       event = "BufReadPost",
       build = ":TSUpdate",
       config = function() require("pluginconfig/nvim-treesitter") end,
   },
-  {"p00f/nvim-ts-rainbow", dependencies = {"nvim-treesitter"}},
+  {"p00f/nvim-ts-rainbow",
+    dependencies = {"nvim-treesitter"},
+    enabled = false,
+  },
   {"haringsrob/nvim_context_vt",
       config = function() require("pluginconfig/nvim-context-vt") end
   },
