@@ -62,6 +62,18 @@ command("CopyFileName", function()
   vim.fn.setreg("\"", vim.fn.expand("%:t"))
 end, {})
 keymap("n", "<Leader>cf", ":<C-u>CopyFileName<CR>", opts)
+-- yank current git branch name
+command("CopyGitBranch", function()
+  local branch = vim.fn.FugitiveHead()
+  if branch ~= '' then
+    vim.fn.setreg('+', branch)  -- clipboard
+    vim.fn.setreg('"', branch)  -- default register
+    print('Yanked branch: ' .. branch)
+  else
+    print('Not in a git repository')
+  end
+end, {})
+keymap("n", "<Leader>cg", ":<C-u>CopyGitBranch<CR>", opts)
 
 -- jump to paired element
 keymap("n", "<Tab>", "%", opts)
