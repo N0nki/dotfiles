@@ -2,7 +2,7 @@
 # https://ghostty.org/docs/config/reference
 
 macos-titlebar-style = native
-theme = catppuccin-mocha
+theme = "Iceberg Dark"
 window-theme = ghostty
 font-family = HackGen
 font-size = 16
