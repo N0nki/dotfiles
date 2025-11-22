@@ -1,13 +1,10 @@
 -- treesitter
 
-require("nvim-treesitter.configs").setup {
-  highlight = {
-    enable = true,
-    disable = {}
-  },
-  -- nvim-ts-rainbow
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-  }
-}
+require("nvim-treesitter").setup({})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
+  callback = function(ctx)
+    pcall(vim.treesitter.start)
+  end,
+})

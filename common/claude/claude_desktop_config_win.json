@@ -1,0 +1,77 @@
+{
+  "mcpServers": {
+    "awslabs.aws-documentation-mcp-server": {
+      "command": "uvx",
+      "args": [
+          "--from",
+          "awslabs-aws-documentation-mcp-server",
+          "awslabs.aws-documentation-mcp-server.exe"
+      ],
+      "env": {
+          "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "awslabs.aws-pricing-mcp-server": {
+      "command": "uvx",
+      "args": [
+         "--from",
+         "awslabs.aws-pricing-mcp-server@latest",
+         "awslabs.aws-pricing-mcp-server.exe"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "ap-northeast-1"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "awslabs.cost-explorer-mcp-server": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "tool",
+        "run",
+        "--from",
+        "awslabs.cost-explorer-mcp-server@latest",
+        "awslabs.cost-explorer-mcp-server.exe"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    },
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "hashicorp/terraform-mcp-server:latest"
+      ]
+    },
+    "awslabs.terraform-mcp-server": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "tool",
+        "run",
+        "--from",
+        "awslabs.terraform-mcp-server@latest",
+        "awslabs.terraform-mcp-server.exe"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    }
+  }
+}

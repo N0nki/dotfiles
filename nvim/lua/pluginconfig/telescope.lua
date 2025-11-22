@@ -18,6 +18,21 @@ require("telescope").setup({
         ["<C-f>"] = actions.select_vertical,
         ["<C-r>"] = actions.select_tab,
       }
+    },
+    file_ignore_patterns = {
+      "^.git/",
+      "node_modules/",
+      ".DS_Store",
+    }
+  },
+  pickers = {
+    find_files = {
+      hidden = true,  -- ドットファイルを含める
+    },
+    live_grep = {
+      additional_args = function()
+        return {"--hidden"}  -- grepでもドットファイルを含める
+      end
     }
   }
 })

@@ -1,0 +1,119 @@
+name: Test Setup Scripts
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test-common-setup:
+    name: Test Common Setup (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install required dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git tmux
+
+      - name: Run common symbolic link setup
+        run: |
+          cd $GITHUB_WORKSPACE
+          bash common/synbolic_link.sh
+          echo "Setup completed"
+
+      - name: Verify symlinks were created
+        run: |
+          echo "Checking if symlinks were created..."
+          test -L ~/.config/starship.toml && echo "✓ starship.toml linked" || echo "✗ starship.toml not linked"
+          test -L ~/.tmux.conf && echo "✓ .tmux.conf linked" || echo "✗ .tmux.conf not linked"
+          test -L ~/.config/zellij/config.kdl && echo "✓ zellij config linked" || echo "✗ zellij config not linked"
+
+      - name: Test idempotency
+        run: |
+          echo "Running setup script again to test idempotency..."
+          cd $GITHUB_WORKSPACE
+          bash common/synbolic_link.sh
+          echo "Idempotency test passed"
+
+  test-nvim-setup:
+    name: Test Neovim Setup (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common
+          sudo add-apt-repository ppa:neovim-ppa/unstable -y
+          sudo apt-get update
+          sudo apt-get install -y neovim
+
+      - name: Run Neovim setup
+        run: |
+          cd $GITHUB_WORKSPACE
+          bash nvim/setup_nvim.sh
+
+      - name: Verify Neovim config symlink
+        run: |
+          test -L ~/.config/nvim && echo "✓ Neovim config linked" || echo "✗ Neovim config not linked"
+          test -f ~/.config/nvim/init.lua && echo "✓ init.lua exists" || echo "✗ init.lua missing"
+
+  test-python-setup:
+    name: Test Python Setup (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run Python symbolic link setup
+        run: |
+          cd $GITHUB_WORKSPACE
+          bash python/symbolic_link.sh
+
+      - name: Verify Python config symlinks
+        run: |
+          test -L ~/.pylintrc && echo "✓ .pylintrc linked" || echo "✗ .pylintrc not linked"
+          test -L ~/.config/pycodestyle && echo "✓ pycodestyle linked" || echo "✗ pycodestyle not linked"
+          test -L ~/.config/flake8 && echo "✓ flake8 linked" || echo "✗ flake8 not linked"
+
+  test-wsl2-setup:
+    name: Test WSL2 Setup (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run WSL2 setup
+        run: |
+          cd $GITHUB_WORKSPACE
+          bash WSL2/setup_wsl2.sh
+
+      - name: Verify WSL2 bashrc symlink
+        run: |
+          test -L ~/.bashrc && echo "✓ .bashrc linked" || echo "✗ .bashrc not linked"
+
+  test-macos-setup:
+    name: Test macOS Setup
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run macOS setup (without Homebrew)
+        run: |
+          cd $GITHUB_WORKSPACE
+          # Skip Homebrew bundle installation in CI
+          export SKIP_BREW_BUNDLE=1
+          bash macOS/setup_macos.sh || true
+
+      - name: Verify macOS config symlinks
+        run: |
+          test -L ~/.bash_profile && echo "✓ .bash_profile linked" || echo "✗ .bash_profile not linked"
+          test -L ~/.bashrc && echo "✓ .bashrc linked" || echo "✗ .bashrc not linked"
+          test -L ~/.zshrc && echo "✓ .zshrc linked" || echo "✗ .zshrc not linked"

@@ -20,6 +20,10 @@ mkdir -p ~/.codex
 ln -sf ~/dotfiles/common/codex/config.toml ~/.codex/config.toml
 ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
 
+# claude
+mkdir -p ~/.claude
+ln -sf ~/dotfiles/common/claude/commands ~/.claude/commands
+
 # git global ignore
 mkdir -p ~/.config/git
 ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore

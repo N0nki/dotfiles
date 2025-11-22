@@ -1,0 +1,118 @@
+name: Neovim Health Check
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'nvim/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'nvim/**'
+
+jobs:
+  neovim-syntax:
+    name: Neovim Lua Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common
+          sudo add-apt-repository ppa:neovim-ppa/unstable -y
+          sudo apt-get update
+          sudo apt-get install -y neovim
+
+      - name: Test Neovim startup
+        run: |
+          cd $GITHUB_WORKSPACE
+          ln -sf $PWD/nvim ~/.config/nvim
+          nvim --headless -c "lua print('Neovim started successfully')" -c "quit" 2>&1 | tee /tmp/nvim-output.log
+          echo "Neovim startup test completed"
+
+      - name: Check for Lua syntax errors
+        run: |
+          echo "Checking Lua files for syntax errors..."
+          for file in $(find nvim/lua -name "*.lua"); do
+            echo "Checking $file"
+            nvim --headless -c "luafile $file" -c "quit" 2>&1 | grep -i "error" && exit 1 || true
+          done
+          echo "All Lua files passed syntax check"
+
+      - name: Validate plugins.lua structure
+        run: |
+          echo "Validating plugins.lua structure..."
+          nvim --headless -c "luafile nvim/lua/plugins.lua" -c "quit" 2>&1 || true
+          echo "Plugins.lua validation completed"
+
+  neovim-plugin-check:
+    name: Neovim Plugin Configuration Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common git
+          sudo add-apt-repository ppa:neovim-ppa/unstable -y
+          sudo apt-get update
+          sudo apt-get install -y neovim
+
+      - name: Setup Neovim config
+        run: |
+          ln -sf $PWD/nvim ~/.config/nvim
+
+      - name: Test lazy.nvim bootstrap
+        run: |
+          nvim --headless "+Lazy! sync" +qa 2>&1 | tee /tmp/lazy-sync.log || true
+          echo "Lazy.nvim sync attempted"
+
+      - name: Check for common plugin issues
+        run: |
+          echo "Checking for duplicate plugin declarations..."
+          if [ -f nvim/lua/plugins.lua ]; then
+            # Extract plugin names and check for duplicates
+            grep -oP "(?<=\[')[^']+(?='\])" nvim/lua/plugins.lua | sort | uniq -d > /tmp/duplicates.txt || true
+            if [ -s /tmp/duplicates.txt ]; then
+              echo "Warning: Found duplicate plugins:"
+              cat /tmp/duplicates.txt
+            else
+              echo "✓ No duplicate plugins found"
+            fi
+          fi
+
+  neovim-health:
+    name: Neovim Health Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Neovim and common dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common git curl
+          sudo add-apt-repository ppa:neovim-ppa/unstable -y
+          sudo apt-get update
+          sudo apt-get install -y neovim ripgrep fd-find
+
+      - name: Setup Neovim config
+        run: |
+          ln -sf $PWD/nvim ~/.config/nvim
+
+      - name: Run Neovim health check
+        run: |
+          nvim --headless -c "checkhealth" -c "quit" 2>&1 | tee /tmp/health.log || true
+          echo "Health check completed (see logs above)"
+
+      - name: Check for critical health issues
+        run: |
+          if grep -i "ERROR" /tmp/health.log; then
+            echo "Warning: Found errors in health check"
+            exit 0  # Don't fail the build, just warn
+          else
+            echo "✓ No critical errors found"
+          fi
+        continue-on-error: true

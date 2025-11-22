@@ -5,6 +5,7 @@
 - `lua/` houses `init.lua`, `plugins.lua`, `pluginconfig/*`, and helper modules.
 - `ftplugin/` stores language overrides; `snippets/` & `vsnippets/` back `vim-vsnip`.
 - `setup_nvim.sh` and `uninstall_nvim_settings.sh` manage symlinks and cleanup.
+- All lazy.nvim plugin checkouts live under `~/.local/share/nvim/lazy/`; inspect those directories when you need to review upstream defaults or files not mirrored in the repo.
 
 ## Required Workflow
 1. Run `sh nvim/setup_nvim.sh` after editing config files so `~/.config/nvim` mirrors repo state.

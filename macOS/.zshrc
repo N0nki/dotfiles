@@ -1,3 +1,4 @@
+#!/bin/zsh
 # homebrew
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/opt/python@3.10/libexec/bin:$PATH
