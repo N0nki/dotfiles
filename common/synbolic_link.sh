@@ -14,6 +14,7 @@ ln -sf ~/dotfiles/common/zellij.kdl ~/.config/zellij/zellij.kdl
 # pet
 mkdir ~/.config/pet
 ln -sf ~/dotfiles/common/pet/config.toml ~/.config/pet/config.toml
+ln -sf ~/dotfiles/common/pet/snippet.toml ~/.config/pet/snippet.toml
 #
 # codex
 mkdir -p ~/.codex
