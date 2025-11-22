@@ -1,3 +1,4 @@
+#!/bin/bash
 # サーチパス変更 Homebrewでインストールしたアプリケーションを優先
 PATH="/usr/local/bin:${PATH}"
 export PATH
