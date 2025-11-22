@@ -25,3 +25,5 @@ alias vims="vim -S ~/.vim.session"
 # if [ -e ~/usr/bin/vim ]; then
 #   alias vim="~/usr/bin/vim"
 # fi
+eval "$(mise activate bash)"
+eval "$(uv generate-shell-completion bash)"

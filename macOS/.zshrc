@@ -26,6 +26,9 @@ eval "$(pyenv init -)"
 # fzf
 source <(fzf --zsh)
 #
+# uv
+eval "$(uv generate-shell-completion zsh)"
+
 # for pet, select snippet like Ctrl-r
 function pet-select() {
   LBUFFER=$(pet search --query "$LBUFFER")
@@ -33,7 +36,10 @@ function pet-select() {
 }
 zle -N pet-select
 bindkey "^X^R" pet-select
-#
+
+# mise
+eval "$(mise activate zsh)"
+
 # aliases
 alias ls="eza"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
