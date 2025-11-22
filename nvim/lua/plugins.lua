@@ -128,7 +128,7 @@ require("lazy").setup({
   {"plasticboy/vim-markdown", config = function() require("pluginconfig/vim-markdown") end},
   {
     "MeanderingProgrammer/markdown.nvim",
-    config = function() require("render-markdown").setup() end,
+    config = function() require("pluginconfig/render-markdown") end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "echasnovski/mini.nvim"
