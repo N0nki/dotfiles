@@ -8,6 +8,12 @@ ln -sf ~/dotfiles/macOS/.latexmkrc ~/.latexmkrc
 ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
 ln -sf ~/dotfiles/macOS/.vrapperrc ~/.vrapperrc
 ln -sf ~/dotfiles/macOS/.xvimrc ~/.xvimrc
+if ! xcode-select -p >/dev/null 2>&1; then
+  xcode-select --install
+fi
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 if [ ! -e ~/.config/ghostty ]; then
   mkdir -p ~/.config/ghostty
 fi
