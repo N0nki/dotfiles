@@ -1,6 +1,9 @@
 -- vsnip
 
-vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnippets")
+vim.g.vsnip_snippet_dirs = {
+  vim.fn.expand("~/.config/nvim/vsnippets"),
+  vim.fn.expand("~/.config/nvim/vsnippets.local"),
+}
 
 vim.cmd([[
   imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
