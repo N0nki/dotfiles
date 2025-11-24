@@ -7,6 +7,7 @@ Secure 1Password integration for tmux without token files.
 - **No token files**: Uses 1Password CLI v2's biometric authentication on every access
 - **fzf integration**: Fuzzy search through your 1Password items
 - **Clipboard support**: Auto-copy with configurable auto-clear
+- **OTP/2FA support**: Retrieve one-time passwords (TOTP) from 1Password items
 - **Secure by default**: No persistent authentication tokens stored on disk
 
 ## Security Advantages
@@ -55,9 +56,15 @@ This plugin is designed to be used directly from your dotfiles repository via sy
 
 ### Basic Usage
 
+**Password retrieval:**
 1. Press `prefix + u` (default: `Ctrl-t u`)
 2. Select an item using fzf
 3. Password is copied to clipboard (auto-clears in 30s)
+
+**OTP/2FA code retrieval:**
+1. Press `prefix + o` (default: `Ctrl-t o`)
+2. Select an item using fzf
+3. OTP code is copied to clipboard (auto-clears in 10s)
 
 ### Configuration Options
 
@@ -70,8 +77,14 @@ set -g @1password-copy-to-clipboard 'on'
 # Auto-clear clipboard after N seconds (default: 30)
 set -g @1password-auto-clear-seconds '30'
 
-# Change key binding (default: u)
+# Change key binding for password (default: u)
 set -g @1password-key 'p'
+
+# Change key binding for OTP (default: o)
+set -g @1password-otp-key 'O'
+
+# Auto-clear clipboard for OTP (default: 10 seconds)
+set -g @1password-otp-auto-clear-seconds '15'
 
 # Filter by categories (default: Login)
 # Options: Login, Password, SecureNote, CreditCard, etc.
@@ -110,6 +123,7 @@ set -g @1password-account 'your-account'
 run-shell ~/.tmux/plugins/tmux-op-secure/plugin.tmux
 set -g @1password-copy-to-clipboard 'on'
 set -g @1password-auto-clear-seconds '30'
+set -g @1password-otp-auto-clear-seconds '10'
 set -g @1password-categories 'Login'
 set -g @1password-use-cache 'on'
 set -g @1password-vault 'Private'
@@ -153,6 +167,16 @@ Enable biometric unlock in 1Password CLI:
 2. Enable biometric unlock in app settings
 3. Sign in once: `op signin`
 
+### OTP code not found
+
+Error: "Failed to get OTP code - This item may not have OTP/2FA configured"
+
+This means the selected 1Password item doesn't have a TOTP field. To fix:
+1. Open the item in 1Password app
+2. Add a one-time password field (Edit > Add More > One-Time Password)
+3. Scan QR code or enter secret key
+4. Try retrieving OTP again with `prefix + o`
+
 ## Comparison with tmux-1password
 
 | Feature | tmux-op-secure | tmux-1password |
@@ -162,7 +186,7 @@ Enable biometric unlock in 1Password CLI:
 | Security | ✅ High | ⚠️ Medium |
 | Setup complexity | ✅ Simple | ⚠️ Moderate |
 | fzf integration | ✅ Yes | ✅ Yes |
-| OTP support | ❌ Not yet | ✅ Yes |
+| OTP support | ✅ Yes | ✅ Yes |
 
 ## License
 
