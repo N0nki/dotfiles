@@ -103,10 +103,15 @@ main() {
     local current_time=$(date +%s)
     local age=$((current_time - cache_timestamp))
 
-    if [ $age -lt $cache_age ]; then
+    # If cache_age is 0 or negative, cache never expires
+    if [ "$cache_age" -le 0 ] || [ $age -lt $cache_age ]; then
       items=$(cat "$cache_file")
       exit_code=$?
-      echo "Using cached data (age: ${age}s)..."
+      if [ "$cache_age" -le 0 ]; then
+        echo "Using cached data (never expires)..."
+      else
+        echo "Using cached data (age: ${age}s)..."
+      fi
       sleep 0.5
     else
       echo "Fetching items from 1Password..."

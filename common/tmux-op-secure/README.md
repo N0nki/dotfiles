@@ -80,7 +80,7 @@ set -g @1password-categories 'Login'
 # Enable cache (default: off)
 # Cache contains only metadata (titles, IDs), no passwords
 set -g @1password-use-cache 'on'
-set -g @1password-cache-age '300'  # seconds (default: 300 = 5 min)
+set -g @1password-cache-age '300'  # seconds (default: 300 = 5 min, 0 = never expire)
 
 # Specify vault (optional)
 set -g @1password-vault 'Private'
