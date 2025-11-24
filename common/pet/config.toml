@@ -18,7 +18,7 @@
   SnippetDirs = [
     "~/.config/pet"
   ]
-  SnippetFile = "~/.config/pet/snippet.toml"
+  SnippetFile = "~/.config/pet/snippet.toml" # keep empty
   SortBy = ""
 
 [Gist]

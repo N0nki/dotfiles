@@ -38,3 +38,8 @@
   description = "codex write"
   command = "codex --sandbox workspace-write --ask-for-approval on-request"
   output = ""
+
+[[snippets]]
+  description = "1password op siginin"
+  command = "eval $(op signin)"
+  output = ""
