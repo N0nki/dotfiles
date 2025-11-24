@@ -81,19 +81,40 @@ clear_clipboard() {
   fi
 }
 
-# Write cache file with secure permissions (600)
+# Write cache file with secure permissions (600) and symlink protection
 write_cache_file() {
   local cache_file="$1"
   local content="$2"
 
-  # Create file with secure permissions using umask
-  (
-    umask 077
-    echo "$content" > "$cache_file"
-  )
+  # Remove existing file if it's a symlink (prevent symlink attack)
+  if [ -L "$cache_file" ]; then
+    rm -f "$cache_file"
+  fi
 
-  # Explicitly set permissions to be safe
-  chmod 600 "$cache_file" 2>/dev/null || true
+  # Create temporary file securely with mktemp
+  local temp_file
+  temp_file=$(mktemp) || return 1
+
+  # Set secure permissions on temp file
+  chmod 600 "$temp_file" || {
+    rm -f "$temp_file"
+    return 1
+  }
+
+  # Write content to temp file
+  echo "$content" > "$temp_file" || {
+    rm -f "$temp_file"
+    return 1
+  }
+
+  # Atomically replace target file (prevents race conditions)
+  # On Linux, 'mv' will replace symlinks; we removed symlinks above to be safe
+  mv -f "$temp_file" "$cache_file" || {
+    rm -f "$temp_file"
+    return 1
+  }
+
+  return 0
 }
 
 # Main function
