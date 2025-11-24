@@ -120,13 +120,12 @@ write_cache_file() {
 main() {
   check_dependencies
 
-  local copy_to_clipboard
   local auto_clear_seconds
   local vault
   local account
 
-  copy_to_clipboard=$(get_tmux_option "@1password-copy-to-clipboard" "on")
   # OTP codes expire quickly, use shorter auto-clear time
+  # Note: OTP mode always copies to clipboard (no send-keys mode)
   auto_clear_seconds=$(get_tmux_option "@1password-otp-auto-clear-seconds" "10")
   vault=$(get_tmux_option "@1password-vault" "")
   account=$(get_tmux_option "@1password-account" "")
@@ -223,9 +222,7 @@ main() {
   fi
 
   local item_title
-  local vault_name
   item_title=$(echo "$selected" | awk -F'\t' '{print $1}')
-  vault_name=$(echo "$selected" | awk -F'\t' '{print $2}')
 
   # Get OTP code using op item get --otp (array prevents injection)
   local otp_args=("item" "get" "$item_title" "--otp")
