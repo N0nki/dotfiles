@@ -160,3 +160,6 @@ function pet-select() {
 }
 bind -x '"\C-x\C-r": pet-select'
 . "$HOME/.cargo/env"
+
+# completion
+source <(op completion bash)
