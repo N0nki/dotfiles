@@ -167,15 +167,19 @@ main() {
     exit 0
   fi
 
+  local item_title
+  local vault_name
   local item_id
+  item_title=$(echo "$selected" | awk -F'\t' '{print $1}')
+  vault_name=$(echo "$selected" | awk -F'\t' '{print $2}')
   item_id=$(echo "$selected" | awk -F'\t' '{print $3}')
 
-  # Get password using op read (triggers biometric authentication)
-  local password_cmd="$OP_CMD item get \"$item_id\" --format=json --fields label=password"
+  # Get password using op read (faster than item get)
+  local password_cmd="$OP_CMD read \"op://$vault_name/$item_title/password\""
   [ -n "$account" ] && password_cmd="$password_cmd --account \"$account\""
 
   local password
-  password=$(eval "$password_cmd" 2>&1 | jq -r '.value // empty')
+  password=$(eval "$password_cmd" 2>&1)
 
   if [ -z "$password" ]; then
     echo "Failed to get password"
@@ -198,7 +202,6 @@ main() {
 
     echo -n "$password" | eval "$clip_cmd"
     echo "✓ Password copied to clipboard (auto-clear in ${auto_clear_seconds}s)"
-    sleep 1
 
     # Clear clipboard after specified seconds
     if [ "$auto_clear_seconds" -gt 0 ]; then
@@ -208,7 +211,6 @@ main() {
     # Send keys to current pane
     tmux send-keys -t "$TMUX_PANE" "$password"
     echo "✓ Password sent to pane"
-    sleep 1
   fi
 }
 
