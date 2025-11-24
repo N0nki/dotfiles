@@ -12,7 +12,7 @@ Secure 1Password integration for tmux without token files.
 
 ## Security Advantages
 
-Unlike other tmux 1Password plugins that store session tokens in `~/.op_tmux_token_tmp`, this plugin:
+Unlike other tmux 1Password plugins that store session tokens, this plugin:
 
 1. **Never stores tokens**: Each access triggers fresh biometric authentication
 2. **Zero token exposure**: No token files that could be compromised
@@ -176,17 +176,6 @@ This means the selected 1Password item doesn't have a TOTP field. To fix:
 2. Add a one-time password field (Edit > Add More > One-Time Password)
 3. Scan QR code or enter secret key
 4. Try retrieving OTP again with `prefix + o`
-
-## Comparison with tmux-1password
-
-| Feature | tmux-op-secure | tmux-1password |
-|---------|----------------|----------------|
-| Token storage | ❌ None | ⚠️ `~/.op_tmux_token_tmp` |
-| Biometric auth | ✅ Every access | ⚠️ Once per session |
-| Security | ✅ High | ⚠️ Medium |
-| Setup complexity | ✅ Simple | ⚠️ Moderate |
-| fzf integration | ✅ Yes | ✅ Yes |
-| OTP support | ✅ Yes | ✅ Yes |
 
 ## License
 
