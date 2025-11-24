@@ -161,5 +161,14 @@ function pet-select() {
 bind -x '"\C-x\C-r": pet-select'
 . "$HOME/.cargo/env"
 
+# 1Password CLI - use Windows version for better integration
+if command -v op.exe &> /dev/null; then
+  alias op='op.exe'
+fi
+
 # completion
-source <(op completion bash)
+if command -v op.exe &> /dev/null; then
+  source <(op.exe completion bash)
+elif command -v op &> /dev/null; then
+  source <(op completion bash)
+fi

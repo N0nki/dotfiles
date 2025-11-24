@@ -6,6 +6,9 @@ ln -sf ~/dotfiles/common/starship.toml ~/.config/starship.toml
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf ~/dotfiles/common/.tmux.conf ~/.tmux.conf
+# tmux-op-secure (custom plugin)
+mkdir -p ~/.tmux/plugins
+ln -sf ~/dotfiles/common/tmux-op-secure ~/.tmux/plugins/tmux-op-secure
 
 # zellij
 mkdir ~/.config/zellij
