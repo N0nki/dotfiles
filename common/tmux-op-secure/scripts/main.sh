@@ -81,6 +81,21 @@ clear_clipboard() {
   fi
 }
 
+# Write cache file with secure permissions (600)
+write_cache_file() {
+  local cache_file="$1"
+  local content="$2"
+
+  # Create file with secure permissions using umask
+  (
+    umask 077
+    echo "$content" > "$cache_file"
+  )
+
+  # Explicitly set permissions to be safe
+  chmod 600 "$cache_file" 2>/dev/null || true
+}
+
 # Main function
 main() {
   check_dependencies
@@ -96,7 +111,8 @@ main() {
   account=$(get_tmux_option "@1password-account" "")
   local categories=$(get_tmux_option "@1password-categories" "Login")
   local use_cache=$(get_tmux_option "@1password-use-cache" "off")
-  local cache_file="/tmp/tmux-op-secure-cache.json"
+  # Secure cache file with proper permissions (600) and per-user isolation
+  local cache_file="/tmp/tmux-op-secure-${USER}-cache.json"
   local cache_age=$(get_tmux_option "@1password-cache-age" "300")
 
   # Build op item list command arguments (using array to prevent injection)
@@ -130,13 +146,13 @@ main() {
       echo "Fetching items from 1Password..."
       items=$("$OP_CMD" "${list_args[@]}" 2>&1)
       exit_code=$?
-      [ $exit_code -eq 0 ] && echo "$items" > "$cache_file" 2>/dev/null
+      [ $exit_code -eq 0 ] && write_cache_file "$cache_file" "$items"
     fi
   else
     echo "Fetching items from 1Password..."
     items=$("$OP_CMD" "${list_args[@]}" 2>&1)
     exit_code=$?
-    [ $exit_code -eq 0 ] && [ "$use_cache" = "on" ] && echo "$items" > "$cache_file" 2>/dev/null
+    [ $exit_code -eq 0 ] && [ "$use_cache" = "on" ] && write_cache_file "$cache_file" "$items"
   fi
 
   if [ $exit_code -ne 0 ]; then
