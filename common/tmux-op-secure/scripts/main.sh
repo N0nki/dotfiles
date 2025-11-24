@@ -55,16 +55,29 @@ check_dependencies() {
   fi
 }
 
-# Get clipboard command based on platform
-get_clipboard_cmd() {
+# Copy to clipboard safely (no shell injection)
+copy_to_clipboard() {
+  local text="$1"
   if command -v clip.exe &> /dev/null; then
-    echo "clip.exe"
+    echo -n "$text" | clip.exe
   elif command -v pbcopy &> /dev/null; then
-    echo "pbcopy"
+    echo -n "$text" | pbcopy
   elif command -v xclip &> /dev/null; then
-    echo "xclip -selection clipboard"
+    echo -n "$text" | xclip -selection clipboard
   else
-    echo ""
+    return 1
+  fi
+  return 0
+}
+
+# Clear clipboard safely
+clear_clipboard() {
+  if command -v clip.exe &> /dev/null; then
+    echo -n "" | clip.exe
+  elif command -v pbcopy &> /dev/null; then
+    echo -n "" | pbcopy
+  elif command -v xclip &> /dev/null; then
+    echo -n "" | xclip -selection clipboard
   fi
 }
 
@@ -86,11 +99,11 @@ main() {
   local cache_file="/tmp/tmux-op-secure-cache.json"
   local cache_age=$(get_tmux_option "@1password-cache-age" "300")
 
-  # Build op item list command
-  local list_cmd="$OP_CMD item list --format=json"
-  [ -n "$vault" ] && list_cmd="$list_cmd --vault \"$vault\""
-  [ -n "$account" ] && list_cmd="$list_cmd --account \"$account\""
-  [ -n "$categories" ] && list_cmd="$list_cmd --categories \"$categories\""
+  # Build op item list command arguments (using array to prevent injection)
+  local list_args=("item" "list" "--format=json")
+  [ -n "$vault" ] && list_args+=("--vault" "$vault")
+  [ -n "$account" ] && list_args+=("--account" "$account")
+  [ -n "$categories" ] && list_args+=("--categories" "$categories")
 
   # Get items and format for fzf
   local items
@@ -115,13 +128,13 @@ main() {
       sleep 0.5
     else
       echo "Fetching items from 1Password..."
-      items=$(eval "$list_cmd" 2>&1)
+      items=$("$OP_CMD" "${list_args[@]}" 2>&1)
       exit_code=$?
       [ $exit_code -eq 0 ] && echo "$items" > "$cache_file" 2>/dev/null
     fi
   else
     echo "Fetching items from 1Password..."
-    items=$(eval "$list_cmd" 2>&1)
+    items=$("$OP_CMD" "${list_args[@]}" 2>&1)
     exit_code=$?
     [ $exit_code -eq 0 ] && [ "$use_cache" = "on" ] && echo "$items" > "$cache_file" 2>/dev/null
   fi
@@ -174,12 +187,12 @@ main() {
   vault_name=$(echo "$selected" | awk -F'\t' '{print $2}')
   item_id=$(echo "$selected" | awk -F'\t' '{print $3}')
 
-  # Get password using op read (faster than item get)
-  local password_cmd="$OP_CMD read \"op://$vault_name/$item_title/password\""
-  [ -n "$account" ] && password_cmd="$password_cmd --account \"$account\""
+  # Get password using op read (faster than item get, array prevents injection)
+  local password_args=("read" "op://$vault_name/$item_title/password")
+  [ -n "$account" ] && password_args+=("--account" "$account")
 
   local password
-  password=$(eval "$password_cmd" 2>&1)
+  password=$("$OP_CMD" "${password_args[@]}" 2>&1)
 
   if [ -z "$password" ]; then
     echo "Failed to get password"
@@ -190,22 +203,18 @@ main() {
 
   # Send password to target pane or clipboard
   if [ "$copy_to_clipboard" = "on" ]; then
-    local clip_cmd
-    clip_cmd=$(get_clipboard_cmd)
-
-    if [ -z "$clip_cmd" ]; then
+    if ! copy_to_clipboard "$password"; then
       echo "No clipboard command found"
       echo "Press any key to close..."
       read -n 1
       exit 1
     fi
 
-    echo -n "$password" | eval "$clip_cmd"
     echo "✓ Password copied to clipboard (auto-clear in ${auto_clear_seconds}s)"
 
     # Clear clipboard after specified seconds
     if [ "$auto_clear_seconds" -gt 0 ]; then
-      (sleep "$auto_clear_seconds" && echo -n "" | eval "$clip_cmd" 2>/dev/null) &
+      (sleep "$auto_clear_seconds" && clear_clipboard 2>/dev/null) &
     fi
   else
     # Send keys to current pane
