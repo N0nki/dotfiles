@@ -8,7 +8,7 @@ set -e
 exec 2>&1
 
 # Trap errors and show them
-trap 'echo ""; echo "Error occurred at line $LINENO"; echo "Press any key to close..."; read -n 1' ERR
+trap 'echo ""; echo "Error occurred at line $LINENO"; echo "Press any key to close..."; read -r -n 1' ERR
 
 # Get tmux option with default value
 get_tmux_option() {
@@ -50,7 +50,7 @@ check_dependencies() {
   if [ ${#missing[@]} -gt 0 ]; then
     echo "Error: Missing dependencies: ${missing[*]}"
     echo "Press any key to close..."
-    read -n 1
+    read -r -n 1
     exit 1
   fi
 }
@@ -130,11 +130,14 @@ main() {
   auto_clear_seconds=$(get_tmux_option "@1password-auto-clear-seconds" "30")
   vault=$(get_tmux_option "@1password-vault" "")
   account=$(get_tmux_option "@1password-account" "")
-  local categories=$(get_tmux_option "@1password-categories" "Login")
-  local use_cache=$(get_tmux_option "@1password-use-cache" "off")
+  local categories
+  categories=$(get_tmux_option "@1password-categories" "Login")
+  local use_cache
+  use_cache=$(get_tmux_option "@1password-use-cache" "off")
   # Secure cache file with proper permissions (600) and per-user isolation
   local cache_file="/tmp/tmux-op-secure-${USER}-cache.json"
-  local cache_age=$(get_tmux_option "@1password-cache-age" "300")
+  local cache_age
+  cache_age=$(get_tmux_option "@1password-cache-age" "300")
 
   # Build op item list command arguments (using array to prevent injection)
   local list_args=("item" "list" "--format=json")
@@ -149,12 +152,14 @@ main() {
   # Check cache if enabled
   local exit_code=0
   if [ "$use_cache" = "on" ] && [ -f "$cache_file" ]; then
-    local cache_timestamp=$(stat -c %Y "$cache_file" 2>/dev/null || echo 0)
-    local current_time=$(date +%s)
+    local cache_timestamp
+    cache_timestamp=$(stat -c %Y "$cache_file" 2>/dev/null || echo 0)
+    local current_time
+    current_time=$(date +%s)
     local age=$((current_time - cache_timestamp))
 
     # If cache_age is 0 or negative, cache never expires
-    if [ "$cache_age" -le 0 ] || [ $age -lt $cache_age ]; then
+    if [ "$cache_age" -le 0 ] || [ "$age" -lt "$cache_age" ]; then
       items=$(cat "$cache_file")
       exit_code=$?
       if [ "$cache_age" -le 0 ]; then
@@ -188,7 +193,7 @@ main() {
     echo "3. Run: op signin"
     echo ""
     echo "Press any key to close..."
-    read -n 1
+    read -r -n 1
     exit 1
   fi
 
@@ -198,7 +203,7 @@ main() {
   if [ -z "$formatted_items" ]; then
     echo "No items found in 1Password"
     echo "Press any key to close..."
-    read -n 1
+    read -r -n 1
     exit 1
   fi
 
@@ -219,10 +224,8 @@ main() {
 
   local item_title
   local vault_name
-  local item_id
   item_title=$(echo "$selected" | awk -F'\t' '{print $1}')
   vault_name=$(echo "$selected" | awk -F'\t' '{print $2}')
-  item_id=$(echo "$selected" | awk -F'\t' '{print $3}')
 
   # Get password using op read (faster than item get, array prevents injection)
   local password_args=("read" "op://$vault_name/$item_title/password")
@@ -234,7 +237,7 @@ main() {
   if [ -z "$password" ]; then
     echo "Failed to get password"
     echo "Press any key to close..."
-    read -n 1
+    read -r -n 1
     exit 1
   fi
 
@@ -243,7 +246,7 @@ main() {
     if ! copy_to_clipboard "$password"; then
       echo "No clipboard command found"
       echo "Press any key to close..."
-      read -n 1
+      read -r -n 1
       exit 1
     fi
 
