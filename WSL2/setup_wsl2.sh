@@ -46,9 +46,54 @@ echo "Package installation completed."
 echo "Installing Neovim..."
 sudo snap install nvim --classic
 
+# Install yq via snap
+echo "Installing yq..."
+sudo snap install yq
+
 # Install Starship prompt
 echo "Installing Starship..."
 curl -sS https://starship.rs/install.sh | sh
+
+# Install pyenv
+echo "Installing pyenv..."
+curl -fsSL https://pyenv.run | bash
+
+# Install rbenv
+echo "Installing rbenv..."
+if [ ! -d ~/.rbenv ]; then
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  ~/.rbenv/bin/rbenv init
+else
+  echo "rbenv already installed"
+fi
+
+# Install ruby-build
+echo "Installing ruby-build..."
+if [ ! -d "$(~/.rbenv/bin/rbenv root)/plugins/ruby-build" ]; then
+  git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)/plugins/ruby-build"
+else
+  echo "ruby-build already installed, updating..."
+  git -C "$(~/.rbenv/bin/rbenv root)/plugins/ruby-build" pull
+fi
+
+# Install tfenv
+echo "Installing tfenv..."
+if [ ! -d ~/.tfenv ]; then
+  git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
+else
+  echo "tfenv already installed"
+fi
+
+# Install Node.js via n
+echo "Installing Node.js..."
+sudo apt install -y npm
+sudo npm i -g n
+sudo n stable
+sudo apt autoremove --purge -y npm
+
+# Install rustup
+echo "Installing rustup..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install GitHub CLI
 (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
