@@ -149,6 +149,9 @@ alias cdg='cd /mnt/g/マイドライブ/'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# fzf-git: Git branch/commit/tag selection with fzf
+[ -f ~/dotfiles/common/fzf-git/fzf-git.sh ] && source ~/dotfiles/common/fzf-git/fzf-git.sh
+
 # my tools
 export PATH="$PATH:$HOME/sandbox/shell"
 
