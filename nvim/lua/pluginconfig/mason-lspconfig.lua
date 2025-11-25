@@ -18,29 +18,27 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Default capabilities for all LSP servers
 vim.lsp.config('*', {
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
--- local lspconfig = require("lspconfig")
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- require("mason-lspconfig").setup({
---   function(server_name)
---     lspconfig[server_name].setup({
---       capabilities = capabilities,
---       on_attach = on_attach,
---     })
---   end
--- })
---
--- lspconfig.lua_ls.setup({
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = {
---           "vim"
---         }
---       }
---     }
---   }
--- })
+-- lua_ls specific configuration to recognize 'vim' global
+vim.lsp.config('lua_ls', {
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {"vim"}
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
+      },
+    }
+  }
+})
