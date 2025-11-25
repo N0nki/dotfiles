@@ -1,7 +1,11 @@
 -- mason-lspconfig
 
 
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "terraformls",
+  },
+})
 
 local on_attach = function(client, bufnr)
   local opts = {noremap = true, silent = true}
@@ -42,3 +46,13 @@ vim.lsp.config('lua_ls', {
     }
   }
 })
+
+-- terraform-ls configuration
+vim.lsp.config('terraformls', {
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+-- Enable LSP servers
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('terraformls')
