@@ -181,8 +181,14 @@ Global keymaps go in `lua/keymap.lua`. Plugin-specific keymaps go in the plugin'
 **Pattern:**
 ```lua
 -- In lua/keymap.lua or lua/pluginconfig/plugin-name.lua
+-- Use vim.keymap.set (modern API, supports functions directly)
 vim.keymap.set('n', '<leader>key', function_or_command, {noremap = true, silent = true})
+
+-- Old vim.api.nvim_set_keymap only accepts strings, not functions
+-- vim.api.nvim_set_keymap('n', '<leader>key', ':command<CR>', {noremap = true, silent = true})
 ```
+
+**Important:** Use `vim.keymap.set()` instead of `vim.api.nvim_set_keymap()` when mapping to Lua functions, as the latter only accepts string commands.
 
 ### Adding Vim Options
 
