@@ -113,3 +113,9 @@ keymap("i", "<F2>", os.date("%H:%M:%S"), {noremap = false})
 keymap("n", "<F2>", os.date("%H:%M:%S"), {noremap = false})
 
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
+
+-- LSP診断メッセージ (vim.keymap.setを使用)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)  -- 前の診断へ
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)  -- 次の診断へ
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)  -- Location listに表示
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)  -- カーソル位置の診断をフロート表示

@@ -76,3 +76,19 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.spell = true
 vim.opt.spelllang = {"en_us"}
+
+-- LSP診断メッセージの設定
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●',  -- アイコン
+    source = "if_many",  -- 複数ソースがある場合のみソースを表示
+  },
+  signs = true,  -- サインカラムに表示
+  underline = true,  -- 下線表示
+  update_in_insert = false,  -- インサートモード中は更新しない
+  severity_sort = true,  -- 重要度順にソート
+  float = {
+    source = "always",  -- フロート表示時は常にソースを表示
+    border = "rounded",
+  },
+})

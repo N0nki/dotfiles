@@ -39,8 +39,21 @@ require("telescope").setup({
 
 require("telescope").load_extension("file_browser")
 
+-- File/Search pickers
 vim.keymap.set('n', '<leader>df', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>da', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>db', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>dh', builtin.help_tags, opts)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', opts)
+
+-- LSP diagnostics
+vim.keymap.set('n', '<leader>xx', builtin.diagnostics, opts)  -- All diagnostics
+vim.keymap.set('n', '<leader>xw', function()
+  builtin.diagnostics({severity = vim.diagnostic.severity.WARN})
+end, opts)  -- Warnings only
+vim.keymap.set('n', '<leader>xi', function()
+  builtin.diagnostics({severity = vim.diagnostic.severity.HINT})
+end, opts)  -- Hints only
+vim.keymap.set('n', '<leader>xe', function()
+  builtin.diagnostics({severity = vim.diagnostic.severity.ERROR})
+end, opts)  -- Errors only
