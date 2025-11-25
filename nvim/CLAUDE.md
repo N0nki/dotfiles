@@ -89,6 +89,27 @@ require("awesome-plugin").setup({
 - **mason-lspconfig.nvim**: Bridge between mason and lspconfig (see `lua/pluginconfig/mason-lspconfig.lua`)
 - **vim-illuminate**: Highlight word under cursor
 
+**LSP Diagnostics:**
+
+Diagnostic display is configured in `lua/options.lua` with:
+- Virtual text with `●` prefix
+- Signs in sign column
+- Underline highlighting
+- Severity-based sorting
+- Rounded borders for floating windows
+
+**Diagnostic viewing (via Telescope):**
+- `<leader>xx` - Show all diagnostics
+- `<leader>xe` - Show errors only
+- `<leader>xw` - Show warnings only
+- `<leader>xi` - Show hints only
+
+**Diagnostic navigation:**
+- `[d` - Go to previous diagnostic
+- `]d` - Go to next diagnostic
+- `gl` - Show diagnostic in floating window
+- `<leader>q` - Add diagnostics to location list
+
 ### Treesitter
 - **nvim-treesitter**: Syntax parsing and highlighting (see `lua/pluginconfig/nvim-treesitter.lua`)
 - **p00f/nvim-ts-rainbow**: Rainbow parentheses
@@ -110,6 +131,10 @@ require("awesome-plugin").setup({
 - `<leader>db` - Buffers
 - `<leader>dh` - Help tags
 - `<leader>fb` - File browser
+- `<leader>xx` - LSP diagnostics (all)
+- `<leader>xe` - LSP diagnostics (errors only)
+- `<leader>xw` - LSP diagnostics (warnings only)
+- `<leader>xi` - LSP diagnostics (hints only)
 
 ### Git Integration
 - **vim-fugitive**: Git commands (:Git, :Gwrite, :Gread, etc.)
@@ -169,14 +194,28 @@ vim.g.global_variable = value
 
 ### LSP Server Configuration
 
-LSP servers are configured in `lua/pluginconfig/mason-lspconfig.lua`. The file sets up:
-1. List of LSP servers to auto-install
-2. Common LSP keybindings (gd, gr, K, etc.)
-3. Server-specific settings
+LSP servers are configured in `lua/pluginconfig/mason-lspconfig.lua` using the modern `vim.lsp.config()` API (the old `require('lspconfig')` API is deprecated). The file sets up:
+1. Default capabilities for all LSP servers (`vim.lsp.config('*', {...})`)
+2. Common LSP keybindings in `on_attach` function (gd, gr, K, ga, gn, gf, g?, ge)
+3. Server-specific settings (e.g., lua_ls)
+
+**lua_ls configuration:**
+The lua_ls server is configured to recognize `vim` as a global variable and includes Neovim runtime files:
+```lua
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = { globals = {"vim"} },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      telemetry = { enable = false }
+    }
+  }
+})
+```
 
 **To add a new LSP server:**
 1. Add server name to `ensure_installed` table in `mason-lspconfig.lua`
-2. Optionally add custom settings in the handlers section
+2. For custom settings, use `vim.lsp.config('server_name', {...})`
 3. Restart Neovim or run `:Mason` to manually install
 
 ### Treesitter Parsers
