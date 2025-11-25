@@ -31,3 +31,8 @@ eval "$(uv generate-shell-completion bash)"
 
 # fzf-git: Git branch/commit/tag selection with fzf
 [ -f ~/dotfiles/common/fzf-git/fzf-git.sh ] && source ~/dotfiles/common/fzf-git/fzf-git.sh
+
+# terraform completion
+if command -v terraform &> /dev/null; then
+  complete -C "$(which terraform)" terraform
+fi

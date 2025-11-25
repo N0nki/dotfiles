@@ -44,6 +44,12 @@ bindkey "^X^R" pet-select
 # mise
 eval "$(mise activate zsh)"
 
+# terraform completion
+if command -v terraform &> /dev/null; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -C "$(which terraform)" terraform
+fi
+
 # aliases
 alias ls="eza"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"

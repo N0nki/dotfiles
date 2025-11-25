@@ -175,3 +175,8 @@ if command -v op.exe &> /dev/null; then
 elif command -v op &> /dev/null; then
   source <(op completion bash)
 fi
+
+# terraform completion
+if command -v terraform &> /dev/null; then
+  complete -C "$(which terraform)" terraform
+fi
