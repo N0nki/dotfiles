@@ -15,7 +15,7 @@ The repository is organized by platform with shared common configurations:
 - **macOS/**: macOS-specific shell configs (.bash_profile, .bashrc, .zshrc), Brewfile for package management, macOS system defaults, and application configs (ghostty, iTerm)
 - **WSL2/**: Windows Subsystem for Linux configuration (.bashrc)
 - **windows/**: Windows-specific configs (AutoHotkey scripts)
-- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet)
+- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, tmux-op-secure, fzf-git)
 - **nvim/**: Neovim configuration using lazy.nvim plugin manager
 - **vim/**: Legacy vim configuration using dein.vim plugin manager
 - **python/**: Python linting and code style configurations (pylintrc, pycodestyle, flake8)
@@ -58,6 +58,14 @@ Each platform/component has a setup script that creates symbolic links:
 ### Initial Setup
 
 ```bash
+# Clone with submodules (important!)
+git clone --recurse-submodules https://github.com/N0nki/dotfiles.git
+
+# Or if already cloned without submodules:
+cd ~/dotfiles
+git submodule init
+git submodule update
+
 # Run main setup script (macOS)
 sh ~/dotfiles/dotfilesLink.sh
 
@@ -88,6 +96,21 @@ cat ~/.gitconfig.local
 Custom git alias available:
 - `git wta {branch}`: Create a git worktree with sanitized directory name
 
+### Git Submodules
+
+This repository uses git submodules for external dependencies:
+
+```bash
+# Update submodules to latest versions
+cd ~/dotfiles
+git submodule update --remote common/fzf-git
+git add common/fzf-git
+git commit -m "update fzf-git submodule"
+```
+
+Current submodules:
+- **common/fzf-git**: [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh) - Git branch/commit/tag selection with fzf
+
 ### Neovim Plugin Management
 
 Neovim uses lazy.nvim for plugin management:
@@ -103,6 +126,72 @@ Neovim uses lazy.nvim for plugin management:
 # LSP server management via Mason:
 :Mason
 ```
+
+### tmux-op-secure (1Password Integration)
+
+Custom tmux plugin for secure 1Password integration without token files:
+
+**Key bindings:**
+- `prefix + u`: Retrieve password from 1Password (default: `Ctrl-t u`)
+- `prefix + o`: Retrieve OTP/2FA code from 1Password (default: `Ctrl-t o`)
+
+**Features:**
+- No token files (uses biometric authentication on every access)
+- fzf integration for item selection
+- Clipboard auto-clear (30s for passwords, 10s for OTP)
+- Cache support for faster item listing
+- tmux popup display
+
+**Configuration:** `common/.tmux.conf`
+```bash
+set -g @1password-copy-to-clipboard 'on'
+set -g @1password-auto-clear-seconds '30'
+set -g @1password-otp-auto-clear-seconds '10'
+set -g @1password-categories 'Login'
+set -g @1password-use-cache 'on'
+set -g @1password-cache-age '0'  # 0 = never expire
+```
+
+**Requirements:**
+- 1Password CLI v2 (op.exe on WSL2, op on macOS)
+- fzf
+- jq
+- Clipboard command (clip.exe/pbcopy/xclip)
+
+**Files:**
+- `common/tmux-op-secure/plugin.tmux`: Plugin entry point
+- `common/tmux-op-secure/scripts/main.sh`: Password retrieval script
+- `common/tmux-op-secure/scripts/otp.sh`: OTP retrieval script
+- `common/tmux-op-secure/README.md`: Full documentation
+
+### fzf-git Integration
+
+Git object selection with fzf, integrated via git submodule:
+
+**Key bindings:**
+- `Ctrl-G ?`: Show all available bindings
+- `Ctrl-G Ctrl-B`: Select git branches
+- `Ctrl-G Ctrl-H`: Select commit hashes
+- `Ctrl-G Ctrl-T`: Select tags
+- `Ctrl-G Ctrl-F`: Select files
+- `Ctrl-G Ctrl-R`: Select remotes
+- `Ctrl-G Ctrl-S`: Select stashes
+- `Ctrl-G Ctrl-L`: Select reflog entries
+- `Ctrl-G Ctrl-W`: Select worktrees
+
+**Usage examples:**
+```bash
+git checkout <Ctrl-G Ctrl-B>  # Checkout branch
+git show <Ctrl-G Ctrl-H>      # Show commit
+git cherry-pick <Ctrl-G Ctrl-H>  # Cherry-pick commit
+```
+
+**Configuration:**
+- Sourced in `WSL2/.bashrc`, `macOS/.bashrc`, and `macOS/.zshrc`
+- Automatically uses tmux popup when inside tmux (90% × 70%)
+- Multi-selection with TAB/Shift-TAB
+
+**Submodule location:** `common/fzf-git/`
 
 ## File Modification Guidelines
 
@@ -133,3 +222,6 @@ Neovim uses lazy.nvim for plugin management:
 - macOS setup includes system defaults via defaults.sh and Rosetta installation
 - Common tools (tmux, starship, zellij) require separate installation via package manager
 - Pet (command snippet manager) config expects tpm (tmux plugin manager) to be cloned
+- **Always clone with `--recurse-submodules`** to include fzf-git and other submodules
+- tmux-op-secure requires 1Password CLI v2 and biometric authentication enabled
+- fzf-git key bindings may conflict with tmux prefix if using `Ctrl-B` (this repo uses `Ctrl-T`)
