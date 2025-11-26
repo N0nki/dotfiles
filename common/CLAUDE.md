@@ -10,10 +10,13 @@ The `common/` directory contains shared configuration files used across multiple
 
 ```
 common/
-├── .tmux.conf              # tmux configuration
 ├── starship.toml           # starship prompt configuration
 ├── zellij.kdl              # zellij terminal multiplexer configuration
 ├── synbolic_link.sh        # setup script for symlinking configurations
+├── tmux/                   # tmux configuration
+│   ├── .tmux.conf          # main tmux configuration
+│   └── tmux-nerd-font-window-name.yml  # nerd font window name config
+├── tmux-op-secure/         # custom 1Password integration plugin (submodule)
 ├── git/                    # git configuration
 │   ├── .gitconfig          # main git config (requires .gitconfig.local)
 │   └── ignore              # global git ignore patterns
@@ -47,7 +50,11 @@ sh ~/dotfiles/common/synbolic_link.sh
 ### What it links:
 
 1. **Starship**: `~/.config/starship.toml`
-2. **tmux**: `~/.tmux.conf` (also clones TPM plugin manager)
+2. **tmux**:
+   - `~/.tmux.conf` (main configuration)
+   - `~/.config/tmux/tmux-nerd-font-window-name.yml` (nerd font window name config)
+   - Clones TPM plugin manager
+   - Links tmux-op-secure plugin
 3. **Zellij**: `~/.config/zellij/zellij.kdl`
 4. **Pet**: `~/.config/pet/config.toml`
 5. **Codex**: `~/.codex/config.toml` and `~/.codex/prompts/`
@@ -92,7 +99,9 @@ vim ~/.gitconfig.local
 
 ### tmux Configuration
 
-**File**: `.tmux.conf`
+**Files**:
+- `tmux/.tmux.conf` - Main tmux configuration
+- `tmux/tmux-nerd-font-window-name.yml` - Window name icon configuration
 
 **Theme**: Iceberg (dark blue)
 
@@ -145,6 +154,13 @@ vim ~/.gitconfig.local
   - `Ctrl-t Alt-Shift-p`: Save complete history
 - **tmux-thumbs**: Pattern matching and copying
   - `Ctrl-t Space`: Copy matched patterns
+- **tmux-nerd-font-window-name**: Display nerd font icons in window names
+  - Config: `~/.config/tmux/tmux-nerd-font-window-name.yml`
+  - Automatically shows icons based on running command
+  - Customizable icons for shells, editors, programming languages, tools
+- **tmux-op-secure**: Custom 1Password integration (see detailed section above)
+- **tmux-pet**: Pet snippet integration
+  - `Ctrl-t Ctrl-s`: Open pet snippet in new pane
 
 **Plugin management:**
 - `Ctrl-t I`: Install plugins
@@ -368,10 +384,23 @@ codex --prompt commit
 
 ### When Modifying tmux Configuration
 
+**Main config (.tmux.conf)**:
 - Test changes with: `Ctrl-t r` (reload config)
 - Plugin additions require: `Ctrl-t I` to install
 - Verify keybindings don't conflict with existing ones
 - Color scheme uses iceberg theme values
+
+**Window name icons (tmux-nerd-font-window-name.yml)**:
+- Add custom icons in the `icons:` section
+- Use Nerd Font icons, emoji, or any Unicode symbols
+- Format: `command_name: "icon"`
+- Changes take effect immediately on new windows
+- Example:
+  ```yaml
+  icons:
+    htop: ""
+    python: ""
+  ```
 
 ### When Adding Pet Snippets
 

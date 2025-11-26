@@ -1,0 +1,65 @@
+# tmux-nerd-font-window-name configuration
+# https://github.com/joshmedeski/tmux-nerd-font-window-name
+
+config:
+  # Fallback icon when no definition is found
+  fallback-icon: ""
+
+  # Icon to display when window has multiple panes
+  multi-pane-icon: ""
+
+  # Show window name along with icon
+  show-name: true
+
+  # Icon position: "left" or "right"
+  icon-position: "left"
+
+# Custom icon definitions
+# You can override existing icons or add new entries
+# Use Nerd Font icons, emoji, or any symbol
+# Note: Using basic Nerd Font v2 icons and emoji for Cica font compatibility
+icons:
+  # Shell
+  zsh: ""
+  bash: ""
+  fish: ""
+
+  # Editors
+  vim: ""
+  nvim: ""
+  code: ""
+  emacs: ""
+
+  # Programming
+  Python: ""
+  uv: ""
+  node: ""
+  go: ""
+  rust: ""
+  ruby: ""
+  java: ""
+  typescript: ""
+  javascript: ""
+
+  # Tools
+  git: ""
+  docker: ""
+  kubectl: "☸"
+  terraform: "🌍"
+  ansible: "🅰"
+
+  # AI Tools
+  claude: "🤖"
+  codex: "🧠"
+
+  # System monitoring
+  htop: "📊"
+  btop: "📊"
+  top: "📈"
+
+  # Other
+  lazygit: ""
+  tmux: ""
+  ssh: "🔐"
+  curl: "🌐"
+  wget: "⬇"
