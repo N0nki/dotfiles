@@ -20,7 +20,7 @@ config:
 # Note: Using basic Nerd Font v2 icons and emoji for Cica font compatibility
 icons:
   # Shell
-  zsh: ""
+  zsh: ""
   bash: ""
   fish: ""
 
