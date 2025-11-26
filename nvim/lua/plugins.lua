@@ -111,7 +111,7 @@ require("lazy").setup({
     config = function() require("pluginconfig/barbar") end,
     enabled = false
   },
-  {"akinsho/bufferline.nvim", config = function() require("pluginconfig/bufferline") end},
+  {"akinsho/bufferline.nvim", config = function() require("pluginconfig/bufferline") end, enabled = false},
 
   -- git
   {"tpope/vim-fugitive"},
