@@ -17,6 +17,8 @@ keymap("n", "<ESC><ESC>", ":nohlsearch<CR>", opts)
 
 -- disable s
 keymap("", "s", "<Nop>", opts)
+-- disable Ctrl-g (for fzf-git)
+keymap("n", "<C-g>", "<Nop>", opts)
 -- split window horizontally
 keymap("n", "ss", ":<C-u>new<CR>", opts)
 -- split window vartically

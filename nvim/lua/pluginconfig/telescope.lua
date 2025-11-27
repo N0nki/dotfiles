@@ -38,6 +38,7 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("file_browser")
+require("telescope").load_extension("git_worktree")
 
 -- File/Search pickers
 vim.keymap.set('n', '<leader>df', builtin.find_files, opts)
@@ -45,6 +46,14 @@ vim.keymap.set('n', '<leader>da', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>db', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>dh', builtin.help_tags, opts)
 vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', opts)
+
+-- Git pickers
+vim.keymap.set('n', '<leader>gb', builtin.git_branches, opts)  -- Branches
+vim.keymap.set('n', '<leader>gc', builtin.git_commits, opts)   -- Commits
+vim.keymap.set('n', '<leader>gs', builtin.git_status, opts)    -- Status
+vim.keymap.set('n', '<leader>gt', builtin.git_stash, opts)     -- Stash
+vim.keymap.set('n', '<leader>gw', ':Telescope git_worktree git_worktrees<CR>', opts)  -- Worktrees
+vim.keymap.set('n', '<leader>gW', ':Telescope git_worktree create_git_worktree<CR>', opts)  -- Create worktree
 
 -- LSP diagnostics
 vim.keymap.set('n', '<leader>xx', builtin.diagnostics, opts)  -- All diagnostics

@@ -63,6 +63,7 @@ require("lazy").setup({
     config = function() require("pluginconfig/telescope") end,
   },
   {"nvim-telescope/telescope-file-browser.nvim"},
+  {"ThePrimeagen/git-worktree.nvim"},
 
   {"folke/noice.nvim",
     dependencies = {
