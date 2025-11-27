@@ -42,6 +42,11 @@ require("telescope").load_extension("git_worktree")
 
 -- File/Search pickers
 vim.keymap.set('n', '<leader>df', builtin.find_files, opts)
+vim.keymap.set('n', '<leader>dg', function()
+  builtin.find_files({
+    file_ignore_patterns = { "^.git/", "node_modules/", ".DS_Store", "my_worktrees/" }
+  })
+end, opts)  -- Find files excluding my_worktrees
 vim.keymap.set('n', '<leader>da', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>db', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>dh', builtin.help_tags, opts)
