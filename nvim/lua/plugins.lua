@@ -39,9 +39,9 @@ require("lazy").setup({
       build = ":TSUpdate",
       config = function() require("pluginconfig/nvim-treesitter") end,
   },
-  {"p00f/nvim-ts-rainbow",
-    dependencies = {"nvim-treesitter"},
-    enabled = false,
+  {"HiPhish/rainbow-delimiters.nvim",
+    dependencies = {"nvim-treesitter/nvim-treesitter"},
+    event = "BufReadPost",
   },
   {"haringsrob/nvim_context_vt",
       config = function() require("pluginconfig/nvim-context-vt") end
