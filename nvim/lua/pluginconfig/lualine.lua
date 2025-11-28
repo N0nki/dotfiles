@@ -64,7 +64,10 @@ require("lualine").setup({
         path = 3,
         color = { fg = "#b4be82" },  -- 緑
       },
-      "searchcount",
+      {
+        "searchcount",
+        color = { fg = "#e2c08d" },  -- 黄色
+      },
       {
         "diagnostics",
         sources = { "nvim_lsp" },
