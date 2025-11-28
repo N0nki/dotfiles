@@ -104,16 +104,6 @@ require("lazy").setup({
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function() require("pluginconfig/lualine") end
   },
-  {"romgrk/barbar.nvim",
-    dependencies = {
-      'lewis6991/gitsigns.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function() require("pluginconfig/barbar") end,
-    enabled = false
-  },
-  {"akinsho/bufferline.nvim", config = function() require("pluginconfig/bufferline") end, enabled = false},
-
   -- git
   {"tpope/vim-fugitive"},
   {"shumphrey/fugitive-gitlab.vim", config = function() require("pluginconfig/fugitive-gitlab") end},
