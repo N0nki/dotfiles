@@ -108,16 +108,23 @@ keymap("n", "sc", ":tabc<CR>", opts)
 -- close all tabs except current tab
 keymap("n", "so", ":tabo<CR>", opts)
 
--- keymap("i", "<F1>", vim.cmd([[strftime("%Y-%m-%d %H:%M:%S")]]), {noremap = false})
-keymap("i", "<F1>", os.date("%Y-%m-%d %H:%M:%S"), {noremap = false})
-keymap("n", "<F1>", os.date("%Y-%m-%d %H:%M:%S"), {noremap = false})
-keymap("i", "<F2>", os.date("%H:%M:%S"), {noremap = false})
-keymap("n", "<F2>", os.date("%H:%M:%S"), {noremap = false})
+vim.keymap.set("i", "<F1>", function()
+  vim.api.nvim_put({os.date("%Y-%m-%d %H:%M:%S") --[[@as string]]}, "c", false, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<F1>", function()
+  vim.api.nvim_put({os.date("%Y-%m-%d %H:%M:%S") --[[@as string]]}, "c", false, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("i", "<F2>", function()
+  vim.api.nvim_put({os.date("%H:%M:%S") --[[@as string]]}, "c", false, true)
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<F2>", function()
+  vim.api.nvim_put({os.date("%H:%M:%S") --[[@as string]]}, "c", false, true)
+end, { noremap = true, silent = true })
 
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
 
 -- LSP診断メッセージ (vim.keymap.setを使用)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)  -- 前の診断へ
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)  -- 次の診断へ
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)  -- 前の診断へ
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)  -- 次の診断へ
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)  -- Location listに表示
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)  -- カーソル位置の診断をフロート表示
