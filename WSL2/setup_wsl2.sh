@@ -38,7 +38,8 @@ sudo apt install -y \
   gnupg \
   jq \
   zip \
-  shellcheck
+  shellcheck \
+  shfmt
 
 echo "Package installation completed."
 
@@ -49,6 +50,10 @@ sudo snap install nvim --classic
 # Install yq via snap
 echo "Installing yq..."
 sudo snap install yq
+
+# Install yamlfmt via snap
+echo "Installing yamlfmt..."
+sudo snap install yamlfmt
 
 # Install Starship prompt
 echo "Installing Starship..."
@@ -91,9 +96,18 @@ sudo npm i -g n
 sudo n stable
 sudo apt autoremove --purge -y npm
 
+# Install prettier (markdown formatter)
+echo "Installing prettier..."
+sudo npm i -g prettier
+
 # Install rustup
 echo "Installing rustup..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# Install taplo (TOML formatter)
+echo "Installing taplo..."
+curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86_64.gz \
+  | gzip -d - | sudo install -m 755 /dev/stdin /usr/local/bin/taplo
 
 # Install GitHub CLI
 (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
