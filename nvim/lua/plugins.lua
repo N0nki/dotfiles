@@ -104,6 +104,12 @@ require("lazy").setup({
     priority = 3000,
   },
 
+  -- visual mode whitespace
+  {"mcauley-penney/visual-whitespace.nvim",
+    event = "ModeChanged *:[vV\x16]",
+    config = function() require("pluginconfig/visual-whitespace") end,
+  },
+
   -- status|tab bar
   {"nvim-lualine/lualine.nvim",
     dependencies = {'nvim-tree/nvim-web-devicons'},
