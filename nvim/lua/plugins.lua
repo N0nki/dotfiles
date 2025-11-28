@@ -26,6 +26,11 @@ require("lazy").setup({
   {"williamboman/mason.nvim", config = function() require("mason").setup() end},
   {"williamboman/mason-lspconfig.nvim", config = function() require("pluginconfig/mason-lspconfig") end},
   {"RRethy/vim-illuminate"},
+  {"stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function() require("pluginconfig/conform") end,
+  },
 
   -- treesitter
   {"nvim-treesitter/nvim-treesitter",
