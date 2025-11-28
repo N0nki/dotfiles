@@ -54,8 +54,8 @@ require("lualine").setup({
   },
   sections = {
     lualine_b = {
-      "branch",
       git_worktree_name,
+      "branch",
       "diff",
     },
     lualine_c = {
