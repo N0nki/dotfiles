@@ -7,7 +7,7 @@ require("mason-lspconfig").setup({
   },
 })
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local opts = {noremap = true, silent = true}
   local buf_keymap = vim.api.nvim_buf_set_keymap
 
@@ -24,13 +24,12 @@ end
 
 -- Default capabilities for all LSP servers
 vim.lsp.config('*', {
+  on_attach = on_attach,
   capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
 -- lua_ls specific configuration to recognize 'vim' global
 vim.lsp.config('lua_ls', {
-  on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
   settings = {
     Lua = {
       diagnostics = {
@@ -48,10 +47,7 @@ vim.lsp.config('lua_ls', {
 })
 
 -- terraform-ls configuration
-vim.lsp.config('terraformls', {
-  on_attach = on_attach,
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
-})
+vim.lsp.config('terraformls', {})
 
 -- Enable LSP servers
 vim.lsp.enable('lua_ls')
