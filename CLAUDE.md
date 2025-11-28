@@ -26,20 +26,20 @@ The Neovim setup (nvim/) uses a modular Lua-based configuration:
 
 - **init.lua**: Entry point that requires "init" module
 - **lua/init.lua**: Main loader that conditionally loads neovide, keymap, options, and plugins
-- **lua/plugins.lua**: Central plugin declaration using lazy.nvim (190+ plugins)
-- **lua/pluginconfig/**: Individual plugin configurations (20+ files)
+- **lua/plugins.lua**: Central plugin declaration using lazy.nvim (~100 plugins)
+- **lua/pluginconfig/**: Individual plugin configurations (~40 files)
 - **lua/keymap.lua**: Key mappings
 - **lua/options.lua**: Vim options
 - **ftplugin/**: Filetype-specific configurations
 - **snippets/** and **vsnippets/**: Code snippet definitions
 
 Key plugin categories in nvim:
-- LSP: nvim-lspconfig, mason.nvim, mason-lspconfig.nvim
-- Treesitter: nvim-treesitter with rainbow and context plugins
+- LSP: nvim-lspconfig, mason.nvim, mason-lspconfig.nvim, conform.nvim (formatter)
+- Treesitter: nvim-treesitter with rainbow-delimiters and context plugins
 - Completion: nvim-cmp with multiple sources (path, buffer, lsp, treesitter, emoji)
 - Telescope: Fuzzy finder with file browser
 - Git: fugitive, gitsigns, diffview
-- UI: lualine, bufferline, colorschemes (tokyonight, kanagawa, nightfox, etc.)
+- UI: lualine, colorschemes (tokyonight, kanagawa, nightfox, iceberg, etc.)
 
 ### Setup Scripts
 
@@ -142,7 +142,7 @@ Custom tmux plugin for secure 1Password integration without token files:
 - Cache support for faster item listing
 - tmux popup display
 
-**Configuration:** `common/.tmux.conf`
+**Configuration:** `common/tmux/.tmux.conf`
 ```bash
 set -g @1password-copy-to-clipboard 'on'
 set -g @1password-auto-clear-seconds '30'
