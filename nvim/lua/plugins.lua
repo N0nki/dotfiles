@@ -164,7 +164,6 @@ require("lazy").setup({
   {"cohama/lexima.vim"},
   {"simeji/winresizer"},
   {"bkad/CamelCaseMotion", config = function() require("pluginconfig/CamelCaseMotion") end},
-  {"mg979/vim-visual-multi"},
   {"tversteeg/registers.nvim", config = function() require("registers").setup() end},
   {"nvim-tree/nvim-tree.lua",
       dependencies = {"nvim-tree/nvim-web-devicons"},
