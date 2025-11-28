@@ -158,6 +158,10 @@ vim ~/.gitconfig.local
   - Config: `~/.config/tmux/tmux-nerd-font-window-name.yml`
   - Automatically shows icons based on running command
   - Customizable icons for shells, editors, programming languages, tools
+- **tmux-fzf**: fzf integration for tmux management
+  - `Ctrl-t F` (Shift+F): Open tmux-fzf menu
+  - Manage sessions, windows, panes, commands with fzf
+  - Supports multiple selection with TAB
 - **tmux-op-secure**: Custom 1Password integration (see detailed section above)
 - **tmux-pet**: Pet snippet integration
   - `Ctrl-t Ctrl-s`: Open pet snippet in new pane
