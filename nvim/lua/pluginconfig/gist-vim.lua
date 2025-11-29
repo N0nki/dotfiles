@@ -1,6 +1,6 @@
 -- gist-vim
 
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 vim.g.gist_open_browser_after_post = 1

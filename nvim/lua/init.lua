@@ -1,5 +1,5 @@
 if vim.g.neovide then
-  require("neovide")
+    require("neovide")
 end
 require("keymap")
 require("options")

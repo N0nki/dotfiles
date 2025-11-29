@@ -1,8 +1,8 @@
 -- vsnip
 
 vim.g.vsnip_snippet_dirs = {
-  vim.fn.expand("~/.config/nvim/vsnippets"),
-  vim.fn.expand("~/.config/nvim/vsnippets.local"),
+    vim.fn.expand("~/.config/nvim/vsnippets"),
+    vim.fn.expand("~/.config/nvim/vsnippets.local"),
 }
 
 vim.cmd([[

@@ -1,5 +1,5 @@
 local command = vim.api.nvim_create_user_command
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- use space as leader
@@ -42,38 +42,38 @@ keymap("n", "<Leader>l", "$", opts)
 keymap("v", "v", "$h", opts)
 
 -- yank and paste cooperate with clipboard
-keymap("n", "<Leader>d", "\"*dd", opts)
-keymap("v", "<Leader>d", "\"*dd", opts)
-keymap("n", "<Leader>y", "\"*yy", opts)
-keymap("v", "<Leader>y", "\"*yy", opts)
-keymap("n", "<Leader>p", "\"*p", opts)
-keymap("v", "<Leader>p", "\"*p", opts)
+keymap("n", "<Leader>d", '"*dd', opts)
+keymap("v", "<Leader>d", '"*dd', opts)
+keymap("n", "<Leader>y", '"*yy', opts)
+keymap("v", "<Leader>y", '"*yy', opts)
+keymap("n", "<Leader>p", '"*p', opts)
+keymap("v", "<Leader>p", '"*p', opts)
 
 -- yank file full path
 command("CopyFullPath", function()
-  vim.fn.setreg("\"", vim.fn.expand("%:p"))
+    vim.fn.setreg('"', vim.fn.expand("%:p"))
 end, {})
 keymap("n", "<Leader>cp", ":<C-u>CopyFullPath<CR>", opts)
 -- yank directory path
 command("CopyDirectoryPath", function()
-  vim.fn.setreg("\"", vim.fn.expand("%:p:h"))
+    vim.fn.setreg('"', vim.fn.expand("%:p:h"))
 end, {})
 keymap("n", "<Leader>cd", ":<C-u>CopyDirectoryPath<CR>", opts)
 -- yank file name
 command("CopyFileName", function()
-  vim.fn.setreg("\"", vim.fn.expand("%:t"))
+    vim.fn.setreg('"', vim.fn.expand("%:t"))
 end, {})
 keymap("n", "<Leader>cf", ":<C-u>CopyFileName<CR>", opts)
 -- yank current git branch name
 command("CopyGitBranch", function()
-  local branch = vim.fn.FugitiveHead()
-  if branch ~= '' then
-    vim.fn.setreg('+', branch)  -- clipboard
-    vim.fn.setreg('"', branch)  -- default register
-    print('Yanked branch: ' .. branch)
-  else
-    print('Not in a git repository')
-  end
+    local branch = vim.fn.FugitiveHead()
+    if branch ~= "" then
+        vim.fn.setreg("+", branch) -- clipboard
+        vim.fn.setreg('"', branch) -- default register
+        print("Yanked branch: " .. branch)
+    else
+        print("Not in a git repository")
+    end
 end, {})
 keymap("n", "<Leader>cg", ":<C-u>CopyGitBranch<CR>", opts)
 
@@ -109,22 +109,34 @@ keymap("n", "sc", ":tabc<CR>", opts)
 keymap("n", "so", ":tabo<CR>", opts)
 
 vim.keymap.set("i", "<F1>", function()
-  vim.api.nvim_put({os.date("%Y-%m-%d %H:%M:%S") --[[@as string]]}, "c", false, true)
+    vim.api.nvim_put({
+        os.date("%Y-%m-%d %H:%M:%S") --[[@as string]],
+    }, "c", false, true)
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<F1>", function()
-  vim.api.nvim_put({os.date("%Y-%m-%d %H:%M:%S") --[[@as string]]}, "c", false, true)
+    vim.api.nvim_put({
+        os.date("%Y-%m-%d %H:%M:%S") --[[@as string]],
+    }, "c", false, true)
 end, { noremap = true, silent = true })
 vim.keymap.set("i", "<F2>", function()
-  vim.api.nvim_put({os.date("%H:%M:%S") --[[@as string]]}, "c", false, true)
+    vim.api.nvim_put({
+        os.date("%H:%M:%S") --[[@as string]],
+    }, "c", false, true)
 end, { noremap = true, silent = true })
 vim.keymap.set("n", "<F2>", function()
-  vim.api.nvim_put({os.date("%H:%M:%S") --[[@as string]]}, "c", false, true)
+    vim.api.nvim_put({
+        os.date("%H:%M:%S") --[[@as string]],
+    }, "c", false, true)
 end, { noremap = true, silent = true })
 
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
 
 -- LSP診断メッセージ (vim.keymap.setを使用)
-vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)  -- 前の診断へ
-vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)  -- 次の診断へ
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)  -- Location listに表示
-vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)  -- カーソル位置の診断をフロート表示
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.jump({ count = -1 })
+end, opts) -- 前の診断へ
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.jump({ count = 1 })
+end, opts) -- 次の診断へ
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- Location listに表示
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts) -- カーソル位置の診断をフロート表示

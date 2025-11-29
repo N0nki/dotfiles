@@ -1,5 +1,5 @@
 -- lspsaga
 
 require("lspsaga").init_lsp_saga({
-  diagnostic_header = {"❌", "⚠️", "ℹ️", "☝️"},
+    diagnostic_header = { "❌", "⚠️", "ℹ️", "☝️" },
 })

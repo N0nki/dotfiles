@@ -1,15 +1,15 @@
 -- quickrun
 
- -- [leader] + rでlatexmkを使ってtexファイルをコンパイル
- -- さらにpdfビューアでpdfファイルをオープン
- -- 成功時はbufferに結果表示，quickfixが開いていれば閉じる
- -- 失敗時はquickfixに表示
- -- 成功時にbufferを開きたいときは以下をquickrun_configに追加して
- -- hook/close_buffer/enable_successを0指定する
- -- \ 'outputter/error/success' : 'buffer',
- -- buffer，quickfixは幅60で垂直分割して表示
- -- 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
- -- \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -ga /Applications/Skim.app %s:r.pdf'],
+-- [leader] + rでlatexmkを使ってtexファイルをコンパイル
+-- さらにpdfビューアでpdfファイルをオープン
+-- 成功時はbufferに結果表示，quickfixが開いていれば閉じる
+-- 失敗時はquickfixに表示
+-- 成功時にbufferを開きたいときは以下をquickrun_configに追加して
+-- hook/close_buffer/enable_successを0指定する
+-- \ 'outputter/error/success' : 'buffer',
+-- buffer，quickfixは幅60で垂直分割して表示
+-- 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
+-- \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -ga /Applications/Skim.app %s:r.pdf'],
 
 vim.cmd([[
   call quickrun#module#register(shabadou#make_quickrun_hook_anim(

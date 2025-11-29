@@ -1,6 +1,6 @@
 -- CamelCaseMotion
 
-local opts = {noremap = false, silent = true}
+local opts = { noremap = false, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 keymap("", "w", "<Plug>CamelCaseMotion_w", opts)
