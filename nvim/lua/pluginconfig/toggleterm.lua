@@ -103,41 +103,6 @@ local function codex_toggle()
 end
 
 -- ccusage (id = 106)
-local ccusage = Terminal:new({
-    cmd = "npx ccusage@latest",
-    -- direction = "horizontal",
-    direction = "float",
-    float_opts = {
-        border = "double",
-    },
-    size = math.floor(vim.o.lines * 0.4),
-    hidden = true,
-    id = 106,
-    close_on_exit = false,
-})
-
-local function ccusage_toggle()
-    ccusage:toggle()
-end
-
--- ccusage codex (id = 107)
-local ccusage_codex = Terminal:new({
-    cmd = "npx @ccusage/codex@latest",
-    -- direction = "horizontal",
-    direction = "float",
-    float_opts = {
-        border = "double",
-    },
-    size = math.floor(vim.o.lines * 0.4),
-    hidden = true,
-    id = 107,
-    close_on_exit = false,
-})
-
-local function ccusage_codex_toggle()
-    ccusage_codex:toggle()
-end
-
 -- Claude Code and Codex side by side (both horizontal)
 -- Store terminals globally to allow toggling
 local claude_dual = nil
@@ -197,6 +162,4 @@ vim.keymap.set("n", "<leader>tc", claude_code_toggle, { silent = true, desc = "T
 vim.keymap.set("n", "<leader>tcf", claude_code_with_file, { silent = true, desc = "Claude Code with current file" })
 vim.keymap.set("v", "<leader>tcs", claude_code_with_selection, { silent = true, desc = "Claude Code with selection" })
 vim.keymap.set("n", "<leader>tx", codex_toggle, { silent = true, desc = "Toggle Codex" })
-vim.keymap.set("n", "<leader>tcu", ccusage_toggle, { silent = true, desc = "Run npx ccusage@latest" })
-vim.keymap.set("n", "<leader>tcx", ccusage_codex_toggle, { silent = true, desc = "Run npx @ccusage/codex@latest" })
 vim.keymap.set("n", "<leader>tcc", claude_and_codex_toggle, { silent = true, desc = "Toggle Claude Code and Codex" })
