@@ -34,6 +34,7 @@ The Neovim setup (nvim/) uses a modular Lua-based configuration:
 - **snippets/** and **vsnippets/**: Code snippet definitions
 
 Key plugin categories in nvim:
+
 - LSP: nvim-lspconfig, mason.nvim, mason-lspconfig.nvim, conform.nvim (formatter)
 - Treesitter: nvim-treesitter with rainbow-delimiters and context plugins
 - Completion: nvim-cmp with multiple sources (path, buffer, lsp, treesitter, emoji)
@@ -94,6 +95,7 @@ cat ~/.gitconfig.local
 ```
 
 Custom git alias available:
+
 - `git wta {branch}`: Create a git worktree with sanitized directory name
 
 ### Git Submodules
@@ -109,6 +111,7 @@ git commit -m "update fzf-git submodule"
 ```
 
 Current submodules:
+
 - **common/fzf-git**: [junegunn/fzf-git.sh](https://github.com/junegunn/fzf-git.sh) - Git branch/commit/tag selection with fzf
 
 ### Neovim Plugin Management
@@ -132,10 +135,12 @@ Neovim uses lazy.nvim for plugin management:
 Custom tmux plugin for secure 1Password integration without token files:
 
 **Key bindings:**
+
 - `prefix + u`: Retrieve password from 1Password (default: `Ctrl-t u`)
 - `prefix + o`: Retrieve OTP/2FA code from 1Password (default: `Ctrl-t o`)
 
 **Features:**
+
 - No token files (uses biometric authentication on every access)
 - fzf integration for item selection
 - Clipboard auto-clear (30s for passwords, 10s for OTP)
@@ -143,6 +148,7 @@ Custom tmux plugin for secure 1Password integration without token files:
 - tmux popup display
 
 **Configuration:** `common/tmux/.tmux.conf`
+
 ```bash
 set -g @1password-copy-to-clipboard 'on'
 set -g @1password-auto-clear-seconds '30'
@@ -153,12 +159,14 @@ set -g @1password-cache-age '0'  # 0 = never expire
 ```
 
 **Requirements:**
+
 - 1Password CLI v2 (op.exe on WSL2, op on macOS)
 - fzf
 - jq
 - Clipboard command (clip.exe/pbcopy/xclip)
 
 **Files:**
+
 - `common/tmux-op-secure/plugin.tmux`: Plugin entry point
 - `common/tmux-op-secure/scripts/main.sh`: Password retrieval script
 - `common/tmux-op-secure/scripts/otp.sh`: OTP retrieval script
@@ -169,6 +177,7 @@ set -g @1password-cache-age '0'  # 0 = never expire
 Git object selection with fzf, integrated via git submodule:
 
 **Key bindings:**
+
 - `Ctrl-G ?`: Show all available bindings
 - `Ctrl-G Ctrl-B`: Select git branches
 - `Ctrl-G Ctrl-H`: Select commit hashes
@@ -180,6 +189,7 @@ Git object selection with fzf, integrated via git submodule:
 - `Ctrl-G Ctrl-W`: Select worktrees
 
 **Usage examples:**
+
 ```bash
 git checkout <Ctrl-G Ctrl-B>  # Checkout branch
 git show <Ctrl-G Ctrl-H>      # Show commit
@@ -187,6 +197,7 @@ git cherry-pick <Ctrl-G Ctrl-H>  # Cherry-pick commit
 ```
 
 **Configuration:**
+
 - Sourced in `WSL2/.bashrc`, `macOS/.bashrc`, and `macOS/.zshrc`
 - Automatically uses tmux popup when inside tmux (90% × 70%)
 - Multi-selection with TAB/Shift-TAB
