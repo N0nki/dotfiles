@@ -47,6 +47,9 @@ vim.keymap.set("n", "<leader>dg", function()
         file_ignore_patterns = { "^.git/", "node_modules/", ".DS_Store", "my_worktrees/" },
     })
 end, opts) -- Find files excluding my_worktrees
+vim.keymap.set("n", "<leader>uc", function()
+    builtin.colorscheme({ enable_preview = true })
+end, opts) -- Colorscheme picker with live preview
 vim.keymap.set("n", "<leader>da", builtin.live_grep, opts)
 vim.keymap.set("n", "<leader>db", builtin.buffers, opts)
 vim.keymap.set("n", "<leader>dh", builtin.help_tags, opts)
