@@ -1,45 +1,55 @@
 ## pet
 [[snippets]]
-  description = "open snippet file"
-  command = "nvim ~/.config/pet/snippet.toml"
-  output = ""
+description = "open snippet file"
+command = "nvim ~/.config/pet/snippet.toml"
+output = ""
 
 [[snippets]]
-  description = "launch deepseek-r1:70b"
-  command = "ollama run deepseek-r1:70b"
-  output = ""
+description = "launch deepseek-r1:70b"
+command = "ollama run deepseek-r1:70b"
+output = ""
 
 [[snippets]]
-  description = "update codex cli"
-  command = "npm i -g @openai/codex"
-  output = ""
+description = "update codex cli"
+command = "npm i -g @openai/codex"
+output = ""
 
 [[snippets]]
-  description = "update cluade code"
-  command = "npm i -g @anthropic-ai/claude-code"
-  output = ""
+description = "update cluade code"
+command = "npm i -g @anthropic-ai/claude-code"
+output = ""
 
 [[snippets]]
-  description = "update gemini"
-  command = "npm i -g @google/gemini-cli"
-  output = ""
+description = "update gemini"
+command = "npm i -g @google/gemini-cli"
+output = ""
 
 [[snippets]]
-  description = "activate uv venv"
-  command = "echo 'source .venv/bin/activate' > .envrc && direnv allow"
-  output = ""
+description = "activate uv venv"
+command = "echo 'source .venv/bin/activate' > .envrc && direnv allow"
+output = ""
 
 [[snippets]]
-  description = "codex read only"
-  command = "codex --sandbox read-only --ask-for-approval on-request"
-  output = ""
+description = "codex read only"
+command = "codex --sandbox read-only --ask-for-approval on-request"
+output = ""
 
 [[snippets]]
-  description = "codex write"
-  command = "codex --sandbox workspace-write --ask-for-approval on-request"
-  output = ""
+description = "codex write"
+command = "codex --sandbox workspace-write --ask-for-approval on-request"
+output = ""
 
 [[snippets]]
-  description = "1password op siginin"
-  command = "eval $(op signin)"
-  output = ""
+description = "ccusage claude"
+command = "npx ccusage@latest"
+output = ""
+
+[[snippets]]
+description = "codex claude"
+command = "npx @ccusage/codex@latest"
+output = ""
+
+[[snippets]]
+description = "1password op siginin"
+command = "eval $(op signin)"
+output = ""
