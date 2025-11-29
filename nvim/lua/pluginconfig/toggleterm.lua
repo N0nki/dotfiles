@@ -12,11 +12,12 @@ local lazygit = Terminal:new({
     hidden = true,
 })
 
-function _lazygit_toggle()
+local function lazygit_toggle()
     lazygit:toggle()
 end
 
-function _open_filer()
+local function open_filer()
+    local filer_cmd
     if vim.fn.system("uname -a | grep microsoft") ~= "" then
         filer_cmd = "TermExec open=0 dir='%:h' cmd='explorer.exe .'"
     elseif vim.fn.has("mac") then
@@ -37,18 +38,18 @@ local claude_code = Terminal:new({
     end,
 })
 
-function _claude_code_toggle()
+local function claude_code_toggle()
     claude_code:toggle()
 end
 
 -- Claude Code with current file context (id = 101)
-_claude_with_file = nil
+local claude_with_file = nil
 
-function _claude_code_with_file()
-    if _claude_with_file == nil then
+local function claude_code_with_file()
+    if claude_with_file == nil then
         local filepath = vim.fn.expand("%:p")
         local cmd = string.format("claude --file '%s'", filepath)
-        _claude_with_file = Terminal:new({
+        claude_with_file = Terminal:new({
             cmd = cmd,
             direction = "horizontal",
             size = math.floor(vim.o.lines * 0.4),
@@ -56,13 +57,13 @@ function _claude_code_with_file()
             id = 101,
         })
     end
-    _claude_with_file:toggle()
+    claude_with_file:toggle()
 end
 
 -- Claude Code with visual selection (id = 102)
-_claude_selection = nil
+local claude_selection = nil
 
-function _claude_code_with_selection()
+local function claude_code_with_selection()
     -- Get visual selection
     local start_pos = vim.fn.getpos("'<")
     local end_pos = vim.fn.getpos("'>")
@@ -73,8 +74,8 @@ function _claude_code_with_selection()
     vim.fn.writefile(lines, tmpfile)
 
     local cmd = string.format("claude --file '%s'", tmpfile)
-    if _claude_selection == nil then
-        _claude_selection = Terminal:new({
+    if claude_selection == nil then
+        claude_selection = Terminal:new({
             cmd = cmd,
             direction = "horizontal",
             size = math.floor(vim.o.lines * 0.4),
@@ -85,7 +86,7 @@ function _claude_code_with_selection()
             end,
         })
     end
-    _claude_selection:toggle()
+    claude_selection:toggle()
 end
 
 -- Codex/OpenAI Codex terminal (id = 103)
@@ -97,16 +98,52 @@ local codex = Terminal:new({
     id = 103,
 })
 
-function _codex_toggle()
+local function codex_toggle()
     codex:toggle()
+end
+
+-- ccusage (id = 106)
+local ccusage = Terminal:new({
+    cmd = "npx ccusage@latest",
+    -- direction = "horizontal",
+    direction = "float",
+    float_opts = {
+        border = "double",
+    },
+    size = math.floor(vim.o.lines * 0.4),
+    hidden = true,
+    id = 106,
+    close_on_exit = false,
+})
+
+local function ccusage_toggle()
+    ccusage:toggle()
+end
+
+-- ccusage codex (id = 107)
+local ccusage_codex = Terminal:new({
+    cmd = "npx @ccusage/codex@latest",
+    -- direction = "horizontal",
+    direction = "float",
+    float_opts = {
+        border = "double",
+    },
+    size = math.floor(vim.o.lines * 0.4),
+    hidden = true,
+    id = 107,
+    close_on_exit = false,
+})
+
+local function ccusage_codex_toggle()
+    ccusage_codex:toggle()
 end
 
 -- Claude Code and Codex side by side (both horizontal)
 -- Store terminals globally to allow toggling
-_claude_dual = nil
-_codex_dual = nil
+local claude_dual = nil
+local codex_dual = nil
 
-function _claude_and_codex_toggle()
+local function claude_and_codex_toggle()
     -- Save current tab number
     local current_tab = vim.fn.tabpagenr()
 
@@ -114,8 +151,8 @@ function _claude_and_codex_toggle()
     vim.cmd("1tabnext")
 
     -- Initialize terminals if they don't exist
-    if _claude_dual == nil then
-        _claude_dual = Terminal:new({
+    if claude_dual == nil then
+        claude_dual = Terminal:new({
             cmd = "claude",
             direction = "horizontal",
             size = math.floor(vim.o.lines * 0.2),
@@ -127,8 +164,8 @@ function _claude_and_codex_toggle()
         })
     end
 
-    if _codex_dual == nil then
-        _codex_dual = Terminal:new({
+    if codex_dual == nil then
+        codex_dual = Terminal:new({
             cmd = "codex",
             direction = "horizontal",
             size = math.floor(vim.o.lines * 0.2),
@@ -138,8 +175,8 @@ function _claude_and_codex_toggle()
     end
 
     -- Toggle both terminals
-    _claude_dual:toggle()
-    _codex_dual:toggle()
+    claude_dual:toggle()
+    codex_dual:toggle()
 
     -- Return to original tab if it wasn't tab 1
     if current_tab ~= 1 and vim.fn.tabpagenr() == 1 then
@@ -152,12 +189,14 @@ vim.api.nvim_set_keymap("n", "<leader>tt", ":ToggleTerm direction='vertical' siz
 vim.api.nvim_set_keymap("n", "<leader>tl", ":ToggleTerm direction='tab'<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ts", ":ToggleTerm direction='horizontal'<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction='float' size=15<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>to", "<cmd>lua _open_filer()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tg", lazygit_toggle, { silent = true, desc = "Toggle lazygit" })
+vim.keymap.set("n", "<leader>to", open_filer, { silent = true, desc = "Open filer" })
 
 -- AI tool keymaps
-vim.api.nvim_set_keymap("n", "<leader>tc", "<cmd>lua _claude_code_toggle()<CR>", { noremap = true, silent = true, desc = "Toggle Claude Code" })
-vim.api.nvim_set_keymap("n", "<leader>tcf", "<cmd>lua _claude_code_with_file()<CR>", { noremap = true, silent = true, desc = "Claude Code with current file" })
-vim.api.nvim_set_keymap("v", "<leader>tcs", "<cmd>lua _claude_code_with_selection()<CR>", { noremap = true, silent = true, desc = "Claude Code with selection" })
-vim.api.nvim_set_keymap("n", "<leader>tx", "<cmd>lua _codex_toggle()<CR>", { noremap = true, silent = true, desc = "Toggle Codex" })
-vim.api.nvim_set_keymap("n", "<leader>tcc", "<cmd>lua _claude_and_codex_toggle()<CR>", { noremap = true, silent = true, desc = "Toggle Claude Code and Codex" })
+vim.keymap.set("n", "<leader>tc", claude_code_toggle, { silent = true, desc = "Toggle Claude Code" })
+vim.keymap.set("n", "<leader>tcf", claude_code_with_file, { silent = true, desc = "Claude Code with current file" })
+vim.keymap.set("v", "<leader>tcs", claude_code_with_selection, { silent = true, desc = "Claude Code with selection" })
+vim.keymap.set("n", "<leader>tx", codex_toggle, { silent = true, desc = "Toggle Codex" })
+vim.keymap.set("n", "<leader>tcu", ccusage_toggle, { silent = true, desc = "Run npx ccusage@latest" })
+vim.keymap.set("n", "<leader>tcx", ccusage_codex_toggle, { silent = true, desc = "Run npx @ccusage/codex@latest" })
+vim.keymap.set("n", "<leader>tcc", claude_and_codex_toggle, { silent = true, desc = "Toggle Claude Code and Codex" })
