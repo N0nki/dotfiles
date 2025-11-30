@@ -53,6 +53,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # メニューバーとDockをダークモード
 defaults write -g AppleInterfaceStyle -string "Dark"
+# 常にタブで開く
+defaults write -g AppleWindowTabbingMode -string "always"
 
 killall Finder
 killall Dock
