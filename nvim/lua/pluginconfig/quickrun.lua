@@ -69,16 +69,6 @@ vim.cmd([[
           \ 'outputter/buffer/split': ':split',
           \ 'outputter/buffer/close_on_empty': 1,
         \},
-        \'java': {
-          \ 'runner': 'vimproc',
-          \ 'runner/vimproc/updatetime': 40,
-          \ 'outputter': 'error',
-          \ 'outputter/error/success' : 'buffer',
-          \ 'outputter/error/error': 'quickfix',
-          \ 'hook/close_quickfix/enable_success' : 1,
-          \ 'outputter/buffer/split': ':60vsplit',
-          \ 'outputter/buffer/close_on_empty': 1,
-        \},
         \'markdown': {
           \ 'exec': ['open -g %s'],
           \ 'outputter/buffer/close_on_empty': 1,
@@ -93,12 +83,33 @@ vim.cmd([[
   \}
 
   let g:quickrun_no_default_key_mappings = 1
-
-  au FileType quickrun nnoremap <buffer>q :quit<CR>
-
-  nnoremap <silent><Leader>r :write<CR>:QuickRun -mode n<CR>
-  xnoremap <silent><Leader>r :<C-U>write<CR>gv:QuickRun -mode v<CR>
-
-  command QuickRunRedirect :QuickRun <./redirect_input.txt
-  nnoremap <silent><Leader>er :write<CR>:QuickRunRedirect<CR>
 ]])
+
+local keymap_opts = { noremap = true, silent = true }
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "quickrun",
+    callback = function()
+        vim.keymap.set("n", "q", ":quit<CR>", { buffer = true, noremap = true, silent = true })
+    end,
+})
+
+vim.api.nvim_create_user_command("QuickRunRedirect", function()
+    vim.cmd("QuickRun <./redirect_input.txt")
+end, {})
+
+vim.keymap.set("n", "<leader>r", function()
+    vim.cmd("write")
+    vim.cmd("QuickRun -mode n")
+end, keymap_opts)
+
+vim.keymap.set("x", "<leader>r", function()
+    vim.cmd("write")
+    vim.cmd("normal! gv")
+    vim.cmd("QuickRun -mode v")
+end, keymap_opts)
+
+vim.keymap.set("n", "<leader>er", function()
+    vim.cmd("write")
+    vim.cmd("QuickRunRedirect")
+end, keymap_opts)
