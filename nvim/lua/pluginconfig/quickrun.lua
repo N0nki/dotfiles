@@ -11,79 +11,83 @@
 -- 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
 -- \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -ga /Applications/Skim.app %s:r.pdf'],
 
-vim.cmd([[
-  call quickrun#module#register(shabadou#make_quickrun_hook_anim(
-  \	"tex_compiling",
-  \	['Compiling |', 'Compiling /', 'Compiling -', 'Compiling \'],
-  \	2,
-  \), 1)
+local is_win = vim.loop.os_uname().sysname:lower():find("windows") ~= nil
 
-  let g:quickrun_config = {
-        \'tex': {
-          \ 'runner': 'vimproc',
-          \ 'runner/vimproc/updatetime': 40,
-          \ 'outputter': 'error',
-          \ 'outputter/error/error': 'quickfix',
-          \ 'hook/echo/enable': 1,
-          \ 'hook/echo/priority_output': 1,
-          \ 'hook/tex_compiling/enable': 1,
-          \ 'hook/echo/output_success': 'Compile succeeded',
-          \ 'hook/echo/output_failure': 'Compile Failed. Fix error displayed in quickfix',
-          \ 'hook/close_buffer/enable_success' : 1,
-          \ 'hook/close_quickfix/enable_success' : 1,
-          \	'hook/back_tabpage/enable_exit' : 1,
-          \	'hook/back_window/enable_exit': 1,
-          \	'hook/back_tabpage/priority_exit': 1,
-          \	'hook/back_window/priority_exit': 1,
-          \ 'hook/time/enable': '1',
-          \ 'command': 'latexmk',
-          \ 'outputter/buffer/split': ':60vsplit',
-          \ 'hook/sweep/files' : [
-          \                      '%S:p:r.aux',
-          \                      '%S:p:r.bbl',
-          \                      '%S:p:r.blg',
-          \                      '%S:p:r.dvi',
-          \                      '%S:p:r.fdb_latexmk',
-          \                      '%S:p:r.fls',
-          \                      '%S:p:r.out'
-          \                      ],
-          \ 'exec': ['%c %a -cd -gg -pdfdvi %s', 'open -g %s:r.pdf'],
-          \},
-        \'ruby': {
-          \ 'runner': 'vimproc',
-          \ 'runner/vimproc/updatetime': 40,
-          \ 'outputter': 'error',
-          \ 'outputter/error/success' : 'buffer',
-          \ 'outputter/error/error': 'quickfix',
-          \ 'hook/close_quickfix/enable_success' : 1,
-          \ 'outputter/buffer/split': ':60vsplit',
-          \ 'outputter/buffer/close_on_empty': 1,
-        \},
-        \'python': {
-          \ 'runner': 'vimproc',
-          \ 'runner/vimproc/updatetime': 40,
-          \ 'outputter': 'error',
-          \ 'outputter/error/success' : 'buffer',
-          \ 'outputter/error/error': 'quickfix',
-          \ 'hook/close_quickfix/enable_success' : 1,
-          \ 'outputter/buffer/split': ':split',
-          \ 'outputter/buffer/close_on_empty': 1,
-        \},
-        \'markdown': {
-          \ 'exec': ['open -g %s'],
-          \ 'outputter/buffer/close_on_empty': 1,
-        \},
-        \'cpp': {
-        \ 'outputter/buffer/split': ':split',
-        \ 'type':
-        \   executable('g++')            ? 'cpp/g++' :
-        \   executable('clang++')        ? 'cpp/clang++'  :
-        \   s:is_win && executable('cl') ? 'cpp/vc'  : '',
-        \},
-  \}
+local quickrun_anim = vim.fn["shabadou#make_quickrun_hook_anim"]("tex_compiling", { "Compiling |", "Compiling /", "Compiling -", "Compiling \\" }, 2)
 
-  let g:quickrun_no_default_key_mappings = 1
-]])
+vim.fn["quickrun#module#register"](quickrun_anim, 1)
+
+local cpp_type = ""
+if vim.fn.executable("g++") == 1 then
+    cpp_type = "cpp/g++"
+elseif vim.fn.executable("clang++") == 1 then
+    cpp_type = "cpp/clang++"
+elseif is_win and vim.fn.executable("cl") == 1 then
+    cpp_type = "cpp/vc"
+end
+
+vim.g.quickrun_config = {
+    tex = {
+        runner = "vimproc",
+        ["runner/vimproc/updatetime"] = 40,
+        outputter = "error",
+        ["outputter/error/error"] = "quickfix",
+        ["hook/echo/enable"] = 1,
+        ["hook/echo/priority_output"] = 1,
+        ["hook/tex_compiling/enable"] = 1,
+        ["hook/echo/output_success"] = "Compile succeeded",
+        ["hook/echo/output_failure"] = "Compile Failed. Fix error displayed in quickfix",
+        ["hook/close_buffer/enable_success"] = 1,
+        ["hook/close_quickfix/enable_success"] = 1,
+        ["hook/back_tabpage/enable_exit"] = 1,
+        ["hook/back_window/enable_exit"] = 1,
+        ["hook/back_tabpage/priority_exit"] = 1,
+        ["hook/back_window/priority_exit"] = 1,
+        ["hook/time/enable"] = "1",
+        command = "latexmk",
+        ["outputter/buffer/split"] = ":60vsplit",
+        ["hook/sweep/files"] = {
+            "%S:p:r.aux",
+            "%S:p:r.bbl",
+            "%S:p:r.blg",
+            "%S:p:r.dvi",
+            "%S:p:r.fdb_latexmk",
+            "%S:p:r.fls",
+            "%S:p:r.out",
+        },
+        exec = { "%c %a -cd -gg -pdfdvi %s", "open -g %s:r.pdf" },
+    },
+    ruby = {
+        runner = "vimproc",
+        ["runner/vimproc/updatetime"] = 40,
+        outputter = "error",
+        ["outputter/error/success"] = "buffer",
+        ["outputter/error/error"] = "quickfix",
+        ["hook/close_quickfix/enable_success"] = 1,
+        ["outputter/buffer/split"] = ":60vsplit",
+        ["outputter/buffer/close_on_empty"] = 1,
+    },
+    python = {
+        runner = "vimproc",
+        ["runner/vimproc/updatetime"] = 40,
+        outputter = "error",
+        ["outputter/error/success"] = "buffer",
+        ["outputter/error/error"] = "quickfix",
+        ["hook/close_quickfix/enable_success"] = 1,
+        ["outputter/buffer/split"] = ":split",
+        ["outputter/buffer/close_on_empty"] = 1,
+    },
+    markdown = {
+        exec = { "open -g %s" },
+        ["outputter/buffer/close_on_empty"] = 1,
+    },
+    cpp = {
+        ["outputter/buffer/split"] = ":split",
+        type = cpp_type,
+    },
+}
+
+vim.g.quickrun_no_default_key_mappings = 1
 
 local keymap_opts = { noremap = true, silent = true }
 
