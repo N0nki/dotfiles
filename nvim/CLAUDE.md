@@ -87,6 +87,7 @@ require("awesome-plugin").setup({
 - **nvim-lspconfig**: Core LSP configuration
 - **mason.nvim**: LSP server installer
 - **mason-lspconfig.nvim**: Bridge between mason and lspconfig (see `lua/pluginconfig/mason-lspconfig.lua`)
+- **trouble.nvim**: Pretty diagnostics, references, and quickfix list viewer (see `lua/pluginconfig/trouble.lua`)
 - **vim-illuminate**: Highlight word under cursor
 
 **LSP Diagnostics:**
@@ -103,6 +104,16 @@ Diagnostic display is configured in `lua/options.lua` with:
 - `<leader>xe` - Show errors only
 - `<leader>xw` - Show warnings only
 - `<leader>xi` - Show hints only
+
+**Diagnostic viewing (via Trouble):**
+- `<leader>Tt` - Toggle diagnostics (current buffer)
+- `<leader>TD` - Toggle diagnostics (workspace-wide)
+- `<leader>Ts` - Toggle document symbols (outline)
+- `<leader>Tr` - Toggle LSP references
+- `<leader>Td` - Toggle LSP definitions
+- `<leader>TT` - Toggle LSP type definitions
+- `<leader>Tq` - Toggle quickfix list
+- `<leader>Tl` - Toggle location list
 
 **Diagnostic navigation:**
 - `[d` - Go to previous diagnostic
@@ -258,13 +269,13 @@ The configuration uses vim-vsnip for snippet management (see `lua/pluginconfig/v
 ## Disabled Plugins
 
 Some plugins are explicitly disabled (`enabled = false`) in `lua/plugins.lua`:
-- **lspsaga.nvim**: Alternative LSP UI (currently disabled)
+- **lspsaga.nvim**: Alternative LSP UI (replaced by trouble.nvim)
 - **defx.nvim**: Alternative file explorer (replaced by nvim-tree)
 - **indentLine**: Replaced by indent-blankline
 - **vim-airline**: Replaced by lualine
 - **fzf.vim**: Replaced by telescope
 
-These can be re-enabled by changing `enabled = false` to `enabled = true` or removing the enabled field.
+These can be re-enabled by changing `enabled = false` to `enabled = true` or removing the enabled field, though this may cause conflicts with their replacements.
 
 ## Common Tasks
 

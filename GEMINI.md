@@ -6,10 +6,10 @@ This is a personal dotfiles repository for managing development environment conf
 
 The repository is organized by platform, with shared configurations in the `common` directory.
 
-- **`common/`**: Shared configurations for tools like `git`, `tmux`, `starship`, `zellij`, and `pet`.
+- **`common/`**: Shared configurations for tools like `git`, `tmux`, `starship`, `zellij`, `pet`, and `python`.
 - **`macOS/`**: macOS-specific configurations, including shell profiles (`.bash_profile`, `.zshrc`), a `Brewfile` for package management, and system defaults.
 - **`nvim/`**: Neovim configuration using Lua and the `lazy.nvim` plugin manager.
-- **`python/`**: Python linting and code style configurations (`flake8`, `pycodestyle`, `pylintrc`).
+- **`common/python/`**: Python linting and code style configurations (`flake8`, `pycodestyle`, `pylintrc`).
 - **`vim/`**: Legacy Vim configuration using `dein.vim`.
 - **`windows/`**: Windows-specific configurations, such as AutoHotkey scripts.
 - **`WSL2/`**: Configurations for Windows Subsystem for Linux.
@@ -30,7 +30,7 @@ You can also run setup scripts for specific platforms or tools:
 - **macOS**: `sh ~/dotfiles/macOS/setup_macos.sh`
 - **Neovim**: `sh ~/dotfiles/nvim/setup_nvim.sh`
 - **Shared Tools**: `sh ~/dotfiles/common/synbolic_link.sh`
-- **Python**: `sh ~/dotfiles/python/symbolic_link.sh`
+- **Python**: `sh ~/dotfiles/common/python/symbolic_link.sh`
 - **WSL2**: `sh ~/dotfiles/WSL2/setup_wsl2.sh`
 
 ### macOS Package Installation
@@ -61,5 +61,5 @@ The Neovim configuration is located in the `nvim/` directory and uses `lazy.nvim
 
 - Shell scripts are written in POSIX `#!/bin/sh` and use 2-space indentation.
 - Lua modules also use 2-space indentation.
-- Python code follows the rules defined in the `python/` directory.
+- Python code follows the rules defined in the `common/python/` directory.
 - Commit messages should be short and imperative (e.g., "add feature for X").

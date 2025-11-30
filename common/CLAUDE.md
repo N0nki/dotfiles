@@ -32,7 +32,11 @@ common/
 └── claude/                 # Claude Code CLI configuration
     ├── commands/           # custom slash commands for Claude Code
     │   ├── work.md         # /work command for work logs
-    │   └── commit.md       # /commit command for commit messages
+    │   ├── commit.md       # /commit command for commit messages
+    │   └── nvim-diagnostics.md  # /nvim-diagnostics command for Neovim LSP diagnostics
+    ├── scripts/            # automation scripts for hooks
+    │   └── format_lua.sh   # automatic Lua formatting with stylua
+    ├── settings.json       # Claude Code settings and hooks configuration
     └── claude_desktop_config_win.json  # Claude Desktop Windows config
 ```
 
@@ -58,7 +62,7 @@ sh ~/dotfiles/common/synbolic_link.sh
 3. **Zellij**: `~/.config/zellij/zellij.kdl`
 4. **Pet**: `~/.config/pet/config.toml`
 5. **Codex**: `~/.codex/config.toml` and `~/.codex/prompts/`
-6. **Claude**: `~/.claude/commands/`
+6. **Claude**: `~/.claude/commands/`, `~/.claude/scripts/`, and `~/.claude/settings.json`
 7. **Git**:
    - `~/.config/git/ignore` (global ignore)
    - `~/.gitconfig` (main config)
@@ -278,6 +282,37 @@ Slash commands available in Claude Code CLI:
    - Format: 50 chars, imperative mood, lowercase
    - Suggests splitting commits if multiple topics detected
 
+3. **/nvim-diagnostics**: Neovim LSP diagnostics helper
+   - Retrieves diagnostic information (errors, warnings, hints) from Neovim LSP
+   - Usage: `/nvim-diagnostics` (from Neovim :term) or `/nvim-diagnostics path/to/file.lua`
+   - Analyzes issues and provides specific fix suggestions
+   - Supports all LSP-enabled file types (Lua, Python, JavaScript, TypeScript, Shell, Go, Rust, etc.)
+
+**Hooks** (in `claude/settings.json`):
+
+Automatic actions triggered by Claude Code events:
+
+1. **ToolResult hook for Lua formatting**:
+   - Automatically runs `stylua` on `.lua` files after Edit or Write operations
+   - Script: `~/.claude/scripts/format_lua.sh`
+   - Detects modified Lua files via git diff and applies formatting
+   - Requires: `stylua` installed (`cargo install stylua`)
+   - Conditions: Triggered on `Edit` or `Write` tool completion
+
+**Scripts** (in `claude/scripts/`):
+
+Helper scripts for hooks and automation:
+
+1. **format_lua.sh**: Automatic Lua file formatting
+   - Runs `stylua` on modified `.lua` files
+   - Three detection methods:
+     1. Reads file path from hook stdin (JSON parsing)
+     2. Checks git working directory for modified `.lua` files
+     3. Accepts file paths as command-line arguments
+   - Colorized output for success/failure
+   - Gracefully skips if `stylua` not installed
+   - Usage: Called automatically by hook, or manually: `~/.claude/scripts/format_lua.sh path/to/file.lua`
+
 **Claude Desktop config** (Windows):
 - File: `claude_desktop_config_win.json`
 - Contains Windows-specific Claude Desktop settings
@@ -361,6 +396,16 @@ vim ~/.config/pet/snippet.toml
 # Create work log:
 /work
 # Then request: "記録して" or describe the work to log
+
+# Get Neovim LSP diagnostics:
+/nvim-diagnostics
+# From Neovim :term, or specify file:
+/nvim-diagnostics nvim/lua/plugins.lua
+
+# Automatic Lua formatting (via hook):
+# Edit any .lua file using Claude Code, and stylua will run automatically
+# To manually run the formatting script:
+~/.claude/scripts/format_lua.sh path/to/file.lua
 ```
 
 ### Using Codex Custom Prompts
@@ -458,6 +503,11 @@ These tools must be installed separately (not managed by this repo):
 
 7. **claude**: Claude Code CLI
    - Install: `npm i -g @anthropic-ai/claude-code`
+
+8. **stylua**: Lua code formatter (optional, for automatic formatting)
+   - Install: `cargo install stylua`
+   - Required by: Claude Code hook for automatic Lua formatting
+   - Hook gracefully skips formatting if not installed
 
 ## Integration with Other Configs
 

@@ -1,12 +1,12 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Platform-specific directories keep responsibilities isolated: `common/` hosts shared dotfiles (starship, tmux, zellij, git), `macOS/`, `windows/`, and `WSL2/` track OS defaults, while `vim/` and `nvim/` house the editor configs. `dotfilesLink.sh` chains every `setup*.sh` so symlinks stay authoritative, Python lints live in `python/`, and assets (pet snippets, Ghostty themes) stay beside the scripts that install them.
+Platform-specific directories keep responsibilities isolated: `common/` hosts shared dotfiles (starship, tmux, zellij, git, python), `macOS/`, `windows/`, and `WSL2/` track OS defaults, while `vim/` and `nvim/` house the editor configs. `dotfilesLink.sh` chains every `setup*.sh` so symlinks stay authoritative, Python lints live in `common/python/`, and assets (pet snippets, Ghostty themes) stay beside the scripts that install them.
 
 ## Build, Test, and Development Commands
 - `sh dotfilesLink.sh`: run the bootstrap (macOS defaults, Vim, Atom, Neovim) from a clean login shell.
 - `sh macOS/setup_macos.sh`: relink shell profiles, Ghostty settings, defaults, and Rosetta after edits to `macOS/`.
-- `sh common/synbolic_link.sh` & `sh python/symbolic_link.sh`: reapply shared configs (starship, tmux, pet, gitconfig, `python/{flake8,pycodestyle,pylintrc}`) idempotently.
+- `sh common/synbolic_link.sh` & `sh common/python/symbolic_link.sh`: reapply shared configs (starship, tmux, pet, gitconfig, `python/{flake8,pycodestyle,pylintrc}`) idempotently.
 - `sh nvim/setup_nvim.sh`: mirror `nvim/` into `~/.config/nvim` before validating Neovim updates.
 
 ## Neovim Configuration Notes
@@ -14,7 +14,7 @@ Platform-specific directories keep responsibilities isolated: `common/` hosts sh
 Each plugin managed by lazy.nvim lives under `~/.local/share/nvim/lazy/`; inspect files there if upstream defaults are unclear.
 
 ## Coding Style & Naming Conventions
-Shell scripts stay in POSIX `#!/bin/sh`, use two-space indentation, and rely on `ln -sf` + `mkdir -p` so reruns stay safe. Lua modules mirror that indentation, align filenames with their `require` path (`pluginconfig/nvim-tree.lua`), and route leader mappings through `keymap.lua`. Python code keeps snake_case identifiers and follows the rules baked into `python/flake8`, `python/pycodestyle`, and `python/pylintrc`.
+Shell scripts stay in POSIX `#!/bin/sh`, use two-space indentation, and rely on `ln -sf` + `mkdir -p` so reruns stay safe. Lua modules mirror that indentation, align filenames with their `require` path (`pluginconfig/nvim-tree.lua`), and route leader mappings through `keymap.lua`. Python code keeps snake_case identifiers and follows the rules baked into `common/python/flake8`, `common/python/pycodestyle`, and `common/python/pylintrc`.
 
 ## Testing Guidelines
 Exercise installers from a stripped environment (`env -i zsh --login`) to surface missing env vars, then confirm symlinks with `ls -l ~/.config/<tool>` so they point back to `~/dotfiles`. For Neovim work, run `sh nvim/setup_nvim.sh`, `nvim --headless "+Lazy sync" "+checkhealth" +qall`, and open the filetypes mentioned in `ftplugin/` for a smoke test. Shell scripts should pass `shellcheck`, and macOS defaults deserve a `defaults read <domain> <key>` audit.

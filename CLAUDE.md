@@ -15,10 +15,10 @@ The repository is organized by platform with shared common configurations:
 - **macOS/**: macOS-specific shell configs (.bash_profile, .bashrc, .zshrc), Brewfile for package management, macOS system defaults, and application configs (ghostty, iTerm)
 - **WSL2/**: Windows Subsystem for Linux configuration (.bashrc)
 - **windows/**: Windows-specific configs (AutoHotkey scripts)
-- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, tmux-op-secure, fzf-git)
+- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, tmux-op-secure, fzf-git, python)
 - **nvim/**: Neovim configuration using lazy.nvim plugin manager
 - **vim/**: Legacy vim configuration using dein.vim plugin manager
-- **python/**: Python linting and code style configurations (pylintrc, pycodestyle, flake8)
+- **common/python/**: Python linting and code style configurations (pylintrc, pycodestyle, flake8)
 
 ### Neovim Configuration Architecture
 
@@ -52,7 +52,7 @@ Each platform/component has a setup script that creates symbolic links:
 - **nvim/setup_nvim.sh**: Links nvim config directory structure
 - **vim/setup_vim.sh**: Installs dein.vim and links vim configs
 - **common/synbolic_link.sh**: Links shared tools (starship, tmux, zellij, pet, gitconfig)
-- **python/symbolic_link.sh**: Links Python linter configs
+- **common/python/symbolic_link.sh**: Links Python linter configs
 
 ## Common Development Commands
 
@@ -74,7 +74,7 @@ sh ~/dotfiles/dotfilesLink.sh
 sh ~/dotfiles/common/synbolic_link.sh  # Cross-platform tools
 sh ~/dotfiles/nvim/setup_nvim.sh       # Neovim only
 sh ~/dotfiles/WSL2/setup_wsl2.sh       # WSL2 only
-sh ~/dotfiles/python/symbolic_link.sh  # Python tools
+sh ~/dotfiles/common/python/symbolic_link.sh  # Python tools
 
 # macOS package installation
 cd ~/dotfiles/macOS
