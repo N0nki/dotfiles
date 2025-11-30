@@ -35,6 +35,14 @@ require("lazy").setup({
         enabled = false,
     },
     {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        cmd = "Trouble",
+        config = function()
+            require("pluginconfig/trouble")
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
