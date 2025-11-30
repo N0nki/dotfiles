@@ -5,4 +5,5 @@ vim.g.go_highlight_methods = 1
 vim.g.go_highlight_structs = 1
 vim.g.go_highlight_operators = 1
 vim.g.go_fmt_command = "gopls"
-vim.g.go_metalinter_autosave = 1
+-- Disable legacy gometalinter (deprecated) and rely on gopls for diagnostics
+vim.g.go_metalinter_autosave = 0

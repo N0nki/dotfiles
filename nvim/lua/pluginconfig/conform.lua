@@ -8,6 +8,7 @@ require("conform").setup({
         tf = { "terraform_fmt" },
         sh = { "shfmt" },
         bash = { "shfmt" },
+        go = { "gofmt" },
         json = { "jq" },
         toml = { "taplo" },
         yaml = { "yamlfmt" },

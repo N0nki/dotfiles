@@ -3,6 +3,7 @@
 require("mason-lspconfig").setup({
     ensure_installed = {
         "terraformls",
+        "gopls",
     },
 })
 
@@ -47,6 +48,19 @@ vim.lsp.config("lua_ls", {
 -- terraform-ls configuration
 vim.lsp.config("terraformls", {})
 
+-- gopls configuration
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+})
+
 -- Enable LSP servers
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("terraformls")
+vim.lsp.enable("gopls")
