@@ -38,12 +38,14 @@ init.lua (root)
 This configuration uses lazy.nvim for plugin management. All plugins are declared in `lua/plugins.lua`.
 
 **Plugin installation location:**
+
 - All plugins are installed in `~/.local/share/nvim/lazy/`
 - Each plugin has its own subdirectory (e.g., `~/.local/share/nvim/lazy/telescope.nvim/`)
 - When investigating plugin behavior, documentation, or source code, refer to this directory
 - The lazy.nvim plugin manager itself is installed at `~/.local/share/nvim/lazy/lazy.nvim/`
 
 **Plugin declaration pattern:**
+
 ```lua
 {"author/plugin-name",
   dependencies = {"dependency1", "dependency2"},
@@ -56,6 +58,7 @@ This configuration uses lazy.nvim for plugin management. All plugins are declare
 ```
 
 **Commands:**
+
 - `:Lazy` - Open lazy.nvim UI
 - `:Lazy sync` - Install/update/clean plugins
 - `:Lazy update` - Update plugins only
@@ -69,6 +72,7 @@ This configuration uses lazy.nvim for plugin management. All plugins are declare
 4. Restart Neovim or run `:Lazy sync`
 
 **Example:**
+
 ```lua
 -- In lua/plugins.lua
 {"someone/awesome-plugin",
@@ -84,6 +88,7 @@ require("awesome-plugin").setup({
 ## Plugin Categories
 
 ### LSP (Language Server Protocol)
+
 - **nvim-lspconfig**: Core LSP configuration
 - **mason.nvim**: LSP server installer
 - **mason-lspconfig.nvim**: Bridge between mason and lspconfig (see `lua/pluginconfig/mason-lspconfig.lua`)
@@ -93,6 +98,7 @@ require("awesome-plugin").setup({
 **LSP Diagnostics:**
 
 Diagnostic display is configured in `lua/options.lua` with:
+
 - Virtual text with `●` prefix
 - Signs in sign column
 - Underline highlighting
@@ -100,12 +106,14 @@ Diagnostic display is configured in `lua/options.lua` with:
 - Rounded borders for floating windows
 
 **Diagnostic viewing (via Telescope):**
+
 - `<leader>xx` - Show all diagnostics
 - `<leader>xe` - Show errors only
 - `<leader>xw` - Show warnings only
 - `<leader>xi` - Show hints only
 
 **Diagnostic viewing (via Trouble):**
+
 - `<leader>Tt` - Toggle diagnostics (current buffer)
 - `<leader>TD` - Toggle diagnostics (workspace-wide)
 - `<leader>Ts` - Toggle document symbols (outline)
@@ -116,27 +124,32 @@ Diagnostic display is configured in `lua/options.lua` with:
 - `<leader>Tl` - Toggle location list
 
 **Diagnostic navigation:**
+
 - `[d` - Go to previous diagnostic
 - `]d` - Go to next diagnostic
 - `gl` - Show diagnostic in floating window
 - `<leader>q` - Add diagnostics to location list
 
 ### Treesitter
+
 - **nvim-treesitter**: Syntax parsing and highlighting (see `lua/pluginconfig/nvim-treesitter.lua`)
 - **p00f/nvim-ts-rainbow**: Rainbow parentheses
 - **nvim_context_vt**: Show context at end of blocks
 
 ### Completion
+
 - **nvim-cmp**: Completion engine (see `lua/pluginconfig/nvim-cmp.lua`)
-- **cmp-*** sources**: path, buffer, cmdline, nvim-lsp, treesitter, emoji, spell
+- **cmp-\*** sources\*\*: path, buffer, cmdline, nvim-lsp, treesitter, emoji, spell
 - **vim-vsnip**: Snippet engine
 - **lspkind-nvim**: VSCode-like pictograms in completion menu
 
 ### Telescope (Fuzzy Finder)
+
 - **telescope.nvim**: Main fuzzy finder (see `lua/pluginconfig/telescope.lua`)
 - **telescope-file-browser.nvim**: File browser extension
 
 **Key mappings:**
+
 - `<leader>df` - Find files (includes hidden files, excludes .git/)
 - `<leader>da` - Live grep (includes hidden files)
 - `<leader>db` - Buffers
@@ -148,6 +161,7 @@ Diagnostic display is configured in `lua/options.lua` with:
 - `<leader>xi` - LSP diagnostics (hints only)
 
 ### Git Integration
+
 - **vim-fugitive**: Git commands (:Git, :Gwrite, :Gread, etc.)
 - **fugitive-gitlab.vim**: GitLab integration
 - **gv.vim**: Git commit browser
@@ -156,15 +170,18 @@ Diagnostic display is configured in `lua/options.lua` with:
 - **gist-vim**: Gist management
 
 ### UI/Appearance
+
 - **lualine.nvim**: Status line (see `lua/pluginconfig/lualine.lua`)
 - **bufferline.nvim**: Buffer/tab line (see `lua/pluginconfig/bufferline.lua`)
 - **Colorschemes**: tokyonight (priority 3000), nightfox (priority 2000), kanagawa (priority 1000), iceberg, gruvbox, nord, everforest, catppuccin
 
 ### Terminal Integration
+
 - **toggleterm.nvim**: Toggle terminal (see `lua/pluginconfig/toggleterm.lua`)
 - **neoterm**: Terminal wrapper
 
 ### Language-Specific
+
 - **vim-go**: Go development (ft = "go")
 - **vim-terraform**: Terraform syntax/tools
 - **vimtex**: LaTeX integration
@@ -174,6 +191,7 @@ Diagnostic display is configured in `lua/options.lua` with:
 - **vim-toml**: TOML support
 
 ### Utilities
+
 - **nvim-tree.lua**: File explorer
 - **quickrun**: Quick code execution (`<leader>r`, `<leader>er`)
 - **vim-surround**: Surrounding text objects
@@ -190,6 +208,7 @@ Diagnostic display is configured in `lua/options.lua` with:
 Global keymaps go in `lua/keymap.lua`. Plugin-specific keymaps go in the plugin's config file.
 
 **Pattern:**
+
 ```lua
 -- In lua/keymap.lua or lua/pluginconfig/plugin-name.lua
 -- Use vim.keymap.set (modern API, supports functions directly)
@@ -204,6 +223,7 @@ vim.keymap.set('n', '<leader>key', function_or_command, {noremap = true, silent 
 ### Adding Vim Options
 
 Add to `lua/options.lua`:
+
 ```lua
 vim.opt.option_name = value
 vim.g.global_variable = value
@@ -212,12 +232,14 @@ vim.g.global_variable = value
 ### LSP Server Configuration
 
 LSP servers are configured in `lua/pluginconfig/mason-lspconfig.lua` using the modern `vim.lsp.config()` API (the old `require('lspconfig')` API is deprecated). The file sets up:
+
 1. Default capabilities for all LSP servers (`vim.lsp.config('*', {...})`)
 2. Common LSP keybindings in `on_attach` function (gd, gr, K, ga, gn, gf, g?, ge)
 3. Server-specific settings (e.g., lua_ls)
 
 **lua_ls configuration:**
 The lua_ls server is configured to recognize `vim` as a global variable and includes Neovim runtime files:
+
 ```lua
 vim.lsp.config('lua_ls', {
   settings = {
@@ -231,6 +253,7 @@ vim.lsp.config('lua_ls', {
 ```
 
 **To add a new LSP server:**
+
 1. Add server name to `ensure_installed` table in `mason-lspconfig.lua`
 2. For custom settings, use `vim.lsp.config('server_name', {...})`
 3. Restart Neovim or run `:Mason` to manually install
@@ -245,6 +268,7 @@ Add language to `ensure_installed` table and restart or run `:TSUpdate`
 ### Filetype-Specific Settings
 
 Create or edit files in `ftplugin/{filetype}.vim` or `ftplugin/{filetype}.lua`:
+
 ```lua
 -- ftplugin/python.lua
 vim.opt_local.tabstop = 4
@@ -254,6 +278,7 @@ vim.opt_local.shiftwidth = 4
 ## Snippet Management
 
 ### Snippet Locations
+
 - **snippets/**: Custom snippets in various formats
 - **vsnippets/**: VS Code format snippets (JSON)
 
@@ -262,6 +287,7 @@ vim.opt_local.shiftwidth = 4
 The configuration uses vim-vsnip for snippet management (see `lua/pluginconfig/vsnip.lua`).
 
 **To add snippets:**
+
 1. Edit or create files in `vsnippets/` directory
 2. Use VS Code snippet JSON format
 3. Snippets are automatically loaded by vsnip
@@ -269,6 +295,7 @@ The configuration uses vim-vsnip for snippet management (see `lua/pluginconfig/v
 ## Disabled Plugins
 
 Some plugins are explicitly disabled (`enabled = false`) in `lua/plugins.lua`:
+
 - **defx.nvim**: Alternative file explorer (replaced by nvim-tree)
 - **indentLine**: Replaced by indent-blankline
 - **vim-airline**: Replaced by lualine
@@ -279,18 +306,22 @@ These can be re-enabled by changing `enabled = false` to `enabled = true` or rem
 ## Common Tasks
 
 ### Debugging Plugin Issues
+
 1. Check `:Lazy` for plugin status
 2. Run `:checkhealth` to diagnose issues
 3. Check `:messages` for error messages
 4. Test with minimal config by commenting out suspect plugins
 
 ### Performance Optimization
+
 - Use `event`, `ft`, `keys` options for lazy loading in plugin declarations
 - Profile with `:Lazy profile`
 - Check startup time with `nvim --startuptime startup.log`
 
 ### Updating Configuration
+
 After modifying Lua files:
+
 - Restart Neovim (recommended)
 - Or source the specific file: `:source ~/.config/nvim/lua/path/to/file.lua`
 - For plugins.lua changes, always restart Neovim
@@ -298,6 +329,7 @@ After modifying Lua files:
 ## Setup Script
 
 The `setup_nvim.sh` script creates symbolic links from this directory to `~/.config/nvim/`:
+
 ```bash
 ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 ln -sf ~/dotfiles/nvim/lua ~/.config/nvim/lua
