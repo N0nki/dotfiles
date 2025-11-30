@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ~/.config
+
 # starship
 ln -sf ~/dotfiles/common/starship.toml ~/.config/starship.toml
 
@@ -31,6 +33,13 @@ ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
 # claude
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/common/claude/commands ~/.claude/commands
+ln -sf ~/dotfiles/common/claude/scripts ~/.claude/scripts
+ln -sf ~/dotfiles/common/claude/settings.json ~/.claude/settings.json
+
+# python linters
+ln -sf ~/dotfiles/common/python/pylintrc ~/.config/pylintrc
+ln -sf ~/dotfiles/common/python/pycodestyle ~/.config/pycodestyle
+ln -sf ~/dotfiles/common/python/flake8 ~/.config/flake8
 
 # git global ignore
 mkdir -p ~/.config/git
@@ -40,7 +49,7 @@ ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore
 ln -sf ~/dotfiles/common/git/.gitconfig ~/.gitconfig
 if [ ! -f ~/.gitconfig.local ]; then
   echo "Creating ~/.gitconfig.local..."
-  cat > ~/.gitconfig.local << EOF
+  cat >~/.gitconfig.local <<EOF
 [user]
   name = YOUR_NAME
   email = YOUR_EMAIL
