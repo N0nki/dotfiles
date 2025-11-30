@@ -1,0 +1,23 @@
+{
+  "$schema": "https://code.claude.com/schemas/settings.json",
+  "hooks": {
+    "ToolResult": [
+      {
+        "type": "command",
+        "command": "/bin/bash",
+        "args": ["-c", "~/.claude/scripts/format_lua.sh"],
+        "condition": {
+          "toolName": "Edit"
+        }
+      },
+      {
+        "type": "command",
+        "command": "/bin/bash",
+        "args": ["-c", "~/.claude/scripts/format_lua.sh"],
+        "condition": {
+          "toolName": "Write"
+        }
+      }
+    ]
+  }
+}
