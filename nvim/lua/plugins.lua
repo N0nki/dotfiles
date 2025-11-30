@@ -28,13 +28,6 @@ require("lazy").setup({
     -- lsp
     { "neovim/nvim-lspconfig" },
     {
-        "glepnir/lspsaga.nvim",
-        config = function()
-            require("pluginconfig/lspsaga")
-        end,
-        enabled = false,
-    },
-    {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = "Trouble",

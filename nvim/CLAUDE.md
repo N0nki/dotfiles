@@ -269,7 +269,6 @@ The configuration uses vim-vsnip for snippet management (see `lua/pluginconfig/v
 ## Disabled Plugins
 
 Some plugins are explicitly disabled (`enabled = false`) in `lua/plugins.lua`:
-- **lspsaga.nvim**: Alternative LSP UI (replaced by trouble.nvim)
 - **defx.nvim**: Alternative file explorer (replaced by nvim-tree)
 - **indentLine**: Replaced by indent-blankline
 - **vim-airline**: Replaced by lualine
