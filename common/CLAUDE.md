@@ -10,6 +10,23 @@ The `common/` directory contains shared configuration files used across multiple
 
 ```
 common/
+├── nvim/                   # Neovim configuration (cross-platform)
+│   ├── init.lua            # Entry point
+│   ├── lua/                # Lua configuration modules
+│   ├── ftplugin/           # Filetype-specific settings
+│   ├── snippets/           # Custom snippets
+│   ├── vsnippets/          # VS Code format snippets
+│   ├── setup_nvim.sh       # Neovim setup script
+│   ├── CLAUDE.md           # Neovim-specific documentation
+│   ├── GEMINI.md           # Neovim Gemini documentation
+│   └── AGENTS.md           # Neovim agents documentation
+├── vim/                    # Legacy Vim configuration (cross-platform)
+│   ├── .vimrc              # Main vim config
+│   ├── .gvimrc             # GVim config
+│   ├── plugins/            # Plugin configurations
+│   ├── setup_vim.sh        # Vim setup script
+│   ├── synbolic_links.sh   # Vim symlink creation
+│   └── CLAUDE.md           # Vim-specific documentation
 ├── starship.toml           # starship prompt configuration
 ├── zellij.kdl              # zellij terminal multiplexer configuration
 ├── synbolic_link.sh        # setup script for symlinking configurations
@@ -67,6 +84,8 @@ sh ~/dotfiles/common/synbolic_link.sh
    - `~/.config/git/ignore` (global ignore)
    - `~/.gitconfig` (main config)
    - Creates `~/.gitconfig.local` if missing (user must edit)
+8. **Neovim**: Runs `~/dotfiles/common/nvim/setup_nvim.sh`
+9. **Vim**: Runs `~/dotfiles/common/vim/setup_vim.sh`
 
 ## Configuration Details
 

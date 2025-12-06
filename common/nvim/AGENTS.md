@@ -8,7 +8,7 @@
 - All lazy.nvim plugin checkouts live under `~/.local/share/nvim/lazy/`; inspect those directories when you need to review upstream defaults or files not mirrored in the repo.
 
 ## Required Workflow
-1. Run `sh nvim/setup_nvim.sh` after editing config files so `~/.config/nvim` mirrors repo state.
+1. Run `sh common/nvim/setup_nvim.sh` after editing config files so `~/.config/nvim` mirrors repo state.
 2. Validate plugin state via `nvim --headless "+Lazy sync" +qall` followed by `nvim --headless "+checkhealth" +qall`.
 3. Smoke test edited filetypes by opening buffers tied to `ftplugin/`.
 
