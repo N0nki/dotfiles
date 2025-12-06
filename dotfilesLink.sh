@@ -2,7 +2,7 @@
 
 cd ~/
 # macOS
-sh ~/dotfiles/macOS/setup_macos.sh
+sh ~/dotfiles/platforms/macOS/setup_macos.sh
 
 # vim
 sh ~/dotfiles/vim/setup_vim.sh

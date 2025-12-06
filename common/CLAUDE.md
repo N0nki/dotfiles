@@ -513,14 +513,14 @@ These tools must be installed separately (not managed by this repo):
 
 ### Shell Integration
 
-Shell configs (in `macOS/` or `WSL2/`) should source or initialize:
+Shell configs (in `platforms/macOS/` or `platforms/WSL2/`) should source or initialize:
 - Starship: `eval "$(starship init bash)"` or `eval "$(starship init zsh)"`
 - Pet: Shell-specific keybindings for `pet search`
 
 ### Platform-Specific Overrides
 
 If platform-specific configs exist:
-- macOS: `macOS/.tmux.conf.local` (if needed)
+- macOS: `platforms/macOS/.tmux.conf.local` (if needed)
 - WSL2: WSL-specific clipboard commands in tmux
 
 Priority: Platform-specific > Common
