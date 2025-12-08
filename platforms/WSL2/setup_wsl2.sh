@@ -104,6 +104,11 @@ sudo npm i -g prettier
 echo "Installing rustup..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+# Install stylua (Lua formatter)
+echo "Installing stylua..."
+. "$HOME/.cargo/env"
+cargo install stylua
+
 # Install taplo (TOML formatter)
 echo "Installing taplo..."
 curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86_64.gz |
