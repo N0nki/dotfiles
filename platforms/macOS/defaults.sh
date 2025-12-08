@@ -32,7 +32,7 @@ chflags nohidden ~/Library
 
 ### Terminal
 # TerminalのテーマをIcebergに変更
-open "$HOME/dotfiles/macOS/termcolor/terminalapp/Iceberg.terminal"
+open "$HOME/dotfiles/platforms/macOS/termcolor/terminalapp/Iceberg.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 defaults write com.apple.terminal "Default Window Settings" -string "Iceberg"
 defaults write com.apple.terminal "Startup Window Settings" -string "Iceberg"

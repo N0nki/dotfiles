@@ -122,6 +122,6 @@ curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux
 
 # Link shell configuration
 echo "Linking shell configuration..."
-ln -sf ~/dotfiles/WSL2/.bashrc ~/.bashrc
+ln -sf ~/dotfiles/platforms/WSL2/.bashrc ~/.bashrc
 
 echo "WSL2 setup completed!"

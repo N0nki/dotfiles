@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with Vim configuration in this directory.
 
-**Note**: This is a legacy configuration. The primary development environment has moved to `nvim/` (Neovim with lazy.nvim). This Vim configuration is maintained for reference and compatibility purposes.
+**Note**: This is a legacy configuration in `common/vim/` (cross-platform). The primary development environment has moved to `common/nvim/` (Neovim with lazy.nvim). This Vim configuration is maintained for reference and compatibility purposes.
 
 ## Configuration Architecture
 
@@ -136,7 +136,7 @@ Leader is `\` (default)
 
 ```bash
 # Run setup script
-sh ~/dotfiles/vim/setup_vim.sh
+sh ~/dotfiles/common/vim/setup_vim.sh
 
 # This will:
 # 1. Create ~/.vim directory
@@ -147,7 +147,7 @@ sh ~/dotfiles/vim/setup_vim.sh
 ### Manual Symlink Creation
 
 ```bash
-sh ~/dotfiles/vim/synbolic_links.sh
+sh ~/dotfiles/common/vim/synbolic_links.sh
 ```
 
 Creates links for:
@@ -168,7 +168,7 @@ vim\setup_vim.bat
 ### Uninstall
 
 ```bash
-sh ~/dotfiles/vim/uninstall_settings.sh
+sh ~/dotfiles/common/vim/uninstall_settings.sh
 ```
 
 ## Platform-Specific Features

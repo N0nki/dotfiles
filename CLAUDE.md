@@ -12,12 +12,12 @@ This is a personal dotfiles repository containing configuration files and setup 
 
 The repository is organized by platform with shared common configurations:
 
-- **macOS/**: macOS-specific shell configs (.bash_profile, .bashrc, .zshrc), Brewfile for package management, macOS system defaults, and application configs (ghostty, iTerm)
-- **WSL2/**: Windows Subsystem for Linux configuration (.bashrc)
-- **windows/**: Windows-specific configs (AutoHotkey scripts)
-- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, tmux-op-secure, fzf-git, python)
-- **nvim/**: Neovim configuration using lazy.nvim plugin manager
-- **vim/**: Legacy vim configuration using dein.vim plugin manager
+- **platforms/macOS/**: macOS-specific shell configs (.bash_profile, .bashrc, .zshrc), Brewfile for package management, macOS system defaults, and application configs (ghostty, iTerm)
+- **platforms/WSL2/**: Windows Subsystem for Linux configuration (.bashrc)
+- **platforms/windows/**: Windows-specific configs (AutoHotkey scripts)
+- **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, nvim, vim, python)
+- **common/nvim/**: Neovim configuration using lazy.nvim plugin manager (cross-platform)
+- **common/vim/**: Legacy vim configuration using dein.vim plugin manager (cross-platform)
 - **common/python/**: Python linting and code style configurations (pylintrc, pycodestyle, flake8)
 
 ### Neovim Configuration Architecture
@@ -46,12 +46,12 @@ Key plugin categories in nvim:
 
 Each platform/component has a setup script that creates symbolic links:
 
-- **dotfilesLink.sh**: Top-level orchestrator (runs macOS, vim, nvim setup)
-- **macOS/setup_macos.sh**: Links shell configs, sets up ghostty, runs defaults.sh
-- **WSL2/setup_wsl2.sh**: Links WSL2-specific .bashrc
-- **nvim/setup_nvim.sh**: Links nvim config directory structure
-- **vim/setup_vim.sh**: Installs dein.vim and links vim configs
-- **common/synbolic_link.sh**: Links shared tools (starship, tmux, zellij, pet, gitconfig)
+- **dotfilesLink.sh**: Top-level orchestrator (runs macOS setup, then common/synbolic_link.sh)
+- **platforms/macOS/setup_macos.sh**: Links shell configs, sets up ghostty, runs defaults.sh
+- **platforms/WSL2/setup_wsl2.sh**: Links WSL2-specific .bashrc
+- **common/nvim/setup_nvim.sh**: Links nvim config directory structure
+- **common/vim/setup_vim.sh**: Installs dein.vim and links vim configs
+- **common/synbolic_link.sh**: Links shared tools (starship, tmux, zellij, pet, git, nvim, vim, python)
 - **common/python/symbolic_link.sh**: Links Python linter configs
 
 ## Common Development Commands
@@ -71,13 +71,13 @@ git submodule update
 sh ~/dotfiles/dotfilesLink.sh
 
 # Setup specific components
-sh ~/dotfiles/common/synbolic_link.sh  # Cross-platform tools
-sh ~/dotfiles/nvim/setup_nvim.sh       # Neovim only
-sh ~/dotfiles/WSL2/setup_wsl2.sh       # WSL2 only
+sh ~/dotfiles/common/synbolic_link.sh  # Cross-platform tools (includes nvim, vim)
+sh ~/dotfiles/common/nvim/setup_nvim.sh       # Neovim only
+sh ~/dotfiles/platforms/WSL2/setup_wsl2.sh    # WSL2 only
 sh ~/dotfiles/common/python/symbolic_link.sh  # Python tools
 
 # macOS package installation
-cd ~/dotfiles/macOS
+cd ~/dotfiles/platforms/macOS
 brew bundle  # Install all packages from Brewfile
 ```
 
@@ -198,7 +198,7 @@ git cherry-pick <Ctrl-G Ctrl-H>  # Cherry-pick commit
 
 **Configuration:**
 
-- Sourced in `WSL2/.bashrc`, `macOS/.bashrc`, and `macOS/.zshrc`
+- Sourced in `platforms/WSL2/.bashrc`, `platforms/macOS/.bashrc`, and `platforms/macOS/.zshrc`
 - Automatically uses tmux popup when inside tmux (90% × 70%)
 - Multi-selection with TAB/Shift-TAB
 

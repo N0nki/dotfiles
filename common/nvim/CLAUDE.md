@@ -1,5 +1,7 @@
 # CLAUDE.md - Neovim Configuration
 
+**Location**: This configuration is in `common/nvim/` (cross-platform editor configuration).
+
 This file provides guidance to Claude Code (claude.ai/code) when working with Neovim configuration in this directory.
 
 ## Configuration Architecture
@@ -331,11 +333,11 @@ After modifying Lua files:
 The `setup_nvim.sh` script creates symbolic links from this directory to `~/.config/nvim/`:
 
 ```bash
-ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
-ln -sf ~/dotfiles/nvim/lua ~/.config/nvim/lua
-ln -sf ~/dotfiles/nvim/ftplugin ~/.config/nvim/ftplugin
-ln -sf ~/dotfiles/nvim/snippets ~/.config/nvim/snippets
-ln -sf ~/dotfiles/nvim/vsnippets ~/.config/nvim/vsnippets
+ln -sf ~/dotfiles/common/nvim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/dotfiles/common/nvim/lua ~/.config/nvim/lua
+ln -sf ~/dotfiles/common/nvim/ftplugin ~/.config/nvim/ftplugin
+ln -sf ~/dotfiles/common/nvim/snippets ~/.config/nvim/snippets
+ln -sf ~/dotfiles/common/nvim/vsnippets ~/.config/nvim/vsnippets
 ```
 
 After modifying files in this dotfiles directory, changes are immediately reflected in Neovim after restart (no need to run setup again).

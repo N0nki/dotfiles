@@ -10,4 +10,4 @@ cd ~/.cache
 mkdir dein
 cd dein
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
-sh ~/dotfiles/vim/synbolic_links.sh
+sh ~/dotfiles/common/vim/synbolic_links.sh

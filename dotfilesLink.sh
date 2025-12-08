@@ -1,14 +1,7 @@
 #!/bin/sh
 
-cd ~/
 # macOS
-sh ~/dotfiles/macOS/setup_macos.sh
+sh ~/dotfiles/platforms/macOS/setup_macos.sh
 
-# vim
-sh ~/dotfiles/vim/setup_vim.sh
-
-# atom
-sh ~/dotfiles/.atom/setup_atom.sh
-
-# nvim
-sh ~/dotfiles/nvim/setup_nvim.sh
+# common tools
+sh ~/dotfiles/common/synbolic_link.sh
