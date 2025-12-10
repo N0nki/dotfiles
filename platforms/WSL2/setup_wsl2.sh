@@ -39,7 +39,8 @@ sudo apt install -y \
   jq \
   zip \
   shellcheck \
-  shfmt
+  shfmt \
+  csvkit
 
 echo "Package installation completed."
 
