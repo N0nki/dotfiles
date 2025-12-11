@@ -1,5 +1,8 @@
 {
   "$schema": "https://code.claude.com/schemas/settings.json",
+  "env": {
+      "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1"
+  }
   "hooks": {
     "ToolResult": [
       {
