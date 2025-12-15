@@ -141,50 +141,51 @@ end, opts) -- 次の診断へ
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- Location listに表示
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts) -- カーソル位置の診断をフロート表示
 
--- tmux-claude integration
-local tmux_claude = require("my_plugin/tmux_claude")
+-- tmux AI tool integration (claude, codex, gemini)
+local tmux_ai = require("my_plugin/tmux_claude")
 
--- ビジュアル選択をClaude Codeに送信
+-- ==================== Auto-detect AI tool ====================
+-- ビジュアル選択をAIツールに送信（自動検出）
 vim.keymap.set("v", "<leader>tc", function()
-    tmux_claude.send_visual_to_claude()
-end, { noremap = true, silent = true, desc = "Send visual selection to Claude Code" })
+    tmux_ai.send_visual_to_ai()
+end, { noremap = true, silent = true, desc = "Send visual selection to AI tool (auto-detect)" })
 
--- バッファ全体をClaude Codeに送信
+-- バッファ全体をAIツールに送信（自動検出）
 vim.keymap.set("n", "<leader>tC", function()
-    tmux_claude.send_buffer_to_claude()
-end, { noremap = true, silent = true, desc = "Send buffer to Claude Code" })
+    tmux_ai.send_buffer_to_ai()
+end, { noremap = true, silent = true, desc = "Send buffer to AI tool (auto-detect)" })
 
--- ファイルパス付きでバッファを送信
+-- ファイルパス付きでバッファを送信（自動検出）
 vim.keymap.set("n", "<leader>tF", function()
-    tmux_claude.send_buffer_with_filepath()
-end, { noremap = true, silent = true, desc = "Send buffer with filepath to Claude Code" })
+    tmux_ai.send_buffer_with_filepath()
+end, { noremap = true, silent = true, desc = "Send buffer with filepath to AI tool (auto-detect)" })
 
--- プロンプト付きで送信（レビュー依頼）
-vim.keymap.set("n", "<leader>tr", tmux_claude.send_with_prompt("このコードをレビューしてください。"), { noremap = true, silent = true, desc = "Send buffer to Claude for review" })
+-- プロンプト付きで送信（レビュー依頼、自動検出）
+vim.keymap.set("n", "<leader>tr", tmux_ai.send_with_prompt("このコードをレビューしてください。"), { noremap = true, silent = true, desc = "Send buffer for review (auto-detect)" })
 
--- プロンプト付きで送信（リファクタリング依頼）
+-- プロンプト付きで送信（リファクタリング依頼、自動検出）
 vim.keymap.set(
     "n",
     "<leader>tf",
-    tmux_claude.send_with_prompt("このコードをリファクタリングしてください。"),
-    { noremap = true, silent = true, desc = "Send buffer to Claude for refactoring" }
+    tmux_ai.send_with_prompt("このコードをリファクタリングしてください。"),
+    { noremap = true, silent = true, desc = "Send buffer for refactoring (auto-detect)" }
 )
 
--- プロンプト付きで送信（説明依頼）
-vim.keymap.set("n", "<leader>te", tmux_claude.send_with_prompt("このコードを説明してください。"), { noremap = true, silent = true, desc = "Send buffer to Claude for explanation" })
+-- プロンプト付きで送信（説明依頼、自動検出）
+vim.keymap.set("n", "<leader>te", tmux_ai.send_with_prompt("このコードを説明してください。"), { noremap = true, silent = true, desc = "Send buffer for explanation (auto-detect)" })
 
--- ビジュアル選択範囲をプロンプト付きで送信（レビュー依頼）
+-- ビジュアル選択範囲をプロンプト付きで送信（レビュー依頼、自動検出）
 vim.keymap.set(
     "v",
     "<leader>tr",
-    tmux_claude.send_visual_with_prompt("このコードをレビューしてください。"),
-    { noremap = true, silent = true, desc = "Send selection to Claude for review" }
+    tmux_ai.send_visual_with_prompt("このコードをレビューしてください。"),
+    { noremap = true, silent = true, desc = "Send selection for review (auto-detect)" }
 )
 
--- ビジュアル選択範囲をプロンプト付きで送信（説明依頼）
+-- ビジュアル選択範囲をプロンプト付きで送信（説明依頼、自動検出）
 vim.keymap.set(
     "v",
     "<leader>te",
-    tmux_claude.send_visual_with_prompt("このコードを説明してください。"),
-    { noremap = true, silent = true, desc = "Send selection to Claude for explanation" }
+    tmux_ai.send_visual_with_prompt("このコードを説明してください。"),
+    { noremap = true, silent = true, desc = "Send selection for explanation (auto-detect)" }
 )
