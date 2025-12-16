@@ -28,6 +28,7 @@ alias vims="vim -S ~/.vim.session"
 # fi
 eval "$(mise activate bash)"
 eval "$(uv generate-shell-completion bash)"
+export PATH="$HOME/.local/bin:$PATH"
 
 # fzf-git: Git branch/commit/tag selection with fzf
 [ -f ~/dotfiles/common/fzf-git/fzf-git.sh ] && source ~/dotfiles/common/fzf-git/fzf-git.sh

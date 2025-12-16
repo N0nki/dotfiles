@@ -32,6 +32,7 @@ source <(fzf --zsh)
 
 # uv
 eval "$(uv generate-shell-completion zsh)"
+export PATH="$HOME/.local/bin:$PATH"
 
 # for pet, select snippet like Ctrl-r
 function pet-select() {
