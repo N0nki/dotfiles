@@ -127,6 +127,9 @@ eval "$(pyenv init - bash)"
 # uv
 export PATH="$HOME/.local/bin:$PATH"
 
+# cargo (Rust)
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 

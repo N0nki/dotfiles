@@ -30,6 +30,9 @@ eval "$(mise activate bash)"
 eval "$(uv generate-shell-completion bash)"
 export PATH="$HOME/.local/bin:$PATH"
 
+# cargo (Rust)
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # fzf-git: Git branch/commit/tag selection with fzf
 [ -f ~/dotfiles/common/fzf-git/fzf-git.sh ] && source ~/dotfiles/common/fzf-git/fzf-git.sh
 

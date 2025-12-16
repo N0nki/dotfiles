@@ -34,6 +34,9 @@ source <(fzf --zsh)
 eval "$(uv generate-shell-completion zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
+# cargo (Rust)
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # for pet, select snippet like Ctrl-r
 function pet-select() {
   LBUFFER=$(pet search --query "$LBUFFER")
