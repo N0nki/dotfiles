@@ -142,7 +142,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- Location li
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts) -- カーソル位置の診断をフロート表示
 
 -- tmux AI tool integration (claude, codex, gemini)
-local tmux_ai = require("my_plugin/tmux_claude")
+local tmux_ai = require("my_plugin/tmux_coding_agent")
 
 -- ==================== Auto-detect AI tool ====================
 -- ビジュアル選択をAIツールに送信（自動検出）
