@@ -41,6 +41,9 @@ ln -sf ~/dotfiles/common/python/pylintrc ~/.config/pylintrc
 ln -sf ~/dotfiles/common/python/pycodestyle ~/.config/pycodestyle
 ln -sf ~/dotfiles/common/python/flake8 ~/.config/flake8
 
+# bookokrat (EPUB reader)
+ln -sf ~/dotfiles/common/.bookokrat_settings.yaml ~/.bookokrat_settings.yaml
+
 # git global ignore
 mkdir -p ~/.config/git
 ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore
