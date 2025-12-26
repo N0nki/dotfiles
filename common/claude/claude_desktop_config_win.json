@@ -3,12 +3,12 @@
     "awslabs.aws-documentation-mcp-server": {
       "command": "uvx",
       "args": [
-          "--from",
-          "awslabs-aws-documentation-mcp-server",
-          "awslabs.aws-documentation-mcp-server.exe"
+        "--from",
+        "awslabs-aws-documentation-mcp-server",
+        "awslabs.aws-documentation-mcp-server.exe"
       ],
       "env": {
-          "FASTMCP_LOG_LEVEL": "ERROR"
+        "FASTMCP_LOG_LEVEL": "ERROR"
       },
       "disabled": false,
       "autoApprove": []
@@ -16,9 +16,9 @@
     "awslabs.aws-pricing-mcp-server": {
       "command": "uvx",
       "args": [
-         "--from",
-         "awslabs.aws-pricing-mcp-server@latest",
-         "awslabs.aws-pricing-mcp-server.exe"
+        "--from",
+        "awslabs.aws-pricing-mcp-server@latest",
+        "awslabs.aws-pricing-mcp-server.exe"
       ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR",
