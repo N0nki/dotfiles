@@ -14,6 +14,11 @@ require("conform").setup({
         yaml = { "yamlfmt" },
         markdown = { "prettier" },
     },
+    formatters = {
+        jq = {
+            args = { "--indent", "2" },
+        },
+    },
     format_on_save = {
         timeout_ms = 500,
         lsp_format = "fallback",
