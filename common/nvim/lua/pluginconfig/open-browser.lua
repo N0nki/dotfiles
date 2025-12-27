@@ -1,25 +1,21 @@
 -- open-browser
 
--- local command = vim.api.nvim_create_user_command
---
--- command("AtCoder", atcoder, {nargs = "?", force = true})
---
--- function atcoder(...)
---   local n = select("#", ...)
---   if n >= 1 then
---     vim.fn["openbrowser#open"]("https://atcoder.jp/contests/" .. "test")
---   else
---     vim.fn["openbrowser#open"]("https://atcoder.jp/contests/")
---   end
--- end
+-- AtCoder command: Open AtCoder contest page
+-- Usage: :AtCoder [contest-name]
+local function atcoder(opts)
+    local contest_name = opts.args
+    local url
 
-vim.cmd([[
-  function! s:atcoder(...) abort
-    if a:0 >= 1
-      call openbrowser#open("https://atcoder.jp/contests/".a:1)
+    if contest_name ~= "" then
+        url = "https://atcoder.jp/contests/" .. contest_name
     else
-      call openbrowser#open("https://atcoder.jp/contests/")
+        url = "https://atcoder.jp/contests/"
     end
-  endfunction
-  command! -nargs=? AtCoder call s:atcoder(<f-args>)
-]])
+
+    vim.fn["openbrowser#open"](url)
+end
+
+vim.api.nvim_create_user_command("AtCoder", atcoder, {
+    nargs = "?",
+    desc = "Open AtCoder contest page in browser",
+})
