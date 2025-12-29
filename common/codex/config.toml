@@ -1,4 +1,4 @@
-model = "gpt-5.1-codex"
+model = "gpt-5.2-codex"
 web_search_request = true
 
 [notice]
@@ -9,7 +9,7 @@ hide_gpt5_1_migration_prompt = true
 startup_timeout_sec = 300
 command = "uvx"
 args = ["awslabs.aws-api-mcp-server@latest"]
-env = {"AWS_REGION" = "ap-northeast-1"}
+env = { "AWS_REGION" = "ap-northeast-1" }
 
 [mcp_servers.terraform_mcp_server]
 startup_timeout_sec = 300
