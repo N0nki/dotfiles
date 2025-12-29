@@ -21,9 +21,9 @@ get_tmux_option() {
 
 # Detect 1Password CLI command (prefer Windows version in WSL)
 get_op_cmd() {
-  if command -v op.exe &> /dev/null; then
+  if command -v op.exe &>/dev/null; then
     echo "op.exe"
-  elif command -v op &> /dev/null; then
+  elif command -v op &>/dev/null; then
     echo "op"
   else
     echo ""
@@ -39,11 +39,11 @@ check_dependencies() {
     missing+=("op (1Password CLI)")
   fi
 
-  if ! command -v fzf &> /dev/null; then
+  if ! command -v fzf &>/dev/null; then
     missing+=("fzf")
   fi
 
-  if ! command -v jq &> /dev/null; then
+  if ! command -v jq &>/dev/null; then
     missing+=("jq")
   fi
 
@@ -58,11 +58,11 @@ check_dependencies() {
 # Copy to clipboard safely (no shell injection)
 copy_to_clipboard() {
   local text="$1"
-  if command -v clip.exe &> /dev/null; then
+  if command -v clip.exe &>/dev/null; then
     echo -n "$text" | clip.exe
-  elif command -v pbcopy &> /dev/null; then
+  elif command -v pbcopy &>/dev/null; then
     echo -n "$text" | pbcopy
-  elif command -v xclip &> /dev/null; then
+  elif command -v xclip &>/dev/null; then
     echo -n "$text" | xclip -selection clipboard
   else
     return 1
@@ -72,11 +72,11 @@ copy_to_clipboard() {
 
 # Clear clipboard safely
 clear_clipboard() {
-  if command -v clip.exe &> /dev/null; then
+  if command -v clip.exe &>/dev/null; then
     echo -n "" | clip.exe
-  elif command -v pbcopy &> /dev/null; then
+  elif command -v pbcopy &>/dev/null; then
     echo -n "" | pbcopy
-  elif command -v xclip &> /dev/null; then
+  elif command -v xclip &>/dev/null; then
     echo -n "" | xclip -selection clipboard
   fi
 }
@@ -102,7 +102,7 @@ write_cache_file() {
   }
 
   # Write content to temp file
-  echo "$content" > "$temp_file" || {
+  echo "$content" >"$temp_file" || {
     rm -f "$temp_file"
     return 1
   }

@@ -33,16 +33,19 @@ Unlike other tmux 1Password plugins that store session tokens, this plugin:
 This plugin is designed to be used directly from your dotfiles repository via symlink.
 
 1. Ensure the plugin is in your dotfiles:
+
    ```
    ~/dotfiles/common/tmux-op-secure/
    ```
 
 2. Create symlink (automatically done by `common/synbolic_link.sh`):
+
    ```bash
    ln -sf ~/dotfiles/common/tmux-op-secure ~/.tmux/plugins/tmux-op-secure
    ```
 
 3. Add to your `~/.tmux.conf`:
+
    ```bash
    run-shell ~/.tmux/plugins/tmux-op-secure/plugin.tmux
    ```
@@ -57,11 +60,13 @@ This plugin is designed to be used directly from your dotfiles repository via sy
 ### Basic Usage
 
 **Password retrieval:**
+
 1. Press `prefix + u` (default: `Ctrl-t u`)
 2. Select an item using fzf
 3. Password is copied to clipboard (auto-clears in 30s)
 
 **OTP/2FA code retrieval:**
+
 1. Press `prefix + o` (default: `Ctrl-t o`)
 2. Select an item using fzf
 3. OTP code is copied to clipboard (auto-clears in 10s)
@@ -105,11 +110,13 @@ set -g @1password-account 'your-account'
 ### Send to Pane vs Clipboard
 
 **Clipboard mode** (recommended, `@1password-copy-to-clipboard 'on'`):
+
 - Password copied to clipboard
 - Auto-clears after configured seconds
 - Safe for any input field
 
 **Send-keys mode** (`@1password-copy-to-clipboard 'off'`):
+
 - Password sent directly to current pane
 - Useful for terminal password prompts
 - Less safe if wrong pane is active
@@ -134,6 +141,7 @@ set -g @1password-vault 'Private'
 ### "1Password CLI error: Please sign in first"
 
 Sign in to 1Password CLI:
+
 ```bash
 op signin
 ```
@@ -141,6 +149,7 @@ op signin
 ### "Missing dependencies: fzf"
 
 Install fzf:
+
 ```bash
 # macOS
 brew install fzf
@@ -152,6 +161,7 @@ sudo apt install fzf
 ### "No clipboard command found"
 
 Install a clipboard tool:
+
 ```bash
 # WSL2 (should already have clip.exe)
 # macOS (should already have pbcopy)
@@ -163,6 +173,7 @@ sudo apt install xclip
 ### Biometric authentication not working
 
 Enable biometric unlock in 1Password CLI:
+
 1. Ensure 1Password app is running
 2. Enable biometric unlock in app settings
 3. Sign in once: `op signin`
@@ -172,6 +183,7 @@ Enable biometric unlock in 1Password CLI:
 Error: "Failed to get OTP code - This item may not have OTP/2FA configured"
 
 This means the selected 1Password item doesn't have a TOTP field. To fix:
+
 1. Open the item in 1Password app
 2. Add a one-time password field (Edit > Add More > One-Time Password)
 3. Scan QR code or enter secret key
