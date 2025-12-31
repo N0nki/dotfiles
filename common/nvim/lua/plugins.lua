@@ -25,6 +25,15 @@ require("lazy").setup({
         end,
     },
 
+    -- tmux integration
+    {
+        "n0nki/tmux-coding-agent.nvim",
+        dir = "/Users/n0nki/repos/tmux-coding-agent.nvim",
+        config = function()
+            require("pluginconfig/tmux-coding-agent")
+        end,
+    },
+
     -- lsp
     { "neovim/nvim-lspconfig" },
     {
