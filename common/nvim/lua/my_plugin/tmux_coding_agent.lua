@@ -222,18 +222,4 @@ function M.send_visual_with_prompt(prompt_text, tool_name)
     end
 end
 
--- 後方互換性のためのエイリアス (Claude Code専用)
-M.send_to_claude = function(text)
-    M.send_to_ai(text, "claude")
-end
-M.send_visual_to_claude = function()
-    M.send_visual_to_ai("claude")
-end
-M.send_buffer_to_claude = function()
-    M.send_buffer_to_ai("claude")
-end
-M.send_buffer_with_filepath_claude = function()
-    M.send_buffer_with_filepath("claude")
-end
-
 return M
