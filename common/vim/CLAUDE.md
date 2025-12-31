@@ -52,83 +52,86 @@ vim/
 Plugins are managed by dein.vim with TOML-based configuration files.
 
 **Plugin installation location:**
+
 - All plugins are installed in `~/.cache/dein/`
 - Configuration files: `~/.dein.toml` (normal) and `~/.dein_lazy.toml` (lazy)
 
 **Commands:**
+
 - `:call dein#install()` - Install plugins
 - `:call dein#update()` - Update plugins
 - `:CleanPlugins` - Remove unused plugins (custom command)
 
 ### Key Plugin Categories
 
-| Category | Plugins |
-|----------|---------|
-| **Completion** | deoplete.nvim, deoplete-vim-lsp |
-| **LSP** | vim-lsp, vim-lsp-settings |
-| **Linter** | ale |
+| Category          | Plugins                                |
+| ----------------- | -------------------------------------- |
+| **Completion**    | deoplete.nvim, deoplete-vim-lsp        |
+| **LSP**           | vim-lsp, vim-lsp-settings              |
+| **Linter**        | ale                                    |
 | **File Explorer** | defx.nvim (primary), vimfiler (legacy) |
-| **Fuzzy Finder** | fzf.vim, denite.nvim, unite.vim |
-| **Git** | vim-fugitive, vim-gitgutter, gv.vim |
-| **Status Line** | vim-airline |
-| **Colorschemes** | iceberg, gruvbox, nord, kanagawa |
+| **Fuzzy Finder**  | fzf.vim, denite.nvim, unite.vim        |
+| **Git**           | vim-fugitive, vim-gitgutter, gv.vim    |
+| **Status Line**   | vim-airline                            |
+| **Colorschemes**  | iceberg, gruvbox, nord, kanagawa       |
 
 ### Language Support
 
-| Language | Plugin | Load Condition |
-|----------|--------|----------------|
-| Go | vim-go | `.go` files |
-| Terraform | vim-terraform | terraform/json |
-| LaTeX | vimtex | `.tex` files |
-| Markdown | vim-markdown | markdown |
-| Python | deoplete, vim-lsp | Always |
+| Language  | Plugin            | Load Condition |
+| --------- | ----------------- | -------------- |
+| Go        | vim-go            | `.go` files    |
+| Terraform | vim-terraform     | terraform/json |
+| LaTeX     | vimtex            | `.tex` files   |
+| Markdown  | vim-markdown      | markdown       |
+| Python    | deoplete, vim-lsp | Always         |
 
 ## Key Mappings
 
 ### Leader Key
+
 Leader is `\` (default)
 
 ### Basic Mappings
 
-| Key | Mode | Action |
-|-----|------|--------|
-| `jj` | Insert | Escape |
-| `Ctrl-q` | Insert/Visual | Escape |
-| `Esc Esc` | Normal | Clear search highlight |
-| `Ctrl-hjkl` | Normal | Window navigation |
-| `Tab` | Normal | Jump to matching bracket |
+| Key         | Mode          | Action                   |
+| ----------- | ------------- | ------------------------ |
+| `jj`        | Insert        | Escape                   |
+| `Ctrl-q`    | Insert/Visual | Escape                   |
+| `Esc Esc`   | Normal        | Clear search highlight   |
+| `Ctrl-hjkl` | Normal        | Window navigation        |
+| `Tab`       | Normal        | Jump to matching bracket |
 
 ### Window/Tab Management
 
-| Key | Action |
-|-----|--------|
-| `ss` | Horizontal split |
-| `sv` | Vertical split |
-| `st` | New tab |
-| `gb` | Previous tab |
+| Key     | Action            |
+| ------- | ----------------- |
+| `ss`    | Horizontal split  |
+| `sv`    | Vertical split    |
+| `st`    | New tab           |
+| `gb`    | Previous tab      |
 | `gn/gp` | Next/previous tab |
-| `sc` | Close tab |
+| `sc`    | Close tab         |
 
 ### Plugin Mappings
 
-| Key | Plugin | Action |
-|-----|--------|--------|
-| `Leader-e` | defx | Open file explorer (IDE mode) |
-| `Leader-t` | defx | Open file explorer (floating) |
-| `Leader-df` | fzf | File search |
-| `Leader-da` | fzf | Ag search |
-| `Leader-db` | fzf | Buffer search |
-| `Leader-r` | quickrun | Run code |
-| `Leader-lt` | ale | Toggle linter |
-| `Leader-s` | easymotion | Word search |
+| Key         | Plugin     | Action                        |
+| ----------- | ---------- | ----------------------------- |
+| `Leader-e`  | defx       | Open file explorer (IDE mode) |
+| `Leader-t`  | defx       | Open file explorer (floating) |
+| `Leader-df` | fzf        | File search                   |
+| `Leader-da` | fzf        | Ag search                     |
+| `Leader-db` | fzf        | Buffer search                 |
+| `Leader-r`  | quickrun   | Run code                      |
+| `Leader-lt` | ale        | Toggle linter                 |
+| `Leader-s`  | easymotion | Word search                   |
 
 ### Clipboard (with Space prefix)
 
-| Key | Action |
-|-----|--------|
-| `Space-y` | Copy to clipboard |
+| Key       | Action               |
+| --------- | -------------------- |
+| `Space-y` | Copy to clipboard    |
 | `Space-p` | Paste from clipboard |
-| `Space-d` | Cut to clipboard |
+| `Space-d` | Cut to clipboard     |
 
 ## Setup
 
@@ -151,6 +154,7 @@ sh ~/dotfiles/common/vim/synbolic_links.sh
 ```
 
 Creates links for:
+
 - `~/.vimrc` -> `vim/.vimrc`
 - `~/.gvimrc` -> `vim/.gvimrc`
 - `~/.dein.toml` -> `vim/.dein.toml`
@@ -174,15 +178,18 @@ sh ~/dotfiles/common/vim/uninstall_settings.sh
 ## Platform-Specific Features
 
 ### WSL2
+
 - Clipboard integration via `clip.exe`
 - Auto-copies yanked text to Windows clipboard
 
 ### macOS
+
 - Macdown integration (`:Macdown` command)
 - Skim PDF viewer for LaTeX
 - Clang path configured for deoplete
 
 ### Windows
+
 - Python 3 path configured for Anaconda
 
 ## File Modification Guidelines
@@ -190,6 +197,7 @@ sh ~/dotfiles/common/vim/uninstall_settings.sh
 ### Adding a Plugin
 
 1. Add plugin to `.dein.toml` or `.dein_lazy.toml`:
+
 ```toml
 [[plugins]]
 repo = 'author/plugin-name'
@@ -198,6 +206,7 @@ repo = 'author/plugin-name'
 2. If configuration needed, create `plugins/plugin-name.rc.vim`
 
 3. Add hook in TOML:
+
 ```toml
 [[plugins]]
 repo = 'author/plugin-name'
@@ -233,14 +242,14 @@ endif
 
 ## Differences from nvim/ Configuration
 
-| Feature | vim/ (Legacy) | nvim/ (Current) |
-|---------|---------------|-----------------|
-| Plugin Manager | dein.vim | lazy.nvim |
-| Config Format | VimL + TOML | Lua |
-| Completion | deoplete | nvim-cmp |
-| File Explorer | defx | nvim-tree |
-| Fuzzy Finder | fzf/denite | telescope |
-| LSP | vim-lsp | nvim-lspconfig |
+| Feature        | vim/ (Legacy) | nvim/ (Current) |
+| -------------- | ------------- | --------------- |
+| Plugin Manager | dein.vim      | lazy.nvim       |
+| Config Format  | VimL + TOML   | Lua             |
+| Completion     | deoplete      | nvim-cmp        |
+| File Explorer  | defx          | nvim-tree       |
+| Fuzzy Finder   | fzf/denite    | telescope       |
+| LSP            | vim-lsp       | nvim-lspconfig  |
 
 ## Troubleshooting
 

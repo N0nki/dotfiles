@@ -1,9 +1,11 @@
 # Neovim LSP 診断情報
 
 ## 役割
+
 Neovim の LSP が検出したエラー、警告、情報、ヒントを取得し、コードの問題点と修正案を提案する。
 
 ## ワークフロー
+
 1. ユーザーがこのコマンドを実行したら、以下の方法で診断情報を取得する：
    - 引数なし: 実行中の Neovim インスタンスから現在のバッファの診断情報を取得
    - 引数あり: 指定されたファイルの診断情報を Neovim の headless モードで取得
@@ -13,6 +15,7 @@ Neovim の LSP が検出したエラー、警告、情報、ヒントを取得�
 ## 使い方
 
 ### 基本的な使い方
+
 ```
 /nvim-diagnostics                    # 実行中の Neovim から診断情報を取得
 /nvim-diagnostics path/to/file.lua   # 特定ファイルの診断情報を取得
@@ -26,11 +29,13 @@ Neovim の LSP が検出したエラー、警告、情報、ヒントを取得�
 Neovim のターミナルモード (`:term`) から Claude Code を起動している場合、環境変数 `$NVIM` が設定されているため、RPC 経由でライブ診断情報を取得できます。
 
 **取得コマンド:**
+
 ```bash
 nvim --server "$NVIM" --remote-expr 'luaeval("vim.diagnostic.get()")'
 ```
 
 **利点:**
+
 - リアルタイムの診断情報
 - LSP サーバーが既に起動している
 - 現在編集中のバッファの情報を直接取得
@@ -40,6 +45,7 @@ nvim --server "$NVIM" --remote-expr 'luaeval("vim.diagnostic.get()")'
 ファイルパスを指定した場合、Neovim を headless モードで起動して診断情報を取得します。
 
 **取得コマンド例:**
+
 ```bash
 nvim --headless -c "edit $1" \
   -c "lua local diags = vim.diagnostic.get(0); \
@@ -52,6 +58,7 @@ nvim --headless -c "edit $1" \
 ```
 
 **利点:**
+
 - Neovim を実行していない状態でも診断可能
 - CI/CD やスクリプトからの自動実行に適している
 

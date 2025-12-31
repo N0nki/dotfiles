@@ -94,22 +94,26 @@ sh ~/dotfiles/common/synbolic_link.sh
 **Files**: `git/.gitconfig`, `git/ignore`
 
 **Key features:**
+
 - Uses `~/.gitconfig.local` for user name and email (not tracked in repo)
 - Default branch: `main`
 - Default editor: `vim`
 - Global exclude file: `~/.config/git/ignore`
 
 **Custom alias:**
+
 - `git wta {branch}`: Create git worktree with sanitized directory name
   - Example: `git wta feature/foo-bar` creates worktree in `feature-foo-bar/`
 
 **Global ignore patterns:**
+
 - `.codex_work/`, `.claude_work/` (AI agent working directories)
 - `pyproject.toml`, `uv.lock` (Python uv package manager)
 - `.envrc` (direnv)
 - `**/.claude/settings.local.json` (local Claude settings)
 
 **First-time setup:**
+
 ```bash
 # After running setup script, edit this file:
 vim ~/.gitconfig.local
@@ -123,15 +127,18 @@ vim ~/.gitconfig.local
 ### tmux Configuration
 
 **Files**:
+
 - `tmux/.tmux.conf` - Main tmux configuration
 - `tmux/tmux-nerd-font-window-name.yml` - Window name icon configuration
 
 **Theme**: Iceberg (dark blue)
 
 **Key bindings:**
+
 - Prefix: `Ctrl-t` (not the default `Ctrl-b`)
 
 **Window management:**
+
 - `Ctrl-t h/l`: Move between windows
 - `Ctrl-t Ctrl-a/e`: Swap window left/right
 - `Ctrl-t v`: Split horizontally
@@ -140,29 +147,34 @@ vim ~/.gitconfig.local
 - `Ctrl-t W`: Split vertically with even layout
 
 **Pane management:**
+
 - `Ctrl-t h/j/k/l`: Move between panes (vim-style)
 - `Ctrl-t H/J/K/L`: Resize panes
 - `Ctrl-t o`: Open current pane in new window
 - `Ctrl-t b`: Toggle synchronize panes
 
 **AI agent layouts:**
+
 - `Ctrl-t A`: Horizontal layout (claude + codex at bottom)
   - Creates 2 panes at bottom: left=claude, right=codex
 - `Ctrl-t B`: Vertical layout (claude + codex on right)
   - Creates 2 panes on right: top=claude, bottom=codex
 
 **Copy mode:**
+
 - Vi-style key bindings
 - `v`: Begin selection
 - `y`: Copy to clipboard (pbcopy)
 - `Escape`: Clear selection
 
 **Other:**
+
 - `Ctrl-t r`: Reload config
 - `Ctrl-t n`: Show status bar
 - `Ctrl-t f`: Hide status bar
 
 **Plugins** (managed by TPM - tmux plugin manager):
+
 - **tmux-sensible**: Sensible defaults
 - **tmux-resurrect**: Save/restore sessions
   - `Ctrl-t Ctrl-s`: Save session
@@ -190,6 +202,7 @@ vim ~/.gitconfig.local
   - `Ctrl-t Ctrl-s`: Open pet snippet in new pane
 
 **Plugin management:**
+
 - `Ctrl-t I`: Install plugins
 - `Ctrl-t U`: Update plugins
 - `Ctrl-t Alt-u`: Uninstall unused plugins
@@ -199,6 +212,7 @@ vim ~/.gitconfig.local
 **File**: `starship.toml`
 
 Minimal configuration for the starship prompt:
+
 - No newline before prompt
 - Command timeout: 1000ms
 - Time module: enabled
@@ -211,6 +225,7 @@ Minimal configuration for the starship prompt:
 Terminal multiplexer with extensive keybindings. Key modes:
 
 **Mode switching:**
+
 - `Ctrl-g`: Locked mode
 - `Ctrl-p`: Pane mode
 - `Ctrl-n`: Resize mode
@@ -221,6 +236,7 @@ Terminal multiplexer with extensive keybindings. Key modes:
 - `Ctrl-b`: Tmux mode (compatibility)
 
 **Quick actions (works in most modes):**
+
 - `Ctrl-q`: Quit
 - `Alt-n`: New pane
 - `Alt-h/j/k/l`: Navigate panes
@@ -228,6 +244,7 @@ Terminal multiplexer with extensive keybindings. Key modes:
 - `Alt--`: Decrease size
 
 **Plugins:**
+
 - tab-bar, status-bar, strider, compact-bar, session-manager
 
 ### Pet (Command Snippet Manager)
@@ -235,12 +252,14 @@ Terminal multiplexer with extensive keybindings. Key modes:
 **Files**: `pet/config.toml`, `pet/snippet.toml`
 
 **Configuration:**
+
 - Backend: gist
 - Editor: vim
 - Selector: fzf with custom prompt
 - Format: `[$description]: $command $tags`
 
 **Included snippets:**
+
 - Launch deepseek-r1:70b with ollama
 - Update codex CLI: `npm i -g @openai/codex`
 - Update Claude Code: `npm i -g @anthropic-ai/claude-code`
@@ -250,6 +269,7 @@ Terminal multiplexer with extensive keybindings. Key modes:
 - Launch codex with workspace write access
 
 **Usage:**
+
 ```bash
 pet new     # Create new snippet
 pet search  # Search snippets (uses fzf)
@@ -262,10 +282,12 @@ pet list    # List all snippets
 **File**: `codex/config.toml`
 
 **Settings:**
+
 - Model: `gpt-5.1-codex`
 - Web search: enabled
 
 **MCP Servers:**
+
 1. **aws_api_mcp_server**: AWS API integration
    - Command: `uvx awslabs.aws-api-mcp-server@latest`
    - Region: ap-northeast-1
@@ -276,6 +298,7 @@ pet list    # List all snippets
    - Startup timeout: 300s
 
 **Custom prompts** (in `codex/prompts/`):
+
 - **work.md**: Work log creation helper
   - Creates detailed work logs in `.codex_work/work-logs/`
   - Activated by: "記録して" or "作業ログが欲しい"
@@ -333,6 +356,7 @@ Helper scripts for hooks and automation:
    - Usage: Called automatically by hook, or manually: `~/.claude/scripts/format_lua.sh path/to/file.lua`
 
 **Claude Desktop config** (Windows):
+
 - File: `claude_desktop_config_win.json`
 - Contains Windows-specific Claude Desktop settings
 
@@ -453,12 +477,14 @@ codex --prompt commit
 ### When Modifying tmux Configuration
 
 **Main config (.tmux.conf)**:
+
 - Test changes with: `Ctrl-t r` (reload config)
 - Plugin additions require: `Ctrl-t I` to install
 - Verify keybindings don't conflict with existing ones
 - Color scheme uses iceberg theme values
 
 **Window name icons (tmux-nerd-font-window-name.yml)**:
+
 - Add custom icons in the `icons:` section
 - Use Nerd Font icons, emoji, or any Unicode symbols
 - Format: `command_name: "icon"`
@@ -480,11 +506,13 @@ codex --prompt commit
 ### When Modifying Codex/Claude Configurations
 
 **Codex**:
+
 - MCP servers go in `config.toml` under `[mcp_servers.name]`
 - Custom prompts go in `prompts/` directory as Markdown files
 - Use descriptive prompt filenames
 
 **Claude Code**:
+
 - Custom commands go in `commands/` directory as Markdown files
 - Command name = filename without .md extension
 - Use Markdown frontmatter if needed
@@ -533,12 +561,14 @@ These tools must be installed separately (not managed by this repo):
 ### Shell Integration
 
 Shell configs (in `platforms/macOS/` or `platforms/WSL2/`) should source or initialize:
+
 - Starship: `eval "$(starship init bash)"` or `eval "$(starship init zsh)"`
 - Pet: Shell-specific keybindings for `pet search`
 
 ### Platform-Specific Overrides
 
 If platform-specific configs exist:
+
 - macOS: `platforms/macOS/.tmux.conf.local` (if needed)
 - WSL2: WSL-specific clipboard commands in tmux
 

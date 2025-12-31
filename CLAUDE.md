@@ -135,6 +135,7 @@ Neovim uses lazy.nvim for plugin management:
 Standalone TPM plugin for secure 1Password integration without token files.
 
 **Repository:**
+
 - Development: `/Users/n0nki/repos/tmux-op-secure/`
 - GitHub: https://github.com/N0nki/tmux-op-secure
 - Local copy for development: `common/tmux-op-secure/`
@@ -142,11 +143,13 @@ Standalone TPM plugin for secure 1Password integration without token files.
 **Installation:**
 
 TPM (recommended for public use):
+
 ```bash
 set -g @plugin 'N0nki/tmux-op-secure'
 ```
 
 Manual (current dotfiles setup):
+
 ```bash
 run-shell ~/.tmux/plugins/tmux-op-secure/op-secure.tmux
 ```
@@ -170,6 +173,7 @@ run-shell ~/.tmux/plugins/tmux-op-secure/op-secure.tmux
 **Configuration:** `common/tmux/.tmux.conf`
 
 Basic configuration:
+
 ```bash
 set -g @1password-copy-to-clipboard 'on'
 set -g @1password-auto-clear-seconds '30'
@@ -180,6 +184,7 @@ set -g @1password-cache-age '0'  # 0 = never expire
 ```
 
 New customization options:
+
 ```bash
 # Feature toggles
 set -g @1password-password-enable 'on'  # Enable/disable password feature

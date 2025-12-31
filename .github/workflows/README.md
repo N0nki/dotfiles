@@ -9,6 +9,7 @@ This directory contains automated workflows for validating and testing the dotfi
 Triggers on push/pull_request to `master` (add `main` if that is your default branch).
 
 **Jobs:**
+
 - **ShellCheck**: Validates shell script syntax and best practices
 - **Lua Syntax Check**: Validates Lua configuration files (Neovim config)
 - **YAML/JSON Validation**: Checks syntax of YAML and JSON files
@@ -21,6 +22,7 @@ Triggers on push/pull_request to `master` (add `main` if that is your default br
 Triggers on push/pull_request to `master` (add `main` if that is your default branch).
 
 **Jobs:**
+
 - **Test Common Setup (Ubuntu)**: Tests `common/synbolic_link.sh` for cross-platform tools
 - **Test Neovim Setup (Ubuntu)**: Tests `nvim/setup_nvim.sh`
 - **Test Python Setup (Ubuntu)**: Tests `python/symbolic_link.sh`
@@ -28,6 +30,7 @@ Triggers on push/pull_request to `master` (add `main` if that is your default br
 - **Test macOS Setup**: Tests `macOS/setup_macos.sh` (without Homebrew installation)
 
 **Features:**
+
 - Verifies symlinks are created correctly
 - Tests idempotency (running setup multiple times is safe)
 - Cross-platform testing (Ubuntu and macOS)
@@ -39,6 +42,7 @@ Triggers on push/pull_request to `master` (add `main` if that is your default br
 Triggers on push/PR to `master` when files in `nvim/` are modified (add `main` if needed).
 
 **Jobs:**
+
 - **Neovim Lua Syntax Check**: Tests if Neovim can start and load Lua configs
 - **Neovim Plugin Configuration Check**: Validates plugin declarations and checks for duplicates
 - **Neovim Health Check**: Runs `:checkhealth` to identify missing dependencies
