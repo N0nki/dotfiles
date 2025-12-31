@@ -53,3 +53,8 @@ output = ""
 description = "1password op siginin"
 command = "eval $(op signin)"
 output = ""
+
+[[snippets]]
+description = "git yearly commit counts"
+command = "git log --date=format:%Y --pretty=format:%ad | sort | uniq -c"
+output = ""
