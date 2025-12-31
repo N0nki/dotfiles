@@ -132,7 +132,24 @@ Neovim uses lazy.nvim for plugin management:
 
 ### tmux-op-secure (1Password Integration)
 
-Custom tmux plugin for secure 1Password integration without token files:
+Standalone TPM plugin for secure 1Password integration without token files.
+
+**Repository:**
+- Development: `/Users/n0nki/repos/tmux-op-secure/`
+- GitHub: https://github.com/N0nki/tmux-op-secure
+- Local copy for development: `common/tmux-op-secure/`
+
+**Installation:**
+
+TPM (recommended for public use):
+```bash
+set -g @plugin 'N0nki/tmux-op-secure'
+```
+
+Manual (current dotfiles setup):
+```bash
+run-shell ~/.tmux/plugins/tmux-op-secure/op-secure.tmux
+```
 
 **Key bindings:**
 
@@ -146,9 +163,13 @@ Custom tmux plugin for secure 1Password integration without token files:
 - Clipboard auto-clear (30s for passwords, 10s for OTP)
 - Cache support for faster item listing
 - tmux popup display
+- Customizable key bindings
+- Feature toggles (can disable password or OTP individually)
+- Configurable popup dimensions
 
 **Configuration:** `common/tmux/.tmux.conf`
 
+Basic configuration:
 ```bash
 set -g @1password-copy-to-clipboard 'on'
 set -g @1password-auto-clear-seconds '30'
@@ -156,6 +177,21 @@ set -g @1password-otp-auto-clear-seconds '10'
 set -g @1password-categories 'Login'
 set -g @1password-use-cache 'on'
 set -g @1password-cache-age '0'  # 0 = never expire
+```
+
+New customization options:
+```bash
+# Feature toggles
+set -g @1password-password-enable 'on'  # Enable/disable password feature
+set -g @1password-otp-enable 'on'       # Enable/disable OTP feature
+
+# Custom key bindings
+set -g @1password-key 'P'               # Custom password key
+set -g @1password-otp-key 'O'           # Custom OTP key
+
+# Popup dimensions
+set -g @1password-popup-width '90%'
+set -g @1password-popup-height '70%'
 ```
 
 **Requirements:**
@@ -167,10 +203,13 @@ set -g @1password-cache-age '0'  # 0 = never expire
 
 **Files:**
 
-- `common/tmux-op-secure/plugin.tmux`: Plugin entry point
+- `common/tmux-op-secure/op-secure.tmux`: Plugin entry point (renamed from plugin.tmux)
+- `common/tmux-op-secure/scripts/variables.sh`: Configuration management
 - `common/tmux-op-secure/scripts/main.sh`: Password retrieval script
 - `common/tmux-op-secure/scripts/otp.sh`: OTP retrieval script
 - `common/tmux-op-secure/README.md`: Full documentation
+
+See full documentation: https://github.com/N0nki/tmux-op-secure
 
 ### fzf-git Integration
 
