@@ -11,9 +11,6 @@ ln -sf ~/dotfiles/common/tmux/.tmux.conf ~/.tmux.conf
 # tmux-nerd-font-window-name config
 mkdir -p ~/.config/tmux
 ln -sf ~/dotfiles/common/tmux/tmux-nerd-font-window-name.yml ~/.config/tmux/tmux-nerd-font-window-name.yml
-# tmux-op-secure (custom plugin)
-mkdir -p ~/.tmux/plugins
-ln -sf ~/dotfiles/common/tmux-op-secure ~/.tmux/plugins/tmux-op-secure
 
 # zellij
 mkdir ~/.config/zellij
