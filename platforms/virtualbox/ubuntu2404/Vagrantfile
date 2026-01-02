@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Ubuntu 24.04 ARM64 (VirtualBox 7.0+ supports ARM guests on Apple Silicon)
+  config.vm.box = "bento/ubuntu-24.04"
+  config.vm.hostname = "ubuntu-2404"
+
+  # Network configuration
+  # Private network with DHCP for host-only access
+  config.vm.network "private_network", type: "dhcp"
+
+  # VirtualBox provider settings
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "ubuntu-2404-dev"
+    vb.memory = "4096"
+    vb.cpus = 4
+
+    # Enable nested virtualization if needed
+    # vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+  end
+
+  # Disable default /vagrant shared folder
+  # The VM is designed to be self-contained with dotfiles cloned inside
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Optional: If you want to manually mount host directories, uncomment below
+  # config.vm.synced_folder "/path/on/host", "/path/on/guest"
+
+  # Provisioning script
+  # Runs as vagrant user (privileged: false) to avoid permission issues
+  config.vm.provision "shell", path: "provision.sh", privileged: false
+end
