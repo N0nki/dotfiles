@@ -2,6 +2,9 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#
+# This .bashrc is unified for both WSL2 and native Linux environments.
+# Platform-specific configurations are handled via conditional branching.
 
 # If not running interactively, don't do anything
 case $- in
@@ -145,9 +148,30 @@ export PATH="$HOME/go/bin:$PATH"
 # aws
 export AWS_DEFAULT_REGION=ap-northeast-1
 
-# my aliases
+# my aliases (common)
 alias fh='history | fzf'
 alias aws-mfa='uv tool run aws-mfa'
+
+#
+# Platform-specific configurations
+#
+if [ -n "${WSL_DISTRO_NAME:-}" ]; then
+  # WSL2-specific aliases
+  alias nvim='/snap/bin/nvim'
+  alias cdg='cd /mnt/g/マイドライブ/'
+  alias cdu='cd /mnt/c/Users/'
+
+  # 1Password CLI - use Windows version for better integration
+  if command -v op.exe &>/dev/null; then
+    alias op='op.exe'
+    source <(op.exe completion bash)
+  fi
+else
+  # Native Linux - use native 1Password CLI if available
+  if command -v op &>/dev/null; then
+    source <(op completion bash)
+  fi
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -165,11 +189,6 @@ function pet-select() {
 }
 bind -x '"\C-x\C-r": pet-select'
 . "$HOME/.cargo/env"
-
-# completion for 1Password CLI (Linux native)
-if command -v op &>/dev/null; then
-  source <(op completion bash)
-fi
 
 # terraform completion
 if command -v terraform &>/dev/null; then

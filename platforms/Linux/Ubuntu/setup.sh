@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# VirtualBox Ubuntu 24.04 Provisioning Script
-# Based on platforms/WSL2/setup_wsl2.sh
+# Ubuntu Setup Script (WSL2 & VirtualBox compatible)
+# Location: platforms/Linux/Ubuntu/setup.sh
 #
-# This script sets up a development environment equivalent to WSL2,
-# excluding Windows-specific configurations.
+# This script automatically detects the platform (WSL2 or native Linux)
+# and sets up a development environment accordingly.
 #
 
 set -eu
@@ -12,9 +12,19 @@ set -eu
 export DEBIAN_FRONTEND=noninteractive
 export DEBIAN_PRIORITY=critical
 
-echo "========================================="
-echo "Starting VirtualBox Ubuntu 24.04 Provisioning"
-echo "========================================="
+# Detect platform
+if [ -n "${WSL_DISTRO_NAME:-}" ]; then
+  PLATFORM="wsl2"
+  echo "========================================="
+  echo "Starting WSL2 Ubuntu Setup"
+  echo "Distribution: $WSL_DISTRO_NAME"
+  echo "========================================="
+else
+  PLATFORM="native"
+  echo "========================================="
+  echo "Starting Ubuntu Setup (Native Linux)"
+  echo "========================================="
+fi
 
 #
 # Update package list and upgrade existing packages
@@ -229,18 +239,23 @@ go install github.com/knqyf263/pet@latest
 #
 echo ""
 echo "==> Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all --no-update-rc
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --all --no-update-rc
+else
+  echo "fzf already installed"
+fi
 
 #
 # Clone dotfiles repository with submodules
 #
 echo ""
-echo "==> Cloning dotfiles repository..."
+echo "==> Setting up dotfiles..."
 if [ ! -d ~/dotfiles ]; then
+  echo "Cloning dotfiles repository..."
   git clone --recurse-submodules https://github.com/N0nki/dotfiles.git ~/dotfiles
 else
-  echo "dotfiles already exists, skipping clone."
+  echo "dotfiles already exists"
   echo "Updating submodules..."
   cd ~/dotfiles
   git submodule update --init --recursive
@@ -262,33 +277,24 @@ echo "==> Setting up Neovim..."
 sh ~/dotfiles/common/nvim/setup_nvim.sh
 
 #
-# Link VirtualBox-specific .bashrc
+# Link platform-unified .bashrc
 #
 echo ""
-echo "==> Linking .bashrc (VirtualBox version)..."
-ln -sf ~/dotfiles/platforms/virtualbox/ubuntu2404/.bashrc ~/.bashrc
-
-#
-# Source .bashrc to apply changes
-#
-echo ""
-echo "==> Sourcing .bashrc..."
-# Note: source won't work in non-interactive shell, but we document it for user
-echo "Run 'source ~/.bashrc' after SSH login to apply changes."
+echo "==> Linking .bashrc..."
+ln -sf ~/dotfiles/platforms/Linux/Ubuntu/.bashrc ~/.bashrc
 
 echo ""
 echo "========================================="
-echo "VirtualBox Ubuntu 24.04 Provisioning Completed!"
+echo "Ubuntu Setup Completed!"
+echo "Platform: $PLATFORM"
 echo "========================================="
 echo ""
 echo "Next steps:"
-echo "  1. SSH into the VM: vagrant ssh"
-echo "  2. Configure git user info:"
+echo "  1. Configure git user info:"
 echo "       vim ~/.gitconfig.local"
-echo "       # Add your name and email"
-echo "  3. Install tmux plugins:"
+echo "  2. Install tmux plugins:"
 echo "       tmux"
-echo "       # Press Ctrl-t I to install plugins"
-echo "  4. Reload shell configuration:"
+echo "       # Press Ctrl-t I"
+echo "  3. Reload shell:"
 echo "       source ~/.bashrc"
 echo ""

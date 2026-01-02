@@ -13,7 +13,7 @@ This is a personal dotfiles repository containing configuration files and setup 
 The repository is organized by platform with shared common configurations:
 
 - **platforms/macOS/**: macOS-specific shell configs (.bash_profile, .bashrc, .zshrc), Brewfile for package management, macOS system defaults, and application configs (ghostty, iTerm)
-- **platforms/WSL2/**: Windows Subsystem for Linux configuration (.bashrc)
+- **platforms/Linux/Ubuntu/**: Unified Ubuntu setup for WSL2 and VirtualBox environments (setup.sh, .bashrc, Vagrantfile)
 - **platforms/windows/**: Windows-specific configs (AutoHotkey scripts)
 - **common/**: Shared cross-platform configurations (git, tmux, starship, zellij, pet, nvim, vim, python)
 - **common/nvim/**: Neovim configuration using lazy.nvim plugin manager (cross-platform)
@@ -48,7 +48,7 @@ Each platform/component has a setup script that creates symbolic links:
 
 - **dotfilesLink.sh**: Top-level orchestrator (runs macOS setup, then common/synbolic_link.sh)
 - **platforms/macOS/setup_macos.sh**: Links shell configs, sets up ghostty, runs defaults.sh
-- **platforms/WSL2/setup_wsl2.sh**: Links WSL2-specific .bashrc
+- **platforms/Linux/Ubuntu/setup.sh**: Unified Ubuntu setup for WSL2 and VirtualBox (auto-detects platform via WSL_DISTRO_NAME)
 - **common/nvim/setup_nvim.sh**: Links nvim config directory structure
 - **common/vim/setup_vim.sh**: Installs dein.vim and links vim configs
 - **common/synbolic_link.sh**: Links shared tools (starship, tmux, zellij, pet, git, nvim, vim, python)
@@ -73,8 +73,12 @@ sh ~/dotfiles/dotfilesLink.sh
 # Setup specific components
 sh ~/dotfiles/common/synbolic_link.sh  # Cross-platform tools (includes nvim, vim)
 sh ~/dotfiles/common/nvim/setup_nvim.sh       # Neovim only
-sh ~/dotfiles/platforms/WSL2/setup_wsl2.sh    # WSL2 only
+sh ~/dotfiles/platforms/Linux/Ubuntu/setup.sh # Ubuntu (WSL2/VirtualBox)
 sh ~/dotfiles/common/python/symbolic_link.sh  # Python tools
+
+# VirtualBox VM setup (Ubuntu 24.04)
+cd ~/dotfiles/platforms/Linux/Ubuntu
+vagrant up
 
 # macOS package installation
 cd ~/dotfiles/platforms/macOS
@@ -242,7 +246,7 @@ git cherry-pick <Ctrl-G Ctrl-H>  # Cherry-pick commit
 
 **Configuration:**
 
-- Sourced in `platforms/WSL2/.bashrc`, `platforms/macOS/.bashrc`, and `platforms/macOS/.zshrc`
+- Sourced in `platforms/Linux/Ubuntu/.bashrc`, `platforms/macOS/.bashrc`, and `platforms/macOS/.zshrc`
 - Automatically uses tmux popup when inside tmux (90% × 70%)
 - Multi-selection with TAB/Shift-TAB
 
