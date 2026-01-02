@@ -7,8 +7,10 @@
 # excluding Windows-specific configurations.
 #
 
-set -e # Exit on error
-set -u # Exit on undefined variable
+set -eu
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_PRIORITY=critical
 
 echo "========================================="
 echo "Starting VirtualBox Ubuntu 24.04 Provisioning"

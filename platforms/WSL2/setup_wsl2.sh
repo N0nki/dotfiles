@@ -1,5 +1,10 @@
 #!/bin/sh
 
+set -eu
+
+export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_PRIORITY=critical
+
 # Update package list and upgrade existing packages
 echo "Updating package list and upgrading packages..."
 sudo apt update && sudo apt upgrade -y
