@@ -31,14 +31,14 @@ fi
 #
 echo ""
 echo "==> Updating package list and upgrading packages..."
-sudo apt update && sudo apt upgrade -y
+sudo -E apt update && sudo -E apt upgrade -y
 
 #
 # Install development and utility packages
 #
 echo ""
 echo "==> Installing development packages..."
-sudo apt install -y \
+sudo -E apt install -y \
   build-essential \
   autoconf \
   libssl-dev \
@@ -59,7 +59,6 @@ sudo apt install -y \
   curl \
   xz-utils \
   ca-certificates \
-  rustc \
   unzip \
   golang \
   libkrb5-dev \
@@ -82,9 +81,9 @@ echo "==> Package installation completed."
 #
 echo ""
 echo "==> Installing fastfetch..."
-sudo add-apt-repository ppa:zhangsongcui3371/fastfetch -y
-sudo apt update
-sudo apt install fastfetch -y
+sudo -E add-apt-repository ppa:zhangsongcui3371/fastfetch -y
+sudo -E apt update
+sudo -E apt install fastfetch -y
 
 #
 # Install Neovim via snap
@@ -165,10 +164,10 @@ fi
 #
 echo ""
 echo "==> Installing Node.js..."
-sudo apt install -y npm
+sudo -E apt install -y npm
 sudo npm i -g n
 sudo n stable
-sudo apt autoremove --purge -y npm
+sudo -E apt autoremove --purge -y npm
 
 #
 # Install prettier (markdown formatter)
@@ -216,15 +215,15 @@ curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux
 #
 echo ""
 echo "==> Installing GitHub CLI..."
-(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) &&
+(type -p wget >/dev/null || (sudo -E apt update && sudo -E apt install wget -y)) &&
   sudo mkdir -p -m 755 /etc/apt/keyrings &&
   out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg &&
   cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null &&
   sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg &&
   sudo mkdir -p -m 755 /etc/apt/sources.list.d &&
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
-  sudo apt update &&
-  sudo apt install gh -y
+  sudo -E apt update &&
+  sudo -E apt install gh -y
 
 #
 # Install pet (command snippet manager)
