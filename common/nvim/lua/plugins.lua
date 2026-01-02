@@ -70,7 +70,7 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
         event = "BufReadPost",
-        build = ":TSUpdate",
+        build = ":TSInstall vim",
         config = function()
             require("pluginconfig/nvim-treesitter")
         end,
