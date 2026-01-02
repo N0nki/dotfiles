@@ -60,9 +60,19 @@ sudo apt install -y \
   zip \
   shellcheck \
   shfmt \
-  csvkit
+  csvkit \
+  direnv
 
 echo "==> Package installation completed."
+
+#
+# Install fastfetch
+#
+echo ""
+echo "==> Installing fastfetch..."
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch -y
+sudo apt update
+sudo apt install fastfetch -y
 
 #
 # Install Neovim via snap
@@ -154,6 +164,13 @@ sudo apt autoremove --purge -y npm
 echo ""
 echo "==> Installing prettier..."
 sudo npm i -g prettier
+
+#
+# Install tree-sitter-cli
+#
+echo ""
+echo "==> Installing tree-sitter-cli..."
+sudo npm i -g tree-sitter-cli
 
 #
 # Install rustup
