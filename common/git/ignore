@@ -6,3 +6,5 @@
 .envrc
 
 **/.claude/settings.local.json
+
+.vagrant/
