@@ -126,6 +126,16 @@ curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux
   sudo apt update &&
   sudo apt install gh -y
 
+# Install pet (command snippet manager)
+echo "Installing pet..."
+export PATH="$HOME/go/bin:$PATH"
+go install github.com/knqyf263/pet@latest
+
+# Install fzf (fuzzy finder)
+echo "Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all --no-update-rc
+
 # Link shell configuration
 echo "Linking shell configuration..."
 ln -sf ~/dotfiles/platforms/WSL2/.bashrc ~/.bashrc

@@ -198,6 +198,22 @@ echo "==> Installing GitHub CLI..."
   sudo apt install gh -y
 
 #
+# Install pet (command snippet manager)
+#
+echo ""
+echo "==> Installing pet..."
+export PATH="$HOME/go/bin:$PATH"
+go install github.com/knqyf263/pet@latest
+
+#
+# Install fzf (fuzzy finder)
+#
+echo ""
+echo "==> Installing fzf..."
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all --no-update-rc
+
+#
 # Clone dotfiles repository with submodules
 #
 echo ""
