@@ -1,5 +1,16 @@
 #!/bin/sh
 
+#
+# Check if Xcode.app is installed
+# Xcode is required for Git and other development tools.
+# If Xcode is not installed, install it from the App Store before running this script.
+#
+if [ ! -d "/Applications/Xcode.app" ]; then
+  echo "Error: Xcode.app is not installed."
+  echo "Please install Xcode from the App Store first."
+  exit 1
+fi
+
 ln -sf ~/dotfiles/platforms/macOS/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/platforms/macOS/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/platforms/macOS/.zprofile ~/.zprofile
