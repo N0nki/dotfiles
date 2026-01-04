@@ -125,6 +125,10 @@ else
   echo "pyenv already installed, skipping."
 fi
 
+echo ""
+echo "Installing uv..."
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 #
 # Install rbenv
 #
