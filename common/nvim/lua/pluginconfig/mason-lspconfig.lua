@@ -2,6 +2,10 @@
 
 require("mason-lspconfig").setup({
     ensure_installed = {
+        "pylsp",
+        "bashls",
+        "lua_ls",
+        "marksman",
         "terraformls",
         "gopls",
     },
@@ -45,6 +49,15 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+-- pylsp configuration
+vim.lsp.config("pylsp", {})
+
+-- bashls configuration
+vim.lsp.config("bashls", {})
+--
+-- marksman configuration
+vim.lsp.config("marksman", {})
+
 -- terraform-ls configuration
 vim.lsp.config("terraformls", {})
 
@@ -61,6 +74,9 @@ vim.lsp.config("gopls", {
 })
 
 -- Enable LSP servers
+vim.lsp.enable("pylsp")
+vim.lsp.enable("bashls")
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("marksman")
 vim.lsp.enable("terraformls")
 vim.lsp.enable("gopls")
