@@ -63,6 +63,7 @@ sudo -E apt install -y \
   golang \
   libkrb5-dev \
   python3-dev \
+  python3-venv \
   gcc \
   ripgrep \
   apt-transport-https \
