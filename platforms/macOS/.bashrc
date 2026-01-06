@@ -1,6 +1,8 @@
 #!/bin/bash
 # macvim
-alias mvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+mvim() {
+  env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"
+}
 
 # anacondaとpyenvのコマンド競合を回避
 alias activate="source $PYENV_ROOT/versions/anaconda3-4.3.1/bin/activate"
