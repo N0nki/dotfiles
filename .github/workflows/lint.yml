@@ -41,7 +41,6 @@ jobs:
       - name: Run Luacheck on Neovim config
         run: |
           luacheck common/nvim/lua --globals vim --no-unused-args || true
-        continue-on-error: true
 
   yaml-check:
     name: YAML/JSON Validation
@@ -55,11 +54,15 @@ jobs:
           config_file: .github/yamllint-config.yml
           file_or_dir: .
           strict: false
-        continue-on-error: true
 
       - name: Validate JSON files
         run: |
+          failed=0
           for file in $(find . -name "*.json" -not -path "*/node_modules/*" -not -path "*/.git/*"); do
             echo "Validating $file"
-            jq empty "$file" || echo "Failed: $file"
+            if ! jq empty "$file" 2>&1; then
+              echo "Failed: $file"
+              failed=1
+            fi
           done
+          exit $failed
