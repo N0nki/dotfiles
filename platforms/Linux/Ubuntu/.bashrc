@@ -159,7 +159,7 @@ if [ -n "${WSL_DISTRO_NAME:-}" ]; then
   # WSL2-specific aliases
   alias nvim='/snap/bin/nvim'
   alias cdg='cd /mnt/g/マイドライブ/'
-  alias cdu='cd /mnt/c/Users/'
+  alias cdu='cd /mnt/c/Users/$USER'
 
   # for Claude Desktop Windows
   CLAUDE_DESKTOP_CONFIG="/mnt/c/Users/$USER/AppData/Roaming/Claude/claude_desktop_config.json"
