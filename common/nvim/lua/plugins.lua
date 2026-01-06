@@ -379,16 +379,6 @@ require("lazy").setup({
     -- disabled plugins
     { "Valloric/MatchTagAlways", enabled = false },
     {
-        "Shougo/defx.nvim",
-        enabled = false,
-        build = ":UpdateRemotePlugins",
-        config = function()
-            require("pluginconfig/defx")
-        end,
-    },
-    { "kristijanhusak/defx-icons", enabled = false },
-    { "kristijanhusak/defx-git", enabled = false },
-    {
         "Yggdroot/indentLine",
         enabled = false,
         config = function()
