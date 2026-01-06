@@ -54,11 +54,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Validate YAML files
-        uses: ibiqlik/action-yamllint@v3
-        with:
-          config_file: .github/yamllint-config.yml
-          file_or_dir: .
-          strict: false
+        run: |
+          pip install yamllint
+          failed=0
+          for file in $(find . \( -name "*.yml" -o -name "*.yaml" \) -not -path "*/node_modules/*" -not -path "*/.git/*"); do
+            echo "Validating $file"
+            if ! yamllint -c .github/yamllint-config.yml "$file" 2>&1; then
+              failed=1
+            fi
+          done
+          exit $failed
 
       - name: Validate JSON files
         run: |
