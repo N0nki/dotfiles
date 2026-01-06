@@ -51,25 +51,34 @@ keymap("v", "<Leader>p", '"*p', opts)
 
 -- yank file full path
 command("CopyFullPath", function()
-    vim.fn.setreg('"', vim.fn.expand("%:p"))
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    vim.fn.setreg('"', path)
+    print("Yanked path: " .. path)
 end, {})
 keymap("n", "<Leader>cp", ":<C-u>CopyFullPath<CR>", opts)
 -- yank directory path
 command("CopyDirectoryPath", function()
-    vim.fn.setreg('"', vim.fn.expand("%:p:h"))
+    local dir = vim.fn.expand("%:p:h")
+    vim.fn.setreg("+", dir)
+    vim.fn.setreg('"', dir)
+    print("Yanked directory: " .. dir)
 end, {})
 keymap("n", "<Leader>cd", ":<C-u>CopyDirectoryPath<CR>", opts)
 -- yank file name
 command("CopyFileName", function()
-    vim.fn.setreg('"', vim.fn.expand("%:t"))
+    local filename = vim.fn.expand("%:t")
+    vim.fn.setreg("+", filename)
+    vim.fn.setreg('"', filename)
+    print("Yanked filename: " .. filename)
 end, {})
 keymap("n", "<Leader>cf", ":<C-u>CopyFileName<CR>", opts)
 -- yank current git branch name
 command("CopyGitBranch", function()
     local branch = vim.fn.FugitiveHead()
     if branch ~= "" then
-        vim.fn.setreg("+", branch) -- clipboard
-        vim.fn.setreg('"', branch) -- default register
+        vim.fn.setreg("+", branch)
+        vim.fn.setreg('"', branch)
         print("Yanked branch: " .. branch)
     else
         print("Not in a git repository")
