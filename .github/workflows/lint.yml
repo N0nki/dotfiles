@@ -47,7 +47,7 @@ jobs:
             exit $exit_code
           fi
 
-  yaml-check:
+  config-file-check:
     name: YAML/TOML/JSON Validation
     runs-on: ubuntu-latest
     steps:
