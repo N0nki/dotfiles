@@ -1,115 +1,115 @@
 {
-    "PageBreakTag": {
-        "prefix": "pregebreaktag",
-        "body": [
-            "<div style=\"page-break-before: always;\"></div>"
-        ],
-        "description": "page break tag"
-    },
-    "ImageTag": {
-        "prefix": "imagetag",
-        "body": [
-            "<img src=$1 alt=$2 title=$3 width=$4 height=$5 />$6"
-        ],
-        "description": "image tag"
-    },
-    "PositionTag": {
-        "prefix": "positiontag",
-        "body": [
-            "<div style=\"text-align: $1;\">",
-            "$2",
-            "<div>"
-        ],
-        "description": "position tag"
-    },
-    "MarpFooter": {
-        "prefix": "marpfooter",
-        "body": [
-            "<!-- footer: $1 -->"
-        ],
-        "description": "marp footer"
-    },
-    "MarpGaia": {
-        "prefix": "marpgaia",
-        "body": [
-            "<!-- $theme: gaia -->"
-        ],
-        "description": "marp gaia theme"
-    },
-    "MarpNumber": {
-        "prefix": "marpnumber",
-        "body": [
-            "<!-- page_number: true -->"
-        ],
-        "description": "marp number"
-    },
-    "GitBookCodeBlock": {
-        "prefix": "gitbookcodeblock",
-        "body": [
-            "{% code title=\"$1\" %}",
-            "```$2",
-            "$3",
-            "```",
-            "{% endcode %}"
-        ],
-        "description": "gitbook code block"
-    },
-    "GitBookTab": {
-        "prefix": "gitbooktab",
-        "body": [
-            "{% tabs %}",
-            "{% tab title=\"$1\" %}",
-            "$2",
-            "{% endtab %}",
-            "",
-            "{% tab title=\"$3\" %}",
-            "$4",
-            "{% endtab %}",
-            "{% endtabs %}"
-        ],
-        "description": "gitbook tab"
-    },
-    "GitBookUrl": {
-        "prefix": "gitbookurl",
-        "body": [
-            "{% embed url=\"$1\" %}"
-        ],
-        "description": "gitbook url"
-    },
-    "GitBookHint": {
-        "prefix": "gitbookhint",
-        "body": [
-            "{% hint style=\"info|warning|danger$1\" %}",
-            "$2",
-            "{% endhint %}"
-        ],
-        "description": "gitbook hint [info|warning|danger]"
-    },
-    "GitBookExpandable": {
-        "prefix": "gitbookexpandable",
-        "body": [
-            "<details>",
-            "",
-            "<summary>$1</summary>",
-            "",
-            "$2",
-            "",
-            "</details>"
-        ],
-        "description": "gitbook expandable"
-    },
-    "HatenaEmbededLink": {
-        "prefix": "hatenaembededlink",
-        "body": [
-            "[$1:embed:cite]$2"
-        ],
-        "description": "hatena embeded link"
-    },
-    "HatenaTitleLink": {
-        "prefix": "hatenatitlelink",
-        "body": [
-            "[${1}:title]${2}"
-        ],
-        "description": "hatena title link"
-    }
+  "PageBreakTag": {
+    "prefix": "pregebreaktag",
+    "body": [
+      "<div style=\"page-break-before: always;\"></div>"
+    ],
+    "description": "page break tag"
+  },
+  "ImageTag": {
+    "prefix": "imagetag",
+    "body": [
+      "<img src=$1 alt=$2 title=$3 width=$4 height=$5 />$6"
+    ],
+    "description": "image tag"
+  },
+  "PositionTag": {
+    "prefix": "positiontag",
+    "body": [
+      "<div style=\"text-align: $1;\">",
+      "$2",
+      "<div>"
+    ],
+    "description": "position tag"
+  },
+  "MarpFooter": {
+    "prefix": "marpfooter",
+    "body": [
+      "<!-- footer: $1 -->"
+    ],
+    "description": "marp footer"
+  },
+  "MarpGaia": {
+    "prefix": "marpgaia",
+    "body": [
+      "<!-- $theme: gaia -->"
+    ],
+    "description": "marp gaia theme"
+  },
+  "MarpNumber": {
+    "prefix": "marpnumber",
+    "body": [
+      "<!-- page_number: true -->"
+    ],
+    "description": "marp number"
+  },
+  "GitBookCodeBlock": {
+    "prefix": "gitbookcodeblock",
+    "body": [
+      "{% code title=\"$1\" %}",
+      "```$2",
+      "$3",
+      "```",
+      "{% endcode %}"
+    ],
+    "description": "gitbook code block"
+  },
+  "GitBookTab": {
+    "prefix": "gitbooktab",
+    "body": [
+      "{% tabs %}",
+      "{% tab title=\"$1\" %}",
+      "$2",
+      "{% endtab %}",
+      "",
+      "{% tab title=\"$3\" %}",
+      "$4",
+      "{% endtab %}",
+      "{% endtabs %}"
+    ],
+    "description": "gitbook tab"
+  },
+  "GitBookUrl": {
+    "prefix": "gitbookurl",
+    "body": [
+      "{% embed url=\"$1\" %}"
+    ],
+    "description": "gitbook url"
+  },
+  "GitBookHint": {
+    "prefix": "gitbookhint",
+    "body": [
+      "{% hint style=\"info|warning|danger$1\" %}",
+      "$2",
+      "{% endhint %}"
+    ],
+    "description": "gitbook hint [info|warning|danger]"
+  },
+  "GitBookExpandable": {
+    "prefix": "gitbookexpandable",
+    "body": [
+      "<details>",
+      "",
+      "<summary>$1</summary>",
+      "",
+      "$2",
+      "",
+      "</details>"
+    ],
+    "description": "gitbook expandable"
+  },
+  "HatenaEmbededLink": {
+    "prefix": "hatenaembededlink",
+    "body": [
+      "[$1:embed:cite]$2"
+    ],
+    "description": "hatena embeded link"
+  },
+  "HatenaTitleLink": {
+    "prefix": "hatenatitlelink",
+    "body": [
+      "[${1}:title]${2}"
+    ],
+    "description": "hatena title link"
+  }
 }

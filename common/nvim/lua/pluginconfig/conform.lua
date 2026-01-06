@@ -16,7 +16,7 @@ require("conform").setup({
     },
     formatters = {
         jq = {
-            args = { "--indent", "4" },
+            args = { "--indent", "2" },
         },
     },
     format_on_save = {
