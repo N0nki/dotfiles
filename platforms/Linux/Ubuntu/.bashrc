@@ -161,6 +161,18 @@ if [ -n "${WSL_DISTRO_NAME:-}" ]; then
   alias cdg='cd /mnt/g/マイドライブ/'
   alias cdu='cd /mnt/c/Users/'
 
+  # for Claude Desktop Windows
+  CLAUDE_DESKTOP_CONFIG="/mnt/c/Users/$USER/AppData/Roaming/Claude/claude_desktop_config.json"
+  claude-desktop-aws-profile() {
+    jq --arg p "$1" \
+      '.mcpServers["awslabs.aws-pricing-mcp-server"].env.AWS_PROFILE = $p |
+       .mcpServers["awslabs.cost-explorer-mcp-server"].env.AWS_PROFILE = $p' \
+      "$CLAUDE_DESKTOP_CONFIG" >/tmp/claude_config.json &&
+      mv /tmp/claude_config.json "$CLAUDE_DESKTOP_CONFIG" &&
+      echo "Changed to: $1"
+  }
+  alias claude-desktop-aws-profile-show='jq '\''.mcpServers | to_entries[] | select(.value.env.AWS_PROFILE) | {server: .key, profile: .value.env.AWS_PROFILE}'\'' "$CLAUDE_DESKTOP_CONFIG"'
+
   # 1Password CLI - use Windows version for better integration
   if command -v op.exe &>/dev/null; then
     alias op='op.exe'
