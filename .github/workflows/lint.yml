@@ -16,11 +16,13 @@ jobs:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
-          severity: warning
+          severity: error
           ignore_paths: |
             common/nvim
             common/vim/dein
             common/fzf-git
+            platforms/macOS/.zshrc
+            platforms/macOS/.zprofile
 
   lua-check:
     name: Lua Syntax Check
