@@ -18,11 +18,12 @@ jobs:
         with:
           severity: error
           ignore_paths: |
-            common/nvim
-            common/vim/dein
-            common/fzf-git
-            platforms/macOS/.zshrc
-            platforms/macOS/.zprofile
+            ./common/nvim
+            ./common/vim/dein
+            ./common/fzf-git
+          ignore_names: |
+            .zshrc
+            .zprofile
 
   lua-check:
     name: Lua Syntax Check
