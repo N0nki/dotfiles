@@ -18,8 +18,9 @@ jobs:
         with:
           severity: warning
           ignore_paths: |
-            nvim/plugged
-            vim/dein
+            common/nvim/plugged
+            common/vim/dein
+            common/fzf-git
 
   lua-check:
     name: Lua Syntax Check
@@ -35,7 +36,7 @@ jobs:
 
       - name: Run Luacheck on Neovim config
         run: |
-          luacheck nvim/lua --globals vim --no-unused-args || true
+          luacheck common/nvim/lua --globals vim --no-unused-args || true
         continue-on-error: true
 
   yaml-check:
@@ -69,17 +70,17 @@ jobs:
         run: |
           echo "Checking setup scripts..."
           test -f dotfilesLink.sh && echo "✓ dotfilesLink.sh exists"
-          test -f macOS/setup_macos.sh && echo "✓ macOS/setup_macos.sh exists"
-          test -f WSL2/setup_wsl2.sh && echo "✓ WSL2/setup_wsl2.sh exists"
-          test -f nvim/setup_nvim.sh && echo "✓ nvim/setup_nvim.sh exists"
-          test -f vim/setup_vim.sh && echo "✓ vim/setup_vim.sh exists"
+          test -f platforms/macOS/setup_macos.sh && echo "✓ platforms/macOS/setup_macos.sh exists"
+          test -f platforms/Linux/Ubuntu/setup.sh && echo "✓ platforms/Linux/Ubuntu/setup.sh exists"
+          test -f common/nvim/setup_nvim.sh && echo "✓ common/nvim/setup_nvim.sh exists"
+          test -f common/vim/setup_vim.sh && echo "✓ common/vim/setup_vim.sh exists"
           test -f common/synbolic_link.sh && echo "✓ common/synbolic_link.sh exists"
-          test -f python/symbolic_link.sh && echo "✓ python/symbolic_link.sh exists"
+          test -f common/python/symbolic_link.sh && echo "✓ common/python/symbolic_link.sh exists"
 
       - name: Verify critical config files exist
         run: |
           echo "Checking critical config files..."
-          test -f common/.gitconfig && echo "✓ .gitconfig exists"
-          test -f common/.tmux.conf && echo "✓ .tmux.conf exists"
-          test -f nvim/init.lua && echo "✓ nvim/init.lua exists"
-          test -f nvim/lua/plugins.lua && echo "✓ nvim/lua/plugins.lua exists"
+          test -f common/git/.gitconfig && echo "✓ .gitconfig exists"
+          test -f common/tmux/.tmux.conf && echo "✓ .tmux.conf exists"
+          test -f common/nvim/init.lua && echo "✓ nvim/init.lua exists"
+          test -f common/nvim/lua/plugins.lua && echo "✓ nvim/lua/plugins.lua exists"
