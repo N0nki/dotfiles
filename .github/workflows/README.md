@@ -24,10 +24,10 @@ Triggers on push/pull_request to `master` (add `main` if that is your default br
 **Jobs:**
 
 - **Test Common Setup (Ubuntu)**: Tests `common/synbolic_link.sh` for cross-platform tools
-- **Test Neovim Setup (Ubuntu)**: Tests `nvim/setup_nvim.sh`
-- **Test Python Setup (Ubuntu)**: Tests `python/symbolic_link.sh`
-- **Test WSL2 Setup (Ubuntu)**: Tests `WSL2/setup_wsl2.sh`
-- **Test macOS Setup**: Tests `macOS/setup_macos.sh` (without Homebrew installation)
+- **Test Neovim Setup (Ubuntu)**: Tests `common/nvim/setup_nvim.sh`
+- **Test Python Setup (Ubuntu)**: Tests `common/python/symbolic_link.sh`
+- **Test Linux Setup (Ubuntu)**: Tests `platforms/Linux/Ubuntu/setup.sh`
+- **Test macOS Setup**: Tests `platforms/macOS/setup_macos.sh` (without Homebrew installation)
 
 **Features:**
 
@@ -39,7 +39,7 @@ Triggers on push/pull_request to `master` (add `main` if that is your default br
 
 ### 3. Neovim Health Check (`neovim-check.yml`)
 
-Triggers on push/PR to `master` when files in `nvim/` are modified (add `main` if needed).
+Triggers on push/PR to `master` when files in `common/nvim/` are modified (add `main` if needed).
 
 **Jobs:**
 

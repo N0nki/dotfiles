@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'nvim/**'
+      - 'common/nvim/**'
   pull_request:
     branches: [ master ]
     paths:
-      - 'nvim/**'
+      - 'common/nvim/**'
 
 jobs:
   neovim-syntax:
@@ -28,14 +28,14 @@ jobs:
       - name: Test Neovim startup
         run: |
           cd $GITHUB_WORKSPACE
-          ln -sf $PWD/nvim ~/.config/nvim
+          ln -sf $PWD/common/nvim ~/.config/nvim
           nvim --headless -c "lua print('Neovim started successfully')" -c "quit" 2>&1 | tee /tmp/nvim-output.log
           echo "Neovim startup test completed"
 
       - name: Check for Lua syntax errors
         run: |
           echo "Checking Lua files for syntax errors..."
-          for file in $(find nvim/lua -name "*.lua"); do
+          for file in $(find common/nvim/lua -name "*.lua"); do
             echo "Checking $file"
             nvim --headless -c "luafile $file" -c "quit" 2>&1 | grep -i "error" && exit 1 || true
           done
@@ -44,7 +44,7 @@ jobs:
       - name: Validate plugins.lua structure
         run: |
           echo "Validating plugins.lua structure..."
-          nvim --headless -c "luafile nvim/lua/plugins.lua" -c "quit" 2>&1 || true
+          nvim --headless -c "luafile common/nvim/lua/plugins.lua" -c "quit" 2>&1 || true
           echo "Plugins.lua validation completed"
 
   neovim-plugin-check:
@@ -63,7 +63,7 @@ jobs:
 
       - name: Setup Neovim config
         run: |
-          ln -sf $PWD/nvim ~/.config/nvim
+          ln -sf $PWD/common/nvim ~/.config/nvim
 
       - name: Test lazy.nvim bootstrap
         run: |
@@ -73,9 +73,9 @@ jobs:
       - name: Check for common plugin issues
         run: |
           echo "Checking for duplicate plugin declarations..."
-          if [ -f nvim/lua/plugins.lua ]; then
+          if [ -f common/nvim/lua/plugins.lua ]; then
             # Extract plugin names and check for duplicates
-            grep -oP "(?<=\[')[^']+(?='\])" nvim/lua/plugins.lua | sort | uniq -d > /tmp/duplicates.txt || true
+            grep -oP "(?<=\[')[^']+(?='\])" common/nvim/lua/plugins.lua | sort | uniq -d > /tmp/duplicates.txt || true
             if [ -s /tmp/duplicates.txt ]; then
               echo "Warning: Found duplicate plugins:"
               cat /tmp/duplicates.txt
@@ -100,7 +100,7 @@ jobs:
 
       - name: Setup Neovim config
         run: |
-          ln -sf $PWD/nvim ~/.config/nvim
+          ln -sf $PWD/common/nvim ~/.config/nvim
 
       - name: Run Neovim health check
         run: |

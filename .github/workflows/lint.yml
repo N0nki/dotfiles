@@ -18,7 +18,7 @@ jobs:
         with:
           severity: warning
           ignore_paths: |
-            common/nvim/plugged
+            common/nvim
             common/vim/dein
             common/fzf-git
 
