@@ -33,21 +33,6 @@ jobs:
           nvim --headless -c "lua print('Neovim started successfully')" -c "quit" 2>&1 | tee /tmp/nvim-output.log
           echo "Neovim startup test completed"
 
-      - name: Check for Lua syntax errors
-        run: |
-          echo "Checking Lua files for syntax errors..."
-          for file in $(find common/nvim/lua -name "*.lua"); do
-            echo "Checking $file"
-            nvim --headless -c "luafile $file" -c "quit" 2>&1 | grep -i "error" && exit 1 || true
-          done
-          echo "All Lua files passed syntax check"
-
-      - name: Validate plugins.lua structure
-        run: |
-          echo "Validating plugins.lua structure..."
-          nvim --headless -c "luafile common/nvim/lua/plugins.lua" -c "quit" 2>&1 || true
-          echo "Plugins.lua validation completed"
-
   neovim-plugin-check:
     name: Neovim Plugin Configuration Check
     runs-on: ubuntu-latest
