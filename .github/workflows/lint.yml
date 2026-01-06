@@ -71,3 +71,16 @@ jobs:
             fi
           done
           exit $failed
+
+      - name: Validate TOML files
+        run: |
+          pip install toml
+          failed=0
+          for file in $(find . -name "*.toml" -not -path "*/node_modules/*" -not -path "*/.git/*"); do
+            echo "Validating $file"
+            if ! python -c "import toml; toml.load('$file')" 2>&1; then
+              echo "Failed: $file"
+              failed=1
+            fi
+          done
+          exit $failed
