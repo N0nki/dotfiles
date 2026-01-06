@@ -68,6 +68,7 @@ vim.g.quickrun_config = {
         ["outputter/buffer/close_on_empty"] = 1,
     },
     python = {
+        command = "python3",
         runner = "vimproc",
         ["runner/vimproc/updatetime"] = 40,
         outputter = "error",

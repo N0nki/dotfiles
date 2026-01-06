@@ -125,6 +125,18 @@ else
   echo "pyenv already installed, skipping."
 fi
 
+echo ""
+echo "Installing uv..."
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+#
+# Install Python formatters via uv
+#
+echo ""
+echo "==> Installing Python formatters (isort, black)..."
+uv tool install isort
+uv tool install black
+
 #
 # Install rbenv
 #
