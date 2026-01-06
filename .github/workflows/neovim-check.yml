@@ -1,12 +1,13 @@
+---
 name: Neovim Health Check
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
     paths:
       - 'common/nvim/**'
   pull_request:
-    branches: [ master ]
+    branches: [master]
     paths:
       - 'common/nvim/**'
 
