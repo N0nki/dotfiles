@@ -129,6 +129,9 @@ echo ""
 echo "Installing uv..."
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# Add uv to PATH for the current session
+export PATH="$HOME/.local/bin:$PATH"
+
 #
 # Install Python formatters via uv
 #
