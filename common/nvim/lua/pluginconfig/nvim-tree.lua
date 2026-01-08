@@ -65,7 +65,7 @@ require("nvim-tree").setup({
 keymap("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader>o", ":<C-u>NvimTreeOpen<CR>", opts)
 
-if vim.fn["argc"]() == 0 then
+if vim.fn["argc"]() == 0 and not vim.env.NVIM_NO_TREE then
     autocmd("VimEnter", {
         pattern = "*",
         -- command = "NvimTreeToggle"
