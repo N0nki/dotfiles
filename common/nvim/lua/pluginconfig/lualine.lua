@@ -1,5 +1,11 @@
 -- lualine
 
+if vim.env.NVIM_MINIMAL then
+    vim.o.laststatus = 0
+    vim.o.showtabline = 0
+    return
+end
+
 -- Git worktree名を取得するカスタムコンポーネント（複数worktree時のみ表示）
 local function git_worktree_name()
     local cwd = vim.fn.getcwd()
