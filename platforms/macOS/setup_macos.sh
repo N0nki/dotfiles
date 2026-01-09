@@ -1,42 +1,60 @@
 #!/bin/sh
+#
+# macOS Setup Script
+#
+# Prerequisites:
+#   - Xcode.app installed
+#   - dotfiles repository cloned to ~/dotfiles
+#
+# For fresh install, use bootstrap.sh instead:
+#   curl -fsSL https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh | sh
+#
 
-#
-# Check if Xcode.app is installed
-# Xcode is required for Git and other development tools.
-# If Xcode is not installed, install it from the App Store before running this script.
-#
-if [ ! -d "/Applications/Xcode.app" ]; then
-  echo "Error: Xcode.app is not installed."
-  echo "Please install Xcode from the App Store first."
-  exit 1
+set -e
+
+DOTFILES_DIR="$HOME/dotfiles"
+
+# Check if dotfiles directory exists
+if [ ! -d "$DOTFILES_DIR" ]; then
+    echo "Error: dotfiles directory not found at $DOTFILES_DIR"
+    echo "Please clone the repository first, or use bootstrap.sh:"
+    echo "  curl -fsSL https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh | sh"
+    exit 1
 fi
 
-git clone --recurse-submodules https://github.com/N0nki/dotfiles.git ~/dotfiles
+ln -sf "$DOTFILES_DIR/platforms/macOS/.bash_profile" ~/.bash_profile
+ln -sf "$DOTFILES_DIR/platforms/macOS/.bashrc" ~/.bashrc
+ln -sf "$DOTFILES_DIR/platforms/macOS/.zprofile" ~/.zprofile
+ln -sf "$DOTFILES_DIR/platforms/macOS/.zshrc" ~/.zshrc
+ln -sf "$DOTFILES_DIR/platforms/macOS/.latexmkrc" ~/.latexmkrc
+ln -sf "$DOTFILES_DIR/platforms/macOS/.xvimrc" ~/.xvimrc
+ln -sf "$DOTFILES_DIR/platforms/macOS/.vrapperrc" ~/.vrapperrc
 
-ln -sf ~/dotfiles/platforms/macOS/.bash_profile ~/.bash_profile
-ln -sf ~/dotfiles/platforms/macOS/.bashrc ~/.bashrc
-ln -sf ~/dotfiles/platforms/macOS/.zprofile ~/.zprofile
-ln -sf ~/dotfiles/platforms/macOS/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/platforms/macOS/.latexmkrc ~/.latexmkrc
-ln -sf ~/dotfiles/platforms/macOS/.xvimrc ~/.xvimrc
-ln -sf ~/dotfiles/platforms/macOS/.vrapperrc ~/.vrapperrc
-ln -sf ~/dotfiles/platforms/macOS/.xvimrc ~/.xvimrc
-
+# Install Xcode Command Line Tools if not installed
 if ! xcode-select -p >/dev/null 2>&1; then
-  xcode-select --install
+    xcode-select --install
 fi
 
+# Install Homebrew if not installed
 if ! command -v brew >/dev/null 2>&1; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-brew bundle --file=~/dotfiles/platforms/macOS/Brewfile
 
-sh ~/dotfiles/common/synbolic_link.sh
-sh ~/dotfiles/common/nvim/setup_nvim.sh
+# Setup Homebrew PATH (needed for fresh install on Apple Silicon)
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if [ ! -e ~/.config/ghostty ]; then
-  mkdir -p ~/.config/ghostty
-fi
-ln -sf ~/dotfiles/platforms/macOS/ghostty/config ~/.config/ghostty/config
-sh ~/dotfiles/platforms/macOS/defaults.sh
+brew bundle --file="$DOTFILES_DIR/platforms/macOS/Brewfile"
+
+# Run common setup scripts
+sh "$DOTFILES_DIR/common/synbolic_link.sh"
+sh "$DOTFILES_DIR/common/nvim/setup_nvim.sh"
+
+# Setup ghostty config
+mkdir -p ~/.config/ghostty
+ln -sf "$DOTFILES_DIR/platforms/macOS/ghostty/config" ~/.config/ghostty/config
+
+# Apply macOS defaults
+sh "$DOTFILES_DIR/platforms/macOS/defaults.sh"
+
+# Install Rosetta 2 for Apple Silicon
 softwareupdate --install-rosetta --agree-to-license
