@@ -18,21 +18,21 @@ DOTFILES_REPO="https://github.com/N0nki/dotfiles.git"
 
 # Check if Xcode.app is installed
 if [ ! -d "/Applications/Xcode.app" ]; then
-    echo "Error: Xcode.app is not installed."
-    echo "Please install Xcode from the App Store first."
-    exit 1
+  echo "Error: Xcode.app is not installed."
+  echo "Please install Xcode from the App Store first."
+  exit 1
 fi
 
 # Clone dotfiles if not already present
 if [ -d "$DOTFILES_DIR" ]; then
-    echo "dotfiles directory already exists at $DOTFILES_DIR"
-    echo "Pulling latest changes..."
-    cd "$DOTFILES_DIR"
-    git pull --recurse-submodules
-    git submodule update --init --recursive
+  echo "dotfiles directory already exists at $DOTFILES_DIR"
+  echo "Pulling latest changes..."
+  cd "$DOTFILES_DIR"
+  git pull --recurse-submodules
+  git submodule update --init --recursive
 else
-    echo "Cloning dotfiles..."
-    git clone --recurse-submodules "$DOTFILES_REPO" "$DOTFILES_DIR"
+  echo "Cloning dotfiles..."
+  git clone --recurse-submodules "$DOTFILES_REPO" "$DOTFILES_DIR"
 fi
 
 # Run main setup script
