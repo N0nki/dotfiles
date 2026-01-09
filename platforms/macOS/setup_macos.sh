@@ -35,9 +35,9 @@ if ! xcode-select -p >/dev/null 2>&1; then
     xcode-select --install
 fi
 
-# Install Homebrew if not installed (non-interactive for curl | sh usage)
+# Install Homebrew if not installed
 if ! command -v brew >/dev/null 2>&1; then
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Setup Homebrew PATH (needed for fresh install on Apple Silicon)

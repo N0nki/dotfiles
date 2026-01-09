@@ -3,7 +3,7 @@
 # macOS Bootstrap Script
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh | sh
+#   curl -fsSO https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh && sh bootstrap.sh
 #
 # This script:
 #   1. Checks for Xcode.app
