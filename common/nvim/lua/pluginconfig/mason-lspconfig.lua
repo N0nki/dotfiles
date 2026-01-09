@@ -59,7 +59,9 @@ vim.lsp.config("bashls", {})
 vim.lsp.config("marksman", {})
 
 -- terraform-ls configuration
-vim.lsp.config("terraformls", {})
+vim.lsp.config("terraformls", {
+    filetypes = { "terraform", "terraform-vars", "hcl" },
+})
 
 -- gopls configuration
 vim.lsp.config("gopls", {

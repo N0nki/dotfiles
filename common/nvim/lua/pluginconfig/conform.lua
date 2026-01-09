@@ -6,6 +6,7 @@ require("conform").setup({
         python = { "isort", "black" },
         terraform = { "terraform_fmt" },
         tf = { "terraform_fmt" },
+        hcl = { "terraform_fmt" },
         sh = { "shfmt" },
         bash = { "shfmt" },
         go = { "gofmt" },
