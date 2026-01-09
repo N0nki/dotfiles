@@ -16,11 +16,20 @@ DOTFILES_DIR="$HOME/dotfiles"
 
 # Check if dotfiles directory exists
 if [ ! -d "$DOTFILES_DIR" ]; then
-    echo "Error: dotfiles directory not found at $DOTFILES_DIR"
-    echo "Please clone the repository first, or use bootstrap.sh:"
-    echo "  curl -fsSL https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh | sh"
-    exit 1
+  echo "Error: dotfiles directory not found at $DOTFILES_DIR"
+  echo "Please clone the repository first, or use bootstrap.sh:"
+  echo "  curl -fsSL https://raw.githubusercontent.com/N0nki/dotfiles/master/platforms/macOS/bootstrap.sh | sh"
+  exit 1
 fi
+
+sudo -v
+# Keep sudo timestamp updated in background
+while true; do
+  sudo -n true
+  sleep 50
+  kill -0 "$$" || exit
+done 2>/dev/null &
+SUDO_KEEPALIVE_PID=$!
 
 ln -sf "$DOTFILES_DIR/platforms/macOS/.bash_profile" ~/.bash_profile
 ln -sf "$DOTFILES_DIR/platforms/macOS/.bashrc" ~/.bashrc
@@ -32,12 +41,12 @@ ln -sf "$DOTFILES_DIR/platforms/macOS/.vrapperrc" ~/.vrapperrc
 
 # Install Xcode Command Line Tools if not installed
 if ! xcode-select -p >/dev/null 2>&1; then
-    xcode-select --install
+  xcode-select --install
 fi
 
 # Install Homebrew if not installed
 if ! command -v brew >/dev/null 2>&1; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Setup Homebrew PATH (needed for fresh install on Apple Silicon)
@@ -58,3 +67,6 @@ sh "$DOTFILES_DIR/platforms/macOS/defaults.sh"
 
 # Install Rosetta 2 for Apple Silicon
 softwareupdate --install-rosetta --agree-to-license
+
+# Clean up sudo keepalive background process
+kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true
