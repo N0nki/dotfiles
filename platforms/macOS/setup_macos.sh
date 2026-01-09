@@ -43,7 +43,7 @@ fi
 # Setup Homebrew PATH (needed for fresh install on Apple Silicon)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-brew bundle --file="$DOTFILES_DIR/platforms/macOS/Brewfile"
+brew bundle --verbose --file="$DOTFILES_DIR/platforms/macOS/Brewfile"
 
 # Run common setup scripts
 sh "$DOTFILES_DIR/common/synbolic_link.sh"
