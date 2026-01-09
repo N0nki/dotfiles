@@ -54,6 +54,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew bundle --verbose --file="$DOTFILES_DIR/platforms/macOS/Brewfile"
 
+# Install npm global packages
+npm i -g @openai/codex
+npm i -g @anthropic-ai/claude-code
+npm i -g @google/gemini-cli
+
 # Run common setup scripts
 sh "$DOTFILES_DIR/common/synbolic_link.sh"
 sh "$DOTFILES_DIR/common/nvim/setup_nvim.sh"
