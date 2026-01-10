@@ -9,9 +9,26 @@
 # 設定箇所を見つける方法
 # https://ottan.xyz/system-preferences-terminal-defaults-2-4643/
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ### Dock
 # 自動で隠す
 defaults write com.apple.dock autohide -bool true
+
+# Dockのアプリケーションを全て削除してから指定のアプリのみ追加
+dockutil --remove all --no-restart
+# システム設定
+dockutil --add "/System/Applications/System Settings.app" --no-restart
+# アクティビティモニタ
+dockutil --add "/System/Applications/Utilities/Activity Monitor.app" --no-restart
+# Google Chrome
+dockutil --add "/Applications/Google Chrome.app" --no-restart
+# Ghostty
+dockutil --add "/Applications/Ghostty.app" --no-restart
+# ChatGPT
+dockutil --add "/Applications/ChatGPT.app" --no-restart
+# Claude
+dockutil --add "/Applications/Claude.app" --no-restart
 
 ### Finder
 # 拡張子を表示
