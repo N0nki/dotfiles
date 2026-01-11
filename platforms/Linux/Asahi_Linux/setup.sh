@@ -16,6 +16,8 @@ sudo dnf install -y \
   shfmt \
   direnv
 
+sudo ln -s /var/lib/snapd/snap /snap
+
 # Install Neovim via snap
 #
 echo ""
