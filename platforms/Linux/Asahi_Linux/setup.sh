@@ -14,7 +14,9 @@ sudo dnf install -y \
   go \
   shellcheck \
   shfmt \
-  direnv
+  direnv \
+  fcitx5 \
+  fcitx5-mozc
 
 sudo ln -s /var/lib/snapd/snap /snap
 

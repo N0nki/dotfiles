@@ -28,6 +28,12 @@ unset rc
 
 # my config
 
+# disable ksshaskpass(GUI input dialog)
+unset SSH_ASKPASS
+
+# fcitx5
+unset rcexport XMODIFIERS="@im=fcitx5"
+
 # history
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S %a "
 export HISTSIZE=10000
