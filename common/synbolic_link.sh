@@ -2,6 +2,10 @@
 
 mkdir -p ~/.config
 
+# wezterm
+mkdir ~/.config/wezterm
+ln -sf ~/dotfiles/common/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+
 # starship
 ln -sf ~/dotfiles/common/starship.toml ~/.config/starship.toml
 
