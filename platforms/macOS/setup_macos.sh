@@ -63,10 +63,6 @@ npm i -g @google/gemini-cli
 sh "$DOTFILES_DIR/common/synbolic_link.sh"
 sh "$DOTFILES_DIR/common/nvim/setup_nvim.sh"
 
-# Setup ghostty config
-mkdir -p ~/.config/ghostty
-ln -sf "$DOTFILES_DIR/platforms/macOS/ghostty/config" ~/.config/ghostty/config
-
 # Apply macOS defaults
 sh "$DOTFILES_DIR/platforms/macOS/defaults.sh"
 

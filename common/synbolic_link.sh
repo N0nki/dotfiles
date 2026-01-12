@@ -2,6 +2,10 @@
 
 mkdir -p ~/.config
 
+# ghostty
+mkdir -p ~/.config/ghostty
+ln -sf ~/dotfiles/common/ghostty/config ~/.config/ghostty/config
+
 # wezterm
 mkdir ~/.config/wezterm
 ln -sf ~/dotfiles/common/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
