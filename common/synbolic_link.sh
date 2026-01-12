@@ -43,7 +43,8 @@ ln -sf ~/dotfiles/common/python/pycodestyle ~/.config/pycodestyle
 ln -sf ~/dotfiles/common/python/flake8 ~/.config/flake8
 
 # bookokrat (EPUB reader)
-ln -sf ~/dotfiles/common/.bookokrat_settings.yaml ~/.bookokrat_settings.yaml
+mkdir ~/.config/bookokrat
+ln -sf ~/dotfiles/common/bookokrat/config.yaml ~/.config/bookokrat/config.yaml
 
 # git global ignore
 mkdir -p ~/.config/git
