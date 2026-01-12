@@ -19,6 +19,7 @@
       "Bash(wc:*)",
       "Bash(stat:*)",
       "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch"
     ],
     "deny": [
