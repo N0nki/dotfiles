@@ -319,6 +319,12 @@ require("lazy").setup({
             require("pluginconfig/vim-windowswap")
         end,
     },
+    {
+        "szw/vim-maximizer",
+        config = function()
+            require("pluginconfig/vim-maximizer")
+        end,
+    },
     { "aserebryakov/vim-todo-lists" },
     { "cohama/lexima.vim" },
     { "simeji/winresizer" },
