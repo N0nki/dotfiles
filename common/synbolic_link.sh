@@ -7,7 +7,7 @@ mkdir ~/.config/wezterm
 ln -sf ~/dotfiles/common/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
 # starship
-ln -sf ~/dotfiles/common/starship.toml ~/.config/starship.toml
+ln -sf ~/dotfiles/common/starship/starship.toml ~/.config/starship.toml
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -18,7 +18,7 @@ ln -sf ~/dotfiles/common/tmux/tmux-nerd-font-window-name.yml ~/.config/tmux/tmux
 
 # zellij
 mkdir ~/.config/zellij
-ln -sf ~/dotfiles/common/zellij.kdl ~/.config/zellij/zellij.kdl
+ln -sf ~/dotfiles/common/zellij/zellij.kdl ~/.config/zellij/zellij.kdl
 
 # pet
 mkdir ~/.config/pet
