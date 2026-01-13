@@ -21,7 +21,7 @@ require("lazy").setup({
     {
         "ryanoasis/vim-devicons",
         config = function()
-            require("pluginconfig/vim-devicons")
+            require("pluginconfig/appearance/vim-devicons")
         end,
     },
 
@@ -29,7 +29,7 @@ require("lazy").setup({
     {
         "n0nki/tmux-coding-agent.nvim",
         config = function()
-            require("pluginconfig/tmux-coding-agent")
+            require("pluginconfig/terminal/tmux-coding-agent")
         end,
     },
 
@@ -40,7 +40,7 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = "Trouble",
         config = function()
-            require("pluginconfig/trouble")
+            require("pluginconfig/lsp/trouble")
         end,
     },
     {
@@ -52,7 +52,7 @@ require("lazy").setup({
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("pluginconfig/mason-lspconfig")
+            require("pluginconfig/lsp/mason-lspconfig")
         end,
     },
     { "RRethy/vim-illuminate" },
@@ -61,7 +61,7 @@ require("lazy").setup({
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         config = function()
-            require("pluginconfig/conform")
+            require("pluginconfig/lsp/conform")
         end,
     },
 
@@ -72,7 +72,7 @@ require("lazy").setup({
         event = "BufReadPost",
         build = ":TSInstall vim lua bash zsh just diff tmux git_config ssh_config html markdown json toml yaml sql terraform python ruby go",
         config = function()
-            require("pluginconfig/nvim-treesitter")
+            require("pluginconfig/lsp/nvim-treesitter")
         end,
     },
     {
@@ -83,7 +83,7 @@ require("lazy").setup({
     {
         "haringsrob/nvim_context_vt",
         config = function()
-            require("pluginconfig/nvim-context-vt")
+            require("pluginconfig/lsp/nvim-context-vt")
         end,
     },
 
@@ -91,7 +91,7 @@ require("lazy").setup({
     {
         "hrsh7th/nvim-cmp",
         config = function()
-            require("pluginconfig/nvim-cmp")
+            require("pluginconfig/lsp/nvim-cmp")
         end,
     },
     { "hrsh7th/cmp-path" },
@@ -106,14 +106,14 @@ require("lazy").setup({
     {
         "hrsh7th/vim-vsnip",
         config = function()
-            require("pluginconfig/vsnip")
+            require("pluginconfig/lsp/vsnip")
         end,
     },
     { "hrsh7th/vim-vsnip-integ" },
     {
         "onsails/lspkind-nvim",
         config = function()
-            require("pluginconfig/lspkind-nvim")
+            require("pluginconfig/lsp/lspkind-nvim")
         end,
     },
 
@@ -122,7 +122,7 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require("pluginconfig/telescope")
+            require("pluginconfig/explorer/telescope")
         end,
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
@@ -135,7 +135,7 @@ require("lazy").setup({
             "rcarriga/nvim-notify",
         },
         config = function()
-            require("pluginconfig/noice")
+            require("pluginconfig/appearance/noice")
         end,
     },
 
@@ -153,7 +153,7 @@ require("lazy").setup({
     {
         "rebelot/kanagawa.nvim",
         config = function()
-            require("pluginconfig/colorscheme")
+            require("pluginconfig/appearance/colorscheme")
         end,
         lazy = false,
         priority = 1000,
@@ -161,7 +161,7 @@ require("lazy").setup({
     {
         "EdenEast/nightfox.nvim",
         config = function()
-            require("pluginconfig/colorscheme")
+            require("pluginconfig/appearance/colorscheme")
         end,
         lazy = false,
         priority = 2000,
@@ -169,7 +169,7 @@ require("lazy").setup({
     {
         "folke/tokyonight.nvim",
         config = function()
-            require("pluginconfig/colorscheme")
+            require("pluginconfig/appearance/colorscheme")
         end,
         lazy = false,
         priority = 3000,
@@ -177,7 +177,7 @@ require("lazy").setup({
     {
         "vague-theme/vague.nvim",
         config = function()
-            require("pluginconfig/colorscheme")
+            require("pluginconfig/appearance/colorscheme")
         end,
         lazy = false,
         priority = 4000,
@@ -188,7 +188,7 @@ require("lazy").setup({
         "mcauley-penney/visual-whitespace.nvim",
         event = "ModeChanged *:[vV\x16]",
         config = function()
-            require("pluginconfig/visual-whitespace")
+            require("pluginconfig/appearance/visual-whitespace")
         end,
     },
 
@@ -197,7 +197,7 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("pluginconfig/lualine")
+            require("pluginconfig/appearance/lualine")
         end,
     },
     -- git
@@ -205,20 +205,20 @@ require("lazy").setup({
     {
         "shumphrey/fugitive-gitlab.vim",
         config = function()
-            require("pluginconfig/fugitive-gitlab")
+            require("pluginconfig/git/fugitive-gitlab")
         end,
     },
     { "junegunn/gv.vim" },
     {
         "lewis6991/gitsigns.nvim",
         config = function()
-            require("pluginconfig/gitsigns")
+            require("pluginconfig/git/gitsigns")
         end,
     },
     {
         "mattn/gist-vim",
         config = function()
-            require("pluginconfig/gist-vim")
+            require("pluginconfig/git/gist-vim")
         end,
     },
     { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -227,7 +227,7 @@ require("lazy").setup({
     {
         "thinca/vim-quickrun",
         config = function()
-            require("pluginconfig/quickrun")
+            require("pluginconfig/terminal/quickrun")
         end,
         keys = { "<leader>r", "<leader>er" },
     },
@@ -239,39 +239,39 @@ require("lazy").setup({
     {
         "hashivim/vim-terraform",
         config = function()
-            require("pluginconfig/vim-terraform")
+            require("pluginconfig/lang/vim-terraform")
         end,
     },
     {
         "fatih/vim-go",
         config = function()
-            require("pluginconfig/vim-go")
+            require("pluginconfig/lang/vim-go")
         end,
         ft = "go",
     },
     {
         "elzr/vim-json",
         config = function()
-            require("pluginconfig/vim-json")
+            require("pluginconfig/lang/vim-json")
         end,
     },
     { "mattn/vim-sqlfmt" },
     {
         "lervag/vimtex",
         config = function()
-            require("pluginconfig/vimtex")
+            require("pluginconfig/lang/vimtex")
         end,
     },
     {
         "plasticboy/vim-markdown",
         config = function()
-            require("pluginconfig/vim-markdown")
+            require("pluginconfig/lang/vim-markdown")
         end,
     },
     {
         "MeanderingProgrammer/markdown.nvim",
         config = function()
-            require("pluginconfig/render-markdown")
+            require("pluginconfig/lang/render-markdown")
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
@@ -289,46 +289,46 @@ require("lazy").setup({
     {
         "akinsho/toggleterm.nvim",
         config = function()
-            require("pluginconfig/toggleterm")
+            require("pluginconfig/terminal/toggleterm")
         end,
     },
     {
         "kassio/neoterm",
         config = function()
-            require("pluginconfig/neoterm")
+            require("pluginconfig/terminal/neoterm")
         end,
     },
     { "tomtom/tcomment_vim" },
     {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("pluginconfig/indent-blankline")
+            require("pluginconfig/appearance/indent-blankline")
         end,
     },
     { "junegunn/fzf", build = "./install --bin" },
     {
         "easymotion/vim-easymotion",
         config = function()
-            require("pluginconfig/vim-easymotion")
+            require("pluginconfig/motion/vim-easymotion")
         end,
     },
     { "mg979/vim-visual-multi" },
     {
         "wesQ3/vim-windowswap",
         config = function()
-            require("pluginconfig/vim-windowswap")
+            require("pluginconfig/motion/vim-windowswap")
         end,
     },
     {
         "szw/vim-maximizer",
         config = function()
-            require("pluginconfig/vim-maximizer")
+            require("pluginconfig/motion/vim-maximizer")
         end,
     },
     {
         "pocco81/true-zen.nvim",
         config = function()
-            require("pluginconfig/true-zen")
+            require("pluginconfig/motion/true-zen")
         end,
     },
     { "aserebryakov/vim-todo-lists" },
@@ -337,7 +337,7 @@ require("lazy").setup({
     {
         "bkad/CamelCaseMotion",
         config = function()
-            require("pluginconfig/CamelCaseMotion")
+            require("pluginconfig/motion/CamelCaseMotion")
         end,
     },
     {
@@ -350,7 +350,7 @@ require("lazy").setup({
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("pluginconfig/nvim-tree")
+            require("pluginconfig/explorer/nvim-tree")
         end,
     },
     {
@@ -363,7 +363,7 @@ require("lazy").setup({
         "m00qek/baleia.nvim",
         tag = "v1.3.0",
         config = function()
-            require("pluginconfig/baleia")
+            require("pluginconfig/appearance/baleia")
         end,
     },
 
@@ -374,13 +374,13 @@ require("lazy").setup({
     {
         "osyo-manga/vim-anzu",
         config = function()
-            require("pluginconfig/vim-anzu")
+            require("pluginconfig/explorer/vim-anzu")
         end,
     },
     {
         "tyru/open-browser.vim",
         config = function()
-            require("pluginconfig/open-browser")
+            require("pluginconfig/util/open-browser")
         end,
     },
     { "folke/flash.nvim" },
@@ -394,25 +394,18 @@ require("lazy").setup({
         "Yggdroot/indentLine",
         enabled = false,
         config = function()
-            require("pluginconfig/indentline")
+            require("pluginconfig/appearance/indentline")
         end,
     },
     {
         "vim-airline/vim-airline",
         enabled = false,
         config = function()
-            require("pluginconfig/airline")
+            require("pluginconfig/appearance/airline")
         end,
     },
     {
         "vim-airline/vim-airline-themes",
         enabled = false,
-    },
-    {
-        "junegunn/fzf.vim",
-        enabled = false,
-        config = function()
-            require("pluginconfig/fzf-vim")
-        end,
     },
 })

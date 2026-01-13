@@ -17,7 +17,7 @@ init.lua (root)
        ├─> lua/keymap.lua
        ├─> lua/options.lua
        └─> lua/plugins.lua
-            └─> lua/pluginconfig/*.lua (individual plugin configs)
+            └─> lua/pluginconfig/{category}/*.lua (individual plugin configs)
 ```
 
 ### Directory Structure
@@ -25,7 +25,15 @@ init.lua (root)
 - **init.lua**: Minimal entry point that requires the main init module
 - **lua/init.lua**: Main loader that orchestrates all configuration modules
 - **lua/plugins.lua**: Central plugin declaration using lazy.nvim (~190 plugins)
-- **lua/pluginconfig/**: Individual plugin configurations (one file per plugin/feature)
+- **lua/pluginconfig/**: Individual plugin configurations (39 files in 7 categories)
+  - **appearance/**: UI, themes, status line (9 files)
+  - **lsp/**: LSP, completion, syntax (8 files)
+  - **explorer/**: File/search navigation (3 files)
+  - **motion/**: Cursor movement, window operations (5 files)
+  - **git/**: Git integration (3 files)
+  - **terminal/**: Terminal and execution (4 files)
+  - **lang/**: Language-specific plugins (6 files)
+  - **util/**: Miscellaneous utilities (1 file)
 - **lua/keymap.lua**: Global key mappings
 - **lua/options.lua**: Vim options and settings
 - **lua/neovide.lua**: Neovide-specific GUI settings
@@ -38,6 +46,18 @@ init.lua (root)
 ### lazy.nvim
 
 This configuration uses lazy.nvim for plugin management. All plugins are declared in `lua/plugins.lua`.
+
+**Plugin configuration organization:**
+
+Plugin-specific configurations are organized in `lua/pluginconfig/` by functional category:
+- **appearance/**: Visual elements (colorschemes, status line, indent guides, noice, etc.)
+- **lsp/**: Language server, completion, syntax parsing (mason, lspconfig, conform, treesitter, etc.)
+- **explorer/**: File navigation and search tools (telescope, nvim-tree, vim-anzu)
+- **motion/**: Movement and window management (easymotion, window-swap, maximizer, true-zen, etc.)
+- **git/**: Git integration (gitsigns, fugitive-gitlab, gist-vim)
+- **terminal/**: Terminal and code execution (toggleterm, neoterm, tmux-coding-agent, quickrun)
+- **lang/**: Language-specific plugins (vim-go, vim-terraform, vim-json, vim-markdown, vimtex, etc.)
+- **util/**: General utilities (open-browser, etc.)
 
 **Plugin installation location:**
 
@@ -69,8 +89,8 @@ This configuration uses lazy.nvim for plugin management. All plugins are declare
 ### Adding a New Plugin
 
 1. Add plugin declaration to `lua/plugins.lua`
-2. If plugin needs configuration, create `lua/pluginconfig/plugin-name.lua`
-3. In the plugin declaration, add: `config = function() require("pluginconfig/plugin-name") end`
+2. If plugin needs configuration, create `lua/pluginconfig/{category}/{plugin-name}.lua`
+3. In the plugin declaration, add: `config = function() require("pluginconfig/{category}/{plugin-name}") end`
 4. Restart Neovim or run `:Lazy sync`
 
 **Example:**
@@ -78,10 +98,10 @@ This configuration uses lazy.nvim for plugin management. All plugins are declare
 ```lua
 -- In lua/plugins.lua
 {"someone/awesome-plugin",
-  config = function() require("pluginconfig/awesome-plugin") end
+  config = function() require("pluginconfig/appearance/awesome-plugin") end
 }
 
--- Create lua/pluginconfig/awesome-plugin.lua
+-- Create lua/pluginconfig/appearance/awesome-plugin.lua
 require("awesome-plugin").setup({
   -- configuration here
 })
@@ -207,12 +227,12 @@ Diagnostic display is configured in `lua/options.lua` with:
 
 ### Adding/Changing Key Mappings
 
-Global keymaps go in `lua/keymap.lua`. Plugin-specific keymaps go in the plugin's config file.
+Global keymaps go in `lua/keymap.lua`. Plugin-specific keymaps go in the plugin's config file under the appropriate category.
 
 **Pattern:**
 
 ```lua
--- In lua/keymap.lua or lua/pluginconfig/plugin-name.lua
+-- In lua/keymap.lua or lua/pluginconfig/{category}/{plugin-name}.lua
 -- Use vim.keymap.set (modern API, supports functions directly)
 vim.keymap.set('n', '<leader>key', function_or_command, {noremap = true, silent = true})
 

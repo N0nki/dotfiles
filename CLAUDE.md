@@ -27,7 +27,7 @@ The Neovim setup (nvim/) uses a modular Lua-based configuration:
 - **init.lua**: Entry point that requires "init" module
 - **lua/init.lua**: Main loader that conditionally loads neovide, keymap, options, and plugins
 - **lua/plugins.lua**: Central plugin declaration using lazy.nvim (~100 plugins)
-- **lua/pluginconfig/**: Individual plugin configurations (~40 files)
+- **lua/pluginconfig/**: Individual plugin configurations (39 files in 7 categories)
 - **lua/keymap.lua**: Key mappings
 - **lua/options.lua**: Vim options
 - **ftplugin/**: Filetype-specific configurations
@@ -257,7 +257,7 @@ git cherry-pick <Ctrl-G Ctrl-H>  # Cherry-pick commit
 ### When Modifying Neovim Configuration
 
 - Plugin additions/changes go in **nvim/lua/plugins.lua**
-- Plugin-specific configs go in **nvim/lua/pluginconfig/{plugin-name}.lua**
+- Plugin-specific configs go in **nvim/lua/pluginconfig/{category}/{plugin-name}.lua**
 - General keymaps in **nvim/lua/keymap.lua**
 - Vim options in **nvim/lua/options.lua**
 - Neovide-specific settings in **nvim/lua/neovide.lua**
