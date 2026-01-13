@@ -325,6 +325,12 @@ require("lazy").setup({
             require("pluginconfig/vim-maximizer")
         end,
     },
+    {
+        "pocco81/true-zen.nvim",
+        config = function()
+            require("pluginconfig/true-zen")
+        end,
+    },
     { "aserebryakov/vim-todo-lists" },
     { "cohama/lexima.vim" },
     { "simeji/winresizer" },
