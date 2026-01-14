@@ -4,16 +4,16 @@ set -eu
 action="${1:-}"
 
 case "$action" in
-  branches|hashes|tags|files|remotes|stashes|lreflogs|worktrees) ;;
-  *)
-    echo "Usage: $0 {branches|hashes|tags|files|remotes|stashes|lreflogs|worktrees}" >&2
-    exit 1
-    ;;
+branches | hashes | tags | files | remotes | stashes | lreflogs | worktrees) ;;
+*)
+  echo "Usage: $0 {branches|hashes|tags|files|remotes|stashes|lreflogs|worktrees}" >&2
+  exit 1
+  ;;
 esac
 
 # Define custom _fzf_git_fzf function and export via __fzf_git_fzf
 _fzf_git_fzf() {
-  fzf --height 50% \
+  fzf --height 99% \
     --layout reverse --multi --min-height 20+ --border \
     --no-separator --header-border horizontal \
     --border-label-pos 2 \
