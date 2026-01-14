@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 action="${1:-}"
@@ -11,22 +11,25 @@ case "$action" in
     ;;
 esac
 
-export FZF_GIT_ACTION="$action"
+# Define custom _fzf_git_fzf function and export via __fzf_git_fzf
+_fzf_git_fzf() {
+  fzf --height 50% \
+    --layout reverse --multi --min-height 20+ --border \
+    --no-separator --header-border horizontal \
+    --border-label-pos 2 \
+    --color "label:blue" \
+    --preview-window "right,50%" --preview-border line \
+    --bind "ctrl-/:change-preview-window(down,50%|hidden|)" "$@"
+}
+export __fzf_git_fzf
+__fzf_git_fzf="$(declare -f _fzf_git_fzf)"
 
-shell="${SHELL:-/bin/sh}"
+# Run fzf-git with --run option
+result=$(bash ~/dotfiles/common/fzf-git/fzf-git.sh --run "$action")
 
-"$shell" -l -c '
-  source ~/dotfiles/common/fzf-git/fzf-git.sh --run
-  _fzf_git_fzf() {
-    fzf --height 50% \
-      --layout reverse --multi --min-height 20+ --border \
-      --no-separator --header-border horizontal \
-      --border-label-pos 2 \
-      --color "label:blue" \
-      --preview-window "right,50%" --preview-border line \
-      --bind "ctrl-/:change-preview-window(down,50%|hidden|)" "$@"
-  }
-  result=$(_fzf_git_${FZF_GIT_ACTION})
+# Copy result to clipboard
+if [ -n "${WSL_DISTRO_NAME:-}" ]; then
+  printf "%s" "$result" | clip.exe
+else
   printf "%s" "$result" | pbcopy
-  sleep 1
-'
+fi
