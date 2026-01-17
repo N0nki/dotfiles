@@ -73,7 +73,8 @@ sudo -E apt install -y \
   shellcheck \
   shfmt \
   csvkit \
-  direnv
+  direnv \
+  bat
 
 echo "==> Package installation completed."
 
@@ -260,6 +261,13 @@ if [ ! -d ~/.fzf ]; then
 else
   echo "fzf already installed"
 fi
+
+#
+# Install zoxide
+#
+echo ""
+echo "==> Installing zoxide..."
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 #
 # Clone dotfiles repository with submodules
