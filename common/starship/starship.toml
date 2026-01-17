@@ -7,3 +7,9 @@ disabled = false
 
 [battery]
 disabled = true
+
+[env_var.AWS_PROFILE]
+variable = 'AWS_PROFILE'
+default = ''
+style = "#e2a478"
+format = "[$env_value]($style) "
