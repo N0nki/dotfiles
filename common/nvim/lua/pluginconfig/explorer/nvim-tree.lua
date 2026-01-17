@@ -65,6 +65,37 @@ require("nvim-tree").setup({
 keymap("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
 keymap("n", "<Leader>o", ":<C-u>NvimTreeOpen<CR>", opts)
 
+local function open_nvim_tree_float()
+    local view = require("nvim-tree.view")
+    local api = require("nvim-tree.api")
+
+    if view.is_visible() then
+        api.tree.close()
+    end
+
+    view.View.float.enable = true
+    view.View.float.open_win_config = {
+        relative = "editor",
+        border = "rounded",
+        width = 60,
+        height = 40,
+        row = (vim.o.lines - 40) / 2,
+        col = (vim.o.columns - 60) / 2,
+    }
+
+    api.tree.open()
+
+    vim.api.nvim_create_autocmd("WinClosed", {
+        pattern = tostring(view.get_winnr()),
+        once = true,
+        callback = function()
+            view.View.float.enable = false
+        end,
+    })
+end
+
+vim.keymap.set("n", "<Leader>E", open_nvim_tree_float, opts)
+
 if vim.fn["argc"]() == 0 and not vim.env.NVIM_MINIMAL then
     autocmd("VimEnter", {
         pattern = "*",
