@@ -73,6 +73,7 @@ brew "vim"
 brew "wget"
 brew "yamlfmt"
 brew "yq"
+brew "zoxide"
 brew "d12frosted/emacs-plus/emacs-plus@27"
 brew "knqyf263/pet/pet"
 cask "1password"
@@ -120,7 +121,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "wezterm"
 cask "zed"
-cask "zoxide"
 mas "ApolloOne", id: 1044484672
 mas "BetterSnapTool", id: 417375580
 mas "Blackmagic Disk Speed Test", id: 425264550
