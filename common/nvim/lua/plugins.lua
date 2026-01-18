@@ -387,25 +387,4 @@ require("lazy").setup({
     { "vim-scripts/ReplaceWithRegister" },
     { "kevinhwang91/nvim-bqf" },
     { "ray-x/lsp_signature.nvim" },
-
-    -- disabled plugins
-    { "Valloric/MatchTagAlways", enabled = false },
-    {
-        "Yggdroot/indentLine",
-        enabled = false,
-        config = function()
-            require("pluginconfig/appearance/indentline")
-        end,
-    },
-    {
-        "vim-airline/vim-airline",
-        enabled = false,
-        config = function()
-            require("pluginconfig/appearance/airline")
-        end,
-    },
-    {
-        "vim-airline/vim-airline-themes",
-        enabled = false,
-    },
 })
