@@ -1,0 +1,29 @@
+# Insert your preferred key mappings here.
+map gb previousTab
+map gt nextTab
+map gh firstTab
+map gl lastTab
+unmap t
+map st createTab
+map yt duplicateTab
+unmap w
+unmap d
+map dd removeTab
+map u restoreTab
+
+map r reload
+
+map <c-h> goBack
+map <c-l> goForward
+
+map <c-j> scrollFullPageDown
+map <c-k> scrollFullPageUp
+
+mapkey <c-c> <c-[>
+# map <c-c> <Esc>
+# mapkey <c-[> <anyOldJunk>
+
+map zo zoomIn
+map zi zoomOut
+
+# map e LinkHints.activateModeToOpenInNewTab
