@@ -4,7 +4,11 @@
 macos-titlebar-style = native
 theme = "Iceberg Dark"
 window-theme = ghostty
-font-family = HackGen
+font-family = "HackGen Console NF"
+font-family-bold = "HackGen Console NF Bold"
+font-family-italic = "HackGen Console NF Italic"
+font-family-bold-italic = "HackGen Console NF Bold Italic"
 font-size = 16
 background-opacity = 0.9
-# background-blur-radius = 5
+
+app-notifications = config-reload
