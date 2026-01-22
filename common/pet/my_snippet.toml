@@ -16,7 +16,7 @@ output = ""
 
 [[snippets]]
 description = "update cluade code"
-command = "npm i -g @anthropic-ai/claude-code"
+command = "cluade update"
 output = ""
 
 [[snippets]]
