@@ -2,7 +2,7 @@
 
 -- フェードを許可するbuftype/filetype
 local allowed_buftypes = { "prompt", "terminal" }
-local allowed_filetypes = { "help", "qf", "NvimTree", "fugitive", "fugitiveblame", "git" }
+local allowed_filetypes = { "help", "qf", "NvimTree", "fugitive", "fugitiveblame", "git", "GV" }
 
 require("vimade").setup({
     recipe = { "default", { animate = true } },
