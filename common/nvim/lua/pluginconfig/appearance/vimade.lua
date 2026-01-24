@@ -13,7 +13,7 @@ require("vimade").setup({
         default = {
             buf_opts = {
                 buftype = { "prompt", "terminal" },
-                filetype = { "NvimTree" },
+                -- filetype = { "NvimTree" },
             },
         },
     },
