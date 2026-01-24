@@ -192,6 +192,15 @@ require("lazy").setup({
         end,
     },
 
+    -- fade inactive windows
+    {
+        "tadaa/vimade",
+        event = "VimEnter",
+        config = function()
+            require("pluginconfig/appearance/vimade")
+        end,
+    },
+
     -- status|tab bar
     {
         "nvim-lualine/lualine.nvim",
