@@ -1,5 +1,5 @@
 ---
-name: commit-message-helper
+name: commit-message
 description: git の staged な変更から適切なコミットメッセージを生成します。コミットメッセージの作成、git diff の確認、変更のレビューが必要なときに使用してください。
 ---
 
