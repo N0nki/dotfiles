@@ -37,7 +37,7 @@ ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
 
 # claude
 mkdir -p ~/.claude
-ln -sf ~/dotfiles/common/claude/commands ~/.claude/commands
+ln -sf ~/dotfiles/common/claude/skills ~/.claude/skills
 ln -sf ~/dotfiles/common/claude/scripts ~/.claude/scripts
 ln -sf ~/dotfiles/common/claude/settings.json ~/.claude/settings.json
 
