@@ -33,7 +33,7 @@ touch ~/.config/pet/snippet.toml
 # codex
 mkdir -p ~/.codex
 ln -sf ~/dotfiles/common/codex/config.toml ~/.codex/config.toml
-ln -sf ~/dotfiles/common/codex/prompts ~/.codex/prompts
+ln -sf ~/dotfiles/common/claude/skills ~/.codex/skills
 
 # claude
 mkdir -p ~/.claude
