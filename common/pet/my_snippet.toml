@@ -1,7 +1,7 @@
 ## pet
 [[snippets]]
-description = "open snippet file"
-command = "nvim ~/.config/pet/snippet.toml"
+description = "open pet snippet file"
+command = "nvim ~/.config/pet/my_snippet.toml"
 output = ""
 
 [[snippets]]
