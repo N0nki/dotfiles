@@ -25,6 +25,11 @@ command = "npm i -g @google/gemini-cli"
 output = ""
 
 [[snippets]]
+description = "update kiro-cli"
+command = "curl -fsSL https://cli.kiro.dev/install | bash"
+output = ""
+
+[[snippets]]
 description = "activate uv venv"
 command = "echo 'source .venv/bin/activate' > .envrc && direnv allow"
 output = ""
