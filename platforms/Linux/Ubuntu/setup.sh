@@ -88,6 +88,17 @@ sudo -E apt update
 sudo -E apt install fastfetch -y
 
 #
+# Install wslu (WSL utilities) - WSL2 only
+#
+if [ "$PLATFORM" = "wsl2" ]; then
+  echo ""
+  echo "==> Installing wslu (WSL utilities)..."
+  sudo -E add-apt-repository ppa:wslutilities/wslu -y
+  sudo -E apt update
+  sudo -E apt install wslu -y
+fi
+
+#
 # Install Neovim via snap
 #
 echo ""

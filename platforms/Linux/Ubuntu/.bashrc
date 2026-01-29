@@ -161,6 +161,8 @@ alias aws-mfa='uv tool run aws-mfa'
 # Platform-specific configurations
 #
 if [ -n "${WSL_DISTRO_NAME:-}" ]; then
+  export BROWSER="wslview"
+
   # WSL2-specific aliases
   alias nvim='/snap/bin/nvim'
   alias cdg='cd /mnt/g/マイドライブ/'
