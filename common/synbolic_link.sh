@@ -65,3 +65,14 @@ if [ ! -f ~/.gitconfig.local ]; then
 EOF
   echo "Please edit ~/.gitconfig.local to set your name and email"
 fi
+
+# lazygit
+if [ "$(uname)" = "Darwin" ]; then
+  # macOS
+  mkdir -p "$HOME/Library/Application Support/lazygit"
+  ln -sf ~/dotfiles/common/lazygit/config.yml "$HOME/Library/Application Support/lazygit/config.yml"
+else
+  # Linux
+  mkdir -p ~/.config/lazygit
+  ln -sf ~/dotfiles/common/lazygit/config.yml ~/.config/lazygit/config.yml
+fi

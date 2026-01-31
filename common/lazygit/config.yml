@@ -1,0 +1,218 @@
+# Lazygit configuration - Fugitive-style keybindings
+# Reference: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+gui:
+  showIcons: true
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    selectedLineBgColor:
+      - reverse
+git:
+  mainBranches:
+    - master
+    - main
+  autoFetch: true
+  autoRefresh: true
+# Fugitive-style keybindings
+keybinding:
+  universal:
+    quit: q
+    return: <esc>
+    # Panel navigation (like fugitive sections with ( and ))
+    prevBlock: h
+    nextBlock: l
+    prevBlock-alt: '('
+    nextBlock-alt: ')'
+    # Item navigation (vim-style)
+    prevItem-alt: k
+    nextItem-alt: j
+    # Scroll
+    scrollUpMain-alt1: K
+    scrollDownMain-alt1: J
+    scrollUpMain-alt2: <c-u>
+    scrollDownMain-alt2: <c-d>
+    # Diff context
+    goInto: '='
+    # Push/Pull (same as fugitive)
+    pushFiles: P
+    pullFiles: p
+    # Undo/Redo
+    undo: u
+    redo: <c-r>
+  files:
+    # Stage operations (fugitive-style: s to stage, - to toggle)
+    # Note: lazygit uses space for toggle, we use custom commands for s/u
+    toggleStagedAll: a
+    # Commit (fugitive: cc -> c, ca -> A)
+    commitChanges: c
+    commitChangesWithEditor: C
+    amendLastCommit: A
+    # Discard (fugitive uses X)
+    confirmDiscard: X
+    # Stash (fugitive uses cz prefix, simplified here)
+    stashAllChanges: z
+    viewStashOptions: Z
+    # Ignore
+    ignoreFile: I
+    # Expand/Collapse diff (like fugitive's > <)
+    collapseAll: '<'
+    expandAll: '>'
+    # Reset options (fugitive uses D for discard menu)
+    viewResetOptions: D
+    # Refresh
+    refreshFiles: R
+    # Fetch
+    fetch: F
+  commits:
+    # Reword (fugitive cw -> r)
+    renameCommit: r
+    renameCommitWithEditor: R
+    # Fixup (same as fugitive cf/cF)
+    markCommitAsFixup: f
+    createFixupCommit: F
+    # Squash
+    squashDown: s
+    squashAboveCommits: S
+    # Interactive rebase (fugitive ri -> i)
+    startInteractiveRebase: i
+    # Reset options (fugitive uses g prefix for reset)
+    viewResetOptions: g
+    # Revert (fugitive crc -> t)
+    revertCommit: t
+    # Cherry-pick copy/paste
+    cherryPickCopy: y
+    pasteCommits: Y
+    # Move commits
+    moveDownCommit: <c-j>
+    moveUpCommit: <c-k>
+    # Amend to specific commit
+    amendToCommit: A
+    # Pick for rebase
+    pickCommit: p
+    # Open in browser
+    openInBrowser: o
+    # Checkout commit
+    checkoutCommit: <space>
+  branches:
+    # Checkout by name
+    checkoutBranchByName: c
+    # Force checkout
+    forceCheckoutBranch: C
+    # Rebase
+    rebaseBranch: r
+    # Merge
+    mergeIntoCurrentBranch: M
+    # Fast-forward
+    fastForward: f
+    # Rename
+    renameBranch: R
+    # Create tag
+    createTag: T
+    # Set upstream
+    setUpstream: U
+    # Checkout previous branch (like git checkout -)
+    checkoutPreviousBranch: '-'
+  stash:
+    # Pop stash
+    popStash: p
+    # Rename
+    renameStash: r
+  commitFiles:
+    # Checkout file from commit
+    checkoutCommitFile: c
+  main:
+    # Toggle select hunk (for staging hunks)
+    toggleSelectHunk: a
+    # Edit hunk
+    editSelectHunk: e
+# Custom commands for fugitive-like operations
+customCommands:
+  # Stage file (fugitive s) - in files context
+  - key: s
+    context: files
+    command: git add -- {{ .SelectedFile.Name | quote }}
+    description: Stage file
+    loadingText: Staging...
+  # Unstage file (fugitive u) - in files context
+  # Note: 'u' conflicts with universal undo, using U instead
+  - key: U
+    context: files
+    command: git reset HEAD -- {{ .SelectedFile.Name | quote }}
+    description: Unstage file
+    loadingText: Unstaging...
+  # Toggle stage (fugitive -)
+  - key: '-'
+    context: files
+    command: |
+      if [ "{{ .SelectedFile.HasStagedChanges }}" = "true" ] && [ "{{ .SelectedFile.HasUnstagedChanges }}" = "false" ]; then
+        git reset HEAD -- {{ .SelectedFile.Name | quote }}
+      else
+        git add -- {{ .SelectedFile.Name | quote }}
+      fi
+    description: Toggle stage
+    loadingText: Toggling...
+  # Amend without editing message (fugitive ce)
+  - key: e
+    context: files
+    command: git commit --amend --no-edit
+    description: Amend without editing message (ce)
+    loadingText: Amending...
+  # Rebase continue (fugitive rr)
+  - key: <c-r>
+    context: files
+    command: git rebase --continue
+    description: Rebase continue (rr)
+    loadingText: Continuing rebase...
+    output: terminal
+  # Rebase abort (fugitive ra)
+  - key: <c-a>
+    context: files
+    command: git rebase --abort
+    description: Rebase abort (ra)
+    loadingText: Aborting rebase...
+  # Rebase skip (fugitive rs)
+  - key: <c-k>
+    context: files
+    command: git rebase --skip
+    description: Rebase skip (rs)
+    loadingText: Skipping...
+  # Diff file in vertical split style (fugitive dv)
+  # Opens difftool
+  - key: d
+    context: files
+    command: git difftool -y -- {{ .SelectedFile.Name | quote }}
+    description: Open diff tool (dv)
+    output: terminal
+  # Show file at commit (fugitive Enter on commit)
+  - key: <enter>
+    context: commitFiles
+    command: git show {{ .SelectedCommitFile.Sha }}:{{ .SelectedCommitFile.Name | quote }} | less
+    description: Show file at commit
+    output: terminal
+  # Interactive add (fugitive style hunk staging alternative)
+  - key: <c-s>
+    context: files
+    command: git add -p -- {{ .SelectedFile.Name | quote }}
+    description: Interactive stage (patch)
+    output: terminal
+  # Commit with verbose (shows diff in editor)
+  - key: v
+    context: files
+    command: git commit -v
+    description: Commit verbose
+    output: terminal
+  # Push force with lease (safer force push)
+  - key: <c-p>
+    context: localBranches
+    command: git push --force-with-lease origin {{ .SelectedLocalBranch.Name | quote }}
+    description: Force push with lease
+    loadingText: Force pushing...
+  # Fetch all remotes
+  - key: <c-f>
+    context: remotes
+    command: git fetch --all --prune
+    description: Fetch all remotes
+    loadingText: Fetching all...
