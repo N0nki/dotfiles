@@ -57,7 +57,22 @@ vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", opts)
 
 -- Git pickers
 vim.keymap.set("n", "<leader>gb", builtin.git_branches, opts) -- Branches
-vim.keymap.set("n", "<leader>gc", builtin.git_commits, opts) -- Commits
+vim.keymap.set("n", "<leader>gc", function()
+    local action_state = require("telescope.actions.state")
+    builtin.git_commits({
+        git_command = { "git", "log", "--pretty=%h%d %s (%cr) <%an>", "--abbrev-commit", "--all" },
+        attach_mappings = function(prompt_bufnr, map)
+            actions.select_default:replace(function()
+                local selection = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+                if selection then
+                    vim.cmd("DiffviewOpen " .. selection.value .. "^!")
+                end
+            end)
+            return true
+        end,
+    })
+end, opts) -- Commits -> Diffview
 vim.keymap.set("n", "<leader>gs", builtin.git_status, opts) -- Status
 vim.keymap.set("n", "<leader>gt", builtin.git_stash, opts) -- Stash
 vim.keymap.set("n", "<leader>gw", ":Telescope git_worktree git_worktrees<CR>", opts) -- Worktrees

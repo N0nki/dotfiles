@@ -225,12 +225,19 @@ require("lazy").setup({
         end,
     },
     {
-        "mattn/gist-vim",
+        "sindrets/diffview.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require("pluginconfig/git/gist-vim")
+            require("pluginconfig/git/diffview")
         end,
     },
-    { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    {
+        "isakbm/gitgraph.nvim",
+        dependencies = { "sindrets/diffview.nvim" },
+        config = function()
+            require("pluginconfig/git/gitgraph")
+        end,
+    },
 
     -- quickrun
     {
