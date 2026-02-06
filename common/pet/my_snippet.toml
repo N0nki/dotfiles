@@ -5,6 +5,11 @@ command = "nvim ~/.config/pet/my_snippet.toml"
 output = ""
 
 [[snippets]]
+description = "open pet local snippet file"
+command = "nvim ~/.config/pet/local.toml"
+output = ""
+
+[[snippets]]
 description = "launch deepseek-r1:70b"
 command = "ollama run deepseek-r1:70b"
 output = ""
