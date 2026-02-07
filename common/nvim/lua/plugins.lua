@@ -152,35 +152,31 @@ require("lazy").setup({
     },
     {
         "rebelot/kanagawa.nvim",
-        config = function()
-            require("pluginconfig/appearance/colorscheme")
-        end,
         lazy = false,
         priority = 1000,
     },
     {
         "EdenEast/nightfox.nvim",
-        config = function()
-            require("pluginconfig/appearance/colorscheme")
-        end,
         lazy = false,
         priority = 2000,
     },
     {
         "folke/tokyonight.nvim",
-        config = function()
-            require("pluginconfig/appearance/colorscheme")
-        end,
         lazy = false,
         priority = 3000,
     },
     {
         "vague-theme/vague.nvim",
-        config = function()
-            require("pluginconfig/appearance/colorscheme")
-        end,
         lazy = false,
         priority = 4000,
+    },
+    {
+        "N0nki/my-colorscheme",
+        lazy = false,
+        priority = 5000,
+        config = function()
+            require("pluginconfig/appearance/my-colorscheme")
+        end,
     },
 
     -- visual mode whitespace
