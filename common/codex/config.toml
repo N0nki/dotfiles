@@ -1,9 +1,10 @@
-model = "gpt-5.2-codex"
+model = "gpt-5.3-codex"
 web_search_request = true
+personality = "pragmatic"
+model_reasoning_effort = "medium"
 
 [notice]
 hide_gpt5_1_migration_prompt = true
-
 
 [mcp_servers.aws_api_mcp_server]
 startup_timeout_sec = 300
@@ -15,3 +16,11 @@ env = { "AWS_REGION" = "ap-northeast-1" }
 startup_timeout_sec = 300
 command = "docker"
 args = ["run", "-i", "--rm", "hashicorp/terraform-mcp-server:latest"]
+
+[mcp_servers.context7]
+startup_timeout_sec = 300
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+[projects."/Users/n0nki/dotfiles"]
+trust_level = "trusted"

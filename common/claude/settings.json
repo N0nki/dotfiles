@@ -72,6 +72,14 @@
       "Edit(**/*_ed25519)"
     ]
   },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "example-skills@anthropic-agent-skills": true,
+    "commit-commands@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "github@claude-plugins-official": true
+  },
   "language": "japanese",
   "autoUpdatesChannel": "stable"
 }
