@@ -22,5 +22,5 @@ startup_timeout_sec = 300
 command = "npx"
 args = ["-y", "@upstash/context7-mcp"]
 
-[projects."/Users/n0nki/dotfiles"]
+[projects."~/dotfiles"]
 trust_level = "trusted"
