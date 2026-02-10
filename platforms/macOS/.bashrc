@@ -39,6 +39,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 [ -f ~/dotfiles/common/fzf-git/fzf-git.sh ] && source ~/dotfiles/common/fzf-git/fzf-git.sh
 
 # terraform completion
-if command -v terraform &> /dev/null; then
+if command -v terraform &>/dev/null; then
   complete -C "$(which terraform)" terraform
 fi
