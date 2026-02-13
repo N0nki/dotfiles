@@ -74,7 +74,8 @@ sudo -E apt install -y \
   shfmt \
   csvkit \
   direnv \
-  bat
+  bat \
+  just
 
 echo "==> Package installation completed."
 
