@@ -1,5 +1,5 @@
 require("my-colorscheme").setup({
-    style = "warm",
+    style = "dusk",
 })
 
 require("pluginconfig/appearance/colorscheme")

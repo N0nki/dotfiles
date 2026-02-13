@@ -16,6 +16,9 @@ compinit
 # starship
 eval "$(starship init zsh)"
 
+# mise
+eval "$(mise activate zsh)"
+
 # rbenv
 eval "$(rbenv init - zsh)"
 
