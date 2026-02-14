@@ -1,7 +1,13 @@
----
-version: 1
+version: 2
 theme: "Iceberg"
-margin: 0
+margin: 2
+transparent_background: false
+pdf_scale: 0.52662474
+pdf_pan_shift: 0
+pdf_render_mode: scroll
+pdf_enabled: true
+pdf_settings_configured: true
+book_sort_order: by_name
 
 # ============================================================================
 # Custom Themes
@@ -9,7 +15,9 @@ margin: 0
 # Add your own themes below. Find Base16 themes at:
 # https://github.com/tinted-theming/schemes
 #
-# Example:
+# To add a theme, uncomment and edit the lines below:
+#
+# custom_themes:
 #   - scheme: "My Custom Theme"
 #     author: "Your Name"
 #     base00: "1F1F28"    # Main background
@@ -32,19 +40,20 @@ margin: 0
 custom_themes:
   - scheme: "Iceberg"
     author: "Hiroki Kokubun (adapted for Base16)"
-    base00: "161821"  # Main background
-    base01: "1e2132"  # Lighter background (status bars)
-    base02: "262a3f"  # Selection background
-    base03: "6b7089"  # Comments, invisibles
-    base04: "8389a3"  # Dark foreground (status bars)
-    base05: "c6c8d1"  # Default foreground
-    base06: "dcdfe7"  # Light foreground
-    base07: "d2d4de"  # Light background
-    base08: "e27878"  # Red (variables, tags)
-    base09: "e2a478"  # Orange (integers, booleans)
-    base0A: "e9b189"  # Yellow (classes, search highlights)
-    base0B: "b4be82"  # Green (strings, inherited class)
-    base0C: "89b8c2"  # Cyan (support, regular expressions)
-    base0D: "84a0c6"  # Blue (functions, methods)
-    base0E: "a093c7"  # Purple (keywords, storage)
-    base0F: "e98989"  # Brown/Pink (deprecated, embedded)
+    base00: "161821"
+    base01: "1e2132"
+    base02: "262a3f"
+    base03: "6b7089"
+    base04: "8389a3"
+    base05: "c6c8d1"
+    base06: "dcdfe7"
+    base07: "d2d4de"
+    base08: "e27878"
+    base09: "e2a478"
+    base0A: "e9b189"
+    base0B: "b4be82"
+    base0C: "89b8c2"
+    base0D: "84a0c6"
+    base0E: "a093c7"
+    base0F: "e98989"
+
