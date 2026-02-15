@@ -25,6 +25,11 @@ command = "cluade update"
 output = ""
 
 [[snippets]]
+description = "claude team"
+command = "claude --teammate-mode tmux"
+output = ""
+
+[[snippets]]
 description = "update gemini"
 command = "npm i -g @google/gemini-cli"
 output = ""
