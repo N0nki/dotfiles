@@ -40,6 +40,7 @@ mkdir -p ~/.claude
 ln -sf ~/dotfiles/common/claude/skills ~/.claude/skills
 ln -sf ~/dotfiles/common/claude/scripts ~/.claude/scripts
 ln -sf ~/dotfiles/common/claude/settings.json ~/.claude/settings.json
+ln -sf ~/dotfiles/common/claude/statusline-command.sh ~/.claude/statusline-command.sh
 
 # python linters
 ln -sf ~/dotfiles/common/python/pylintrc ~/.config/pylintrc
