@@ -5,6 +5,7 @@ mkdir -p ~/.config
 # ghostty
 mkdir -p ~/.config/ghostty
 ln -sf ~/dotfiles/common/ghostty/config ~/.config/ghostty/config
+ln -sf ~/dotfiles/common/ghostty/toggle-opacity.sh ~/.config/ghostty/toggle-opacity.sh
 
 # wezterm
 mkdir ~/.config/wezterm
