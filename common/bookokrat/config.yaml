@@ -2,13 +2,12 @@ version: 2
 theme: "Iceberg"
 margin: 2
 transparent_background: false
-pdf_scale: 0.52662474
+pdf_scale: 0.74761903
 pdf_pan_shift: 0
 pdf_render_mode: scroll
 pdf_enabled: true
 pdf_settings_configured: true
 book_sort_order: by_name
-
 # ============================================================================
 # Custom Themes
 # ============================================================================
@@ -36,7 +35,6 @@ book_sort_order: by_name
 #     base0D: "7E9CD8"    # Blue (links)
 #     base0E: "957FB8"    # Purple (keywords)
 #     base0F: "D27E99"    # Brown/Pink
-
 custom_themes:
   - scheme: "Iceberg"
     author: "Hiroki Kokubun (adapted for Base16)"
@@ -56,4 +54,3 @@ custom_themes:
     base0D: "84a0c6"
     base0E: "a093c7"
     base0F: "e98989"
-
