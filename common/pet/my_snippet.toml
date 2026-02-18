@@ -73,3 +73,8 @@ output = ""
 description = "git yearly commit counts"
 command = "git log --date=format:%Y --pretty=format:%ad | sort | uniq -c"
 output = ""
+
+[[snippets]]
+description = "ghostty +list-themes"
+command = "ghostty +list-themes"
+output = ""
