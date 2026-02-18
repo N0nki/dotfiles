@@ -144,6 +144,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
+# just
+eval "$(just --completions bash)"
+
 # starship
 eval "$(starship init bash)"
 
