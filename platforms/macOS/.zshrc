@@ -24,6 +24,7 @@ eval "$(rbenv init - zsh)"
 
 # just
 eval "$(just --completions zsh)"
+export JUST_CHOOSER="fzf --tmux 90%,70% --preview 'just --show {}'"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

@@ -146,6 +146,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 
 # just
 eval "$(just --completions bash)"
+export JUST_CHOOSER="fzf --tmux 90%,70% --preview 'just --show {}'"
 
 # starship
 eval "$(starship init bash)"
