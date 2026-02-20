@@ -1,14 +1,15 @@
 # Reference
-# https://ghostty.org/docs/config/reference
+## https://ghostty.org/docs/config/reference
+# configuration creator
+## https://ghostty.zerebos.com/
 
-macos-titlebar-style = native
-theme = "Duskfox"
+maximize = true
 window-theme = ghostty
+theme = "Duskfox"
+font-size = 16
 font-family = "HackGen Console NF"
 font-family-bold = "HackGen Console NF Bold"
 font-family-italic = "HackGen Console NF Italic"
 font-family-bold-italic = "HackGen Console NF Bold Italic"
-font-size = 16
-background-opacity = 1
-
 app-notifications = config-reload
+macos-titlebar-style = native
