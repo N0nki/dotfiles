@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! just --summary > /dev/null 2>&1; then
+if ! just --summary >/dev/null 2>&1; then
   echo "No justfile found"
   read -r
   exit 0
@@ -10,9 +10,10 @@ selected=$(just --list --unsorted --list-heading '' --list-prefix '' --color nev
   fzf --preview 'just --show {1}') || exit 0
 
 if [ -n "$selected" ]; then
+  recipe=$(echo "$selected" | awk '{print $1}')
   if [ -n "${WSL_DISTRO_NAME:-}" ]; then
-    printf "%s" "just $selected" | clip.exe
+    printf "%s" "just $recipe" | clip.exe
   else
-    printf "%s" "just $selected" | pbcopy
+    printf "%s" "just $recipe" | pbcopy
   fi
 fi
