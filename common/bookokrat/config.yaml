@@ -1,4 +1,4 @@
-version: 2
+version: 3
 theme: "Iceberg"
 margin: 2
 transparent_background: false
@@ -8,6 +8,30 @@ pdf_render_mode: scroll
 pdf_enabled: true
 pdf_settings_configured: true
 book_sort_order: by_name
+
+# ============================================================================
+# Lookup Command
+# ============================================================================
+# Shell command to run when you press Space+l on selected text.
+# Use {} as a placeholder for the selected word. If no {} is present,
+# the selected text is appended as a shell-escaped argument.
+#
+# lookup_display controls how output is shown:
+#   popup          - capture stdout and show in a scrollable popup (default)
+#   fire_and_forget - spawn command and move on (e.g., open a browser)
+#
+# Example: CLI dictionary (output shown in popup)
+#   lookup_command: "dict {}"
+#   lookup_display: popup
+#
+# Example: macOS Dictionary.app
+#   lookup_command: "open dict://{}"
+#   lookup_display: fire_and_forget
+#
+# Example: online dictionary in browser
+#   lookup_command: "open 'https://www.merriam-webster.com/dictionary/{}'"
+#   lookup_display: fire_and_forget
+
 # ============================================================================
 # Custom Themes
 # ============================================================================
