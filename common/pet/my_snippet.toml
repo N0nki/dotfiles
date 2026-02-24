@@ -78,3 +78,8 @@ output = ""
 description = "ghostty +list-themes"
 command = "ghostty +list-themes"
 output = ""
+
+[[snippets]]
+description = "git clone dotfiles"
+command = "git clone https://github.com/N0nki/dotfiles"
+output = ""
