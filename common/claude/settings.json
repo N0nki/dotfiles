@@ -72,6 +72,7 @@
       "Edit(**/*_ed25519)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "/bin/bash ~/.claude/statusline-command.sh"
@@ -85,7 +86,6 @@
     "github@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true
   },
-  "model": "opus",
   "language": "japanese",
   "autoUpdatesChannel": "stable"
 }
