@@ -59,7 +59,7 @@ require("lazy").setup({
     {
         "stevearc/conform.nvim",
         event = { "BufWritePre" },
-        cmd = { "ConformInfo" },
+        cmd = { "ConformInfo", "FormatDisable", "FormatEnable" },
         config = function()
             require("pluginconfig/lsp/conform")
         end,
