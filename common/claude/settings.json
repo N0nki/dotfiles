@@ -69,22 +69,10 @@
       "Edit(**/*_rsa)",
       "Edit(**/*_dsa)",
       "Edit(**/*_ecdsa)",
-      "Edit(**/*_ed25519)",
-      "Bash(cat:*.env*)",
-      "Bash(cat:**/.env*)",
-      "Bash(head:*.env*)",
-      "Bash(head:**/.env*)",
-      "Bash(tail:*.env*)",
-      "Bash(tail:**/.env*)",
-      "Bash(less:*.env*)",
-      "Bash(less:**/.env*)",
-      "Bash(more:*.env*)",
-      "Bash(more:**/.env*)",
-      "Bash(grep:*.env*)",
-      "Bash(grep:**/.env*)"
+      "Edit(**/*_ed25519)"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "/bin/bash ~/.claude/statusline-command.sh"
