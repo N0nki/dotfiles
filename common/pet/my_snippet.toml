@@ -79,6 +79,37 @@ description = "ghostty +list-themes"
 command = "ghostty +list-themes"
 output = ""
 
+## multipass
+[[snippets]]
+description = "multipass launch Ubuntu 24.04 VM"
+command = "multipass launch --name ubuntu-2404 --cpus 4 --disk 30G --memory 4G"
+output = ""
+
+[[snippets]]
+description = "multipass info Ubuntu 24.04 VM"
+command = "multipass info ubuntu-2404"
+output = ""
+
+[[snippets]]
+description = "multipass shell Ubuntu 24.04 VM"
+command = "multipass shell ubuntu-2404"
+output = ""
+
+[[snippets]]
+description = "multipass delete Ubuntu 24.04 VM"
+command = "multipass delete ubuntu-2404"
+output = ""
+
+[[snippets]]
+description = "multipass purge deleted VMs"
+command = "multipass purge"
+output = ""
+
+[[snippets]]
+description = "multipass list VMs"
+command = "multipass list"
+output = ""
+
 [[snippets]]
 description = "git clone dotfiles"
 command = "git clone https://github.com/N0nki/dotfiles"
