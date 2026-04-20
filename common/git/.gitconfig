@@ -16,3 +16,12 @@
     dest=\"$(pwd)/${prefix:+$prefix/}$d\"; \
     git worktree add \"$dest\" \"$b\"; \
   }; f"
+  # remove git worktree dir
+  # usage: git wtr {branch name}
+  wtr = "!f() { \
+    b=\"$1\"; \
+    d=$(printf '%s' \"$b\" | sed 's#/#-#g'); \
+    prefix=\"${GIT_PREFIX%/}\"; \
+    dest=\"$(pwd)/${prefix:+$prefix/}$d\"; \
+    git worktree remove --force \"$dest\"; \
+  }; f"
