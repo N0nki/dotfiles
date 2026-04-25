@@ -1,6 +1,11 @@
 #!/bin/bash
 session="$1"
 
+# session info
+tmux display-message -t "$session" -p \
+  '#{session_windows} windows | #{?session_attached,attached,detached} | created: #{t:session_created}'
+echo "==="
+
 tmux list-windows -t "$session" \
   -F '#I: #W #F [#{pane_current_command}] #{pane_current_path}' |
   awk '{
