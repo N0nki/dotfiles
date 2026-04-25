@@ -70,7 +70,7 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
         event = "BufReadPost",
-        build = ":TSInstall vim lua bash zsh regex just diff tmux git_config ssh_config html markdown json toml yaml sql terraform python ruby go",
+        build = ":TSInstall vim lua bash zsh regex just diff tmux git_config ssh_config html markdown json toml yaml latex sql terraform python ruby go",
         config = function()
             require("pluginconfig/lsp/nvim-treesitter")
         end,
