@@ -6,5 +6,8 @@
 .envrc
 
 **/.claude/settings.local.json
+**/.claude/plans/
+**/.claude/skills/.system/
+**/skills/.system/
 
 .vagrant/
