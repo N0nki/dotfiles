@@ -381,10 +381,9 @@ require("lazy").setup({
         end,
     },
     {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre",
+        opts = {},
     },
     {
         "m00qek/baleia.nvim",
