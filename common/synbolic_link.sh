@@ -49,13 +49,8 @@ ln -sf ~/dotfiles/common/python/pycodestyle ~/.config/pycodestyle
 ln -sf ~/dotfiles/common/python/flake8 ~/.config/flake8
 
 # bookokrat (EPUB reader)
-if [ "$(uname)" = "Darwin" ]; then
-  mkdir -p "$HOME/Library/Application Support/bookokrat"
-  ln -sf ~/dotfiles/common/bookokrat/config.yaml "$HOME/Library/Application Support/bookokrat/config.yaml"
-else
-  mkdir -p ~/.config/bookokrat
-  ln -sf ~/dotfiles/common/bookokrat/config.yaml ~/.config/bookokrat/config.yaml
-fi
+mkdir -p ~/.config/bookokrat
+ln -sf ~/dotfiles/common/bookokrat/config.yaml ~/.config/bookokrat/config.yaml
 
 # git global ignore
 mkdir -p ~/.config/git

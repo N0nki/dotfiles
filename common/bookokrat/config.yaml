@@ -2,7 +2,7 @@ version: 3
 theme: "Iceberg"
 margin: 2
 transparent_background: false
-pdf_scale: 0.74761903
+pdf_scale: 0.93330246
 pdf_pan_shift: 0
 pdf_render_mode: scroll
 pdf_enabled: true
@@ -78,3 +78,7 @@ custom_themes:
     base0D: "84a0c6"
     base0E: "a093c7"
     base0F: "e98989"
+
+pdf_page_layout_mode: single
+justify_text: false
+nav_panel_width: null
