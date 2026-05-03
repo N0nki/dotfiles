@@ -11,7 +11,7 @@
 -- 幅の指定はsplit，vsplitなら:[N][v]sp[lit]，botrightなら:botright [N]
 -- \ 'exec': ['%c -cd -gg -pdfdvi %s', 'open -ga /Applications/Skim.app %s:r.pdf'],
 
-local is_win = vim.loop.os_uname().sysname:lower():find("windows") ~= nil
+local is_win = vim.uv.os_uname().sysname:lower():find("windows") ~= nil
 
 local quickrun_anim = vim.fn["shabadou#make_quickrun_hook_anim"]("tex_compiling", { "Compiling |", "Compiling /", "Compiling -", "Compiling \\" }, 2)
 
