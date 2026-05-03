@@ -1,10 +1,13 @@
-model = "gpt-5.3-codex"
+model = "gpt-5.5"
 web_search_request = true
 personality = "pragmatic"
 model_reasoning_effort = "medium"
 
 [notice]
 hide_gpt5_1_migration_prompt = true
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
 
 [mcp_servers.aws_api_mcp_server]
 startup_timeout_sec = 300
@@ -24,3 +27,9 @@ args = ["-y", "@upstash/context7-mcp"]
 
 [projects."~/dotfiles"]
 trust_level = "trusted"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 1
