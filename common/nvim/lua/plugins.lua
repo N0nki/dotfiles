@@ -368,12 +368,6 @@ require("lazy").setup({
         end,
     },
     {
-        "tversteeg/registers.nvim",
-        config = function()
-            require("registers").setup()
-        end,
-    },
-    {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
