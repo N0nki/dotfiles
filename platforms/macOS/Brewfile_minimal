@@ -86,6 +86,4 @@ cask "thorium"
 cask "visual-studio-code"
 cask "wezterm"
 cask "zed"
-mas "Magnet", id: 441258766
-mas "Marked 2", id: 890031187
 mas "Monosnap", id: 540348655
