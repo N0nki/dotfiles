@@ -9,3 +9,4 @@ ln -sf ~/dotfiles/common/nvim/lua ~/.config/nvim/lua
 ln -sf ~/dotfiles/common/nvim/ftplugin ~/.config/nvim/ftplugin
 ln -sf ~/dotfiles/common/nvim/snippets ~/.config/nvim/snippets
 ln -sf ~/dotfiles/common/nvim/vsnippets ~/.config/nvim/vsnippets
+ln -sf ~/dotfiles/common/nvim/lazy-lock.json ~/.config/nvim/lazy-lock.json
