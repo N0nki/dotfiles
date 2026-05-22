@@ -63,5 +63,6 @@ if command -v terraform &> /dev/null; then
 fi
 
 # aliases
+alias cdg="cd ~/Google\ Drive/マイドライブ"
 alias ls="eza"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
