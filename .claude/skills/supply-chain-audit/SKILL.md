@@ -11,12 +11,12 @@ description: ユーザーが Homebrew (brew upgrade / outdated)、Mac App Store 
 
 ## 対象
 
-| マネージャー | 更新候補の検出元 | 主なリポジトリ調査先 |
-|-------------|----------------|--------------------|
+| マネージャー       | 更新候補の検出元                    | 主なリポジトリ調査先                                         |
+| ------------------ | ----------------------------------- | ------------------------------------------------------------ |
 | Homebrew (formula) | `brew outdated --formula --json=v2` | `brew info --json=v2 <name>` の `urls.head.url` / `homepage` |
-| Homebrew (cask) | `brew outdated --cask --json=v2` | `brew info --cask --json=v2 <name>` の `homepage` |
-| mas | `mas outdated` | App Store の公開情報 (バージョン履歴・ベンダー) |
-| Neovim プラグイン | `lazy-lock.json` の git diff | `lua/plugins.lua` から GitHub `owner/repo` を解決 |
+| Homebrew (cask)    | `brew outdated --cask --json=v2`    | `brew info --cask --json=v2 <name>` の `homepage`            |
+| mas                | `mas outdated`                      | App Store の公開情報 (バージョン履歴・ベンダー)              |
+| Neovim プラグイン  | `lazy-lock.json` の git diff        | `lua/plugins.lua` から GitHub `owner/repo` を解決            |
 
 ## 全体ワークフロー
 
@@ -145,11 +145,11 @@ gh api "repos/<owner>/<repo>/commits?since=$(date -u -v-30d +%Y-%m-%d)T00:00:00Z
 
 ## Summary
 
-| Risk | Count | Packages |
-|------|-------|----------|
-| 🔴 HIGH | N | pkg-a, pkg-b |
-| 🟡 MEDIUM | N | pkg-c |
-| 🟢 LOW | N | (省略 / N 件) |
+| Risk      | Count | Packages      |
+| --------- | ----- | ------------- |
+| 🔴 HIGH   | N     | pkg-a, pkg-b  |
+| 🟡 MEDIUM | N     | pkg-c         |
+| 🟢 LOW    | N     | (省略 / N 件) |
 
 **推奨アクション**: 1〜2行で結論。「HIGH があるので X は保留、他は更新可」など。
 
