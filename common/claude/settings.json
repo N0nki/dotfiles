@@ -99,5 +99,7 @@
     "swift-lsp@claude-plugins-official": true
   },
   "language": "japanese",
-  "autoUpdatesChannel": "stable"
+  "autoUpdatesChannel": "stable",
+  "editorMode": "vim",
+  "preferredNotifChannel": "ghostty"
 }
