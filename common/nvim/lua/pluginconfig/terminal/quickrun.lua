@@ -79,7 +79,7 @@ vim.g.quickrun_config = {
         ["outputter/buffer/close_on_empty"] = 1,
     },
     markdown = {
-        exec = { "open -g %s" },
+        exec = { "open %s" },
         ["outputter/buffer/close_on_empty"] = 1,
     },
     cpp = {

@@ -109,5 +109,7 @@
   },
   "language": "japanese",
   "autoUpdatesChannel": "stable",
-  "theme": "dark"
+  "theme": "dark",
+  "editorMode": "vim",
+  "preferredNotifChannel": "ghostty"
 }
