@@ -21,7 +21,7 @@ else
 fi
 
 selected=$(just --list --unsorted --list-heading '' --list-prefix '' --color never |
-  fzf --ansi --preview "$preview_cmd") || exit 0
+  fzf --ansi --layout reverse --preview "$preview_cmd") || exit 0
 
 if [ -n "$selected" ]; then
   recipe=$(echo "$selected" | awk '{print $1}')
