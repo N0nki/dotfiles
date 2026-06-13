@@ -30,6 +30,19 @@ export JUST_CHOOSER="fzf --tmux 90%,70% --preview 'just --show {}'"
 # eza
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
+# bat (iceberg theme)
+export BAT_THEME="Iceberg"
+
+# fzf (iceberg palette)
+export FZF_DEFAULT_OPTS="
+  --color=fg:#c6c8d1,bg:-1,hl:#84a0c6
+  --color=fg+:#e2a478,bg+:#1e2132,hl+:#89b8c2
+  --color=border:#6b7089,header:#84a0c6,gutter:-1
+  --color=spinner:#e2a478,info:#84a0c6,separator:#6b7089
+  --color=pointer:#e27878,marker:#b4be82,prompt:#84a0c6
+  --color=label:#a093c7,query:#c6c8d1
+  --border=rounded --prompt='❯ ' --pointer='▶' --marker='✓'"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

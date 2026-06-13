@@ -56,6 +56,14 @@ ln -sf ~/dotfiles/common/bookokrat/config.yaml ~/.config/bookokrat/config.yaml
 mkdir -p ~/.config/eza
 ln -sf ~/dotfiles/common/eza/theme.yml ~/.config/eza/theme.yml
 
+# bat (cat replacement)
+mkdir -p ~/.config/bat/themes
+ln -sf ~/dotfiles/common/bat/config ~/.config/bat/config
+ln -sf ~/dotfiles/common/bat/themes/Iceberg.tmTheme ~/.config/bat/themes/Iceberg.tmTheme
+if command -v bat >/dev/null 2>&1; then
+  bat cache --build >/dev/null
+fi
+
 # git global ignore
 mkdir -p ~/.config/git
 ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore
