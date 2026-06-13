@@ -52,6 +52,10 @@ ln -sf ~/dotfiles/common/python/flake8 ~/.config/flake8
 mkdir -p ~/.config/bookokrat
 ln -sf ~/dotfiles/common/bookokrat/config.yaml ~/.config/bookokrat/config.yaml
 
+# eza (modern ls)
+mkdir -p ~/.config/eza
+ln -sf ~/dotfiles/common/eza/theme.yml ~/.config/eza/theme.yml
+
 # git global ignore
 mkdir -p ~/.config/git
 ln -sf ~/dotfiles/common/git/ignore ~/.config/git/ignore

@@ -27,6 +27,9 @@ eval "$(rbenv init - zsh)"
 eval "$(just --completions zsh)"
 export JUST_CHOOSER="fzf --tmux 90%,70% --preview 'just --show {}'"
 
+# eza
+export EZA_CONFIG_DIR="$HOME/.config/eza"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
