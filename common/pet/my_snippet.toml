@@ -60,8 +60,13 @@ command = "npx ccusage@latest"
 output = ""
 
 [[snippets]]
-description = "codex claude"
+description = "ccusage codex"
 command = "npx @ccusage/codex@latest"
+output = ""
+
+[[snippets]]
+description = "ccusage this month"
+command = "npx ccusage daily --since "$(date +%Y%m01)" --until "$(date +%Y%m%d)""
 output = ""
 
 [[snippets]]
