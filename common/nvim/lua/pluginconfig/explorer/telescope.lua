@@ -3,6 +3,60 @@
 local opts = { noremap = true, silent = true }
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local conf = require("telescope.config").values
+local finders = require("telescope.finders")
+local make_entry = require("telescope.make_entry")
+local pickers = require("telescope.pickers")
+
+local function git_changed_files()
+    local root = vim.fn.systemlist({ "git", "rev-parse", "--show-toplevel" })[1]
+    if vim.v.shell_error ~= 0 or root == nil or root == "" then
+        vim.notify("Not in a git repository", vim.log.levels.WARN)
+        return nil, nil
+    end
+
+    local seen = {}
+    local files = {}
+
+    local function add_files(command)
+        for _, file in ipairs(vim.fn.systemlist(command)) do
+            if file ~= "" and not seen[file] then
+                seen[file] = true
+                table.insert(files, file)
+            end
+        end
+    end
+
+    add_files({ "git", "-C", root, "diff", "--name-only", "--diff-filter=ACMRTUXB" })
+    add_files({ "git", "-C", root, "diff", "--cached", "--name-only", "--diff-filter=ACMRTUXB" })
+    add_files({ "git", "-C", root, "ls-files", "--others", "--exclude-standard" })
+
+    if #files == 0 then
+        vim.notify("No changed git files", vim.log.levels.INFO)
+        return root, nil
+    end
+
+    return root, files
+end
+
+local function find_git_changed_files()
+    local root, files = git_changed_files()
+    if files == nil then
+        return
+    end
+
+    pickers.new({
+        cwd = root,
+    }, {
+        prompt_title = "Git Changed Files",
+        finder = finders.new_table({
+            results = files,
+            entry_maker = make_entry.gen_from_file({ cwd = root }),
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.file_sorter({}),
+    }):find()
+end
 
 require("telescope").setup({
     defaults = {
@@ -52,6 +106,7 @@ vim.keymap.set("n", "<leader>uc", function()
 end, opts) -- Colorscheme picker with live preview
 vim.keymap.set("n", "<leader>da", builtin.live_grep, opts)
 vim.keymap.set("n", "<leader>db", builtin.buffers, opts)
+vim.keymap.set("n", "<leader>dG", find_git_changed_files, opts) -- Find changed git files
 vim.keymap.set("n", "<leader>dh", builtin.help_tags, opts)
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", opts)
 
