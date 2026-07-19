@@ -11,7 +11,9 @@ require("mason-lspconfig").setup({
     },
 })
 
-local on_attach = function(_, bufnr)
+local code_lens_method = vim.lsp.protocol.Methods.textDocument_codeLens
+
+local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true }
     local buf_keymap = vim.api.nvim_buf_set_keymap
 
@@ -23,6 +25,15 @@ local on_attach = function(_, bufnr)
     buf_keymap(bufnr, "n", "gn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_keymap(bufnr, "n", "g?", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     buf_keymap(bufnr, "n", "ge", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
+    if client:supports_method(code_lens_method, bufnr) then
+        vim.lsp.codelens.enable(true, { bufnr = bufnr, client_id = client.id })
+        vim.keymap.set("n", "grx", vim.lsp.codelens.run, { buffer = bufnr, desc = "Run code lens", silent = true })
+        vim.keymap.set("n", "<leader>cl", function()
+            local enabled = vim.lsp.codelens.is_enabled({ bufnr = bufnr })
+            vim.lsp.codelens.enable(not enabled, { bufnr = bufnr })
+        end, { buffer = bufnr, desc = "Toggle code lens", silent = true })
+    end
 end
 
 -- Default capabilities for all LSP servers
@@ -69,6 +80,16 @@ vim.lsp.config("gopls", {
         gopls = {
             analyses = {
                 unusedparams = true,
+            },
+            codelenses = {
+                gc_details = true,
+                generate = true,
+                regenerate_cgo = true,
+                run_govulncheck = true,
+                test = true,
+                tidy = true,
+                upgrade_dependency = true,
+                vendor = true,
             },
             staticcheck = true,
         },
