@@ -84,7 +84,7 @@
       "Bash(grep **/.env*)"
     ]
   },
-  "model": "opus[1m]",
+  "model": "default",
   "statusLine": {
     "type": "command",
     "command": "/bin/bash ~/.claude/statusline-command.sh"
@@ -109,8 +109,8 @@
   },
   "language": "japanese",
   "autoUpdatesChannel": "stable",
+  "tui": "fullscreen",
   "theme": "dark",
   "editorMode": "vim",
-  "preferredNotifChannel": "ghostty",
-  "tui": "fullscreen"
+  "preferredNotifChannel": "ghostty"
 }
