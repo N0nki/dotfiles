@@ -84,7 +84,7 @@
       "Bash(grep **/.env*)"
     ]
   },
-  "model": "default",
+  "model": "Sonnet",
   "statusLine": {
     "type": "command",
     "command": "/bin/bash ~/.claude/statusline-command.sh"
@@ -112,5 +112,6 @@
   "tui": "fullscreen",
   "theme": "dark",
   "editorMode": "vim",
-  "preferredNotifChannel": "ghostty"
+  "preferredNotifChannel": "ghostty",
+  "agentPushNotifEnabled": true
 }
