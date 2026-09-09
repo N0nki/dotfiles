@@ -1,6 +1,8 @@
 # Insert your preferred key mappings here.
 map gb previousTab
 map gt nextTab
+map J nextTab
+map K previousTab
 map gh firstTab
 map gl lastTab
 unmap t
