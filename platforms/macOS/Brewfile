@@ -1,9 +1,19 @@
 # brew bundle dump
 
 tap "d12frosted/emacs-plus"
+tap "homebrew/bundle"
 tap "knqyf263/pet"
 tap "neovim/neovim"
+tap "trasta298/tap", trusted: true
+tap "vincelwt/tap"
 tap "wez/wezterm"
+tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: true
+brew "cmake"
+brew "gdk-pixbuf"
+brew "herdr"
+brew "libpq"
+brew "mactop"
+brew "oxker"
 brew "python@3.13"
 brew "ansible"
 brew "ansifilter"
@@ -58,6 +68,7 @@ brew "pyenv"
 brew "rbenv"
 brew "ripgrep"
 brew "rust"
+brew "shared-mime-info"
 brew "shellcheck"
 brew "shfmt"
 brew "starship"
@@ -69,6 +80,8 @@ brew "tig"
 brew "tika"
 brew "tmux"
 brew "tmux-xpanes"
+brew "trasta298/tap/keifu"
+brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "typst"
 brew "uv"
@@ -87,6 +100,7 @@ cask "appcleaner"
 cask "applite"
 cask "battery"
 cask "bettertouchtool"
+cask "bluestacks"
 cask "chatgpt"
 cask "chromedriver"
 cask "claude"
@@ -106,8 +120,10 @@ cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"
 cask "google-drive"
+cask "google-gemini"
 cask "google-japanese-ime"
 cask "iterm2"
+cask "linearmouse"
 cask "logi-options+"
 cask "macdown"
 cask "multipass"
@@ -117,11 +133,13 @@ cask "notion"
 cask "pgadmin4"
 cask "popclip"
 cask "raycast"
+cask "skim"
 cask "slack"
 cask "stats"
 cask "thorium"
 cask "utm"
 cask "vagrant"
+cask "vincelwt/tap/gloomberb", trusted: true
 cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
@@ -135,6 +153,8 @@ mas "Day One", id: 1055511498
 mas "Game Of Life", id: 1377718068
 mas "GarageBand", id: 682658836
 mas "Goodnotes", id: 1444383602
+mas "GrandPerspective", id: 1111570163
+mas "Hidden Bar", id: 1452453066
 mas "iMovie", id: 408981434
 mas "iSuper DVD Ripper", id: 625150797
 mas "John's Background Switcher", id: 907640277
@@ -153,11 +173,13 @@ mas "Perplexity", id: 6714467650
 mas "Reeder", id: 1529448980
 mas "RunCat", id: 1429033973
 mas "Skitch", id: 425955336
-mas "Spark", id: 1176895641
+mas "Spark Desktop", id: 6445813049
+mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
 mas "The Unarchiver", id: 425424353
 mas "ToyViewer", id: 414298354
 mas "Xcode", id: 497799835
+mas "辞書 by 物書堂", id: 1380563956
 vscode "asvetliakov.vscode-neovim"
 vscode "be5invis.toml"
 vscode "beeverfeever.kanagawa-vscode"
@@ -200,3 +222,7 @@ vscode "octref.vetur"
 vscode "s-nlf-fh.glassit"
 vscode "yzane.markdown-pdf"
 vscode "yzhang.markdown-all-in-one"
+cargo "tdf-viewer", source: "https://github.com/itsjunetime/tdf.git"
+uv "ipython"
+npm "@google/gemini-cli"
+npm "@openai/codex"
