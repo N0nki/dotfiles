@@ -1,20 +1,10 @@
-# brew bundle dump --no-describe
-
-tap "d12frosted/emacs-plus"
+tap "d12frosted/emacs-plus", trusted: true
 tap "homebrew/bundle"
-tap "knqyf263/pet"
-tap "neovim/neovim"
+tap "knqyf263/pet", trusted: true
+tap "neovim/neovim", trusted: true
 tap "trasta298/tap", trusted: true
 tap "vincelwt/tap"
-tap "wez/wezterm"
 tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: true
-brew "cmake"
-brew "gdk-pixbuf"
-brew "herdr"
-brew "libpq"
-brew "mactop"
-brew "oxker"
-brew "python@3.13"
 brew "ansible"
 brew "ansifilter"
 brew "autoconf"
@@ -27,7 +17,7 @@ brew "bat"
 brew "bookokrat"
 brew "bottom"
 brew "cheat"
-brew "container"
+brew "cmake"
 brew "ctags"
 brew "curl"
 brew "direnv"
@@ -38,6 +28,7 @@ brew "fd"
 brew "fish"
 brew "fzf"
 brew "gcc"
+brew "gdk-pixbuf"
 brew "gh"
 brew "ghostscript"
 brew "gibo"
@@ -47,25 +38,31 @@ brew "git-secrets"
 brew "go"
 brew "gping"
 brew "grep"
+brew "herdr"
 brew "imagemagick"
 brew "jansson"
 brew "jq"
 brew "just"
 brew "lazygit"
+brew "libpq"
 brew "lua"
 brew "luarocks"
+brew "mactop"
 brew "mas"
 brew "mecab"
 brew "mecab-ipadic"
 brew "mise"
+brew "tree-sitter"
 brew "neovim"
 brew "node"
 brew "nodebrew"
 brew "openjdk"
+brew "oxker"
 brew "pandoc"
 brew "pipenv"
 brew "prettier"
 brew "pyenv"
+brew "python@3.13"
 brew "rbenv"
 brew "ripgrep"
 brew "rust"
@@ -81,8 +78,6 @@ brew "tig"
 brew "tika"
 brew "tmux"
 brew "tmux-xpanes"
-brew "trasta298/tap/keifu"
-brew "tree-sitter"
 brew "tree-sitter-cli"
 brew "typst"
 brew "uv"
@@ -94,6 +89,7 @@ brew "yq"
 brew "zoxide"
 brew "d12frosted/emacs-plus/emacs-plus@27"
 brew "knqyf263/pet/pet"
+brew "trasta298/tap/keifu"
 cask "1password"
 cask "1password-cli"
 cask "alt-tab"
@@ -101,7 +97,6 @@ cask "appcleaner"
 cask "applite"
 cask "bettertouchtool"
 cask "bluestacks"
-cask "brave-browser"
 cask "chromedriver"
 cask "claude"
 cask "clipy"
@@ -118,12 +113,13 @@ cask "font-hackgen"
 cask "font-hackgen-nerd"
 cask "gcloud-cli"
 cask "ghostty"
+cask "vincelwt/tap/gloomberb", trusted: true
 cask "google-chrome"
 cask "google-drive"
 cask "google-gemini"
 cask "google-japanese-ime"
+cask "homebrew-app"
 cask "iterm2"
-cask "karabiner-elements"
 cask "linearmouse"
 cask "logi-options+"
 cask "macdown"
@@ -137,10 +133,8 @@ cask "raycast"
 cask "skim"
 cask "slack"
 cask "stats"
-cask "thorium"
 cask "utm"
 cask "vagrant"
-cask "vincelwt/tap/gloomberb", trusted: true
 cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
@@ -155,7 +149,6 @@ mas "Game Of Life", id: 1377718068
 mas "GarageBand", id: 682658836
 mas "Goodnotes", id: 1444383602
 mas "GrandPerspective", id: 1111570163
-mas "Hidden Bar", id: 1452453066
 mas "iMovie", id: 408981434
 mas "iSuper DVD Ripper", id: 625150797
 mas "John's Background Switcher", id: 907640277
@@ -172,10 +165,8 @@ mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Perplexity", id: 6714467650
 mas "Reeder", id: 1529448980
-mas "Reeder", id: 6475002485
 mas "RunCat", id: 1429033973
 mas "Skitch", id: 425955336
-mas "Slack", id: 803453959
 mas "Spark Desktop", id: 6445813049
 mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
