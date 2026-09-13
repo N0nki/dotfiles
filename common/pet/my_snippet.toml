@@ -93,6 +93,11 @@ description = "homebrew dump"
 command = "brew bundle dump --no-describe"
 output = ""
 
+[[snippets]]
+description = "homebrew install from dotfiles Brewfile without upgrading"
+command = "brew bundle --no-upgrade --file=~/dotfiles/platforms/macOS/Brewfile"
+output = ""
+
 ## multipass
 [[snippets]]
 description = "multipass launch Ubuntu 24.04 VM"
