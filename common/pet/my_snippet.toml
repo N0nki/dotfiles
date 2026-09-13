@@ -9,10 +9,7 @@ description = "open pet local snippet file"
 command = "nvim ~/.config/pet/local.toml"
 output = ""
 
-[[snippets]]
-description = "launch deepseek-r1:70b"
-command = "ollama run deepseek-r1:70b"
-output = ""
+# AI
 
 [[snippets]]
 description = "update codex cli"
@@ -64,6 +61,8 @@ description = "ccusage codex"
 command = "npx @ccusage/codex@latest"
 output = ""
 
+# misc
+
 [[snippets]]
 description = "ccusage this month"
 command = "npx ccusage daily --since \"$(date +%Y%m01)\" --until \"$(date +%Y%m%d)\""
@@ -82,6 +81,16 @@ output = ""
 [[snippets]]
 description = "ghostty +list-themes"
 command = "ghostty +list-themes"
+output = ""
+
+[[snippets]]
+description = "launch deepseek-r1:70b"
+command = "ollama run deepseek-r1:70b"
+output = ""
+
+[[snippets]]
+description = "homebrew dump"
+command = "brew bundle dump --no-describe"
 output = ""
 
 ## multipass
