@@ -1,4 +1,4 @@
-# brew bundle dump
+# brew bundle dump --no-describe
 
 tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
@@ -27,6 +27,7 @@ brew "bat"
 brew "bookokrat"
 brew "bottom"
 brew "cheat"
+brew "container"
 brew "ctags"
 brew "curl"
 brew "direnv"
@@ -101,6 +102,7 @@ cask "applite"
 cask "battery"
 cask "bettertouchtool"
 cask "bluestacks"
+cask "brave-browser"
 cask "chromedriver"
 cask "claude"
 cask "clipy"
@@ -122,6 +124,7 @@ cask "google-drive"
 cask "google-gemini"
 cask "google-japanese-ime"
 cask "iterm2"
+cask "karabiner-elements"
 cask "linearmouse"
 cask "logi-options+"
 cask "macdown"
@@ -170,8 +173,10 @@ mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Perplexity", id: 6714467650
 mas "Reeder", id: 1529448980
+mas "Reeder", id: 6475002485
 mas "RunCat", id: 1429033973
 mas "Skitch", id: 425955336
+mas "Slack", id: 803453959
 mas "Spark Desktop", id: 6445813049
 mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
