@@ -1,4 +1,4 @@
-tap "knqyf263/pet"
+tap "knqyf263/pet", trusted: true
 tap "neovim/neovim"
 tap "wez/wezterm"
 brew "python@3.13"
@@ -80,6 +80,7 @@ cask "font-hackgen-nerd"
 cask "gcloud-cli"
 cask "ghostty"
 cask "google-drive"
+cask "homebrew-app"
 cask "karabiner-elements"
 cask "logi-options+"
 cask "pgadmin4"
