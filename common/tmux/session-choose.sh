@@ -9,8 +9,8 @@ selection=$(python3 "$script_dir/agent-status.py" list | fzf \
   --reverse --ansi --no-sort --no-multi \
   --delimiter='\t' --with-nth=2.. --track --id-nth=1 \
   --prompt='session> ' \
-  --header='Approval requests first | Refresh: 2s | Enter: Switch / Esc: Back' \
-  --bind='every(2):reload-sync(python3 "$TMUX_AGENT_SCRIPT_DIR/agent-status.py" list)' \
+  --header='Approval requests first | Refresh: 1s | Enter: Switch / Esc: Back' \
+  --bind='every(1):reload-sync(python3 "$TMUX_AGENT_SCRIPT_DIR/agent-status.py" list)' \
   --bind='load:refresh-preview' \
   --bind='ctrl-r:reload-sync(python3 "$TMUX_AGENT_SCRIPT_DIR/agent-status.py" list)' \
   --preview='sh "$TMUX_AGENT_SCRIPT_DIR/session-preview.sh" {1}' \
