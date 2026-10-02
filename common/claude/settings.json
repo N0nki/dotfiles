@@ -81,10 +81,168 @@
       "Bash(more *.env*)",
       "Bash(more **/.env*)",
       "Bash(grep *.env*)",
-      "Bash(grep **/.env*)"
+      "Bash(grep **/.env*)",
+      "Edit(~/.claude/scripts/aws-profile-*)",
+      "Edit(~/dotfiles/common/claude/scripts/aws-profile-*)"
     ]
   },
-  "model": "Sonnet",
+  "model": "sonnet",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|mcp__.*aws.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/aws-profile-guard.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PermissionDenied": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ],
+        "matcher": "permission_prompt|elicitation_dialog|elicitation_url_dialog"
+      }
+    ],
+    "Elicitation": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "ElicitationResult": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "/bin/bash ~/.claude/statusline-command.sh"
