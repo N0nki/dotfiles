@@ -177,14 +177,14 @@
     ],
     "Notification": [
       {
+        "matcher": "permission_prompt|elicitation_dialog|elicitation_url_dialog",
         "hooks": [
           {
             "type": "command",
             "command": "python3 \"$HOME/dotfiles/common/tmux/agent-status.py\" hook claude",
             "timeout": 3
           }
-        ],
-        "matcher": "permission_prompt|elicitation_dialog|elicitation_url_dialog"
+        ]
       }
     ],
     "Elicitation": [
@@ -267,7 +267,6 @@
   },
   "language": "japanese",
   "autoUpdatesChannel": "stable",
-  "tui": "fullscreen",
   "theme": "dark",
   "editorMode": "vim",
   "preferredNotifChannel": "ghostty",
