@@ -1,7 +1,7 @@
-model = "gpt-5.5"
+model = "gpt-6.1-sol"
 web_search_request = true
 personality = "pragmatic"
-model_reasoning_effort = "high"
+model_reasoning_effort = "medium"
 
 [notice]
 hide_gpt5_1_migration_prompt = true
@@ -31,5 +31,62 @@ trust_level = "trusted"
 [plugins."github@openai-curated"]
 enabled = true
 
+[tui]
+screen_reader_detection_done = true
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+gpt-6-astra = 4
+"gpt-6.1-sol" = 4
+
+# Record coding-agent state for the tmux session chooser.
+# Review and trust these definitions in Codex /hooks after restarting.
+
+[[hooks.SessionStart]]
+[[hooks.SessionStart.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.UserPromptSubmit]]
+[[hooks.UserPromptSubmit.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.PreToolUse]]
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.PermissionRequest]]
+[[hooks.PermissionRequest.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.PostToolUse]]
+[[hooks.PostToolUse.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.Stop]]
+[[hooks.Stop.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.Interrupt]]
+[[hooks.Interrupt.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3
+
+[[hooks.SessionEnd]]
+[[hooks.SessionEnd.hooks]]
+type = "command"
+command = 'python3 "$HOME/dotfiles/common/tmux/agent-status.py" hook codex'
+timeout = 3

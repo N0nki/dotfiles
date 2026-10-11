@@ -32,7 +32,11 @@ common/
 ├── synbolic_link.sh        # setup script for symlinking configurations
 ├── tmux/                   # tmux configuration
 │   ├── .tmux.conf          # main tmux configuration
-│   └── tmux-nerd-font-window-name.yml  # nerd font window name config
+│   ├── tmux-nerd-font-window-name.yml  # nerd font window name config
+│   ├── just-choose-popup.sh    # popup: pick a just recipe → clipboard
+│   ├── path-choose-popup.sh    # popup: pick a file/dir (fd+fzf) → clipboard
+│   ├── fzf-git-popup.sh        # popup: fzf-git object selection → clipboard
+│   └── session-preview.sh      # preview helper for the session switcher popup
 ├── tmux-op-secure/         # custom 1Password integration plugin (submodule)
 ├── git/                    # git configuration
 │   ├── .gitconfig          # main git config (requires .gitconfig.local)
@@ -172,6 +176,23 @@ vim ~/.gitconfig.local
 - `Ctrl-t r`: Reload config
 - `Ctrl-t n`: Show status bar
 - `Ctrl-t f`: Hide status bar
+
+**Popup tools** (`display-popup`, each backed by a script in `tmux/`):
+
+Launched via `display-popup -w 90% -h 70% -E -d '#{pane_current_path}'`, so they
+run in the pane's current directory and auto-close on exit.
+
+- `Ctrl-t C-j`: Pick a `just` recipe with fzf → copy `just <recipe>` to clipboard (`just-choose-popup.sh`)
+- `Ctrl-t C-p`: Pick a file/dir with fzf (fd, `.gitignore`-aware, with preview) → copy path to clipboard (`path-choose-popup.sh`)
+- `Ctrl-t s`: Session switcher (fzf list + `session-preview.sh` preview)
+- `Ctrl-t e`: Minimal nvim fugitive view (`0Git`) in a popup
+- `Ctrl-g` then `C-b/C-h/C-t/C-f/C-r/C-s/C-l/C-w`: fzf-git object selection → clipboard (`fzf-git-popup.sh`)
+
+> **Convention:** popup commands beyond a single trivial line are extracted into a
+> `tmux/*-popup.sh` script rather than inlined in `.tmux.conf`. Scripts detect tool
+> variants across platforms (`fd`/`fdfind`, `bat`/`batcat`) and branch the clipboard
+> command (`pbcopy` on macOS, `clip.exe` on WSL2). Reuse `just-choose-popup.sh` as
+> the template when adding new popups.
 
 **Plugins** (managed by TPM - tmux plugin manager):
 
@@ -482,6 +503,17 @@ codex --prompt commit
 - Plugin additions require: `Ctrl-t I` to install
 - Verify keybindings don't conflict with existing ones
 - Color scheme uses iceberg theme values
+
+**Popup tools (`display-popup`)**:
+
+- Keep `.tmux.conf` to a single bind line; put anything beyond a trivial one-liner
+  in a `tmux/*-popup.sh` script (use `just-choose-popup.sh` as the template)
+- Launch with `display-popup -w 90% -h 70% -E -d '#{pane_current_path}'` for
+  consistency (auto-close on exit, run in the pane's cwd)
+- In scripts, detect tool variants (`fd`/`fdfind`, `bat`/`batcat`) and branch the
+  clipboard command (`pbcopy` on macOS, `clip.exe` on WSL2) so they stay portable
+- Before choosing a key, check existing binds (`grep '^bind' tmux/.tmux.conf`) to
+  avoid conflicts
 
 **Window name icons (tmux-nerd-font-window-name.yml)**:
 
