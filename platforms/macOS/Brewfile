@@ -2,7 +2,7 @@ tap "d12frosted/emacs-plus", trusted: true
 tap "knqyf263/pet", trusted: true
 tap "neovim/neovim", trusted: true
 tap "trasta298/tap", trusted: true
-tap "vincelwt/tap"
+tap "vincelwt/tap", trusted: { casks: ["gloomberb"] }
 tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: true
 brew "ansible"
 brew "ansifilter"
@@ -112,7 +112,7 @@ cask "font-hackgen"
 cask "font-hackgen-nerd"
 cask "gcloud-cli"
 cask "ghostty"
-cask "vincelwt/tap/gloomberb", trusted: true
+cask "gloomberb"
 cask "google-chrome"
 cask "google-drive"
 cask "google-gemini"
@@ -123,6 +123,7 @@ cask "karabiner-elements"
 cask "linearmouse"
 cask "logi-options+"
 cask "macdown-3000"
+cask "markdown-preview"
 cask "multipass"
 cask "neohtop"
 cask "neovide-app"
