@@ -26,7 +26,7 @@ This configuration uses `lazy.nvim` to manage plugins. The setup is declared in 
 
 The setup includes a wide range of plugins for a modern development experience:
 
-- **LSP & Linting**: `neovim/nvim-lspconfig`, `williamboman/mason.nvim`, and `williamboman/mason-lspconfig.nvim` for managing language servers.
+- **LSP & Linting**: `neovim/nvim-lspconfig`, `mason-org/mason.nvim`, and `mason-org/mason-lspconfig.nvim` for managing language servers.
 - **Code Completion**: `hrsh7th/nvim-cmp` with various sources for completion suggestions.
 - **Treesitter**: `nvim-treesitter/nvim-treesitter` for advanced syntax highlighting and code analysis.
 - **Fuzzy Finding**: `nvim-telescope/telescope.nvim` for quickly finding files, buffers, and more.

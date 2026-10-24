@@ -17,7 +17,7 @@ require("lazy").setup({
     { "MunifTanjim/nui.nvim" },
     { "rcarriga/nvim-notify" },
     { "nvim-tree/nvim-web-devicons" },
-    { "echasnovski/mini.nvim" },
+    { "nvim-mini/mini.nvim" },
     {
         "ryanoasis/vim-devicons",
         config = function()
@@ -44,13 +44,13 @@ require("lazy").setup({
         end,
     },
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         config = function()
             require("mason").setup()
         end,
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         config = function()
             require("pluginconfig/lsp/mason-lspconfig")
         end,
@@ -296,13 +296,13 @@ require("lazy").setup({
         end,
     },
     {
-        "MeanderingProgrammer/markdown.nvim",
+        "MeanderingProgrammer/render-markdown.nvim",
         config = function()
             require("pluginconfig/lang/render-markdown")
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-            "echasnovski/mini.nvim",
+            "nvim-mini/mini.nvim",
         },
     },
 
