@@ -2,7 +2,7 @@
 
 `Ctrl-t → s` opens a session chooser with Claude Code and Codex status.
 Sessions with approval requests appear first. The list and preview refresh
-every two seconds, preserving the selected session by its ID.
+every second, preserving the selected session by its ID.
 The preview shows every pane, followed by the active pane's terminal content.
 
 | Label                | Meaning                                           |
@@ -16,8 +16,10 @@ The preview shows every pane, followed by the active pane's terminal content.
 
 ## Activation
 
-The usual `~/.tmux.conf`, `~/.claude/settings.json`, and
-`~/.codex/config.toml` symlinks must point into this repository.
+The usual `~/.tmux.conf` and `~/.claude/settings.json` symlinks must point
+into this repository. Apply the shared Codex config with
+`python3 ~/dotfiles/common/codex/sync_config.py`; its runtime config is a normal
+local file (see [Codex configuration](../codex/README.md)).
 Reload tmux with `Ctrl-t → r` and start or resume the CLI agents.
 In Codex, open `/hooks` and review/trust the new tmux status hooks.
 Codex skips untrusted hooks. No extra symlinks or Python packages are needed.
