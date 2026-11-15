@@ -133,3 +133,9 @@ output = ""
 description = "git clone dotfiles"
 command = "git clone https://github.com/N0nki/dotfiles"
 output = ""
+
+## HCP Terraform
+[[snippets]]
+description = "HCP Terraform count managed resources per workspace and total"
+command = '''(set -eu; org=<org=n0nki_org>; token=$(jq -r '.credentials["app.terraform.io"].token' ~/.terraform.d/credentials.tfrc.json); url="https://app.terraform.io/api/v2/organizations/$org/workspaces?page%5Bsize%5D=100"; while [ -n "$url" ] && [ "$url" != null ]; do page=$(curl -fsS -H "Authorization: Bearer $token" -H "Content-Type: application/vnd.api+json" "$url"); printf '%s\n' "$page" | jq -r '.data[] | [.attributes.name, .attributes."resource-count"] | @tsv'; url=$(printf '%s' "$page" | jq -r '.links.next'); done | sort | awk -F'\t' '{printf "%-35s %5d\n", $1, $2; s += $2} END {printf "%-35s %5d\n", "TOTAL", s}')'''
+output = ""
