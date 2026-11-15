@@ -33,6 +33,7 @@ touch ~/.config/pet/snippet.toml
 
 # codex
 mkdir -p ~/.codex
+ln -sf ~/dotfiles/common/claude/CLAUDE.md ~/.codex/AGENTS.md
 python3 ~/dotfiles/common/codex/sync_config.py || exit 1
 ln -sf ~/dotfiles/common/claude/skills ~/.codex/skills
 
