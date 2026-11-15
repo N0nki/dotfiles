@@ -82,7 +82,7 @@ sh ~/dotfiles/common/synbolic_link.sh
    - Links tmux-op-secure plugin
 3. **Zellij**: `~/.config/zellij/zellij.kdl`
 4. **Pet**: `~/.config/pet/config.toml`
-5. **Codex**: `~/.codex/config.toml` and `~/.codex/prompts/`
+5. **Codex**: Sync shared defaults into the local `~/.codex/config.toml`; link `~/.codex/skills/`
 6. **Claude**: `~/.claude/commands/`, `~/.claude/scripts/`, and `~/.claude/settings.json`
 7. **Git**:
    - `~/.config/git/ignore` (global ignore)
@@ -302,9 +302,14 @@ pet list    # List all snippets
 
 **File**: `codex/config.toml`
 
+The Git file contains shared defaults. `~/.codex/config.toml` is a normal local
+file so project trust, hook approvals, and UI state stay outside Git. Apply shared
+changes with `python3 ~/dotfiles/common/codex/sync_config.py`. Optional machine
+overrides go in `~/.codex/config.local.toml`. See [codex/README.md](codex/README.md).
+
 **Settings:**
 
-- Model: `gpt-5.1-codex`
+- Model: `gpt-6.1-sol`
 - Web search: enabled
 
 **MCP Servers:**
@@ -539,6 +544,8 @@ codex --prompt commit
 
 **Codex**:
 
+- Sync shared changes with `python3 ~/dotfiles/common/codex/sync_config.py`
+- Keep auto-generated trust and UI state in the local runtime config
 - MCP servers go in `config.toml` under `[mcp_servers.name]`
 - Custom prompts go in `prompts/` directory as Markdown files
 - Use descriptive prompt filenames
